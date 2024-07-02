@@ -140,8 +140,8 @@ async function processTargetFiles() {
 async function main() {
 	try {
 		console.log("Installing dependencies...");
-		// execSync("pnpm install", { stdio: "inherit" });
-		execSync("yarn", { stdio: "inherit" });
+		execSync("pnpm install", { stdio: "inherit" });
+		// execSync("yarn", { stdio: "inherit" });
 
 		console.log("\nModifying SurveyJS files...");
 		await processTargetFiles();
@@ -150,8 +150,8 @@ async function main() {
 		// await updateNextConfig();
 
 		console.log("\nBuilding the project...");
-		// execSync("pnpm run build", { stdio: "inherit" });
-		execSync("yarn build", { stdio: "inherit" });
+		execSync("pnpm run build", { stdio: "inherit" });
+		// execSync("yarn build", { stdio: "inherit" });
 
 		// console.log("\nCreating manifest file...");
 		// await createManifest();

@@ -1,7 +1,6 @@
+const withSerwistInit = require("@serwist/next");
+
 /** @type {import('next').NextConfig} */
-
-import withSerwistInit from "@serwist/next";
-
 const nextConfig = {
 	reactStrictMode: true,
 	transpilePackages: ["framer-motion"],
@@ -14,6 +13,10 @@ const nextConfig = {
 		}
 		return config;
 	},
+	output: "export",
+	images: { unoptimized: true },
+	basePath: process.env.GITHUB_PAGES ? "/clinicviews-com" : "",
+	assetPrefix: process.env.GITHUB_PAGES ? "/clinicviews-com/" : "",
 };
 
 const withSerwist = withSerwistInit({
@@ -22,4 +25,4 @@ const withSerwist = withSerwistInit({
 	disable: process.env.NODE_ENV === "development",
 });
 
-export default withSerwist({ nextConfig });
+module.exports = withSerwist(nextConfig);
