@@ -26,6 +26,8 @@
 
 const withSerwistInit = require("@serwist/next");
 
+console.log("Loading next.config.js");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	reactStrictMode: true,
@@ -39,11 +41,9 @@ const nextConfig = {
 		}
 		return config;
 	},
-	// The following options will be automatically set by GitHub Pages action
-	// output: 'export',
-	// basePath: process.env.GITHUB_PAGES ? '/clinicviews-com' : '',
-	// assetPrefix: process.env.GITHUB_PAGES ? '/clinicviews-com/' : '',
 };
+
+console.log("Base nextConfig:", JSON.stringify(nextConfig, null, 2));
 
 const withSerwist = withSerwistInit({
 	swSrc: "src/app/sw.ts",
@@ -51,16 +51,23 @@ const withSerwist = withSerwistInit({
 	disable: process.env.NODE_ENV === "development",
 });
 
+console.log("Environment variables:", JSON.stringify(process.env, null, 2));
+
 // Use a function to allow for dynamic configuration
 module.exports = (phase, { defaultConfig }) => {
-	const config = withSerwist(nextConfig);
+	console.log("Configuring Next.js");
+	let config = withSerwist(nextConfig);
 
-	// Allow GitHub Pages action to modify the configuration
 	if (process.env.GITHUB_PAGES) {
-		config.output = "export";
-		config.basePath = "/clinicviews_com";
-		config.assetPrefix = "/clinicviews_com/";
+		console.log("Configuring for GitHub Pages");
+		config = {
+			...config,
+			output: "export",
+			basePath: "/clinicviews-com",
+			assetPrefix: "/clinicviews-com/",
+		};
 	}
 
+	console.log("Final config:", JSON.stringify(config, null, 2));
 	return config;
 };

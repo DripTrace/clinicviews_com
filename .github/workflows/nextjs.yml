@@ -28,28 +28,43 @@ jobs:
               uses: pnpm/action-setup@v2
               with:
                   version: 8
+            - name: Print environment
+              run: |
+                  echo "Node version: $(node -v)"
+                  echo "PNPM version: $(pnpm -v)"
+                  echo "Current directory: $(pwd)"
+                  echo "Directory contents: $(ls -la)"
             - name: Setup Pages
+              id: pages
               uses: actions/configure-pages@v5
               with:
                   static_site_generator: next
-            - name: Install dependencies
+            - name: Print next.config.js
+              run: cat next.config.js
+            # - name: Install dependencies
+            #   run: |
+            #       pnpm install
+            #       echo "Installed dependencies:"
+            #       pnpm list
+            - name: Build with Next.js
               run: |
-                  pnpm install
-                  pnpm list
-            - name: Run change script
-              run: |
-                  node --trace-warnings build.ts
+                  echo "Starting build process..."
+                  pnpm run change
+                  echo "Build process completed."
               env:
                   GITHUB_PAGES: true
                   NODE_ENV: production
-            - name: Build Next.js app
+            - name: Check build output
               run: |
-                  pnpm run build
-              env:
-                  GITHUB_PAGES: true
-                  NODE_ENV: production
-            - name: List output directory
-              run: ls -R out
+                  echo "Checking build output..."
+                  if [ -d "out" ]; then
+                    echo "out directory contents:"
+                    ls -R out
+                  else
+                    echo "out directory not found!"
+                    echo "Current directory contents:"
+                    ls -la
+                  fi
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:
