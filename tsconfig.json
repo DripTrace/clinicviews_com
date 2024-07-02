@@ -1,0 +1,46 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"types": [
+			"estree"
+			// , "@serwist/next"
+		],
+		"typeRoots": ["./node_modules/@types"],
+		"forceConsistentCasingInFileNames": true,
+		"lib": ["dom", "dom.iterable", "esnext", "webworker"],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"noEmit": true,
+		"esModuleInterop": true,
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"incremental": true,
+		"plugins": [
+			{
+				"name": "next"
+			}
+		],
+		"paths": {
+			"@/*": [
+				"./src/*"
+				// "./surveyjs-core/survey-analytics_dev/src/*",
+				// "./survey-core/survey-creator_dev/*",
+				// "./surveyjs-core/survey-library_dev/src/*",
+				// "./surveyjs-core/survey-pdf_dev/src/*"
+			]
+			// "@serwist/next/*": ["node_modules/@serwist/next/*"]
+		}
+	},
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts",
+		"src/types"
+	],
+	"exclude": ["node_modules", "surveyjs-core/*"]
+}
