@@ -41,11 +41,11 @@ jobs:
                   static_site_generator: next
             - name: Print next.config.js
               run: cat next.config.js
-            # - name: Install dependencies
-            #   run: |
-            #       pnpm install
-            #       echo "Installed dependencies:"
-            #       pnpm list
+            - name: Install dependencies
+              run: |
+                  pnpm install
+                  echo "Installed dependencies:"
+                  pnpm list
             - name: Build with Next.js
               run: |
                   echo "Starting build process..."
