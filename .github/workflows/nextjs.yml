@@ -1,3 +1,86 @@
+# name: Deploy ClinicViews.com sub-apps to Pages
+
+# on:
+#     push:
+#         branches: ["manipulate"]
+#     workflow_dispatch:
+
+# permissions:
+#     contents: read
+#     pages: write
+#     id-token: write
+
+# concurrency:
+#     group: "pages"
+#     cancel-in-progress: false
+
+# jobs:
+#     build:
+#         runs-on: ubuntu-latest
+#         steps:
+#             - name: Checkout
+#               uses: actions/checkout@v4
+#             - name: Setup Node
+#               uses: actions/setup-node@v4
+#               with:
+#                   node-version: "18"
+#             - name: Setup pnpm
+#               uses: pnpm/action-setup@v2
+#               with:
+#                   version: 8
+#             - name: Print environment
+#               run: |
+#                   echo "Node version: $(node -v)"
+#                   echo "PNPM version: $(pnpm -v)"
+#                   echo "Current directory: $(pwd)"
+#                   echo "Directory contents: $(ls -la)"
+#             - name: Setup Pages
+#               id: pages
+#               uses: actions/configure-pages@v5
+#               with:
+#                   static_site_generator: next
+#             - name: Print next.config.js
+#               run: cat next.config.js
+#             - name: Install dependencies
+#               run: |
+#                   pnpm install
+#                   echo "Installed dependencies:"
+#                   pnpm list
+#             - name: Build with Next.js
+#               run: |
+#                   echo "Starting build process..."
+#                   pnpm run change
+#                   echo "Build process completed."
+#               env:
+#                   GITHUB_PAGES: true
+#                   NODE_ENV: production
+#             - name: Check build output
+#               run: |
+#                   echo "Checking build output..."
+#                   if [ -d "out" ]; then
+#                     echo "out directory contents:"
+#                     ls -R out
+#                   else
+#                     echo "out directory not found!"
+#                     echo "Current directory contents:"
+#                     ls -la
+#                   fi
+#             - name: Upload artifact
+#               uses: actions/upload-pages-artifact@v3
+#               with:
+#                   path: ./out
+
+#     deploy:
+#         environment:
+#             name: github-pages
+#             url: ${{ steps.deployment.outputs.page_url }}
+#         runs-on: ubuntu-latest
+#         needs: build
+#         steps:
+#             - name: Deploy to GitHub Pages
+#               id: deployment
+#               uses: actions/deploy-pages@v4
+
 name: Deploy ClinicViews.com sub-apps to Pages
 
 on:
@@ -18,9 +101,25 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout
-              uses: actions/checkout@v4
-            - name: Setup Node
+            - uses: actions/checkout@v4
+            - name: Detect package manager
+              id: detect-package-manager
+              run: |
+                  if [ -f "${{ github.workspace }}/pnpm-lock.yaml" ]; then
+                    echo "manager=pnpm" >> $GITHUB_OUTPUT
+                    echo "command=install" >> $GITHUB_OUTPUT
+                    echo "runner=pnpm" >> $GITHUB_OUTPUT
+                    exit 0
+                  elif [ -f "${{ github.workspace }}/package.json" ]; then
+                    echo "manager=npm" >> $GITHUB_OUTPUT
+                    echo "command=ci" >> $GITHUB_OUTPUT
+                    echo "runner=npx --no-install" >> $GITHUB_OUTPUT
+                    exit 0
+                  else
+                    echo "Unable to determine package manager"
+                    exit 1
+                  fi
+            - name: Setup Node.js
               uses: actions/setup-node@v4
               with:
                   node-version: "18"
@@ -28,43 +127,26 @@ jobs:
               uses: pnpm/action-setup@v2
               with:
                   version: 8
-            - name: Print environment
+                  run_install: false
+            - name: Get pnpm store directory
+              shell: bash
               run: |
-                  echo "Node version: $(node -v)"
-                  echo "PNPM version: $(pnpm -v)"
-                  echo "Current directory: $(pwd)"
-                  echo "Directory contents: $(ls -la)"
+                  echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+            - uses: actions/cache@v4
+              name: Setup pnpm cache
+              with:
+                  path: ${{ env.STORE_PATH }}
+                  key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+                  restore-keys: |
+                      ${{ runner.os }}-pnpm-store-
             - name: Setup Pages
-              id: pages
-              uses: actions/configure-pages@v5
+              uses: actions/configure-pages@v4
               with:
                   static_site_generator: next
-            - name: Print next.config.js
-              run: cat next.config.js
             - name: Install dependencies
-              run: |
-                  pnpm install
-                  echo "Installed dependencies:"
-                  pnpm list
+              run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
             - name: Build with Next.js
-              run: |
-                  echo "Starting build process..."
-                  pnpm run change
-                  echo "Build process completed."
-              env:
-                  GITHUB_PAGES: true
-                  NODE_ENV: production
-            - name: Check build output
-              run: |
-                  echo "Checking build output..."
-                  if [ -d "out" ]; then
-                    echo "out directory contents:"
-                    ls -R out
-                  else
-                    echo "out directory not found!"
-                    echo "Current directory contents:"
-                    ls -la
-                  fi
+              run: ${{ steps.detect-package-manager.outputs.runner }} next build
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:
