@@ -129,10 +129,10 @@
 import withSerwistInit from "@serwist/next";
 
 const nextConfig = {
-    output: 'export',
-    // images: { unoptimized: true },
-    basePath: process.env.GITHUB_PAGES ? '/clinicviews-com' : '',
-    assetPrefix: process.env.GITHUB_PAGES ? '/clinicviews-com/' : '',
+	// output: 'export',
+	// images: { unoptimized: true },
+	// basePath: process.env.GITHUB_PAGES ? '/clinicviews-com' : '',
+	// assetPrefix: process.env.GITHUB_PAGES ? '/clinicviews-com/' : '',
 	reactStrictMode: true,
 	transpilePackages: ["framer-motion"],
 	webpack: (config, { isServer }) => {
