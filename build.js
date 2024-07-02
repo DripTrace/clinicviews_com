@@ -138,6 +138,7 @@ async function processTargetFiles() {
 // }
 
 async function main() {
+	console.log("Starting build process...");
 	try {
 		console.log("Installing dependencies...");
 		execSync("pnpm install", { stdio: "inherit" });
@@ -161,7 +162,13 @@ async function main() {
 
 		console.log("\nBuild process completed successfully.");
 	} catch (error) {
-		console.error("Build process failed:", error);
+		console.error("Build process failed with error:", error);
+		if (error instanceof Error) {
+			console.error("Error message:", error.message);
+			console.error("Error stack:", error.stack);
+		} else {
+			console.error("Non-Error object thrown:", error);
+		}
 		process.exit(1);
 	}
 }

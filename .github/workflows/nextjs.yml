@@ -32,22 +32,24 @@ jobs:
               uses: actions/configure-pages@v5
               with:
                   static_site_generator: next
-            - name: Restore cache
-              uses: actions/cache@v4
-              with:
-                  path: |
-                      .next/cache
-                  key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
-                  restore-keys: |
-                      ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
             - name: Install dependencies
-              run: pnpm install
-            - name: Build with Next.js and modify node_modules
               run: |
-                  pnpm run change
+                  pnpm install
+                  pnpm list
+            - name: Run change script
+              run: |
+                  node --trace-warnings build.ts
+              env:
+                  GITHUB_PAGES: true
+                  NODE_ENV: production
+            - name: Build Next.js app
+              run: |
                   pnpm run build
               env:
                   GITHUB_PAGES: true
+                  NODE_ENV: production
+            - name: List output directory
+              run: ls -R out
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:
