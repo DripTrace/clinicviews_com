@@ -129,7 +129,7 @@
 import withSerwistInit from "@serwist/next";
 
 const nextConfig = {
-	// output: 'export',
+	output: "export",
 	// images: { unoptimized: true },
 	//       basePath: process.env.GITHUB_PAGES ? '/clinicviews-com' : '',
 	//   assetPrefix: process.env.GITHUB_PAGES ? '/clinicviews-com/' : '',
