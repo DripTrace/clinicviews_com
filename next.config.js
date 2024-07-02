@@ -58,8 +58,8 @@ module.exports = (phase, { defaultConfig }) => {
 	// Allow GitHub Pages action to modify the configuration
 	if (process.env.GITHUB_PAGES) {
 		config.output = "export";
-		config.basePath = "/clinicviews-com";
-		config.assetPrefix = "/clinicviews-com/";
+		config.basePath = "/clinicviews_com";
+		config.assetPrefix = "/clinicviews_com/";
 	}
 
 	return config;
