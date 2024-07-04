@@ -9,8 +9,8 @@ const nextConfig = {
 		domains: ["driptrace.github.io"],
 	},
 	output: "export",
-	basePath: "/clinicviews-com",
-	assetPrefix: "/clinicviews-com/",
+	basePath: "/clinicviews_com",
+	assetPrefix: "/clinicviews_com/",
 	reactStrictMode: true,
 	transpilePackages: ["framer-motion"],
 	webpack: (config, { isServer }) => {
