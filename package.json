@@ -8,8 +8,8 @@
 		"start": "next start",
 		"lint": "next lint",
 		"change": "node build.js",
-		"static": "touch ./out/.nojekyll && echo 'driptrace.github.io' > ./out/CNAME",
-		"deploy": "gh-pages -d out -t true"
+		"static": "touch ./.next/.nojekyll && echo 'driptrace.github.io' > ./.next/CNAME",
+		"deploy": "gh-pages -d .next -t true"
 	},
 	"dependencies": {
 		"@million/lint": "1.0.0-rc.13",
