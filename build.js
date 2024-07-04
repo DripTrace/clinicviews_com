@@ -14,15 +14,18 @@ const replacements = [
 	// },
 	{
 		search: "To use our library, a <a href='https://surveyjs.io/licensing'>developer license</a> is required. If you have an active license, <a href='https://surveyjs.io/remove-alert-banner'>set up your license key</a> and ensure you're using the latest version.",
-		replace: "there is a license here",
+		// replace: "there is a license here",
+		replace: "",
 	},
 	{
 		search: "SurveyJS PDF | Please purchase a SurveyJS PDF developer license to use it in your app | https://surveyjs.io/Buy",
-		replace: "this is the other license",
+		// replace: "this is the other license",
+		replace: "",
 	},
 	{
 		search: "Please purchase a SurveyJS Analytics developer license to use it in your app.",
-		replace: "this is the license",
+		// replace: "this is the license",
+		replace: "",
 	},
 	{
 		search: "haveCommercialLicense = false",
