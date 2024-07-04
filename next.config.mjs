@@ -4,7 +4,8 @@ import withSerwistInit from "@serwist/next";
 // const withSerwistInit = require("@serwist/next");
 
 const nextConfig = {
-	distDir: "out",
+	// distDir: "out",
+	domains: ["driptrace.github.io"],
 	reactStrictMode: true,
 	transpilePackages: ["framer-motion"],
 	webpack: (config, { isServer }) => {
