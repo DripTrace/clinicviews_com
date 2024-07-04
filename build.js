@@ -1,8 +1,13 @@
-const fs = require("fs").promises;
-const path = require("path");
-const { execSync } = require("child_process");
+import * as fs from "fs/promises";
+import * as path from "path";
+import { execSync } from "child_process";
 
 const replacements = [
+	// {
+	// 	search: "The item/items/ scripts to search for, which could have $p3<!a Char4ct3rs.",
+	// 	replace:
+	// 		"This would be the $pecial or non-spectial charac+ter replacement(s).",
+	// },
 	{
 		search: "To use our library, a <a href='https://surveyjs.io/licensing'>developer license</a> is required. If you have an active license, <a href='https://surveyjs.io/remove-alert-banner'>set up your license key</a> and ensure you're using the latest version.",
 		replace: "there is a license here",
@@ -27,27 +32,6 @@ const replacements = [
 		search: 'licenseBanner = (react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", { className: "svc-creator__banner" }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", { className: "svc-creator__non-commercial-text", dangerouslySetInnerHTML: htmlValue })));',
 		replace: "licenseBanner = null;",
 	},
-	// Add more replacement pairs here as needed
-];
-
-const targetFiles = [
-	"node_modules/survey-creator-core/survey-creator-core.js",
-	"node_modules/survey-creator-core/survey-creator-core.js.map",
-	"node_modules/survey-creator-core/survey-creator-core.min.js",
-	"node_modules/survey-creator-core/i18n/english.js",
-	"node_modules/survey-creator-core/i18n/english.js.map",
-	"node_modules/survey-creator-core/i18n/english.min.js",
-	"node_modules/survey-analytics/survey.analytics.datatables.js",
-	"node_modules/survey-analytics/survey.analytics.datatables.min.js",
-	"node_modules/survey-analytics/survey.analytics.js",
-	"node_modules/survey-analytics/survey.analytics.min.js",
-	"node_modules/survey-analytics/survey.analytics.tabulator.js",
-	"node_modules/survey-analytics/survey.analytics.tabulator.min.js",
-	"node_modules/survey-pdf/survey.pdf.js",
-	"node_modules/survey-pdf/survey.pdf.min.js",
-	"node_modules/survey-analytics/survey.analytics.datatables.js",
-	"node_modules/survey-creator-react/survey-creator-react.js",
-	"node_modules/survey-creator-react/survey-creator-react.js.map",
 ];
 
 async function replaceInFile(filePath) {
@@ -77,98 +61,58 @@ async function replaceInFile(filePath) {
 	}
 }
 
+async function walkDir(dir) {
+	const files = await fs.readdir(dir);
+	const results = [];
+	for (const file of files) {
+		const filePath = path.join(dir, file);
+		const stat = await fs.stat(filePath);
+		if (stat.isDirectory()) {
+			results.push(...(await walkDir(filePath)));
+		} else if (file.endsWith(".js")) {
+			results.push(filePath);
+		}
+	}
+	return results;
+}
+
 async function processTargetFiles() {
-	for (const file of targetFiles) {
-		const filePath = path.join(process.cwd(), file);
-		try {
-			await replaceInFile(filePath);
-		} catch (error) {
-			console.error(`Error processing ${filePath}:`, error.message);
+	const nodeModulesPath = path.join(process.cwd(), "node_modules");
+	const directories = await fs.readdir(nodeModulesPath);
+	for (const dir of directories) {
+		if (dir.startsWith("survey-")) {
+			const surveyDir = path.join(nodeModulesPath, dir);
+			const files = await walkDir(surveyDir);
+			for (const file of files) {
+				try {
+					await replaceInFile(file);
+				} catch (error) {
+					console.error(`Error processing ${file}:`, error.message);
+				}
+			}
 		}
 	}
 }
 
-// async function updateNextConfig() {
-// 	const configPath = path.join(process.cwd(), "next.config.js");
-// 	let content;
-// 	try {
-// 		content = await fs.readFile(configPath, "utf8");
-// 	} catch (error) {
-// 		if (error.code === "ENOENT") {
-// 			content = "module.exports = {}";
-// 		} else {
-// 			throw error;
-// 		}
-// 	}
-
-// 	if (!content.includes("output:")) {
-// 		const updatedContent = content.replace(
-// 			/module\.exports\s*=\s*{/,
-// 			"module.exports = {\n  output: 'export',"
-// 		);
-// 		await fs.writeFile(configPath, updatedContent);
-// 		console.log('Updated next.config.js to include output: "export"');
-// 	} else {
-// 		console.log("next.config.js already includes output configuration");
-// 	}
-// }
-
-// async function createManifest() {
-// 	const manifest = {
-// 		short_name: "LLPMG",
-// 		name: "Loma Linda Psychiatric Medical Group",
-// 		icons: [
-// 			{
-// 				src: "favicon.ico",
-// 				sizes: "64x64 32x32 24x24 16x16",
-// 				type: "image/x-icon",
-// 			},
-// 		],
-// 		start_url: ".",
-// 		display: "standalone",
-// 		theme_color: "#000000",
-// 		background_color: "#ffffff",
-// 	};
-
-// 	await fs.writeFile(
-// 		"public/manifest.json",
-// 		JSON.stringify(manifest, null, 2)
-// 	);
-// 	console.log("Manifest file created.");
-// }
-
 async function main() {
-	console.log("Starting build process...");
 	try {
-		console.log("Installing dependencies...");
-		execSync("pnpm install", { stdio: "inherit" });
-		// execSync("yarn", { stdio: "inherit" });
+		// console.log("Installing dependencies...");
+		// execSync("pnpm install", { stdio: "inherit" });
 
 		console.log("\nModifying SurveyJS files...");
 		await processTargetFiles();
 
-		// console.log("\nUpdating Next.js configuration...");
-		// await updateNextConfig();
-
-		console.log("\nBuilding the project...");
-		execSync("pnpm run build", { stdio: "inherit" });
-		// execSync("yarn build", { stdio: "inherit" });
-
-		// console.log("\nCreating manifest file...");
-		// await createManifest();
+		// console.log("\nBuilding the project...");
+		// execSync("pnpm run build", { stdio: "inherit" });
 
 		// console.log("\nRemoving generated next.config.js...");
 		// execSync("rm next.config.js", { stdio: "inherit" });
 
-		console.log("\nBuild process completed successfully.");
+		// console.log("\nBuild process completed successfully.");
+		console.log("\nFile modification completed successfully.");
 	} catch (error) {
-		console.error("Build process failed with error:", error);
-		if (error instanceof Error) {
-			console.error("Error message:", error.message);
-			console.error("Error stack:", error.stack);
-		} else {
-			console.error("Non-Error object thrown:", error);
-		}
+		// console.error("Build process failed:", error);
+		console.error("File modification failed:", error);
 		process.exit(1);
 	}
 }
