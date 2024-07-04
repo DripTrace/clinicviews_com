@@ -1,16 +1,22 @@
-import React from "react";
+"use client";
+
+import type React from "react";
 
 interface FSClinicalsMapProps {
 	address: string;
+	encoded: string;
 	isDarkMode: boolean;
 }
 
 const FSClinicalsMap: React.FC<FSClinicalsMapProps> = ({
 	address,
+	encoded,
 	isDarkMode,
 }) => {
-	const encodedAddress = encodeURIComponent(address);
-	const mapUrl = `https://www.google.com/maps/embed/v1/place?q=${encodedAddress}&zoom=14`;
+	// const encodedAddress = encodeURIComponent(address);
+	const encodedAddress = encoded;
+	// const mapUrl = `https://www.google.com/maps/embed/v1/place?q=${encodedAddress}&zoom=14`;
+	const mapUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d${encodedAddress}!5m2!1sen!2sus`;
 
 	return (
 		<iframe

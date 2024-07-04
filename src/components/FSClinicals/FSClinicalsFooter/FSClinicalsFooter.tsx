@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import type React from "react";
 
 interface FSClinicalsFooterProps {
 	isDarkMode: boolean;

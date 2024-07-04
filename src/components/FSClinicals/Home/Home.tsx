@@ -36,12 +36,16 @@ const locations = [
 		address: "650 N Rose Drive #472, Placentia, CA 92870",
 		phone: "(775) 238-3082",
 		email: "info@fsclinicals.com",
+		encoded:
+			"3312.494856478956!2d-117.84453832366965!3d33.87690702696721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcd6a888549635%3A0xa78d75b370047cb5!2s650%20N%20Rose%20Dr%20%23472%2C%20Placentia%2C%20CA%2092870!5e0!3m2!1sen!2sus!4v1720074440707",
 	},
 	{
 		city: "Reno",
 		address: "100 N Arlington Ave, Suite 340A, Reno, NV 89501",
 		phone: "(775) 238-3082",
 		email: "info@fsclinicals.com",
+		encoded:
+			"3077.5209395169586!2d-119.81923322348412!3d39.525300709411155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809940cb25419537%3A0x60e85be369ace7e8!2s100%20N%20Arlington%20Ave%20%23340a%2C%20Reno%2C%20NV%2089501!5e0!3m2!1sen!2sus!4v1720074308138",
 	},
 ];
 
@@ -240,6 +244,7 @@ const FSClinicalsHomePage: React.FC = () => {
 									<div className="flex-grow mb-4 h-64">
 										<FSClinicalsMap
 											address={location.address}
+											encoded={location.encoded}
 											isDarkMode={isDarkMode}
 										/>
 									</div>

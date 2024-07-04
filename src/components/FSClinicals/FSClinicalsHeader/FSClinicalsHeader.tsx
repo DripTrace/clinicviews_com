@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import type React from "react";
 import { Phone, Mail, Moon, Sun } from "lucide-react";
 
 interface FSClinicalsHeaderProps {
