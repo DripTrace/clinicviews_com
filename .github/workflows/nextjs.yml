@@ -122,7 +122,13 @@ jobs:
             - name: Setup Node.js
               uses: actions/setup-node@v4
               with:
-                  node-version: "18"
+                  node-version: "20"
+            - name: Print environment
+              run: |
+                  echo "Node version: $(node -v)"
+                  echo "PNPM version: $(pnpm -v)"
+                  echo "Current directory: $(pwd)"
+                  echo "Directory contents: $(ls -la)"
             - name: Setup pnpm
               uses: pnpm/action-setup@v2
               with:
