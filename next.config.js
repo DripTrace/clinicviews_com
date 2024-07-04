@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 
-import withSerwistInit from "@serwist/next";
+// import withSerwistInit from "@serwist/next";
+const withSerwistInit = require("@serwist/next");
 
 const nextConfig = {
 	reactStrictMode: true,
@@ -22,7 +23,8 @@ const withSerwist = withSerwistInit({
 	disable: process.env.NODE_ENV === "development",
 });
 
-export default withSerwist({ nextConfig });
+// export default withSerwist({ nextConfig });
+module.exports = withSerwist(nextConfig);
 
 // const withSerwistInit = require("@serwist/next");
 
