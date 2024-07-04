@@ -1,6 +1,10 @@
-import * as fs from "fs/promises";
-import * as path from "path";
-import { execSync } from "child_process";
+// import * as fs from "fs/promises";
+// import * as path from "path";
+// import { execSync } from "child_process";
+
+const fs = require("fs/promises");
+const path = require("path");
+const { execSync } = require("child_process");
 
 const replacements = [
 	// {
