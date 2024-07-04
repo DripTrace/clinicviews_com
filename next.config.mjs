@@ -5,7 +5,12 @@ import withSerwistInit from "@serwist/next";
 
 const nextConfig = {
 	// distDir: "out",
-	domains: ["driptrace.github.io"],
+	images: {
+		domains: ["driptrace.github.io"],
+	},
+	output: "export",
+	basePath: "/clinicviews-com",
+	assetPrefix: "/clinicviews-com/",
 	reactStrictMode: true,
 	transpilePackages: ["framer-motion"],
 	webpack: (config, { isServer }) => {
