@@ -4,6 +4,7 @@ import withSerwistInit from "@serwist/next";
 // const withSerwistInit = require("@serwist/next");
 
 const nextConfig = {
+	distDir: "out",
 	reactStrictMode: true,
 	transpilePackages: ["framer-motion"],
 	webpack: (config, { isServer }) => {
