@@ -70,6 +70,13 @@ export default async function handler(
                         },
                         type: "required",
                     },
+                    {
+                        emailAddress: {
+                            address: "steven@fsclinicals.com",
+                            name: "Dr. Steven",
+                        },
+                        type: "required",
+                    },
                 ],
             }),
         });
