@@ -73,6 +73,7 @@ const PatientRegistration: React.FC = () => {
             if (fileInputRef.current) {
                 fileInputRef.current.value = "";
             }
+            console.log("data:\n", data);
         } catch (err) {
             console.log("error:\n", err);
             setError(
