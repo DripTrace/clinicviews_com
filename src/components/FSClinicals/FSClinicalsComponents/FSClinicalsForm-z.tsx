@@ -115,7 +115,6 @@ export default function FSClinicalsFormComponent() {
 		handleFSClinicalsSubmit(newFsclinicalsPatient);
 		console.log(newFsclinicalsPatient);
 	});
-	// @ts-expect-error theme is not a valid property
 	fsclinicalsModel.applyTheme(fsclinicalsTheme);
 
 	return <FSClinicalsForm model={fsclinicalsModel} />;
