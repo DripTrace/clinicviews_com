@@ -34,7 +34,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         }
 
         // Get access token
-        const tokenResponse = await fetch('http://localhost:2999/api/get-token/route');
+        // const tokenResponse = await fetch('http://localhost:2999/api/get-token/route');
+        // const APP_URL = process.env.PROD_APP_URL ?
+        if (process.env.NODE_ENV === 'development') {
+            process.env.APP_URL = process.env.DEV_APP_URL;
+            } else {
+            process.env.APP_URL = process.env.PROD_APP_URL;
+        } 
+
+        const tokenResponse = await fetch(`${process.env.APP_URL}/api/get-token/route`);
         const { accessToken } = await tokenResponse.json();
 
         // Create patient record
