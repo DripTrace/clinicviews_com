@@ -277,6 +277,10 @@ async function sendEmail(
         throw new Error(
             `Failed to send email: ${errorData.error?.message || "Unknown error"}`
         );
+        // res.status(500).json({
+        //     error: "Error sending email",
+        //     details: errorData.error?.message,
+        // });
     } else {
         console.log("Email sent successfully");
     }
