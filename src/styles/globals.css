@@ -233,6 +233,10 @@ header a {
 	background: no-repeat center/100% url("/form-background.png") !important;
 }
 
+.sv-header__without-background {
+    display: none !important;
+}
+
 /* .sd-root-modern .sd-root--compact .sd-root-modern--full-container {
 	background: #fff !important;
 } */

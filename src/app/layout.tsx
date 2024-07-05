@@ -80,7 +80,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<head>
+			{/* <head>
 				<link
 					rel="stylesheet"
 					type="text/css"
@@ -91,9 +91,9 @@ export default function RootLayout({
 					type="text/css"
 					href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
 				/>
-			</head>
+			</head> */}
 			<body>
-				<StoreProvider>{children}</StoreProvider>
+				{children}
 			</body>
 		</html>
 	);

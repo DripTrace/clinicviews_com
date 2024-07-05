@@ -1,11 +1,11 @@
-import FSClinicalsLayout from "./layout-backup";
+import FSClinicalsLayout from "./layout";
 import FSClinicalsPage from "./page";
-import FSClinicalsLandingLayout from "./fsclinicals-landing/layout-backup";
+// import FSClinicalsLandingLayout from "./fsclinicals-landing/layout-backup";
 import FSClinicalsLandingPage from "./fsclinicals-landing/page";
 
 export {
 	FSClinicalsLayout,
 	FSClinicalsPage,
-	FSClinicalsLandingLayout,
+	// FSClinicalsLandingLayout,
 	FSClinicalsLandingPage,
 };

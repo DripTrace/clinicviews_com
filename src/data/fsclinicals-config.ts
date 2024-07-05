@@ -538,6 +538,7 @@ export const fsclinicalsForm = {
 
 export const fsclinicalsTheme = {
 	backgroundImage:
+		// "https://api.surveyjs.io/private/Surveys/files?name=0e692c99-8fa6-4f8b-b06e-ded5f714d0c8",
 		"https://api.surveyjs.io/private/Surveys/files?name=0e692c99-8fa6-4f8b-b06e-ded5f714d0c8",
 	backgroundImageFit: "cover",
 	backgroundImageAttachment: "fixed",

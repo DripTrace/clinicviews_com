@@ -117,5 +117,7 @@ export default function FSClinicalsFormComponent() {
 		console.log(newFsclinicalsPatient);
 	});
 
-	return <FSClinicalsForm model={fsclinicalsModel} />;
+	return <FSClinicalsForm 
+     style={".sv-header {display: none !important;}"}
+    model={fsclinicalsModel} />;
 }

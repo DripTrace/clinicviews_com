@@ -12,6 +12,7 @@
 		"deploy": "gh-pages -d .next -t true"
 	},
 	"dependencies": {
+		"@microsoft/microsoft-graph-client": "^3.0.7",
 		"@million/lint": "1.0.0-rc.13",
 		"@reduxjs/toolkit": "^2.2.5",
 		"@sendgrid/mail": "^8.1.3",
@@ -229,7 +230,7 @@
 		"tslib": "^2.6.2",
 		"typescript": "^5.4.5",
 		"url-loader": "^4.1.1",
-		"uuid": "^9.0.1",
+		"uuid": "^10.0.0",
 		"val-loader": "^6.0.0",
 		"vue": "^3.4.27",
 		"vue-class-component": "^7.2.6",

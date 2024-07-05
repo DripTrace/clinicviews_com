@@ -16,6 +16,23 @@ const config: Config = {
 					"conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
 			},
 		},
+        // colors: {
+        //     'fsc-blue-gray': '#99AAC0',
+        //     'fsc-dark-blue': '#0C3C60',
+        //     'fsc-light-blue': '#6EA4CE',
+        //     'fsc-pale-blue': '#D1E0EB',
+        //     'fsc-teal': '#1FABC7',
+        //     'fsc-light-gray': '#D8DADC',
+        //     'fsc-dark-gray': '#494949',
+        //     'fsc-lavender': '#B3BEDC',
+        //   },
+          screens: {
+            'sm': '640px',
+            'md': '768px',
+            'lg': '1024px',
+            'xl': '1280px',
+            '2xl': '1536px',
+          },
 	},
 	plugins: [
 		require("@tailwindcss/aspect-ratio"),
