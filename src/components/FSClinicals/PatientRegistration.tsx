@@ -73,9 +73,9 @@ const PatientRegistration: React.FC = () => {
             if (fileInputRef.current) {
                 fileInputRef.current.value = "";
             }
-            console.log("data:\n", data, "response:\n", response);
+            // console.log("data:\n", data, "response:\n", response);
         } catch (err) {
-            console.log("error:\n", err);
+            // console.log("error:\n", err);
             setError(
                 "An error occurred while registering the patient. Please try again."
             );
