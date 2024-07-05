@@ -82,6 +82,7 @@ import { FSClinicalsRootState } from "@/store/fsclinicalsStore";
 import { fsclinicalsToggleDarkMode } from "@/store/slices/fsclinicalsThemeSlice";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 const Moon = dynamic(() => import("lucide-react").then((mod) => mod.Moon), {
     ssr: false,
@@ -117,13 +118,22 @@ const FSClinicalsHeader: React.FC = () => {
 
     return (
         <header
-            className={`${isDarkMode ? "bg-[#0C3C60]" : "bg-[#6EA4CE]"} text-white p-4`}
+            className={`${
+                isDarkMode ? "bg-[#0C3C60]" : "bg-[#6EA4CE]"
+            } text-white p-4`}
         >
             <div className="container mx-auto flex justify-between items-center">
                 <Link
                     href="/fsclinicals/fsclinicals-landing"
-                    className="text-2xl font-bold"
+                    className="text-2xl font-bold flex items-center justify-center gap-3"
                 >
+                    <Image
+                        src="/fsclinicals/fsclinicals_-.svg"
+                        alt="fsclinicals-logo"
+                        height={100}
+                        width={100}
+                        className="size-[4rem]"
+                    />
                     Four Square Clinicals
                 </Link>
 
@@ -213,7 +223,7 @@ const FSClinicalsHeader: React.FC = () => {
                             </li>
                             <li>
                                 <Link
-                                    href="/fsclinicals/fsclinicals-views/fsclinicals-form"
+                                    href="/fsclinicals/fsclinicals-view/fsclinicals-form"
                                     className="block py-2 px-4 hover:bg-[#1FABC7] transition-colors"
                                     onClick={toggleMenu}
                                 >
