@@ -135,32 +135,34 @@ import "@/styles/globals.css";
 import ClientLayout from "@/components/LLPMG/ClientLayout";
 
 export const metadata: Metadata = {
-	title: "LLPMG",
-	description: "Loma Linda Psychiatric Medical Group",
+    title: "LLPMG",
+    description: "Loma Linda Psychiatric Medical Group",
 };
 
 export default function RootLayout({
-	children,
+    children,
 }: {
-	children: React.ReactNode;
+    children: React.ReactNode;
 }) {
-	return (
-		<html lang="en">
-			<head>
-				<link
-					rel="stylesheet"
-					type="text/css"
-					href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-				/>
-				<link
-					rel="stylesheet"
-					type="text/css"
-					href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-				/>
-			</head>
-			<body>
-				<StoreProvider><ClientLayout>{children}</ClientLayout></StoreProvider>
-			</body>
-		</html>
-	);
+    return (
+        <html lang="en">
+            <head>
+                <link
+                    rel="stylesheet"
+                    type="text/css"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+                />
+                <link
+                    rel="stylesheet"
+                    type="text/css"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+                />
+            </head>
+            <body>
+                <StoreProvider>
+                    <ClientLayout>{children}</ClientLayout>
+                </StoreProvider>
+            </body>
+        </html>
+    );
 }

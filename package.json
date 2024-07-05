@@ -203,7 +203,7 @@
 		"postcss-calc": "^10.0.0",
 		"postcss-cli": "^11.0.0",
 		"postcss-fail-on-warn": "^0.2.1",
-		"prettier": "^3.2.5",
+		"prettier": "^3.3.2",
 		"puppeteer": "^22.10.0",
 		"qunit": "^2.21.0",
 		"react-test-renderer": "^18.3.1",

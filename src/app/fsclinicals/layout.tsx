@@ -5,7 +5,7 @@ import FSClinicalsClientRoot from "@/components/FSClinicals/FSClinicalsClientRoo
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function RootLayout({
+export default function FSClinicalsRootLayout({
 	children,
 }: {
 	children: React.ReactNode;

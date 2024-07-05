@@ -1,0 +1,4 @@
+.yarn
+.bun
+dist
+node_modules
