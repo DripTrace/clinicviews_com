@@ -786,7 +786,7 @@ export default function FSClinicalsFormComponent() {
         setFormResults(resultData);
 
         const modelPDF = createSurveyPdfModel(model);
-        modelPDF.raw().then((pdfData: string) => {
+        modelPDF.raw("blob").then((pdfData: string) => {
             setPdfData(pdfData);
         });
 
