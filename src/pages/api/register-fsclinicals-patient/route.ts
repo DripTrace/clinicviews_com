@@ -271,7 +271,7 @@
 //                         },
 //                         {
 //                             emailAddress: {
-//                                 address: "rpalm@driptrace.io",
+//                                 address: "steven@fsclinicals.com",
 //                                 name: "FSClinicals Doctor",
 //                             },
 //                             type: "required",
@@ -324,7 +324,7 @@
 //         // Send a single email to the doctor including the PDF and appointment details
 //         await sendEmail(
 //             accessToken,
-//             "rpalm@driptrace.io",
+//             "steven@fsclinicals.com",
 //             "New Patient Registration and Appointment",
 //             doctorEmailHtml,
 //             attachmentContent
@@ -572,7 +572,7 @@
 //                 },
 //                 {
 //                     emailAddress: {
-//                         address: "rpalm@driptrace.io",
+//                         address: "steven@fsclinicals.com",
 //                         name: "FSClinicals Doctor",
 //                     },
 //                     type: "required",
@@ -648,7 +648,7 @@
 
 //         const mailOptionsDoctor = {
 //             from: `"FSClinicals Mail" <${process.env.SMTP_USER}>`,
-//             to: "rpalm@driptrace.io",
+//             to: "steven@fsclinicals.com",
 //             subject: "New Patient Registration",
 //             html: doctorEmailHtml,
 //             attachments: [
@@ -1137,7 +1137,7 @@
 //                         },
 //                         {
 //                             emailAddress: {
-//                                 address: "rpalm@driptrace.io",
+//                                 address: "steven@fsclinicals.com",
 //                                 name: "FSClinicals Doctor",
 //                             },
 //                             type: "required",
@@ -1189,7 +1189,7 @@
 
 //         await sendEmail(
 //             accessToken,
-//             "rpalm@driptrace.io",
+//             "steven@fsclinicals.com",
 //             "New Patient Registration and Appointment",
 //             doctorEmailHtml,
 //             attachmentContent
@@ -1367,8 +1367,14 @@ export default async function handler(
             formattedAppointmentTime,
         });
 
+        if (process.env.NODE_ENV === "development") {
+            process.env.APP_URL = process.env.DEV_APP_URL;
+        } else {
+            process.env.APP_URL = process.env.PROD_APP_URL;
+        }
+
         const tokenResponse = await fetch(
-            `${process.env.DEV_APP_URL}/api/get-token/route`
+            `${process.env.APP_URL}/api/get-token/route`
         );
         const { accessToken } = (await tokenResponse.json()) as TokenResponse;
 
@@ -1441,7 +1447,7 @@ export default async function handler(
                         },
                         {
                             emailAddress: {
-                                address: "rpalm@driptrace.io",
+                                address: "steven@fsclinicals.com",
                                 name: "FSClinicals Doctor",
                             },
                             type: "required",
@@ -1509,7 +1515,7 @@ export default async function handler(
 
         await sendEmail(
             transporter,
-            "rpalm@driptrace.io",
+            "steven@fsclinicals.com",
             "New Patient Registration and Appointment",
             doctorEmailHtml,
             [
