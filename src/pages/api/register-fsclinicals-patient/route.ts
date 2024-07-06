@@ -1430,7 +1430,6 @@ export default async function handler(
             appointmentDate &&
             appointmentTime
         ) {
-            // const eventUrl = `https://graph.microsoft.com/v1.0/users/fsclinicals-com@mail.clinicviews.com/calendar/events`;
             const eventUrl = `${graphCalendarEvent}`;
             const appointmentResponse = await fetch(eventUrl, {
                 method: "POST",
@@ -1517,7 +1516,7 @@ export default async function handler(
         const transporter = nodemailer.createTransport({
             host: smtpHost,
             port: parseInt(smtpPort!, 10),
-            secure: false, // true for 465, false for other ports
+            secure: false,
             auth: {
                 user: smtpAuthUser,
                 pass: smtpAuthPass,
