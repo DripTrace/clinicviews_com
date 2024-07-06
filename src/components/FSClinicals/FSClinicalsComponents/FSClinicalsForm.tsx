@@ -1,3 +1,645 @@
+// "use client";
+
+// import { useRouter } from "next/navigation";
+// import { Model, SurveyModel } from "survey-core";
+// import "survey-core/defaultV2.css";
+// import { Survey } from "survey-react-ui";
+// import { SurveyPDF } from "survey-pdf";
+// import { useState, useEffect } from "react";
+// import { fsclinicalsForm, fsclinicalsTheme } from "@/data/fsclinicals-config";
+
+// export default function FSClinicalsFormComponent() {
+//     const router = useRouter();
+
+//     const [isLoading, setIsLoading] = useState(false);
+//     const [response, setResponse] = useState("");
+//     const [formResults, setFormResults] = useState<any>({});
+//     const [pdfData, setPdfData] = useState<string>("");
+
+//     const storageItemKey = "fsclinicals-patient-form";
+
+//     function createSurveyPdfModel(surveyModel: SurveyModel) {
+//         const pdfWidth = 210;
+//         const pdfHeight = 297;
+//         const options = {
+//             fontSize: 10,
+//             margins: {
+//                 left: 10,
+//                 right: 10,
+//                 top: 10,
+//                 bot: 10,
+//             },
+//             format: [pdfWidth, pdfHeight],
+//             fontName: "helvetica",
+//             useCustomFontInHtml: false,
+//         };
+//         const surveyPDF = new SurveyPDF(fsclinicalsForm, options);
+//         if (surveyModel) {
+//             surveyPDF.data = surveyModel.data;
+//         }
+//         return surveyPDF;
+//     }
+
+//     const handleSubmit = async () => {
+//         setIsLoading(true);
+//         setResponse("");
+
+//         try {
+//             const formData = new FormData();
+
+//             // Add form fields
+//             Object.keys(formResults).forEach((key) => {
+//                 formData.append(key, formResults[key]);
+//             });
+
+//             // Add PDF data
+//             formData.append("pdfData", pdfData);
+
+//             console.log("Form data to be sent:");
+//             for (let pair of formData.entries()) {
+//                 console.log(pair[0] + ": " + pair[1]);
+//             }
+
+//             const res = await fetch("/api/register-fsclinicals-patient/route", {
+//                 method: "POST",
+//                 body: formData,
+//             });
+
+//             if (!res.ok) {
+//                 const errorText = await res.text();
+//                 throw new Error(
+//                     `HTTP error! status: ${res.status}, body: ${errorText}`
+//                 );
+//             } else {
+//                 console.log("res.ok: ", res.ok);
+//                 router.push("https://fsclinicals.com");
+//             }
+
+//             const data = await res.json();
+//             setResponse(data.message || data.error);
+//         } catch (error: unknown) {
+//             console.error("Error in handleSubmit:", error);
+//             if (error instanceof Error) {
+//                 setResponse(
+//                     `An error occurred while sending the form: ${error.message}`
+//                 );
+//             } else {
+//                 setResponse("An unknown error occurred while sending the form");
+//             }
+//         }
+
+//         setIsLoading(false);
+//     };
+
+//     const model = new Model(fsclinicalsForm);
+//     model.applyTheme(fsclinicalsTheme);
+
+//     model.onComplete.add((sender, options) => {
+//         const resultData: any = {};
+//         for (const key in sender.data) {
+//             const question = sender.getQuestionByName(key);
+//             if (question) {
+//                 resultData[key] = question.value;
+//             }
+//         }
+//         console.log("Form results on complete:", resultData);
+//         setFormResults(resultData);
+
+//         const modelPDF = createSurveyPdfModel(model);
+//         modelPDF.raw().then((pdfData: string) => {
+//             setPdfData(pdfData);
+//         });
+
+//         window.localStorage.setItem(storageItemKey, "");
+//     });
+
+//     useEffect(() => {
+//         if (
+//             pdfData &&
+//             formResults["first-name"] &&
+//             formResults["last-name"] &&
+//             formResults["email"]
+//         ) {
+//             console.log("Submitting form with updated data");
+//             handleSubmit();
+//         }
+//     }, [pdfData, formResults]);
+
+//     function saveFormData(form: SurveyModel) {
+//         const data = form.data;
+//         data.pageNo = form.currentPageNo;
+//         window.localStorage.setItem(storageItemKey, JSON.stringify(data));
+//     }
+
+//     model.onValueChanged.add(saveFormData);
+//     model.onCurrentPageChanged.add(saveFormData);
+
+//     const prevData = window.localStorage.getItem(storageItemKey) || null;
+//     if (prevData) {
+//         const data = JSON.parse(prevData);
+//         model.data = data;
+//         if (data.pageNo) {
+//             model.currentPageNo = data.pageNo;
+//         }
+//     }
+
+//     useEffect(() => {
+//         console.log("formResults:\n", formResults);
+//     }, [formResults]);
+
+//     return (
+//         <>
+//             <Survey model={model} />
+//             <div id="surveyElement"></div>
+//             {isLoading && <p>Processing your registration...</p>}
+//             {response && <p>{response}</p>}
+//         </>
+//     );
+// }
+
+//working in dev
+// "use client";
+
+// import { useRouter } from "next/navigation";
+// import { Model, SurveyModel } from "survey-core";
+// import "survey-core/defaultV2.css";
+// import { Survey } from "survey-react-ui";
+// import { SurveyPDF } from "survey-pdf";
+// import { useState, useEffect } from "react";
+// import { fsclinicalsForm, fsclinicalsTheme } from "@/data/fsclinicals-config";
+
+// export default function FSClinicalsFormComponent() {
+//     const router = useRouter();
+
+//     const [isLoading, setIsLoading] = useState(false);
+//     const [response, setResponse] = useState("");
+//     const [formResults, setFormResults] = useState<any>({});
+//     const [pdfData, setPdfData] = useState<string>("");
+
+//     const storageItemKey = "fsclinicals-patient-form";
+
+//     function createSurveyPdfModel(surveyModel: SurveyModel) {
+//         const pdfWidth = 210;
+//         const pdfHeight = 297;
+//         const options = {
+//             fontSize: 10,
+//             margins: {
+//                 left: 10,
+//                 right: 10,
+//                 top: 10,
+//                 bot: 10,
+//             },
+//             format: [pdfWidth, pdfHeight],
+//             fontName: "helvetica",
+//             useCustomFontInHtml: false,
+//         };
+//         const surveyPDF = new SurveyPDF(fsclinicalsForm, options);
+//         if (surveyModel) {
+//             surveyPDF.data = surveyModel.data;
+//         }
+//         return surveyPDF;
+//     }
+
+//     const handleSubmit = async () => {
+//         setIsLoading(true);
+//         setResponse("");
+
+//         try {
+//             const formData = new FormData();
+//             formData.append(
+//                 "file",
+//                 new Blob([pdfData], { type: "application/pdf" }),
+//                 "fsclinicals-newpatient.pdf"
+//             );
+
+//             // Add additional form fields
+//             formData.append(
+//                 "patientName",
+//                 `${formResults["first-name"]} ${formResults["last-name"]}`
+//             );
+//             formData.append("email", formResults["email"]);
+//             formData.append("phone", formResults["phone-home"]);
+//             formData.append("reason", formResults["reason"]);
+//             formData.append(
+//                 "suggestAppointment",
+//                 String(formResults["suggestAppointment"])
+//             );
+//             formData.append("appointmentDate", formResults["appointmentDate"]);
+//             formData.append("appointmentTime", formResults["appointmentTime"]);
+
+//             console.log("Form data to be sent:");
+//             for (let pair of formData.entries()) {
+//                 console.log(pair[0] + ": " + pair[1]);
+//             }
+
+//             const res = await fetch("/api/register-fsclinicals-patient/route", {
+//                 method: "POST",
+//                 body: formData,
+//             });
+
+//             if (!res.ok) {
+//                 const errorText = await res.text();
+//                 throw new Error(
+//                     `HTTP error! status: ${res.status}, body: ${errorText}`
+//                 );
+//             } else {
+//                 console.log("res.ok: ", res.ok);
+//                 router.push("https://fsclinicals.com");
+//             }
+
+//             const data = await res.json();
+//             setResponse(data.message || data.error);
+//         } catch (error: unknown) {
+//             console.error("Error in handleSubmit:", error);
+//             if (error instanceof Error) {
+//                 setResponse(
+//                     `An error occurred while sending the form: ${error.message}`
+//                 );
+//             } else {
+//                 setResponse("An unknown error occurred while sending the form");
+//             }
+//         }
+
+//         setIsLoading(false);
+//     };
+
+//     const model = new Model(fsclinicalsForm);
+//     model.applyTheme(fsclinicalsTheme);
+
+//     model.onComplete.add((sender, options) => {
+//         const resultData: any = {};
+//         for (const key in sender.data) {
+//             const question = sender.getQuestionByName(key);
+//             if (question) {
+//                 resultData[key] = question.value;
+//             }
+//         }
+//         console.log("Form results on complete:", resultData);
+//         setFormResults(resultData);
+
+//         const modelPDF = createSurveyPdfModel(model);
+//         modelPDF.raw().then((pdfData: string) => {
+//             setPdfData(pdfData);
+//         });
+
+//         window.localStorage.setItem(storageItemKey, "");
+//     });
+
+//     useEffect(() => {
+//         if (
+//             pdfData &&
+//             formResults["first-name"] &&
+//             formResults["last-name"] &&
+//             formResults["email"]
+//         ) {
+//             console.log("Submitting form with updated data");
+//             handleSubmit();
+//         }
+//     }, [pdfData, formResults]);
+
+//     function saveFormData(form: SurveyModel) {
+//         const data = form.data;
+//         data.pageNo = form.currentPageNo;
+//         window.localStorage.setItem(storageItemKey, JSON.stringify(data));
+//     }
+
+//     model.onValueChanged.add(saveFormData);
+//     model.onCurrentPageChanged.add(saveFormData);
+
+//     const prevData = window.localStorage.getItem(storageItemKey) || null;
+//     if (prevData) {
+//         const data = JSON.parse(prevData);
+//         model.data = data;
+//         if (data.pageNo) {
+//             model.currentPageNo = data.pageNo;
+//         }
+//     }
+
+//     useEffect(() => {
+//         console.log("formResults:\n", formResults);
+//     }, [formResults]);
+
+//     return (
+//         <>
+//             <Survey model={model} />
+//             <div id="surveyElement"></div>
+//             {isLoading && <p>Processing your registration...</p>}
+//             {response && <p>{response}</p>}
+//         </>
+//     );
+// }
+
+//first share attempt
+// "use client";
+
+// import { useRouter } from "next/navigation";
+// import { Model, SurveyModel } from "survey-core";
+// import "survey-core/defaultV2.css";
+// import { Survey } from "survey-react-ui";
+// import { SurveyPDF } from "survey-pdf";
+// import { useState, useEffect } from "react";
+// import { fsclinicalsForm, fsclinicalsTheme } from "@/data/fsclinicals-config";
+
+// export default function FSClinicalsFormComponent() {
+//     const router = useRouter();
+
+//     const [isLoading, setIsLoading] = useState(false);
+//     const [response, setResponse] = useState("");
+//     const [formResults, setFormResults] = useState<any>([]);
+
+//     const storageItemKey = "fsclinicals-patient-form";
+
+//     function createSurveyPdfModel(surveyModel: SurveyModel) {
+//         const pdfWidth = 210;
+//         const pdfHeight = 297;
+//         const options = {
+//             fontSize: 10,
+//             margins: {
+//                 left: 10,
+//                 right: 10,
+//                 top: 10,
+//                 bot: 10,
+//             },
+//             format: [pdfWidth, pdfHeight],
+//             fontName: "helvetica",
+//             useCustomFontInHtml: false,
+//         };
+//         const surveyPDF = new SurveyPDF(fsclinicalsForm, options);
+//         if (surveyModel) {
+//             surveyPDF.data = surveyModel.data;
+//         }
+//         return surveyPDF;
+//     }
+
+//     const handleSubmit = async (pdfData: string) => {
+//         setIsLoading(true);
+//         setResponse("");
+
+//         try {
+//             const formData = new FormData();
+//             formData.append(
+//                 "file",
+//                 new Blob([pdfData], { type: "application/pdf" }),
+//                 "fsclinicals-newpatient.pdf"
+//             );
+
+//             // Add additional form fields
+//             formData.append(
+//                 "patientName",
+//                 `${formResults["first-name"]} ${formResults["last-name"]}`
+//             );
+//             formData.append("email", formResults["email"]);
+//             formData.append("phone", formResults["phone-home"]);
+//             formData.append("reason", formResults["reason"]);
+//             formData.append(
+//                 "suggestAppointment",
+//                 String(formResults["suggestAppointment"])
+//             );
+//             formData.append("appointmentDate", formResults["appointmentDate"]);
+//             formData.append("appointmentTime", formResults["appointmentTime"]);
+
+//             console.log("Sending form data: ", formData);
+
+//             const res = await fetch("/api/register-fsclinicals-patient/route", {
+//                 method: "POST",
+//                 body: formData,
+//             });
+
+//             if (!res.ok) {
+//                 const errorText = await res.text();
+//                 throw new Error(
+//                     `HTTP error! status: ${res.status}, body: ${errorText}`
+//                 );
+//             } else {
+//                 console.log("res.ok: ", res.ok);
+//                 router.push("https://fsclinicals.com");
+//             }
+
+//             const data = await res.json();
+//             setResponse(data.message || data.error);
+//         } catch (error: unknown) {
+//             console.error("Error in handleSubmit:", error);
+//             if (error instanceof Error) {
+//                 setResponse(
+//                     `An error occurred while sending the form: ${error.message}`
+//                 );
+//             } else {
+//                 setResponse("An unknown error occurred while sending the form");
+//             }
+//         }
+
+//         setIsLoading(false);
+//     };
+
+//     const model = new Model(fsclinicalsForm);
+//     model.applyTheme(fsclinicalsTheme);
+
+//     model.onComplete.add((sender, options) => {
+//         const resultData: any = {};
+//         for (const key in sender.data) {
+//             const question = sender.getQuestionByName(key);
+//             if (question) {
+//                 resultData[key] = question.value;
+//             }
+//         }
+//         setFormResults(resultData);
+
+//         const modelPDF = createSurveyPdfModel(model);
+//         modelPDF.raw().then((pdfData: string) => {
+//             handleSubmit(pdfData);
+//         });
+
+//         window.localStorage.setItem(storageItemKey, "");
+//     });
+
+//     function saveFormData(form: SurveyModel) {
+//         const data = form.data;
+//         data.pageNo = form.currentPageNo;
+//         window.localStorage.setItem(storageItemKey, JSON.stringify(data));
+//     }
+
+//     model.onValueChanged.add(saveFormData);
+//     model.onCurrentPageChanged.add(saveFormData);
+
+//     const prevData = window.localStorage.getItem(storageItemKey) || null;
+//     if (prevData) {
+//         const data = JSON.parse(prevData);
+//         model.data = data;
+//         if (data.pageNo) {
+//             model.currentPageNo = data.pageNo;
+//         }
+//     }
+
+//     useEffect(() => {
+//         console.log("formResults:\n", formResults);
+//     }, [formResults]);
+
+//     return (
+//         <>
+//             <Survey model={model} />
+//             <div id="surveyElement"></div>
+//             {isLoading && <p>Processing your registration...</p>}
+//             {response && <p>{response}</p>}
+//         </>
+//     );
+// }
+
+//html change
+// "use client";
+
+// import { useRouter } from "next/navigation";
+// import { Model, SurveyModel } from "survey-core";
+// import "survey-core/defaultV2.css";
+// import { Survey } from "survey-react-ui";
+// import { SurveyPDF } from "survey-pdf";
+// import { useState, useEffect } from "react";
+// import { fsclinicalsForm, fsclinicalsTheme } from "@/data/fsclinicals-config";
+
+// export default function FSClinicalsFormComponent() {
+//     const router = useRouter();
+
+//     const [isLoading, setIsLoading] = useState(false);
+//     const [response, setResponse] = useState("");
+//     const [formResults, setFormResults] = useState<any>([]);
+
+//     const storageItemKey = "fsclinicals-patient-form";
+
+//     function createSurveyPdfModel(surveyModel: SurveyModel) {
+//         const pdfWidth = 210;
+//         const pdfHeight = 297;
+//         const options = {
+//             fontSize: 10,
+//             margins: {
+//                 left: 10,
+//                 right: 10,
+//                 top: 10,
+//                 bot: 10,
+//             },
+//             format: [pdfWidth, pdfHeight],
+//             fontName: "helvetica",
+//             useCustomFontInHtml: false,
+//         };
+//         const surveyPDF = new SurveyPDF(fsclinicalsForm, options);
+//         if (surveyModel) {
+//             surveyPDF.data = surveyModel.data;
+//         }
+//         return surveyPDF;
+//     }
+
+//     const handleSubmit = async (pdfData: string) => {
+//         setIsLoading(true);
+//         setResponse("");
+
+//         try {
+//             const formData = new FormData();
+//             formData.append(
+//                 "file",
+//                 new Blob([pdfData], { type: "application/pdf" }),
+//                 "fsclinicals-newpatient.pdf"
+//             );
+
+//             // Add additional form fields
+//             formData.append(
+//                 "patientName",
+//                 `${formResults["first-name"]} ${formResults["last-name"]}`
+//             );
+//             formData.append("email", formResults["email"]);
+//             formData.append("phone", formResults["phone-home"]);
+//             formData.append("reason", formResults["reason"]);
+//             formData.append(
+//                 "suggestAppointment",
+//                 String(formResults["suggestAppointment"])
+//             );
+//             formData.append("appointmentDate", formResults["appointmentDate"]);
+//             formData.append("appointmentTime", formResults["appointmentTime"]);
+
+//             console.log("Sending form data: ", formData);
+
+//             const res = await fetch("/api/register-fsclinicals-patient/route", {
+//                 method: "POST",
+//                 body: formData,
+//             });
+
+//             if (!res.ok) {
+//                 const errorText = await res.text();
+//                 throw new Error(
+//                     `HTTP error! status: ${res.status}, body: ${errorText}`
+//                 );
+//             } else {
+//                 console.log("res.ok: ", res.ok);
+//                 router.push("https://fsclinicals.com");
+//             }
+
+//             const data = await res.json();
+//             setResponse(data.message || data.error);
+//         } catch (error: unknown) {
+//             console.error("Error in handleSubmit:", error);
+//             if (error instanceof Error) {
+//                 setResponse(
+//                     `An error occurred while sending the form: ${error.message}`
+//                 );
+//             } else {
+//                 setResponse("An unknown error occurred while sending the form");
+//             }
+//         }
+
+//         setIsLoading(false);
+//     };
+
+//     const model = new Model(fsclinicalsForm);
+//     model.applyTheme(fsclinicalsTheme);
+
+//     model.onComplete.add((sender, options) => {
+//         const resultData: any = {};
+//         for (const key in sender.data) {
+//             const question = sender.getQuestionByName(key);
+//             if (question) {
+//                 resultData[key] = question.value;
+//             }
+//         }
+//         setFormResults(resultData);
+
+//         const modelPDF = createSurveyPdfModel(model);
+//         modelPDF.raw().then((pdfData: string) => {
+//             handleSubmit(pdfData);
+//         });
+
+//         window.localStorage.setItem(storageItemKey, "");
+//     });
+
+//     function saveFormData(form: SurveyModel) {
+//         const data = form.data;
+//         data.pageNo = form.currentPageNo;
+//         window.localStorage.setItem(storageItemKey, JSON.stringify(data));
+//     }
+
+//     model.onValueChanged.add(saveFormData);
+//     model.onCurrentPageChanged.add(saveFormData);
+
+//     const prevData = window.localStorage.getItem(storageItemKey) || null;
+//     if (prevData) {
+//         const data = JSON.parse(prevData);
+//         model.data = data;
+//         if (data.pageNo) {
+//             model.currentPageNo = data.pageNo;
+//         }
+//     }
+
+//     useEffect(() => {
+//         console.log("formResults:\n", formResults);
+//     }, [formResults]);
+
+//     return (
+//         <>
+//             <Survey model={model} />
+//             <div id="surveyElement"></div>
+//             {isLoading && <p>Processing your registration...</p>}
+//             {response && <p>{response}</p>}
+//         </>
+//     );
+// }
+
+//style mod
 "use client";
 
 import { useRouter } from "next/navigation";
@@ -67,10 +709,7 @@ export default function FSClinicalsFormComponent() {
             formData.append("appointmentDate", formResults["appointmentDate"]);
             formData.append("appointmentTime", formResults["appointmentTime"]);
 
-            console.log("Form data to be sent:");
-            for (let pair of formData.entries()) {
-                console.log(pair[0] + ": " + pair[1]);
-            }
+            console.log("Sending form data: ", formData);
 
             const res = await fetch("/api/register-fsclinicals-patient/route", {
                 method: "POST",
@@ -114,7 +753,6 @@ export default function FSClinicalsFormComponent() {
                 resultData[key] = question.value;
             }
         }
-        console.log("Form results on complete:", resultData);
         setFormResults(resultData);
 
         const modelPDF = createSurveyPdfModel(model);
@@ -126,16 +764,12 @@ export default function FSClinicalsFormComponent() {
     });
 
     useEffect(() => {
-        if (
-            pdfData &&
-            formResults["first-name"] &&
-            formResults["last-name"] &&
-            formResults["email"]
-        ) {
-            console.log("Submitting form with updated data");
+        console.log("formResults:\n", formResults);
+
+        if (Object.keys(formResults).length !== 0 && pdfData) {
             handleSubmit();
         }
-    }, [pdfData, formResults]);
+    }, [formResults, pdfData]);
 
     function saveFormData(form: SurveyModel) {
         const data = form.data;
@@ -154,10 +788,6 @@ export default function FSClinicalsFormComponent() {
             model.currentPageNo = data.pageNo;
         }
     }
-
-    useEffect(() => {
-        console.log("formResults:\n", formResults);
-    }, [formResults]);
 
     return (
         <>

@@ -1,3 +1,4 @@
+//single
 import type { NextApiRequest, NextApiResponse } from "next";
 import { IncomingForm, File } from "formidable";
 import fs from "fs/promises";
@@ -93,6 +94,16 @@ async function sendEmail(
     console.log(`Email sent successfully to ${to}`);
 }
 
+function formatTo12HourTime(dateString: string): string {
+    const date = new Date(dateString);
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? "PM" : "AM";
+    const formattedHours = hours % 12 || 12;
+    const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+    return `${formattedHours}:${formattedMinutes} ${ampm}`;
+}
+
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
@@ -150,6 +161,10 @@ export default async function handler(
             ? fields.appointmentTime[0]
             : fields.appointmentTime;
 
+        const appointmentDateTime = `${appointmentDate}T${appointmentTime}`;
+        const formattedAppointmentTime =
+            formatTo12HourTime(appointmentDateTime);
+
         console.log("Parsed form data:", {
             patientName,
             email,
@@ -158,6 +173,8 @@ export default async function handler(
             suggestAppointment,
             appointmentDate,
             appointmentTime,
+            appointmentDateTime,
+            formattedAppointmentTime,
         });
 
         if (process.env.NODE_ENV === "development") {
@@ -224,21 +241,44 @@ export default async function handler(
                 });
             }
 
-            const appointmentResponse = await fetch(
-                `${process.env.APP_URL}/api/create-appointment/route`,
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
+            const eventUrl = `https://graph.microsoft.com/v1.0/users/fsclinicals-com@mail.clinicviews.com/calendar/events`;
+            const appointmentResponse = await fetch(eventUrl, {
+                method: "POST",
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    subject: `Appointment with ${patientName}`,
+                    start: {
+                        dateTime: appointmentDateTime.toISOString(),
+                        timeZone: "Pacific Standard Time",
                     },
-                    body: JSON.stringify({
-                        accessToken,
-                        patientName,
-                        email,
-                        appointmentDateTime: appointmentDateTime.toISOString(),
-                    }),
-                }
-            );
+                    end: {
+                        dateTime: new Date(
+                            new Date(appointmentDateTime).getTime() +
+                                60 * 60 * 1000
+                        ).toISOString(),
+                        timeZone: "Pacific Standard Time",
+                    },
+                    attendees: [
+                        {
+                            emailAddress: {
+                                address: email,
+                                name: patientName,
+                            },
+                            type: "required",
+                        },
+                        {
+                            emailAddress: {
+                                address: "rpalm@driptrace.io",
+                                name: "FSClinicals Doctor",
+                            },
+                            type: "required",
+                        },
+                    ],
+                }),
+            });
 
             if (!appointmentResponse.ok) {
                 const errorData =
@@ -255,9 +295,6 @@ export default async function handler(
             console.log("Appointment created successfully:", appointmentResult);
         } else {
             console.log("No appointment was created, skipping email sending.");
-            return res.status(200).json({
-                message: "Patient registered successfully without appointment.",
-            });
         }
 
         const patientEmailHtml = renderToString(
@@ -266,35 +303,39 @@ export default async function handler(
                 email,
                 phone,
                 reason,
-                isDoctor: false,
                 appointmentDate,
-                appointmentTime,
+                appointmentTime: formattedAppointmentTime,
+                isDoctor: false,
             })
         );
+
         const doctorEmailHtml = renderToString(
             EmailTemplate({
                 name: patientName,
                 email,
                 phone,
                 reason,
-                isDoctor: true,
                 appointmentDate,
-                appointmentTime,
+                appointmentTime: formattedAppointmentTime,
+                isDoctor: true,
             })
         );
 
+        // Send a single email to the doctor including the PDF and appointment details
+        await sendEmail(
+            accessToken,
+            "rpalm@driptrace.io",
+            "New Patient Registration and Appointment",
+            doctorEmailHtml,
+            attachmentContent
+        );
+
+        // Send the confirmation email to the patient
         await sendEmail(
             accessToken,
             email,
             "Registration Confirmation",
             patientEmailHtml
-        );
-        await sendEmail(
-            accessToken,
-            "steven@fsclinicals.com",
-            "New Patient Registration",
-            doctorEmailHtml,
-            attachmentContent
         );
 
         res.status(200).json({ message: "Patient registered successfully" });
@@ -306,3 +347,334 @@ export default async function handler(
         });
     }
 }
+
+// import nodemailer from "nodemailer";
+// import { NextApiRequest, NextApiResponse } from "next";
+// import fetch from "node-fetch";
+// import { IncomingForm, File } from "formidable";
+// import fs from "fs/promises";
+// import { createWriteStream } from "fs";
+// import archiver from "archiver";
+// import path from "path";
+// import { renderToString } from "react-dom/server";
+// import EmailTemplate from "@/components/FSClinicals/EmailTemplate";
+
+// export const config = {
+//     api: {
+//         bodyParser: false,
+//     },
+// };
+
+// interface TokenResponse {
+//     access_token: string;
+//     error_description?: string;
+// }
+
+// interface ErrorResponse {
+//     error: {
+//         code: string;
+//         message: string;
+//         innerError?: {
+//             date: string;
+//             request_id: string;
+//             client_request_id: string;
+//         };
+//     };
+// }
+
+// interface PatientResponse {
+//     id: string;
+//     displayName: string;
+//     emailAddresses: Array<{ name: string; address: string }>;
+//     mobilePhone: string;
+// }
+
+// async function compressFile(file: File): Promise<string> {
+//     const zipFilePath = path.join("/tmp", `${file.originalFilename}.zip`);
+//     const output = createWriteStream(zipFilePath);
+//     const archive = archiver("zip", { zlib: { level: 9 } });
+
+//     return new Promise((resolve, reject) => {
+//         output.on("close", () => resolve(zipFilePath));
+//         archive.on("error", reject);
+//         archive.pipe(output);
+//         archive.file(file.filepath, { name: file.originalFilename ?? "file" });
+//         archive.finalize();
+//     });
+// }
+
+// async function getAccessToken(): Promise<string> {
+//     const tokenEndpoint = `https://login.microsoftonline.com/${process.env.NEXT_PUBLIC_AZURE_AD_TENANT_ID}/oauth2/v2.0/token`;
+//     const clientId = `${process.env.NEXT_PUBLIC_AZURE_AD_CLIENT_ID}`;
+//     const clientSecret = `${process.env.NEXT_PUBLIC_AZURE_AD_CLIENT_SECRET}`;
+//     const requestBody = new URLSearchParams({
+//         grant_type: "client_credentials",
+//         client_id: clientId,
+//         client_secret: clientSecret,
+//         scope: "https://graph.microsoft.com/.default",
+//     });
+
+//     const response = await fetch(tokenEndpoint, {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/x-www-form-urlencoded",
+//         },
+//         body: requestBody.toString(),
+//     });
+
+//     if (!response.ok) {
+//         const errorData = (await response.json()) as ErrorResponse;
+//         throw new Error(
+//             `Failed to retrieve access token: ${
+//                 errorData.error.message || "Unknown error"
+//             }`
+//         );
+//     }
+
+//     const data = (await response.json()) as TokenResponse;
+//     return data.access_token;
+// }
+
+// function formatTo12HourTime(dateString: string): string {
+//     const date = new Date(dateString);
+//     const hours = date.getHours();
+//     const minutes = date.getMinutes();
+//     const ampm = hours >= 12 ? "PM" : "AM";
+//     const formattedHours = hours % 12 || 12;
+//     const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+//     return `${formattedHours}:${formattedMinutes} ${ampm}`;
+// }
+
+// export default async function handler(
+//     req: NextApiRequest,
+//     res: NextApiResponse
+// ) {
+//     if (req.method !== "POST") {
+//         return res.status(405).json({ error: "Method Not Allowed" });
+//     }
+
+//     const form = new IncomingForm();
+
+//     try {
+//         const [fields, files] = await new Promise<[any, any]>(
+//             (resolve, reject) => {
+//                 form.parse(req, (err, fields, files) => {
+//                     if (err) reject(err);
+//                     resolve([fields, files]);
+//                 });
+//             }
+//         );
+
+//         console.log("Received form data:", fields);
+//         console.log("Received files:", files);
+
+//         const file = files.file[0] as File;
+//         const zipFilePath = await compressFile(file);
+//         const fileContent = await fs.readFile(zipFilePath);
+//         const fileSize = fileContent.length;
+
+//         console.log("Compressed file details:", {
+//             name: `${file.originalFilename}.zip`,
+//             size: fileSize,
+//         });
+
+//         const attachmentContent = fileContent.toString("base64");
+
+//         const patientName = Array.isArray(fields.patientName)
+//             ? fields.patientName[0]
+//             : fields.patientName;
+//         const email = Array.isArray(fields.email)
+//             ? fields.email[0]
+//             : fields.email;
+//         const phone = Array.isArray(fields.phone)
+//             ? fields.phone[0]
+//             : fields.phone;
+//         const reason = Array.isArray(fields.reason)
+//             ? fields.reason[0]
+//             : fields.reason;
+//         const suggestAppointment = Array.isArray(fields.suggestAppointment)
+//             ? fields.suggestAppointment[0]
+//             : fields.suggestAppointment;
+//         const appointmentDate = Array.isArray(fields.appointmentDate)
+//             ? fields.appointmentDate[0]
+//             : fields.appointmentDate;
+//         const appointmentTime = Array.isArray(fields.appointmentTime)
+//             ? fields.appointmentTime[0]
+//             : fields.appointmentTime;
+//         const appointmentDateTime = `${appointmentDate}T${appointmentTime}:00.000`;
+
+//         console.log("Parsed form data:", {
+//             patientName,
+//             email,
+//             phone,
+//             reason,
+//             suggestAppointment,
+//             appointmentDate,
+//             appointmentTime,
+//             appointmentDateTime,
+//         });
+
+//         const accessToken = await getAccessToken();
+
+//         const patientData = {
+//             displayName: patientName,
+//             emailAddresses: [{ address: email }],
+//             mobilePhone: phone,
+//         };
+
+//         const patientResponse = await fetch(
+//             "https://graph.microsoft.com/v1.0/users/fsclinicals-com@mail.clinicviews.com/contacts",
+//             {
+//                 method: "POST",
+//                 headers: {
+//                     Authorization: `Bearer ${accessToken}`,
+//                     "Content-Type": "application/json",
+//                 },
+//                 body: JSON.stringify(patientData),
+//             }
+//         );
+
+//         if (!patientResponse.ok) {
+//             const errorData = (await patientResponse.json()) as ErrorResponse;
+//             throw new Error(
+//                 `Failed to create patient record: ${errorData.error.message}`
+//             );
+//         }
+
+//         const patient = (await patientResponse.json()) as PatientResponse;
+//         console.log("Patient record created:", patient);
+
+//         const eventDetails = {
+//             subject: `Appointment with ${patientName}`,
+//             body: {
+//                 contentType: "HTML",
+//                 content: `Appointment details for ${patientName} on ${appointmentDate} at ${formatTo12HourTime(
+//                     appointmentDateTime
+//                 )}.`,
+//             },
+//             start: {
+//                 dateTime: appointmentDateTime,
+//                 timeZone: "Pacific Standard Time",
+//             },
+//             end: {
+//                 dateTime: new Date(
+//                     new Date(appointmentDateTime).getTime() + 60 * 60 * 1000
+//                 ).toISOString(),
+//                 timeZone: "Pacific Standard Time",
+//             },
+//             attendees: [
+//                 {
+//                     emailAddress: {
+//                         address: email,
+//                         name: patientName,
+//                     },
+//                     type: "required",
+//                 },
+//                 {
+//                     emailAddress: {
+//                         address: "rpalm@driptrace.io",
+//                         name: "FSClinicals Doctor",
+//                     },
+//                     type: "required",
+//                 },
+//             ],
+//         };
+
+//         console.log("Event details:", JSON.stringify(eventDetails, null, 2));
+
+//         const createEventResponse = await fetch(
+//             `https://graph.microsoft.com/v1.0/users/fsclinicals-com@mail.clinicviews.com/calendar/events`,
+//             {
+//                 method: "POST",
+//                 headers: {
+//                     Authorization: `Bearer ${accessToken}`,
+//                     "Content-Type": "application/json",
+//                 },
+//                 body: JSON.stringify(eventDetails),
+//             }
+//         );
+
+//         if (!createEventResponse.ok) {
+//             const errorData =
+//                 (await createEventResponse.json()) as ErrorResponse;
+//             console.error("Error creating event:", errorData);
+//             throw new Error(
+//                 `Failed to create calendar event: ${errorData.error.message}`
+//             );
+//         }
+
+//         const event = await createEventResponse.json();
+//         console.log("Event created successfully:", event);
+
+//         const transporter = nodemailer.createTransport({
+//             host: process.env.SMTP_HOST,
+//             port: parseInt(process.env.SMTP_PORT!, 10),
+//             secure: false, // true for 465, false for other ports
+//             auth: {
+//                 user: process.env.SMTP_USER,
+//                 pass: process.env.SMTP_PASSWORD,
+//             },
+//         });
+
+//         const patientEmailHtml = renderToString(
+//             EmailTemplate({
+//                 name: patientName,
+//                 email,
+//                 phone,
+//                 reason,
+//                 isDoctor: false,
+//                 appointmentDate,
+//                 appointmentTime: formatTo12HourTime(appointmentDateTime),
+//             })
+//         );
+//         const doctorEmailHtml = renderToString(
+//             EmailTemplate({
+//                 name: patientName,
+//                 email,
+//                 phone,
+//                 reason,
+//                 isDoctor: true,
+//                 appointmentDate,
+//                 appointmentTime: formatTo12HourTime(appointmentDateTime),
+//             })
+//         );
+
+//         const mailOptions = {
+//             from: `"FSClinicals Mail" <${process.env.SMTP_USER}>`,
+//             to: email,
+//             subject: "Registration Confirmation",
+//             html: patientEmailHtml,
+//         };
+
+//         const mailOptionsDoctor = {
+//             from: `"FSClinicals Mail" <${process.env.SMTP_USER}>`,
+//             to: "rpalm@driptrace.io",
+//             subject: "New Patient Registration",
+//             html: doctorEmailHtml,
+//             attachments: [
+//                 {
+//                     filename: "patient_document.zip",
+//                     content: attachmentContent,
+//                     encoding: "base64",
+//                 },
+//             ],
+//         };
+
+//         await transporter.sendMail(mailOptions);
+//         await transporter.sendMail(mailOptionsDoctor);
+
+//         res.status(200).json({ message: "Patient registered successfully" });
+//     } catch (error: unknown) {
+//         console.error("Error registering patient:", error);
+//         if (error instanceof Error) {
+//             res.status(500).json({
+//                 error: "Error registering patient",
+//                 details: error.message,
+//             });
+//         } else {
+//             res.status(500).json({
+//                 error: "Unknown error occurred",
+//             });
+//         }
+//     }
+// }
