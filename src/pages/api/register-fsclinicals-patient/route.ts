@@ -1229,6 +1229,27 @@ export const config = {
     },
 };
 
+export const devMode = process.env.NODE_ENV === "development";
+export const mode = devMode
+    ? (process.env.LOCAL_DEVELOPMENT_MODE as string)
+    : (process.env.DRIPTRACE_MEDICAL_PRODUCTION_MODE as string);
+export const smtpAuthUser = process.env
+    .FSCLINICALS_CLINICVIEWS_USER_ENDPOINT as string;
+export const smtpAuthPass = process.env
+    .FSCLINICALS_CLINICVIEWS_USER_PASSWORD as string;
+export const smtpRecipient = devMode
+    ? (process.env.RUSSELLPALMA_USER_ENDPOINT as string)
+    : (process.env.FSCLINICALS_USER_ENDPOINT as string);
+// export const smtpSender = devMode
+//     ? (process.env.RUSSELLPALMA_USER_ENDPOINT as string)
+//     : (process.env.FSCLINICALS_USER_ENDPOINT as string);
+export const graphCalendarEvent = process.env
+    .MICROSOFT_GRAPH_CALENDAR_EVENT_ENDPOINT as string;
+export const graphContacts = process.env
+    .MICROSOFT_GRAPH_CONTACTS_ENDPOINT as string;
+export const smtpHost = process.env.OFFICE365_SMTP_DOMAIN as string;
+export const smtpPort = process.env.OFFICE365_SMTP_PORT as string;
+
 async function compressFile(file: File): Promise<string> {
     const zipFilePath = path.join("/tmp", `${file.originalFilename}.zip`);
     const output = createWriteStream(zipFilePath);
@@ -1269,7 +1290,7 @@ async function sendEmail(
     console.log(`Sending email to ${to}`);
 
     const mailOptions: nodemailer.SendMailOptions = {
-        from: `"FSClinicals Mail" <${process.env.SMTP_USER}>`,
+        from: `"FSClinicals Mail" <${smtpAuthUser}>`,
         to,
         subject,
         html: content,
@@ -1295,6 +1316,7 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
 ) {
+    console.log("req:\n", req.body);
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Method Not Allowed" });
     }
@@ -1367,15 +1389,8 @@ export default async function handler(
             formattedAppointmentTime,
         });
 
-        if (process.env.NODE_ENV === "development") {
-            process.env.APP_URL = process.env.DEV_APP_URL;
-        } else {
-            process.env.APP_URL = process.env.PROD_APP_URL;
-        }
-
-        const tokenResponse = await fetch(
-            `${process.env.APP_URL}/api/get-token/route`
-        );
+        console.log("Mode:\n", mode);
+        const tokenResponse = await fetch(`${mode}/api/get-token/route`);
         const { accessToken } = (await tokenResponse.json()) as TokenResponse;
 
         const patientData = {
@@ -1385,7 +1400,8 @@ export default async function handler(
         };
 
         const patientResponse = await fetch(
-            "https://graph.microsoft.com/v1.0/users/fsclinicals-com@mail.clinicviews.com/contacts",
+            // "https://graph.microsoft.com/v1.0/users/fsclinicals-com@mail.clinicviews.com/contacts",
+            `${graphContacts}`,
             {
                 method: "POST",
                 headers: {
@@ -1414,7 +1430,8 @@ export default async function handler(
             appointmentDate &&
             appointmentTime
         ) {
-            const eventUrl = `https://graph.microsoft.com/v1.0/users/fsclinicals-com@mail.clinicviews.com/calendar/events`;
+            // const eventUrl = `https://graph.microsoft.com/v1.0/users/fsclinicals-com@mail.clinicviews.com/calendar/events`;
+            const eventUrl = `${graphCalendarEvent}`;
             const appointmentResponse = await fetch(eventUrl, {
                 method: "POST",
                 headers: {
@@ -1447,8 +1464,8 @@ export default async function handler(
                         },
                         {
                             emailAddress: {
-                                address: "rpalm@russellpalma.com",
-                                name: "FSClinicals Doctor",
+                                address: `${smtpRecipient}`,
+                                name: "FSClinicals Connect",
                             },
                             type: "required",
                         },
@@ -1498,12 +1515,12 @@ export default async function handler(
         );
 
         const transporter = nodemailer.createTransport({
-            host: process.env.SMTP_HOST,
-            port: parseInt(process.env.SMTP_PORT!, 10),
+            host: smtpHost,
+            port: parseInt(smtpPort!, 10),
             secure: false, // true for 465, false for other ports
             auth: {
-                user: process.env.SMTP_USER,
-                pass: process.env.SMTP_PASSWORD,
+                user: smtpAuthUser,
+                pass: smtpAuthPass,
             },
             tls: {
                 ciphers: "SSLv3",
@@ -1515,7 +1532,7 @@ export default async function handler(
 
         await sendEmail(
             transporter,
-            "rpalm@russellpalma.com",
+            `${smtpRecipient}`,
             "New Patient Registration and Appointment",
             doctorEmailHtml,
             [

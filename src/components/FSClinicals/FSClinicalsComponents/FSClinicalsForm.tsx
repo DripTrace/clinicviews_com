@@ -718,12 +718,13 @@ export default function FSClinicalsFormComponent() {
 
             if (!res.ok) {
                 const errorText = await res.text();
+                console.log("res:\n", res);
                 throw new Error(
                     `HTTP error! status: ${res.status}, body: ${errorText}`
                 );
             } else {
-                console.log("res.ok: ", res.ok);
-                router.push("https://fsclinicals.com");
+                console.log("res\n", res);
+                // router.push("https://fsclinicals.com");
             }
 
             const data = await res.json();
@@ -740,7 +741,7 @@ export default function FSClinicalsFormComponent() {
         }
 
         setIsLoading(false);
-        router.push("https://fsclinicals.com");
+        // router.push("https://fsclinicals.com");
     };
 
     const model = new Model(fsclinicalsForm);
@@ -798,6 +799,7 @@ export default function FSClinicalsFormComponent() {
 
         if (Object.keys(formResults).length !== 0 && pdfData) {
             handleSubmit();
+            console.log("Submitting form with updated data:\n", formResults);
         }
     }, [formResults, pdfData]);
 
