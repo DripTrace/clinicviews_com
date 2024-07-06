@@ -743,6 +743,35 @@ export default function FSClinicalsFormComponent() {
     };
 
     const model = new Model(fsclinicalsForm);
+    model.navigationBar.getActionById("sv-nav-complete").visible = false;
+    model.addNavigationItem({
+        id: "survey_pdf_preview",
+        title: "Preview PDF",
+        action: previewPdf,
+    });
+    model.addNavigationItem({
+        id: "model_save_as_file",
+        title: "Save as PDF",
+        action: () => {
+            saveSurveyToPdf("modelResult.pdf", model);
+        },
+    });
+    model.addNavigationItem({
+        id: "patient_registry",
+        title: "Register",
+        action: () => {
+            const pdfOutput = saveSurveyToPdf(
+                "registration-results.pdf",
+                model
+            );
+            console.log("pdfOutput: ", pdfOutput);
+        },
+    });
+    model.addNavigationItem({
+        id: "model_save_via_blob",
+        title: "Save via Blob",
+        action: savePdfViaRealBlob,
+    });
     model.applyTheme(fsclinicalsTheme);
 
     model.onComplete.add((sender, options) => {
@@ -789,12 +818,55 @@ export default function FSClinicalsFormComponent() {
         }
     }
 
+    function previewPdf() {
+        const surveyPDF = createSurveyPdfModel(model);
+        const oldFrame = document.getElementById("pdf-preview-frame");
+        if (oldFrame && oldFrame.parentNode)
+            oldFrame.parentNode.removeChild(oldFrame);
+        surveyPDF.raw().then(function (uint8Array) {
+            const blob = new Blob([uint8Array], { type: "application/pdf" });
+            const url = URL.createObjectURL(blob);
+            const pdfEmbed = document.createElement("embed");
+            pdfEmbed.setAttribute("id", "pdf-preview-frame");
+            pdfEmbed.setAttribute("type", "application/pdf");
+            pdfEmbed.setAttribute("style", "width:100%");
+            pdfEmbed.setAttribute("height", `${window.innerHeight - 100}`);
+            pdfEmbed.setAttribute("src", url);
+            const previewDiv = document.getElementById("pdf-preview");
+            if (previewDiv) {
+                previewDiv.appendChild(pdfEmbed);
+            } else {
+                const hiddenElements = document.createElement("div");
+                hiddenElements.setAttribute("style", "display: none;");
+                hiddenElements.appendChild(pdfEmbed);
+                document.body.appendChild(hiddenElements);
+            }
+        });
+    }
+
+    function savePdfViaRealBlob() {
+        const modelPDF = createSurveyPdfModel(model);
+        modelPDF.raw("blob").then(function (rawblob) {
+            console.log("rawblob:\n", rawblob);
+            const a = document.createElement("a");
+            a.href = rawblob;
+            a.download = "modelViaBlob.pdf";
+            document.body.appendChild(a);
+            a.click();
+        });
+    }
+
+    function saveSurveyToPdf(filename: string, surveyModel: SurveyModel) {
+        createSurveyPdfModel(surveyModel).save(filename);
+    }
+
     return (
         <>
             <Survey model={model} />
             <div id="surveyElement"></div>
             {isLoading && <p>Processing your registration...</p>}
             {response && <p>{response}</p>}
+            <div id="pdf-preview"></div>
         </>
     );
 }

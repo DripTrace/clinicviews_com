@@ -6,7 +6,7 @@ import withSerwistInit from "@serwist/next";
 const nextConfig = {
     api: {
         bodyParser: {
-            sizeLimit: "150mb", // Increase to match Microsoft Graph API limit
+            sizeLimit: "4.5mb", // Increase to match Microsoft Graph API limit
         },
         // bodyParser: false,
     },
