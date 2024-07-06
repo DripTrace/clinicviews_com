@@ -69,7 +69,7 @@
 //                 <>
 //                     <p>
 //                         Thank you for registering with Four Square Clinicals.
-//                         Here are the details we&apos;ve received:
+//                         Here are the details we've received:
 //                     </p>
 //                     <ul style={{ listStyleType: "none", padding: 0 }}>
 //                         <li>
@@ -487,8 +487,8 @@ const EmailTemplate: React.FC<EmailTemplateProps> = ({
             <div style={contentStyle}>
                 <p>
                     {isDoctor
-                        ? `${name} just sent a registration. Here are the details we&apos;ve received:`
-                        : "Thank you for registering with Four Square Clinicals. Here are the details we&apos;ve received:"}
+                        ? `${name} just sent a registration. Here are the details we've received:`
+                        : "Thank you for registering with Four Square Clinicals. Here are the details we've received:"}
                 </p>
                 <p>
                     <strong>Name:</strong> {name}
@@ -504,12 +504,10 @@ const EmailTemplate: React.FC<EmailTemplateProps> = ({
                 </p>
                 {appointmentDate && appointmentTime && (
                     <>
-                        <h2>
-                            {isDoctor ? `${name}&apos;s ` : "Your "} Appointment
-                        </h2>
+                        <h2>{isDoctor ? `${name}'s ` : "Your "} Appointment</h2>
                         <p>
-                            {isDoctor ? `${name}&apos;s ` : "Your "} appointment
-                            has been scheduled for {appointmentDate} at{" "}
+                            {isDoctor ? `${name}'s ` : "Your "} appointment has
+                            been scheduled for {appointmentDate} at{" "}
                             {appointmentTime}.
                         </p>
                     </>
