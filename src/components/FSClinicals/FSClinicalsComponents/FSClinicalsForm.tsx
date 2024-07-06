@@ -740,6 +740,7 @@ export default function FSClinicalsFormComponent() {
         }
 
         setIsLoading(false);
+        router.push("https://fsclinicals.com");
     };
 
     const model = new Model(fsclinicalsForm);
