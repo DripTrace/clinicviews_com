@@ -271,7 +271,7 @@
 //                         },
 //                         {
 //                             emailAddress: {
-//                                 address: "steven@fsclinicals.com",
+//                                 address: "rpalm@russellpalma.com",
 //                                 name: "FSClinicals Doctor",
 //                             },
 //                             type: "required",
@@ -324,7 +324,7 @@
 //         // Send a single email to the doctor including the PDF and appointment details
 //         await sendEmail(
 //             accessToken,
-//             "steven@fsclinicals.com",
+//             "rpalm@russellpalma.com",
 //             "New Patient Registration and Appointment",
 //             doctorEmailHtml,
 //             attachmentContent
@@ -572,7 +572,7 @@
 //                 },
 //                 {
 //                     emailAddress: {
-//                         address: "steven@fsclinicals.com",
+//                         address: "rpalm@russellpalma.com",
 //                         name: "FSClinicals Doctor",
 //                     },
 //                     type: "required",
@@ -648,7 +648,7 @@
 
 //         const mailOptionsDoctor = {
 //             from: `"FSClinicals Mail" <${process.env.SMTP_USER}>`,
-//             to: "steven@fsclinicals.com",
+//             to: "rpalm@russellpalma.com",
 //             subject: "New Patient Registration",
 //             html: doctorEmailHtml,
 //             attachments: [
@@ -1137,7 +1137,7 @@
 //                         },
 //                         {
 //                             emailAddress: {
-//                                 address: "steven@fsclinicals.com",
+//                                 address: "rpalm@russellpalma.com",
 //                                 name: "FSClinicals Doctor",
 //                             },
 //                             type: "required",
@@ -1189,7 +1189,7 @@
 
 //         await sendEmail(
 //             accessToken,
-//             "steven@fsclinicals.com",
+//             "rpalm@russellpalma.com",
 //             "New Patient Registration and Appointment",
 //             doctorEmailHtml,
 //             attachmentContent
@@ -1447,7 +1447,7 @@ export default async function handler(
                         },
                         {
                             emailAddress: {
-                                address: "steven@fsclinicals.com",
+                                address: "rpalm@russellpalma.com",
                                 name: "FSClinicals Doctor",
                             },
                             type: "required",
@@ -1515,7 +1515,7 @@ export default async function handler(
 
         await sendEmail(
             transporter,
-            "steven@fsclinicals.com",
+            "rpalm@russellpalma.com",
             "New Patient Registration and Appointment",
             doctorEmailHtml,
             [

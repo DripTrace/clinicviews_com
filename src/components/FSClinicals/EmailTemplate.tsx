@@ -486,8 +486,9 @@ const EmailTemplate: React.FC<EmailTemplateProps> = ({
             </div>
             <div style={contentStyle}>
                 <p>
-                    Thank you for registering with Four Square Clinicals. Here
-                    are the details we&lsquo;ve received:
+                    {isDoctor
+                        ? `${name} just sent a registration. Here are the details we&lsquo;ve received:`
+                        : " Thank you for registering with Four Square Clinicals. Here are the details we&lsquo;ve received:"}
                 </p>
                 <p>
                     <strong>Name:</strong> {name}
@@ -503,16 +504,23 @@ const EmailTemplate: React.FC<EmailTemplateProps> = ({
                 </p>
                 {appointmentDate && appointmentTime && (
                     <>
-                        <h2>Your Appointment</h2>
+                        <h2>
+                            {isDoctor ? `${name}&apos;` : "Your"}
+                            Appointment
+                        </h2>
                         <p>
-                            Your appointment has been scheduled for{" "}
-                            {appointmentDate} at {appointmentTime}.
+                            {isDoctor ? `${name}&apos;` : "Your"}
+                            appointment has been scheduled for {
+                                appointmentDate
+                            }{" "}
+                            at {appointmentTime}.
                         </p>
                     </>
                 )}
                 <p>
-                    We will contact you soon to confirm your registration and
-                    provide further information.
+                    {isDoctor
+                        ? `${name} will be expecting a call from you soon to confirm the registration and provide further information.`
+                        : "We will contact you soon to confirm your registration and provide further information."}
                 </p>
                 {isDoctor && (
                     <p>
