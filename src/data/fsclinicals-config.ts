@@ -539,8 +539,8 @@ import { ITheme } from "survey-core";
 
 export const fsclinicalsTheme: ITheme = {
     backgroundImage:
-        // "https://api.surveyjs.io/private/Surveys/files?name=0e692c99-8fa6-4f8b-b06e-ded5f714d0c8",
-        "",
+        "https://api.surveyjs.io/private/Surveys/files?name=0e692c99-8fa6-4f8b-b06e-ded5f714d0c8",
+    // "",
     backgroundImageFit: "cover",
     backgroundImageAttachment: "fixed",
     backgroundOpacity: 0.75,
@@ -1281,10 +1281,14 @@ export const fsclinicalsForm = {
     ],
     showQuestionNumbers: "off",
     questionErrorLocation: "bottom",
-    completeText: "Register",
+    completeText: "Submit Intake",
     questionsOnPageMode: "singlePage",
     widthMode: "static",
     width: "1024",
+    showNavigationButtons: true,
+    showCompletedPage: true,
+    // showTOC: true,
+    showPreviewBeforeComplete: "showAllQuestions",
 };
 
 // export const fsclinicalsTheme = {

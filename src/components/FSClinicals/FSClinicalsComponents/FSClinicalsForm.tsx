@@ -744,34 +744,34 @@ export default function FSClinicalsFormComponent() {
 
     const model = new Model(fsclinicalsForm);
     model.navigationBar.getActionById("sv-nav-complete").visible = false;
-    model.addNavigationItem({
-        id: "survey_pdf_preview",
-        title: "Preview PDF",
-        action: previewPdf,
-    });
-    model.addNavigationItem({
-        id: "model_save_as_file",
-        title: "Save as PDF",
-        action: () => {
-            saveSurveyToPdf("modelResult.pdf", model);
-        },
-    });
-    model.addNavigationItem({
-        id: "patient_registry",
-        title: "Register",
-        action: () => {
-            const pdfOutput = saveSurveyToPdf(
-                "registration-results.pdf",
-                model
-            );
-            console.log("pdfOutput: ", pdfOutput);
-        },
-    });
-    model.addNavigationItem({
-        id: "model_save_via_blob",
-        title: "Save via Blob",
-        action: savePdfViaRealBlob,
-    });
+    // model.addNavigationItem({
+    //     id: "survey_pdf_preview",
+    //     title: "Preview PDF",
+    //     action: previewPdf,
+    // });
+    // model.addNavigationItem({
+    //     id: "model_save_as_file",
+    //     title: "Save as PDF",
+    //     action: () => {
+    //         saveSurveyToPdf("modelResult.pdf", model);
+    //     },
+    // });
+    // model.addNavigationItem({
+    //     id: "patient_registry",
+    //     title: "Register",
+    //     action: () => {
+    //         const pdfOutput = saveSurveyToPdf(
+    //             "registration-results.pdf",
+    //             model
+    //         );
+    //         console.log("pdfOutput: ", pdfOutput);
+    //     },
+    // });
+    // model.addNavigationItem({
+    //     id: "model_save_via_blob",
+    //     title: "Save via Blob",
+    //     action: savePdfViaRealBlob,
+    // });
     model.applyTheme(fsclinicalsTheme);
 
     model.onComplete.add((sender, options) => {
@@ -866,7 +866,7 @@ export default function FSClinicalsFormComponent() {
             <div id="surveyElement"></div>
             {isLoading && <p>Processing your registration...</p>}
             {response && <p>{response}</p>}
-            <div id="pdf-preview"></div>
+            {/* <div id="pdf-preview"></div> */}
         </>
     );
 }
