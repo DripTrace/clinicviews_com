@@ -487,8 +487,8 @@ const EmailTemplate: React.FC<EmailTemplateProps> = ({
             <div style={contentStyle}>
                 <p>
                     {isDoctor
-                        ? `${name} just sent a registration. Here are the details we&lsquo;ve received:`
-                        : " Thank you for registering with Four Square Clinicals. Here are the details we&lsquo;ve received:"}
+                        ? `${name} just sent a registration. Here are the details we&apos;ve received:`
+                        : "Thank you for registering with Four Square Clinicals. Here are the details we&apos;ve received:"}
                 </p>
                 <p>
                     <strong>Name:</strong> {name}
@@ -505,15 +505,12 @@ const EmailTemplate: React.FC<EmailTemplateProps> = ({
                 {appointmentDate && appointmentTime && (
                     <>
                         <h2>
-                            {isDoctor ? `${name}&apos;` : "Your"}
-                            Appointment
+                            {isDoctor ? `${name}&apos;s ` : "Your "} Appointment
                         </h2>
                         <p>
-                            {isDoctor ? `${name}&apos;` : "Your"}
-                            appointment has been scheduled for {
-                                appointmentDate
-                            }{" "}
-                            at {appointmentTime}.
+                            {isDoctor ? `${name}&apos;s ` : "Your "} appointment
+                            has been scheduled for {appointmentDate} at{" "}
+                            {appointmentTime}.
                         </p>
                     </>
                 )}
@@ -533,7 +530,7 @@ const EmailTemplate: React.FC<EmailTemplateProps> = ({
                     <a href="mailto:info@fsclinicals.com">
                         info@fsclinicals.com
                     </a>{" "}
-                    or (775) 238-3082.
+                    or <a href="tel:(775) 238-3082">(775) 238-3082</a>.
                 </p>
             </div>
         </div>
