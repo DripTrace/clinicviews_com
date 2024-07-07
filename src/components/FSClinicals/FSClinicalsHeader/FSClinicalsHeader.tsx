@@ -118,31 +118,35 @@ const FSClinicalsHeader: React.FC = () => {
 
     return (
         <header
-            className={`${
-                isDarkMode ? "bg-[#0C3C60]" : "bg-[#6EA4CE]"
-            } text-white p-4`}
+            className={`${isDarkMode ? "bg-[#0C3C60]" : "bg-[#6EA4CE]"} p-4`}
         >
-            <div className="container mx-auto flex justify-between items-center">
+            <div className="container mx-auto flex justify-between items-center gap-[2rem]">
                 <Link
                     href="/fsclinicals/fsclinicals-landing"
-                    className="text-2xl font-bold flex items-center justify-center gap-3"
+                    className={`${
+                        isDarkMode ? "text-[#1FABC7]" : "text-[#0C3C60]"
+                    } hover:text-[#D1E0EB] transition-colors text-2xl font-bold flex items-center justify-center gap-3`}
                 >
                     <Image
                         src="/fsclinicals/fsclinicals_-.svg"
                         alt="fsclinicals-logo"
                         height={100}
                         width={100}
-                        className="size-[4rem]"
+                        className={`size-[4rem] bg-white rounded-xl`}
                     />
                     Four Square Clinicals
                 </Link>
 
                 <nav className="hidden md:block">
-                    <ul className="flex space-x-4">
+                    <ul className="flex items-center justify-center space-x-[7rem]">
                         <li>
                             <Link
                                 href="/fsclinicals/fsclinicals-landing"
-                                className="hover:text-[#D1E0EB] transition-colors"
+                                className={`${
+                                    isDarkMode
+                                        ? "text-[#1FABC7]"
+                                        : "text-[#0C3C60]"
+                                } hover:text-[#D1E0EB] transition-colors`}
                             >
                                 Home
                             </Link>
@@ -158,7 +162,11 @@ const FSClinicalsHeader: React.FC = () => {
                         <li>
                             <Link
                                 href="/fsclinicals/about"
-                                className="hover:text-[#D1E0EB] transition-colors"
+                                className={`${
+                                    isDarkMode
+                                        ? "text-[#1FABC7]"
+                                        : "text-[#0C3C60]"
+                                } hover:text-[#D1E0EB] transition-colors`}
                             >
                                 About
                             </Link>
@@ -166,7 +174,11 @@ const FSClinicalsHeader: React.FC = () => {
                         <li>
                             <Link
                                 href="/fsclinicals/fsclinicals-view/fsclinicals-form"
-                                className="hover:text-[#D1E0EB] transition-colors"
+                                className={`${
+                                    isDarkMode
+                                        ? "text-[#1FABC7]"
+                                        : "text-[#0C3C60]"
+                                } hover:text-[#D1E0EB] transition-colors`}
                             >
                                 New Patient
                             </Link>
@@ -197,25 +209,37 @@ const FSClinicalsHeader: React.FC = () => {
                             <li>
                                 <Link
                                     href="/fsclinicals/fsclinicals-landing"
-                                    className="block py-2 px-4 hover:bg-[#1FABC7] transition-colors"
+                                    className={`${
+                                        isDarkMode
+                                            ? "text-[#1FABC7]"
+                                            : "text-[#0C3C60]"
+                                    } hover:text-[#D1E0EB] block py-2 px-4 hover:bg-[#1FABC7] transition-colors`}
                                     onClick={toggleMenu}
                                 >
                                     Home
                                 </Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link
                                     href="/fsclinicals/contact-us"
-                                    className="block py-2 px-4 hover:bg-[#1FABC7] transition-colors"
+                                    className={`${
+                                        isDarkMode
+                                            ? "text-[#1FABC7]"
+                                            : "text-[#0C3C60]"
+                                    } hover:text-[#D1E0EB] block py-2 px-4 hover:bg-[#1FABC7] transition-colors`}
                                     onClick={toggleMenu}
                                 >
                                     Contact
                                 </Link>
-                            </li>
+                            </li> */}
                             <li>
                                 <Link
                                     href="/fsclinicals/about"
-                                    className="block py-2 px-4 hover:bg-[#1FABC7] transition-colors"
+                                    className={`${
+                                        isDarkMode
+                                            ? "text-[#1FABC7]"
+                                            : "text-[#0C3C60]"
+                                    } hover:text-[#D1E0EB] block py-2 px-4 hover:bg-[#1FABC7] transition-colors`}
                                     onClick={toggleMenu}
                                 >
                                     About
@@ -224,7 +248,11 @@ const FSClinicalsHeader: React.FC = () => {
                             <li>
                                 <Link
                                     href="/fsclinicals/fsclinicals-view/fsclinicals-form"
-                                    className="block py-2 px-4 hover:bg-[#1FABC7] transition-colors"
+                                    className={`${
+                                        isDarkMode
+                                            ? "text-[#1FABC7]"
+                                            : "text-[#0C3C60]"
+                                    } hover:text-[#D1E0EB] block py-2 px-4 hover:bg-[#1FABC7] transition-colors`}
                                     onClick={toggleMenu}
                                 >
                                     New Patientt

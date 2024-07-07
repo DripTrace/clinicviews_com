@@ -6,23 +6,23 @@ import FSClinicalsClientRoot from "@/components/FSClinicals/FSClinicalsClientRoo
 const inter = Inter({ subsets: ["latin"] });
 
 export default function FSClinicalsRootLayout({
-	children,
+    children,
 }: {
-	children: React.ReactNode;
+    children: React.ReactNode;
 }) {
-	return (
-		<html lang="en">
-			<body
-				className={`${inter.className} bg-[#D1E0EB] text-[#494949] /*bg-fsc-pale-blue text-fsc-dark-gray*/`}
-			>
-				<FSClinicalsClientRoot>
-					<div className="flex flex-col min-h-screen">
-						<FSClinicalsHeader />
-						<main className="flex-grow">{children}</main>
-						<FSClinicalsFooter />
-					</div>
-				</FSClinicalsClientRoot>
-			</body>
-		</html>
-	);
+    return (
+        <html lang="en">
+            <body
+                className={`${inter.className} bg-[#D1E0EB] text-[#494949] /*bg-fsc-pale-blue text-fsc-dark-gray*/ scrollbar-hide pointer-events-auto`}
+            >
+                <FSClinicalsClientRoot>
+                    <div className="flex flex-col min-h-screen">
+                        <FSClinicalsHeader />
+                        <main className="flex-grow">{children}</main>
+                        <FSClinicalsFooter />
+                    </div>
+                </FSClinicalsClientRoot>
+            </body>
+        </html>
+    );
 }

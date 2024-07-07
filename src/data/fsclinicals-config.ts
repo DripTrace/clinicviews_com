@@ -2,7 +2,7 @@ import { ITheme } from "survey-core";
 
 export const fsclinicalsTheme: ITheme = {
     backgroundImage:
-        "https://api.surveyjs.io/private/Surveys/files?name=0e692c99-8fa6-4f8b-b06e-ded5f714d0c8",
+        "/fsclinicals/Mental-health-discussion-freesvgillustration.com/Mental-health-discussion.svg",
     // "",
     backgroundImageFit: "cover",
     backgroundImageAttachment: "fixed",

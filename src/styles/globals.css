@@ -3,24 +3,24 @@
 @tailwind utilities;
 
 :root {
-	position: relative;
-	/* --foreground-rgb: 0, 0, 0;
+    position: relative;
+    /* --foreground-rgb: 0, 0, 0;
 	--background-start-rgb: 214, 219, 220;
 	--background-end-rgb: 255, 255, 255; */
 }
 
 @media (prefers-color-scheme: dark) {
-	:root {
-		position: relative;
-		/* --foreground-rgb: 255, 255, 255;
+    :root {
+        position: relative;
+        /* --foreground-rgb: 255, 255, 255;
 		--background-start-rgb: 0, 0, 0;
 		--background-end-rgb: 0, 0, 0; */
-	}
+    }
 }
 
 html {
-	scroll-padding-top: 4rem; /* Adjust this value based on your header height */
-	scroll-behavior: smooth;
+    scroll-padding-top: 4rem; /* Adjust this value based on your header height */
+    scroll-behavior: smooth;
 }
 
 /* If you're using scroll-behavior: smooth; for smooth scrolling, add this: */
@@ -33,17 +33,17 @@ html {
   } */
 
 html {
-	scroll-padding-top: 4rem; /* Adjust this value based on your header height */
-	scroll-behavior: smooth;
-	overflow-y: scroll;
+    scroll-padding-top: 4rem; /* Adjust this value based on your header height */
+    scroll-behavior: smooth;
+    overflow-y: scroll;
 }
 
 body {
-	position: relative;
-	/* needed for custom pointer */
-	/* cursor: none; */
-	/* padding-top: 64px;  */
-	/* color: rgb(var(--foreground-rgb));
+    position: relative;
+    /* needed for custom pointer */
+    /* cursor: none; */
+    /* padding-top: 64px;  */
+    /* color: rgb(var(--foreground-rgb));
 	background: linear-gradient(
 			to bottom,
 			transparent,
@@ -64,50 +64,50 @@ body {
 
 html,
 body {
-	height: 100%;
-	overflow-x: hidden;
-	font-family: "Poppins", sans-serif;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
-	overflow-y: scroll;
+    overflow-y: scroll;
 }
 
 html {
-	scroll-padding-top: 4rem;
-	scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
+    scroll-behavior: smooth;
 }
 
 main a {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 
 header a {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 @layer base {
-	html {
-		@apply p-0;
-	}
+    html {
+        @apply p-0;
+    }
 
-	h1 {
-		@apply text-2xl font-bold;
-	}
+    h1 {
+        @apply text-2xl font-bold;
+    }
 
-	a {
-		@apply block w-fit text-blue-700 hover:text-red-800 underline;
-	}
+    a {
+        @apply block w-fit /*text-blue-700 hover:text-red-800*/ underline;
+    }
 
-	button {
-		@apply py-2 px-4 bg-blue-500 hover:bg-blue-500/75 font-semibold uppercase rounded-sm;
-	}
+    button {
+        @apply py-2 px-4 bg-blue-500 hover:bg-blue-500/75 font-semibold uppercase rounded-sm;
+    }
 }
 
 @layer utilities {
-	.text-balance {
-		text-wrap: balance;
-	}
+    .text-balance {
+        text-wrap: balance;
+    }
 }
 
 /*.svc-creator__banner {
@@ -126,17 +126,17 @@ header a {
 }*/
 
 .svc-json-editor-tab__content-area {
-	color: #000 !important;
-	/* background: #000 !important; */
+    color: #000 !important;
+    /* background: #000 !important; */
 }
 .svc-creator__banner {
-	display: none !important;
+    display: none !important;
 }
 
 /*.sv-string-viewer*/
 .sv-string-viewer--multiline {
-	/* background: #000 !important; */
-	color: #000 !important;
+    /* background: #000 !important; */
+    color: #000 !important;
 }
 
 /* .svd-test-results__text .svd-light-bg-color {
@@ -144,24 +144,24 @@ header a {
 }*/
 
 .svd-test-results__text {
-	color: #000 !important;
+    color: #000 !important;
 }
 
 .tabulator-cell {
-	color: #000 !important;
+    color: #000 !important;
 }
 
 .sa-table__filter {
-	color: #000 !important;
+    color: #000 !important;
 }
 
 .sa-datatables__table /*.display .responsive .dataTable*/ {
-	color: #000 !important;
+    color: #000 !important;
 }
 
 .svd-dark-border-color {
-	/* border-color: #000 !important; */
-	background-color: lightgrey !important;
+    /* border-color: #000 !important; */
+    background-color: lightgrey !important;
 }
 
 /* .st-comment {
@@ -197,7 +197,7 @@ header a {
 }*/
 
 .sa-question /*.sa-question-layouted .muuri-item .muuri-item-shown */ {
-	padding: 0 !important;
+    padding: 0 !important;
 }
 
 /*.sa-visualizer__content*/
@@ -208,34 +208,36 @@ header a {
 } */
 
 .sv-header__background-image {
-	/* background: no-repeat center/80% url("/form-background.png") !important; */
-	/* display: none !important; */
-	height: 0 !important;
+    /* background: no-repeat center/80% url("/form-background.png") !important; */
+    /* display: none !important; */
+    height: 0 !important;
 }
 
 .sv-string-viewer {
-	color: #000 !important;
+    color: #000 !important;
 }
 
 /* sv-header__content sv-header__content--responsive */
 
 .sv-header__content {
-	background-color: #000 !important;
-	display: none !important;
+    background-color: #000 !important;
+    display: none !important;
 }
 
 /* sv-header sv-header__without-background */
 
 .sv-header {
-	/* background-color: #000 !important; */
-	/* display: none !important; */
-	/* background: no-repeat center/80% url("/form-background.png") !important; */
-	background: no-repeat center/100% url("/form-background.png") !important;
+    /* background-color: #000 !important; */
+    /* display: none !important; */
+    /* background: no-repeat center/80% url("/form-background.png") !important; */
+    background: no-repeat center/100% url("/form-background.png") !important;
 }
 
 .sv-header__without-background {
     display: none !important;
 }
+
+/* sv-components-column sv-components-column--expandable */
 
 /* .sd-root-modern .sd-root--compact .sd-root-modern--full-container {
 	background: #fff !important;
@@ -245,50 +247,50 @@ header a {
 
 /* Custom cursor styles */
 .custom-cursor {
-	width: 20px;
-	height: 20px;
-	border: 2px solid #3182ce;
-	border-radius: 50%;
-	position: fixed;
-	pointer-events: none;
-	z-index: 9999;
-	transition: all 0.1s ease-out;
-	mix-blend-mode: difference;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #3182ce;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: all 0.1s ease-out;
+    mix-blend-mode: difference;
 }
 
 .custom-cursor-dot {
-	width: 4px;
-	height: 4px;
-	background-color: #3182ce;
-	border-radius: 50%;
-	position: fixed;
-	pointer-events: none;
-	z-index: 9999;
-	transition: all 0.15s ease-out;
+    width: 4px;
+    height: 4px;
+    background-color: #3182ce;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: all 0.15s ease-out;
 }
 
 /* Custom scrollbar styles */
 ::-webkit-scrollbar {
-	width: 10px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-	background: #f1f1f1;
+    background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: #3182ce;
-	border-radius: 5px;
+    background: #3182ce;
+    border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: #2c5282;
+    background: #2c5282;
 }
 
 /* For Firefox */
 * {
-	scrollbar-width: thin;
-	scrollbar-color: #3182ce #f1f1f1;
+    scrollbar-width: thin;
+    scrollbar-color: #3182ce #f1f1f1;
 }
 
 /* * {
@@ -297,26 +299,26 @@ header a {
 
 /* Dark mode scrollbar */
 @media (prefers-color-scheme: dark) {
-	/* width */
-	/* ::-webkit-scrollbar {
+    /* width */
+    /* ::-webkit-scrollbar {
 		width: 2rem;
 	} */
 
-	::-webkit-scrollbar-track {
-		background: #2d3748;
-	}
+    ::-webkit-scrollbar-track {
+        background: #2d3748;
+    }
 
-	::-webkit-scrollbar-thumb {
-		background: #4299e1;
-	}
+    ::-webkit-scrollbar-thumb {
+        background: #4299e1;
+    }
 
-	::-webkit-scrollbar-thumb:hover {
-		background: #63b3ed;
-	}
+    ::-webkit-scrollbar-thumb:hover {
+        background: #63b3ed;
+    }
 
-	* {
-		scrollbar-color: #4299e1 #2d3748;
-	}
+    * {
+        scrollbar-color: #4299e1 #2d3748;
+    }
 }
 
 a,
@@ -326,35 +328,33 @@ input,
 label,
 select,
 textarea {
-	cursor: none;
+    cursor: none;
 }
 
 a:hover,
 button:hover,
 [role="button"]:hover {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 input[type="text"],
 textarea {
-	cursor: text;
+    cursor: text;
 }
 
 .special-link {
-	margin-left: 1-rem;
-	display: inline-block;
-	padding: 10px 20px;
-	background: linear-gradient(45deg, #4158d0, #c850c0);
-	color: white;
-	font-size: 18px;
-	font-weight: bold;
-	border-radius: 50px;
-	cursor: pointer;
-	transition:
-		transform 0.3s ease,
-		background 0.3s ease;
+    margin-left: 1-rem;
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #4158d0, #c850c0);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
 }
 .special-link:hover {
-	transform: scale(1.05);
-	background: linear-gradient(45deg, #c850c0, #ffcc70);
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #c850c0, #ffcc70);
 }
