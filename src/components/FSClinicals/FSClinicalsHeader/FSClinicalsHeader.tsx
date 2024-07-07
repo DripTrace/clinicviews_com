@@ -147,14 +147,14 @@ const FSClinicalsHeader: React.FC = () => {
                                 Home
                             </Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link
                                 href="/fsclinicals/contact-us"
                                 className="hover:text-[#D1E0EB] transition-colors"
                             >
                                 Contact
                             </Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link
                                 href="/fsclinicals/about"
