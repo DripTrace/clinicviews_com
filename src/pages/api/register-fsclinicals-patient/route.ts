@@ -1399,18 +1399,14 @@ export default async function handler(
             mobilePhone: phone,
         };
 
-        const patientResponse = await fetch(
-            // "https://graph.microsoft.com/v1.0/users/fsclinicals-com@mail.clinicviews.com/contacts",
-            `${graphContacts}`,
-            {
-                method: "POST",
-                headers: {
-                    Authorization: `Bearer ${accessToken}`,
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(patientData),
-            }
-        );
+        const patientResponse = await fetch(`${graphContacts}`, {
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(patientData),
+        });
 
         if (!patientResponse.ok) {
             const errorData = (await patientResponse.json()) as ErrorResponse;
