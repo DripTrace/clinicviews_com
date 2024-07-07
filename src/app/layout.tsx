@@ -69,18 +69,18 @@ import StoreProvider from "@/components/LLPMG/StoreProvider";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
-	title: "LLPMG",
-	description: "Loma Linda Psychiatric Medical Group",
+    title: "LLPMG",
+    description: "Loma Linda Psychiatric Medical Group",
 };
 
 export default function RootLayout({
-	children,
+    children,
 }: {
-	children: React.ReactNode;
+    children: React.ReactNode;
 }) {
-	return (
-		<html lang="en">
-			{/* <head>
+    return (
+        <html lang="en">
+            {/* <head>
 				<link
 					rel="stylesheet"
 					type="text/css"
@@ -92,11 +92,9 @@ export default function RootLayout({
 					href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
 				/>
 			</head> */}
-			<body>
-                <>
-                    {children}
-                </>
-			</body>
-		</html>
-	);
+            <body>
+                <>{children}</>
+            </body>
+        </html>
+    );
 }

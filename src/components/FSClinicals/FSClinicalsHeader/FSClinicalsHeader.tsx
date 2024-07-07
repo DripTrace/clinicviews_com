@@ -255,7 +255,7 @@ const FSClinicalsHeader: React.FC = () => {
                                     } hover:text-[#D1E0EB] block py-2 px-4 hover:bg-[#1FABC7] transition-colors`}
                                     onClick={toggleMenu}
                                 >
-                                    New Patientt
+                                    New Patient
                                 </Link>
                             </li>
                         </ul>

@@ -1,11 +1,11 @@
-import ContactUs from "@/components/LLPMG/ContactUs";
+import ContactForm from "@/components/LLPMG/ContactForm";
 
 const LLPMGContactUsPage = () => {
-	return (
-		<>
-			<ContactUs />
-		</>
-	);
+    return (
+        <>
+            <ContactForm />
+        </>
+    );
 };
 
 export default LLPMGContactUsPage;

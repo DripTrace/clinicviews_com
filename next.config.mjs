@@ -4,6 +4,7 @@ import withSerwistInit from "@serwist/next";
 // const withSerwistInit = require("@serwist/next");
 
 const nextConfig = {
+    swcMinify: true,
     api: {
         bodyParser: {
             sizeLimit: "4.5mb", // Increase to match Microsoft Graph API limit

@@ -8,21 +8,21 @@ import Footer from "./Footer";
 import ClientLayoutContent from "./ClientLayoutContent";
 
 interface ClientLayoutProps {
-	children: React.ReactNode;
+    children: React.ReactNode;
 }
 
 const ClientLayout: React.FC<ClientLayoutProps> = ({ children }) => {
-	return (
-		<Provider store={store}>
-			<ClientLayoutContent>
-				<Header />
-				<main className="bg-blue-100 dark:bg-gray-900 flex-grow">
-					{children}
-				</main>
-				<Footer />
-			</ClientLayoutContent>
-		</Provider>
-	);
+    return (
+        <Provider store={store}>
+            <ClientLayoutContent>
+                <Header />
+                <main className="bg-blue-100 dark:bg-gray-900 flex-grow">
+                    {children}
+                </main>
+                <Footer />
+            </ClientLayoutContent>
+        </Provider>
+    );
 };
 
 export default ClientLayout;
