@@ -20,7 +20,7 @@ const Header: React.FC = () => {
         { name: "Providers & Staff", path: "/llpmg/providers-and-staff" },
         { name: "Privacy & Notices", path: "/llpmg/privacy-and-notices" },
         // { name: "Contact Us", path: "/llpmg/landing#contact-us" },
-        { name: "Contact Us", path: "/llpmg/contact-us" },
+        { name: "Contact Us", path: "/llpmg/register" },
         { name: "New Patient Packet", path: "/survey" },
     ];
 
