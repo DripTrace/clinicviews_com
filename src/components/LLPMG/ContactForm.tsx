@@ -82,6 +82,18 @@ const ContactForm: React.FC = () => {
         }
     };
 
+    const handleClick = () => {
+        if (
+            /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+                navigator.userAgent
+            )
+        ) {
+            window.location.href = "tel:9098804200";
+        } else {
+            window.location.href = "mailto:colton@lomalindapsych.com";
+        }
+    };
+
     // Add this to your main layout or a client-side component
     // useEffect(() => {
     //     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -102,9 +114,21 @@ const ContactForm: React.FC = () => {
             // className={`max-w-md mx-auto ${
             //     isDarkMode ? "text-[#D1E0EB]" : "text-[#494949]"
             // }`}
-            className={`max-w-md mx-auto dark:text-[#D1E0EB]" "text-[#494949]"
+            className={`gap-[2rem] max-w-md mx-auto dark:text-[#D1E0EB]" "text-[#494949]"
             }`}
         >
+            <div className="flex flex-col justify-center items-center">
+                <h1>Contact Us</h1>
+                <a
+                    className="special-link"
+                    href="#"
+                    onClick={() => {
+                        handleClick;
+                    }}
+                >
+                    (909) 880-4200
+                </a>
+            </div>
             {error && <p className="text-red-500 mb-4">{error}</p>}
             <div className="mb-4">
                 <label
