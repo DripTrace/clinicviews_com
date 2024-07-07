@@ -127,26 +127,29 @@
 // 	],
 // };
 
+// "use client";
 import React from "react";
 import { Metadata } from "next";
 import StoreProvider from "@/components/LLPMG/StoreProvider";
 // import StoreProvider from './StoreProvider';
 import "@/styles/globals.css";
 import ClientLayout from "@/components/LLPMG/ClientLayout";
+import { Provider } from "react-redux";
+import { store } from "@/store/store";
 
 export const metadata: Metadata = {
     title: "LLPMG",
     description: "Loma Linda Psychiatric Medical Group",
 };
 
-export default function RootLayout({
+export default function LLPMGRootLayout({
     children,
 }: {
     children: React.ReactNode;
 }) {
     return (
         <html lang="en">
-            <head>
+            {/* <head>
                 <link
                     rel="stylesheet"
                     type="text/css"
@@ -157,11 +160,13 @@ export default function RootLayout({
                     type="text/css"
                     href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
                 />
-            </head>
+            </head> */}
             <body>
-                <StoreProvider>
-                    <ClientLayout>{children}</ClientLayout>
-                </StoreProvider>
+                {/* <Provider store={store}> */}
+                {/* <StoreProvider> */}
+                <ClientLayout>{children}</ClientLayout>
+                {/* </StoreProvider> */}
+                {/* </Provider> */}
             </body>
         </html>
     );

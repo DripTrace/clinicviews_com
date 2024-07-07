@@ -10,31 +10,31 @@ const ContactForm: React.FC = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState("");
     const fileInputRef = useRef<HTMLInputElement>(null);
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    // const [isDarkMode, setIsDarkMode] = useState(false);
 
-    useEffect(() => {
-        // Check if dark mode is enabled
-        const isDark = document.documentElement.classList.contains("dark");
-        setIsDarkMode(isDark);
+    // useEffect(() => {
+    //     // Check if dark mode is enabled
+    //     const isDark = document.documentElement.classList.contains("dark");
+    //     setIsDarkMode(isDark);
 
-        // Optional: Listen for changes in dark mode
-        const observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-                if (
-                    mutation.type === "attributes" &&
-                    mutation.attributeName === "class"
-                ) {
-                    setIsDarkMode(
-                        document.documentElement.classList.contains("dark")
-                    );
-                }
-            });
-        });
+    //     // Optional: Listen for changes in dark mode
+    //     const observer = new MutationObserver((mutations) => {
+    //         mutations.forEach((mutation) => {
+    //             if (
+    //                 mutation.type === "attributes" &&
+    //                 mutation.attributeName === "class"
+    //             ) {
+    //                 setIsDarkMode(
+    //                     document.documentElement.classList.contains("dark")
+    //                 );
+    //             }
+    //         });
+    //     });
 
-        observer.observe(document.documentElement, { attributes: true });
+    //     observer.observe(document.documentElement, { attributes: true });
 
-        return () => observer.disconnect();
-    }, []);
+    //     return () => observer.disconnect();
+    // }, []);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -83,29 +83,34 @@ const ContactForm: React.FC = () => {
     };
 
     // Add this to your main layout or a client-side component
-    useEffect(() => {
-        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-        if (
-            localStorage.theme === "dark" ||
-            (!("theme" in localStorage) &&
-                window.matchMedia("(prefers-color-scheme: dark)").matches)
-        ) {
-            document.documentElement.classList.add("dark");
-        } else {
-            document.documentElement.classList.remove("dark");
-        }
-    }, []);
+    // useEffect(() => {
+    //     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    //     if (
+    //         localStorage.theme === "dark" ||
+    //         (!("theme" in localStorage) &&
+    //             window.matchMedia("(prefers-color-scheme: dark)").matches)
+    //     ) {
+    //         document.documentElement.classList.add("dark");
+    //     } else {
+    //         document.documentElement.classList.remove("dark");
+    //     }
+    // }, []);
 
     return (
         <form
             onSubmit={handleSubmit}
-            className={`max-w-md mx-auto ${
-                isDarkMode ? "text-[#D1E0EB]" : "text-[#494949]"
+            // className={`max-w-md mx-auto ${
+            //     isDarkMode ? "text-[#D1E0EB]" : "text-[#494949]"
+            // }`}
+            className={`max-w-md mx-auto dark:text-[#D1E0EB]" "text-[#494949]"
             }`}
         >
             {error && <p className="text-red-500 mb-4">{error}</p>}
             <div className="mb-4">
-                <label htmlFor="name" className="block mb-2">
+                <label
+                    htmlFor="name"
+                    className="block mb-2 text-[#494949] dark:text-[#D1E0EB]"
+                >
                     Name
                 </label>
                 <input
@@ -118,7 +123,10 @@ const ContactForm: React.FC = () => {
                 />
             </div>
             <div className="mb-4">
-                <label htmlFor="email" className="block mb-2">
+                <label
+                    htmlFor="email"
+                    className="block mb-2 text-[#494949] dark:text-[#D1E0EB]"
+                >
                     Email
                 </label>
                 <input
@@ -131,7 +139,10 @@ const ContactForm: React.FC = () => {
                 />
             </div>
             <div className="mb-4">
-                <label htmlFor="phone" className="block mb-2">
+                <label
+                    htmlFor="phone"
+                    className="block mb-2 text-[#494949] dark:text-[#D1E0EB]"
+                >
                     Phone
                 </label>
                 <input
@@ -144,7 +155,10 @@ const ContactForm: React.FC = () => {
                 />
             </div>
             <div className="mb-4">
-                <label htmlFor="reason" className="block mb-2">
+                <label
+                    htmlFor="reason"
+                    className="block mb-2 text-[#494949] dark:text-[#D1E0EB]"
+                >
                     Reason for Visit
                 </label>
                 <textarea
@@ -156,7 +170,10 @@ const ContactForm: React.FC = () => {
                 />
             </div>
             <div className="mb-4">
-                <label htmlFor="pdf" className="block mb-2">
+                <label
+                    htmlFor="pdf"
+                    className="block mb-2 text-[#494949] dark:text-[#D1E0EB]"
+                >
                     Upload PDF Document (optional)
                 </label>
                 <input
