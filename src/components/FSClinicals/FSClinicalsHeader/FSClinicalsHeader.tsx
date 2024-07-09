@@ -118,7 +118,9 @@ const FSClinicalsHeader: React.FC = () => {
 
     return (
         <header
-            className={`${isDarkMode ? "bg-[#0C3C60]" : "bg-[#6EA4CE]"} p-4`}
+            className={`${
+                isDarkMode ? "bg-[#0C3C60]" : "bg-[#6EA4CE]"
+            } p-4 sticky`}
         >
             <div className="container mx-auto flex justify-between items-center gap-[2rem]">
                 <Link
@@ -151,14 +153,18 @@ const FSClinicalsHeader: React.FC = () => {
                                 Home
                             </Link>
                         </li>
-                        {/* <li>
+                        <li>
                             <Link
                                 href="/fsclinicals/contact-us"
-                                className="hover:text-[#D1E0EB] transition-colors"
+                                className={`${
+                                    isDarkMode
+                                        ? "text-[#1FABC7]"
+                                        : "text-[#0C3C60]"
+                                } hover:text-[#D1E0EB] transition-colors`}
                             >
                                 Contact
                             </Link>
-                        </li> */}
+                        </li>
                         <li>
                             <Link
                                 href="/fsclinicals/about"
@@ -219,7 +225,7 @@ const FSClinicalsHeader: React.FC = () => {
                                     Home
                                 </Link>
                             </li>
-                            {/* <li>
+                            <li>
                                 <Link
                                     href="/fsclinicals/contact-us"
                                     className={`${
@@ -231,7 +237,7 @@ const FSClinicalsHeader: React.FC = () => {
                                 >
                                     Contact
                                 </Link>
-                            </li> */}
+                            </li>
                             <li>
                                 <Link
                                     href="/fsclinicals/about"

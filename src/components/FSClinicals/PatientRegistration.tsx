@@ -1,7 +1,6 @@
-// components/FSClinicals/PatientRegistration.tsx
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { FSClinicalsRootState } from "@/store/fsclinicalsStore";
 import AppointmentSuggestion from "./AppointmentSuggestion";
@@ -19,7 +18,6 @@ const PatientRegistration: React.FC = () => {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [reason, setReason] = useState("");
-    const [suggestAppointment, setSuggestAppointment] = useState(false);
     const [appointmentData, setAppointmentData] = useState<AppointmentData>({
         date: "",
         time: "",
@@ -28,32 +26,57 @@ const PatientRegistration: React.FC = () => {
     const [error, setError] = useState("");
     const fileInputRef = useRef<HTMLInputElement>(null);
 
+    useEffect(() => {
+        setDefaultAppointmentTime();
+    }, []);
+
+    const setDefaultAppointmentTime = () => {
+        const now = new Date();
+        let futureDate = new Date(now.getTime() + 72 * 60 * 60 * 1000); // 72 hours in the future
+
+        // Adjust to next business day if it's a weekend
+        while (futureDate.getDay() === 0 || futureDate.getDay() === 6) {
+            futureDate.setDate(futureDate.getDate() + 1);
+        }
+
+        // Set time to 9 AM
+        futureDate.setHours(9, 0, 0, 0);
+
+        const dateString = futureDate.toISOString().split("T")[0];
+        const timeString = "09:00";
+
+        setAppointmentData({ date: dateString, time: timeString });
+    };
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsLoading(true);
         setError("");
 
         const formData = new FormData();
-        formData.append("name", name);
+        formData.append("patientName", name);
         formData.append("email", email);
         formData.append("phone", phone);
         formData.append("reason", reason);
-        formData.append("suggestAppointment", suggestAppointment.toString());
+        formData.append("appointmentDate", appointmentData.date);
+        formData.append("appointmentTime", appointmentData.time);
 
-        if (fileInputRef.current && fileInputRef.current.files) {
-            formData.append("pdf", fileInputRef.current.files[0]);
-        }
-
-        if (suggestAppointment) {
-            formData.append("appointmentDate", appointmentData.date);
-            formData.append("appointmentTime", appointmentData.time);
+        if (
+            fileInputRef.current &&
+            fileInputRef.current.files &&
+            fileInputRef.current.files.length > 0
+        ) {
+            formData.append("file", fileInputRef.current.files[0]);
         }
 
         try {
-            const response = await fetch("/api/register-patient/route", {
-                method: "POST",
-                body: formData,
-            });
+            const response = await fetch(
+                "/api/register-fsclinicals-patient/route",
+                {
+                    method: "POST",
+                    body: formData,
+                }
+            );
 
             if (!response.ok) {
                 throw new Error("Failed to register patient");
@@ -68,14 +91,11 @@ const PatientRegistration: React.FC = () => {
             setEmail("");
             setPhone("");
             setReason("");
-            setSuggestAppointment(false);
-            setAppointmentData({ date: "", time: "" });
+            setDefaultAppointmentTime();
             if (fileInputRef.current) {
                 fileInputRef.current.value = "";
             }
-            // console.log("data:\n", data, "response:\n", response);
         } catch (err) {
-            // console.log("error:\n", err);
             setError(
                 "An error occurred while registering the patient. Please try again."
             );
@@ -87,12 +107,14 @@ const PatientRegistration: React.FC = () => {
     return (
         <form
             onSubmit={handleSubmit}
-            className={`max-w-md mx-auto ${isDarkMode ? "text-[#D1E0EB]" : "text-[#494949]"}`}
+            className={`max-w-md mx-auto ${
+                isDarkMode ? "text-[#D1E0EB]" : "text-[#494949]"
+            }`}
         >
             {error && <p className="text-red-500 mb-4">{error}</p>}
             <div className="mb-4">
                 <label htmlFor="name" className="block mb-2">
-                    Name
+                    Name <span className="text-red-500">*</span>
                 </label>
                 <input
                     type="text"
@@ -105,7 +127,7 @@ const PatientRegistration: React.FC = () => {
             </div>
             <div className="mb-4">
                 <label htmlFor="email" className="block mb-2">
-                    Email
+                    Email <span className="text-red-500">*</span>
                 </label>
                 <input
                     type="email"
@@ -118,7 +140,7 @@ const PatientRegistration: React.FC = () => {
             </div>
             <div className="mb-4">
                 <label htmlFor="phone" className="block mb-2">
-                    Phone
+                    Phone <span className="text-red-500">*</span>
                 </label>
                 <input
                     type="tel"
@@ -131,7 +153,7 @@ const PatientRegistration: React.FC = () => {
             </div>
             <div className="mb-4">
                 <label htmlFor="reason" className="block mb-2">
-                    Reason for Visit
+                    Reason for Visit <span className="text-red-500">*</span>
                 </label>
                 <textarea
                     id="reason"
@@ -143,7 +165,7 @@ const PatientRegistration: React.FC = () => {
             </div>
             <div className="mb-4">
                 <label htmlFor="pdf" className="block mb-2">
-                    Upload PDF Document
+                    Upload PDF Document (optional)
                 </label>
                 <input
                     type="file"
@@ -154,34 +176,27 @@ const PatientRegistration: React.FC = () => {
                 />
             </div>
             <div className="mb-4">
-                <label className="flex items-center">
-                    <input
-                        type="checkbox"
-                        checked={suggestAppointment}
-                        onChange={(e) =>
-                            setSuggestAppointment(e.target.checked)
-                        }
-                        className="mr-2"
-                    />
-                    Suggest an appointment
+                <label className="block mb-2">
+                    Suggested Appointment{" "}
+                    <span className="text-red-500">*</span>
                 </label>
-            </div>
-            {suggestAppointment && (
                 <AppointmentSuggestion
                     appointmentData={appointmentData}
                     onAppointmentChange={setAppointmentData}
                 />
-            )}
+            </div>
             <button
                 type="submit"
                 disabled={isLoading}
-                className={`w-full py-2 px-4 ${isDarkMode ? "bg-[#1FABC7] hover:bg-[#6EA4CE]" : "bg-[#6EA4CE] hover:bg-[#1FABC7]"} text-white rounded ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}
+                className={`w-full py-2 px-4 ${
+                    isDarkMode
+                        ? "bg-[#1FABC7] hover:bg-[#6EA4CE]"
+                        : "bg-[#6EA4CE] hover:bg-[#1FABC7]"
+                } text-white rounded ${
+                    isLoading ? "opacity-50 cursor-not-allowed" : ""
+                }`}
             >
-                {isLoading
-                    ? "Submitting..."
-                    : suggestAppointment
-                      ? "Register and Suggest Appointment"
-                      : "Register"}
+                {isLoading ? "Submitting..." : "Register"}
             </button>
         </form>
     );

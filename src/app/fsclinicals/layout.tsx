@@ -13,12 +13,12 @@ export default function FSClinicalsRootLayout({
     return (
         <html lang="en">
             <body
-                className={`${inter.className} bg-[#D1E0EB] text-[#494949] /*bg-fsc-pale-blue text-fsc-dark-gray*/ scrollbar-hide pointer-events-auto`}
+                className={`${inter.className} bg-[#D1E0EB] text-[#494949] /*bg-fsc-pale-blue text-fsc-dark-gray*/ scrollbar-hide pointer-events-auto relative min-h-[100vh]`}
             >
                 <FSClinicalsClientRoot>
-                    <div className="flex flex-col min-h-screen">
+                    <div className="flex flex-col h-full relative">
                         <FSClinicalsHeader />
-                        <main className="flex-grow">{children}</main>
+                        <main className="size-full relative">{children}</main>
                         <FSClinicalsFooter />
                     </div>
                 </FSClinicalsClientRoot>

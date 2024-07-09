@@ -52,7 +52,7 @@ const FSClinicalsFooter: React.FC = () => {
                 isDarkMode
                     ? "bg-[#0C3C60] text-[#D1E0EB]"
                     : "bg-[#494949] text-white"
-            } p-8`}
+            } p-8 relative`}
         >
             <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
