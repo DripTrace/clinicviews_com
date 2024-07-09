@@ -89,14 +89,16 @@ const HeroSection: React.FC = () => {
                 >
                     Innovative Strategies for Achieving Health
                 </motion.h1>
+
                 <motion.p
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="text-xl mb-8 relative z-40"
                 >
-                    Improving quality of life for those struggling with mental
-                    health and substance use
+                    <mark className="text-xl mb-8 relative z-40 text-[#0C3C60]">
+                        Improving quality of life for those struggling with
+                        mental health and substance use
+                    </mark>
                 </motion.p>
                 <motion.div
                     //   href="#"

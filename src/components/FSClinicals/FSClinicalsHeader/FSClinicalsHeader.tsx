@@ -195,14 +195,21 @@ const FSClinicalsHeader: React.FC = () => {
                 <div className="flex items-center space-x-4">
                     <button
                         onClick={handleToggleDarkMode}
-                        className="p-2 rounded-full hover:bg-[#1FABC7] transition-colors"
+                        className={`${
+                            isDarkMode ? "text-[#0C3C60]" : "text-[#D1E0EB]"
+                        } p-2 rounded-full hover:bg-[#1FABC7] transition-colors`}
                     >
                         {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
                     </button>
-                    <Link href="/signin" className="md:hidden">
+                    {/* <Link href="/signin" className="md:hidden">
                         <UserCircle size={24} />
-                    </Link>
-                    <button onClick={toggleMenu} className="md:hidden">
+                    </Link> */}
+                    <button
+                        onClick={toggleMenu}
+                        className={`${
+                            isDarkMode ? "text-[#0C3C60]" : "text-[#D1E0EB]"
+                        } md:hidden`}
+                    >
                         {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
                 </div>

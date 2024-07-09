@@ -107,7 +107,7 @@ const PatientRegistration: React.FC = () => {
     return (
         <form
             onSubmit={handleSubmit}
-            className={`max-w-md mx-auto ${
+            className={`h-full max-w-md mx-auto ${
                 isDarkMode ? "text-[#D1E0EB]" : "text-[#494949]"
             }`}
         >
@@ -172,7 +172,9 @@ const PatientRegistration: React.FC = () => {
                     id="pdf"
                     ref={fileInputRef}
                     accept=".pdf"
-                    className="w-full px-3 py-2 border rounded text-[#494949]"
+                    className={`${
+                        isDarkMode ? "text-text-[#494949]" : "text-[#1FABC7]"
+                    } w-full px-3 py-2 border rounded `}
                 />
             </div>
             <div className="mb-4">

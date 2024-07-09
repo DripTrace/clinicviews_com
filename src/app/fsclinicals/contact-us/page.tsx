@@ -15,21 +15,21 @@
 // }
 
 // pages/contact-us.tsx
-import React from 'react';
-import ContactPage from '@/components/FSClinicals/ContactPage';
+import React from "react";
+import ContactPage from "@/components/FSClinicals/ContactPage";
 // import { FSClinicalsHeader } from '@/components/FSClinicals/FSClinicalsHeader';
 // import { FSClinicalsFooter } from '@/components/FSClinicals/FSClinicalsFooter';
 
 const ContactUsPage: React.FC = () => {
-  return (
-    <div className="flex flex-col min-h-screen">
-      {/* <FSClinicalsHeader /> */}
-      <main className="flex-grow">
-        <ContactPage />
-      </main>
-      {/* <FSClinicalsFooter /> */}
-    </div>
-  );
+    return (
+        <div className="flex flex-col size-full">
+            {/* <FSClinicalsHeader /> */}
+            <main className="flex-grow size-full">
+                <ContactPage />
+            </main>
+            {/* <FSClinicalsFooter /> */}
+        </div>
+    );
 };
 
 export default ContactUsPage;
