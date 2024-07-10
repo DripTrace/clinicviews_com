@@ -4,6 +4,9 @@ import { execSync } from "child_process";
 
 const nextConfig = {
     reactStrictMode: true,
+    onError: (error, errorInfo) => {
+        console.error("Global error occurred:", error, errorInfo);
+    },
     async rewrites() {
         return [
             {

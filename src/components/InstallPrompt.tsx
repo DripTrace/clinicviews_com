@@ -109,15 +109,18 @@
 
 //delay
 // components/InstallPrompt.tsx
+
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
+import ErrorBoundary from "./ErrorBoundary";
+// import ErrorBoundary from './ErrorBoundary';
 
 const InstallPrompt: React.FC = () => {
     const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
     const [showCustomPrompt, setShowCustomPrompt] = useState(false);
-    const [isAssetsLoaded, setIsAssetsLoaded] = useState(false);
-    const [hasUserInteracted, setHasUserInteracted] = useState(false);
+    const [notificationPermissionHandled, setNotificationPermissionHandled] =
+        useState(false);
 
     const handleBeforeInstallPrompt = useCallback((e: Event) => {
         e.preventDefault();
@@ -130,60 +133,28 @@ const InstallPrompt: React.FC = () => {
             handleBeforeInstallPrompt
         );
 
-        const handleLoad = () => {
-            setIsAssetsLoaded(true);
-        };
-
-        window.addEventListener("load", handleLoad);
+        // Check if notification permission has already been granted or denied
+        if (Notification.permission !== "default") {
+            setNotificationPermissionHandled(true);
+        }
 
         return () => {
             window.removeEventListener(
                 "beforeinstallprompt",
                 handleBeforeInstallPrompt
             );
-            window.removeEventListener("load", handleLoad);
         };
     }, [handleBeforeInstallPrompt]);
 
-    useEffect(() => {
-        const handleInteraction = () => {
-            if (isAssetsLoaded) {
-                setHasUserInteracted(true);
-            }
-        };
-
-        if (typeof window !== "undefined" && isAssetsLoaded) {
-            if ("ontouchstart" in window) {
-                // Mobile devices
-                window.addEventListener("touchstart", handleInteraction, {
-                    once: true,
-                });
-            } else {
-                // Desktop devices
-                window.addEventListener("mousemove", handleInteraction, {
-                    once: true,
-                });
-            }
+    const handleNotificationPermission = async () => {
+        try {
+            await Notification.requestPermission();
+            setNotificationPermissionHandled(true);
+        } catch (error) {
+            console.error("Error requesting notification permission:", error);
+            setNotificationPermissionHandled(true); // Consider it handled even if there's an error
         }
-
-        return () => {
-            if (typeof window !== "undefined") {
-                window.removeEventListener("touchstart", handleInteraction);
-                window.removeEventListener("mousemove", handleInteraction);
-            }
-        };
-    }, [isAssetsLoaded]);
-
-    useEffect(() => {
-        if (
-            isAssetsLoaded &&
-            hasUserInteracted &&
-            deferredPrompt &&
-            !showCustomPrompt
-        ) {
-            setShowCustomPrompt(true);
-        }
-    }, [isAssetsLoaded, hasUserInteracted, deferredPrompt, showCustomPrompt]);
+    };
 
     const handleInstallClick = () => {
         setShowCustomPrompt(false);
@@ -202,7 +173,23 @@ const InstallPrompt: React.FC = () => {
         }
     };
 
-    if (!showCustomPrompt) return null;
+    if (!notificationPermissionHandled) {
+        return (
+            <div className="fixed bottom-5 left-5 bg-white p-4 rounded-lg shadow-md z-50">
+                <p className="text-gray-800 mb-3">
+                    Would you like to receive notifications?
+                </p>
+                <button
+                    onClick={handleNotificationPermission}
+                    className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+                >
+                    Allow Notifications
+                </button>
+            </div>
+        );
+    }
+
+    if (!showCustomPrompt || !deferredPrompt) return null;
 
     return (
         <div className="fixed bottom-5 left-5 bg-white p-4 rounded-lg shadow-md z-50">
@@ -227,4 +214,10 @@ const InstallPrompt: React.FC = () => {
     );
 };
 
-export default InstallPrompt;
+export default function SafeInstallPrompt() {
+    return (
+        <ErrorBoundary>
+            <InstallPrompt />
+        </ErrorBoundary>
+    );
+}
