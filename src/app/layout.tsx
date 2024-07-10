@@ -81,7 +81,7 @@ import { getFavicon } from "@/utils/getFavicon";
 import RootClientLayout from "@/components/RootClientLayout";
 import { DomainContextInitializer } from "./DomainContextInitializer";
 import FaviconLinks from "@/components/FaviconLinks";
-import InstallPrompt from "@/components/InstallPrompt";
+import InstallPrompt from "@/components/SafeInstallPrompt";
 import NotificationExample from "@/components/NotificationExample";
 // import ClientLayout from "./ClientLayout";
 

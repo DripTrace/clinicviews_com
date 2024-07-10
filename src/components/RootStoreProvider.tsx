@@ -5,7 +5,8 @@ import { domainStore } from "@/store/domainStore";
 import { useEffect } from "react";
 import { Provider as DomainProvider } from "react-redux";
 import NotificationExample from "./NotificationExample";
-import InstallPrompt from "./InstallPrompt";
+import SafeInstallPrompt from "./SafeInstallPrompt";
+// import InstallPrompt from "./SafeInstallPrompt";
 
 export default function StoreProvider({
     children,
@@ -20,7 +21,7 @@ export default function StoreProvider({
         <DomainProvider store={domainStore}>
             {/* <DomainContextInitializer /> */}
             <NotificationExample />
-            {/* <InstallPrompt /> */}
+            <SafeInstallPrompt />
             {children}
         </DomainProvider>
     );

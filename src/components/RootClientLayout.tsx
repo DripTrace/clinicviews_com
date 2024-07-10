@@ -46,7 +46,7 @@
 
 import React, { useEffect } from "react";
 import DomainProvider from "@/components/RootStoreProvider";
-import InstallPrompt from "./InstallPrompt";
+import InstallPrompt from "./SafeInstallPrompt";
 import NotificationExample from "./NotificationExample";
 
 interface RootClientLayoutProps {
