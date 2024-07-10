@@ -6,13 +6,21 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
     console.log("Manifest request received");
+    console.log("Request headers:", req.headers);
+
     const manifestPath = path.join(
         process.cwd(),
         "public",
         "manifest.webmanifest"
     );
-    const manifestContent = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
 
+    if (!fs.existsSync(manifestPath)) {
+        console.error("Manifest file not found at:", manifestPath);
+        res.status(404).json({ error: "Manifest file not found" });
+        return;
+    }
+
+    const manifestContent = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
     console.log(
         "Full manifest content:",
         JSON.stringify(manifestContent, null, 2)

@@ -80,6 +80,7 @@ import "@/styles/globals.css";
 import { getFavicon } from "@/utils/getFavicon";
 import RootClientLayout from "@/components/RootClientLayout";
 import { DomainContextInitializer } from "./DomainContextInitializer";
+import FaviconLinks from "@/components/FaviconLinks";
 // import ClientLayout from "./ClientLayout";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -90,10 +91,20 @@ export async function generateMetadata(): Promise<Metadata> {
 
     return {
         manifest: "/manifest.webmanifest",
+        // icons: {
+        //     icon: favicon.icon,
+        //     apple: favicon.apple,
+        //     shortcut: favicon.shortcut,
+        // },
         icons: {
-            icon: favicon.icon,
-            apple: favicon.apple,
-            shortcut: favicon.shortcut,
+            icon: [
+                { url: favicon.icon, sizes: "any" },
+                { url: favicon.apple, sizes: "180x180", type: "image/png" },
+            ],
+            apple: [
+                { url: favicon.apple, sizes: "180x180", type: "image/png" },
+            ],
+            shortcut: [{ url: favicon.shortcut }],
         },
         // other metadata...
     };
@@ -104,6 +115,10 @@ export default function RootLayout({
 }: {
     children: React.ReactNode;
 }) {
+    const cookieStore = cookies();
+    const domainContext =
+        cookieStore.get("domainContext")?.value || "driptrace";
+    const favicon = getFavicon(domainContext);
     return (
         <>
             {/* <DomainContextInitializer /> */}
