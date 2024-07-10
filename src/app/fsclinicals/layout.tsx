@@ -2,10 +2,24 @@ import { FSClinicalsFooter, FSClinicalsHeader } from "@/components";
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import FSClinicalsClientRoot from "@/components/FSClinicals/FSClinicalsClientRoot";
+import { Metadata } from "next";
 // import { getAppName } from "@/utils/appContext";
 // import { GetServerSideProps } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+    title: "FSClinicals",
+    description: "Four Square Clinicals",
+    // icons: [
+    //     {
+    //         rel: "apple-touch-icon",
+    //         url: "manifest-icons/llpmg-logo-128.png",
+    //     },
+    //     { rel: "icon", url: "manifest-icons/llpmg-logo-128.png" },
+
+    // ],
+};
 
 export default function FSClinicalsRootLayout({
     children,
