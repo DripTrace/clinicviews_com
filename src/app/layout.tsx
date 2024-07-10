@@ -79,6 +79,7 @@ import { cookies } from "next/headers";
 import "@/styles/globals.css";
 import { getFavicon } from "@/utils/getFavicon";
 import RootClientLayout from "@/components/RootClientLayout";
+import { DomainContextInitializer } from "./DomainContextInitializer";
 // import ClientLayout from "./ClientLayout";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -103,5 +104,10 @@ export default function RootLayout({
 }: {
     children: React.ReactNode;
 }) {
-    return <RootClientLayout>{children}</RootClientLayout>;
+    return (
+        <>
+            {/* <DomainContextInitializer /> */}
+            <RootClientLayout>{children}</RootClientLayout>
+        </>
+    );
 }
