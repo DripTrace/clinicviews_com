@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 import withSerwistInit from "@serwist/next";
+import { execSync } from "child_process";
 
 const nextConfig = {
     reactStrictMode: true,

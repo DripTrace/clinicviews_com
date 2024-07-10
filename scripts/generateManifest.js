@@ -104,6 +104,7 @@
 // scripts/generateManifest.js
 
 // scripts/generateManifest.js
+// scripts/generateManifest.js
 
 const fs = require("fs");
 const path = require("path");
@@ -129,6 +130,11 @@ async function generateManifest() {
                     ...icon,
                     src: `/manifest-icons/${icon.src}`,
                 })),
+                start_url: "{{START_URL_PLACEHOLDER}}",
+                id: "{{ID_PLACEHOLDER}}",
+                scope: "/",
+                display: "standalone",
+                orientation: "portrait",
             };
         });
 

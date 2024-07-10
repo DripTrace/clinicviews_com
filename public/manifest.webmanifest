@@ -33,7 +33,12 @@
           "type": "image/png",
           "purpose": "maskable"
         }
-      ]
+      ],
+      "start_url": "{{START_URL_PLACEHOLDER}}",
+      "id": "{{ID_PLACEHOLDER}}",
+      "scope": "/",
+      "display": "standalone",
+      "orientation": "portrait"
     },
     "fsclinicals": {
       "name": "FourSquareClinicals",
@@ -68,7 +73,12 @@
           "type": "image/png",
           "purpose": "maskable"
         }
-      ]
+      ],
+      "start_url": "{{START_URL_PLACEHOLDER}}",
+      "id": "{{ID_PLACEHOLDER}}",
+      "scope": "/",
+      "display": "standalone",
+      "orientation": "portrait"
     },
     "driptrace": {
       "name": "DripTrace Medical",
@@ -103,7 +113,12 @@
           "type": "image/png",
           "purpose": "maskable"
         }
-      ]
+      ],
+      "start_url": "{{START_URL_PLACEHOLDER}}",
+      "id": "{{ID_PLACEHOLDER}}",
+      "scope": "/",
+      "display": "standalone",
+      "orientation": "portrait"
     }
   }
 }
