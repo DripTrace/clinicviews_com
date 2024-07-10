@@ -4,13 +4,31 @@ import React, { useState, useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { FSClinicalsRootState } from "@/store/fsclinicalsStore";
 import AppointmentSuggestion from "./AppointmentSuggestion";
+// import { useDomainSelector } from "@/store/domainHooks";
+// import { headers } from "next/headers";
 
 interface AppointmentData {
     date: string;
     time: string;
 }
+// interface CustomWindow extends Window {
+//     __DOMAIN_CONTEXT__: string;
+// }
 
 const PatientRegistration: React.FC = () => {
+    // const headersList = headers();
+    // // const allHeaders = Object.fromEntries(headersList.entries());
+    // const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
+    // const host = headersList.get("host") || "localhost";
+    // // const [hostname, port] = host.split(":");
+    // const pathname = headersList.get("x-invoke-path") || "/";
+    // const fullUrl = `${protocol}://${host}${pathname}`;
+
+    // const reduxDomainContext = useDomainSelector(
+    //     (state) => state.app.domainContext
+    // );
+    // const [domainContext, setDomainContext] = useState("unknown");
+
     const isDarkMode = useSelector(
         (state: FSClinicalsRootState) => state.theme.fsclinicalsIsDarkMode
     );
@@ -60,6 +78,7 @@ const PatientRegistration: React.FC = () => {
         formData.append("reason", reason);
         formData.append("appointmentDate", appointmentData.date);
         formData.append("appointmentTime", appointmentData.time);
+        // formData.append("domainContext", domainContext);
 
         if (
             fileInputRef.current &&
@@ -68,6 +87,8 @@ const PatientRegistration: React.FC = () => {
         ) {
             formData.append("file", fileInputRef.current.files[0]);
         }
+
+        console.log("Form data:\n", formData);
 
         try {
             const response = await fetch(
@@ -79,10 +100,13 @@ const PatientRegistration: React.FC = () => {
             );
 
             if (!response.ok) {
+                const errorData = await response.json();
+                console.error("Error response data:", errorData);
                 throw new Error("Failed to register patient");
             }
 
             const data = await response.json();
+            console.log("Response data:", data);
             alert(
                 "Patient registered successfully! Please check your email for confirmation."
             );
@@ -96,6 +120,7 @@ const PatientRegistration: React.FC = () => {
                 fileInputRef.current.value = "";
             }
         } catch (err) {
+            console.error("Error submitting form:", err);
             setError(
                 "An error occurred while registering the patient. Please try again."
             );
@@ -103,6 +128,31 @@ const PatientRegistration: React.FC = () => {
             setIsLoading(false);
         }
     };
+
+    // useEffect(() => {
+    //     if (reduxDomainContext) {
+    //         setDomainContext(reduxDomainContext);
+    //     }
+    // }
+
+    // useEffect(() => {
+    //     setDomainContext(reduxDomainContext);
+    //     console.log("reduxDomainContext: ", domainContext);
+    // }, [reduxDomainContext]);
+
+    // useEffect(() => {
+    //     setDomainContext(
+    //         (window as unknown as CustomWindow).__DOMAIN_CONTEXT__
+    //     );
+    //     console.log(
+    //         "domain:\n",
+    //         (window as unknown as CustomWindow).__DOMAIN_CONTEXT__
+    //     );
+    // }, []);
+
+    // useEffect(() => {
+    //     setDomainContext(fullUrl);
+    // }, []);
 
     return (
         <form
