@@ -20,7 +20,7 @@ export default function StoreProvider({
         <DomainProvider store={domainStore}>
             {/* <DomainContextInitializer /> */}
             <NotificationExample />
-            <InstallPrompt />
+            {/* <InstallPrompt /> */}
             {children}
         </DomainProvider>
     );
