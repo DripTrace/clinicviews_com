@@ -6,25 +6,12 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
     console.log("Manifest request received");
-    console.log("Request headers:", req.headers);
-
     const manifestPath = path.join(
         process.cwd(),
         "public",
         "manifest.webmanifest"
     );
-
-    if (!fs.existsSync(manifestPath)) {
-        console.error("Manifest file not found at:", manifestPath);
-        res.status(404).json({ error: "Manifest file not found" });
-        return;
-    }
-
     const manifestContent = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
-    console.log(
-        "Full manifest content:",
-        JSON.stringify(manifestContent, null, 2)
-    );
 
     const host = req.headers.host || "";
     console.log("Request host:", host);
@@ -47,14 +34,11 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         return;
     }
 
-    // Ensure all required fields are present
-    const finalManifest = {
-        ...domainSpecificContent,
-        start_url: domainSpecificContent.start_url || "/",
-        id: domainSpecificContent.id || "/",
-        scope: domainSpecificContent.scope || "/",
-        display: domainSpecificContent.display || "standalone",
-    };
+    // Remove the dynamicDomains property from the served manifest
+    const { dynamicDomains, ...finalManifest } = manifestContent;
+
+    // Merge domain-specific content into the final manifest
+    Object.assign(finalManifest, domainSpecificContent);
 
     console.log("Serving manifest:", JSON.stringify(finalManifest, null, 2));
 

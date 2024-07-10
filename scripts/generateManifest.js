@@ -159,6 +159,8 @@
 
 // scripts/generateManifest.js
 
+// scripts/generateManifest.js
+
 const fs = require("fs");
 const path = require("path");
 
@@ -168,21 +170,17 @@ async function generateManifest() {
             "../config/manifestConfig.ts"
         );
 
-        const universalManifest = {
-            dynamicDomains: {},
+        const commonManifest = {
+            start_url: "/",
+            scope: "/",
+            display: "standalone",
+            orientation: "portrait",
         };
 
+        const dynamicDomains = {};
+
         Object.entries(manifestConfig).forEach(([domain, config]) => {
-            let startUrl = "/";
-            let id = "/";
-
-            if (domain === "llpmg") {
-                startUrl = id = "/llpmg/landing";
-            } else if (domain === "fsclinicals") {
-                startUrl = id = "/fsclinicals/fsclinicals-landing";
-            }
-
-            universalManifest.dynamicDomains[domain] = {
+            dynamicDomains[domain] = {
                 name: config.name,
                 short_name: config.shortName,
                 description: config.description,
@@ -192,15 +190,15 @@ async function generateManifest() {
                     ...icon,
                     src: `/manifest-icons/${icon.src}`,
                 })),
-                start_url: startUrl,
-                id: id,
-                scope: "/",
-                display: "standalone",
-                orientation: "portrait",
             };
         });
 
-        const manifestJson = JSON.stringify(universalManifest, null, 2);
+        const manifestContent = {
+            ...commonManifest,
+            dynamicDomains,
+        };
+
+        const manifestJson = JSON.stringify(manifestContent, null, 2);
         const outputPath = path.join(
             __dirname,
             "..",
@@ -209,7 +207,7 @@ async function generateManifest() {
         );
 
         fs.writeFileSync(outputPath, manifestJson);
-        console.log(`Generated universal manifest at ${outputPath}`);
+        console.log(`Generated manifest at ${outputPath}`);
         console.log("Manifest content:", manifestJson);
     } catch (error) {
         console.error("Error generating manifest:", error);
