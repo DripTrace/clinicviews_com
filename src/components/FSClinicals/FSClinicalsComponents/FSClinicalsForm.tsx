@@ -13,11 +13,6 @@ import { useDomainSelector } from "@/store/domainHooks";
 }
 
 export default function FSClinicalsFormComponent() {
-    // const retrievedDomainContext = useDomainSelector(
-    //     (state) => state.app.domainContext
-    // );
-    // const [domainFormContext, setDomainFormContext] = useState("unknown");
-
     const router = useRouter();
 
     const [isLoading, setIsLoading] = useState(false);

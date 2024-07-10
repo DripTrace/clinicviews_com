@@ -29,7 +29,7 @@
           "type": "image/png"
         },
         {
-          "src": "/manifest-icons/llpmg-logo-maskable-icon_x512png",
+          "src": "/manifest-icons/llpmg-logo-maskable-icon_x512.png",
           "sizes": "512x512",
           "type": "image/png",
           "purpose": "maskable"
@@ -70,7 +70,7 @@
           "type": "image/png"
         },
         {
-          "src": "/manifest-icons/fsc-logo-maskable-icon_x512png",
+          "src": "/manifest-icons/fsc-logo-maskable-icon_x512.png",
           "sizes": "512x512",
           "type": "image/png",
           "purpose": "maskable"
@@ -111,7 +111,7 @@
           "type": "image/png"
         },
         {
-          "src": "/manifest-icons/driptrace-logo-maskable-icon_x512png",
+          "src": "/manifest-icons/driptrace-logo-maskable-icon_x512.png",
           "sizes": "512x512",
           "type": "image/png",
           "purpose": "maskable"

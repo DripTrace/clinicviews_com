@@ -10,6 +10,10 @@ const nextConfig = {
                 source: "/:path*",
                 destination: "/:path*",
             },
+            {
+                source: "/manifest.webmanifest",
+                destination: "/api/manifest",
+            },
         ];
     },
     async headers() {
