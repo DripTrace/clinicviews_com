@@ -303,42 +303,42 @@ export function getManifestIcons(
             sizes: "any",
             type: "image/x-icon",
         },
-        {
-            src: `manifest-icons/${prefix}-16.png`,
-            sizes: "16x16",
-            type: "image/png",
-            purpose: "maskable",
-        },
-        {
-            src: `manifest-icons/${prefix}-x48.png`,
-            sizes: "48x48",
-            type: "image/png",
-        },
-        {
-            src: `manifest-icons/${prefix}-x72.png`,
-            sizes: "72x72",
-            type: "image/png",
-        },
-        {
-            src: `manifest-icons/${prefix}-x96.png`,
-            sizes: "96x96",
-            type: "image/png",
-        },
-        {
-            src: `manifest-icons/${prefix}-x128.png`,
-            sizes: "128x128",
-            type: "image/png",
-        },
-        {
-            src: `manifest-icons/${prefix}-x144.png`,
-            sizes: "144x144",
-            type: "image/png",
-        },
-        {
-            src: `manifest-icons/${prefix}-x152.png`,
-            sizes: "152x152",
-            type: "image/png",
-        },
+        // {
+        //     src: `manifest-icons/${prefix}-16.png`,
+        //     sizes: "16x16",
+        //     type: "image/png",
+        //     purpose: "maskable",
+        // },
+        // {
+        //     src: `manifest-icons/${prefix}-x48.png`,
+        //     sizes: "48x48",
+        //     type: "image/png",
+        // },
+        // {
+        //     src: `manifest-icons/${prefix}-x72.png`,
+        //     sizes: "72x72",
+        //     type: "image/png",
+        // },
+        // {
+        //     src: `manifest-icons/${prefix}-x96.png`,
+        //     sizes: "96x96",
+        //     type: "image/png",
+        // },
+        // {
+        //     src: `manifest-icons/${prefix}-x128.png`,
+        //     sizes: "128x128",
+        //     type: "image/png",
+        // },
+        // {
+        //     src: `manifest-icons/${prefix}-x144.png`,
+        //     sizes: "144x144",
+        //     type: "image/png",
+        // },
+        // {
+        //     src: `manifest-icons/${prefix}-x152.png`,
+        //     sizes: "152x152",
+        //     type: "image/png",
+        // },
         {
             src: `manifest-icons/${prefix}-x192.png`,
             sizes: "192x192",
