@@ -331,6 +331,49 @@
 
 // app/manifest.ts
 
+// import { MetadataRoute } from "next";
+// import { cookies } from "next/headers";
+// // import { getManifestIcons, manifestConfig } from "../config/manifestConfig";
+// import { getFavicon } from "@/utils/getFavicon";
+// import { getManifestIcons, manifestConfig } from "../../config/manifestConfig";
+
+// export default function manifest(): MetadataRoute.Manifest {
+//     const cookieStore = cookies();
+//     const domainContext =
+//         cookieStore.get("domainContext")?.value || "driptrace";
+
+//     const config = manifestConfig[domainContext as keyof typeof manifestConfig];
+//     const favicon = getFavicon(domainContext);
+
+//     if (!config) {
+//         console.error(
+//             `No manifest configuration found for domain context: ${domainContext}`
+//         );
+//         return {} as MetadataRoute.Manifest;
+//     }
+
+//     const manifestData: MetadataRoute.Manifest = {
+//         name: config.name,
+//         short_name: config.shortName,
+//         description: config.description,
+//         start_url: "/",
+//         scope: "/",
+//         display: "standalone",
+//         background_color: config.backgroundColor,
+//         theme_color: config.themeColor,
+//         icons: [
+//             { src: favicon.icon, sizes: "any", type: "image/x-icon" },
+//             ...getManifestIcons(config.iconPrefix),
+//         ],
+//         orientation: "portrait",
+//         id: "/",
+//     };
+
+//     return JSON.parse(JSON.stringify(manifestData));
+// }
+
+// app/manifest.ts
+
 import { MetadataRoute } from "next";
 import { cookies } from "next/headers";
 // import { getManifestIcons, manifestConfig } from "../config/manifestConfig";

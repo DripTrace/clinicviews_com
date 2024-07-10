@@ -28,7 +28,7 @@
 
 // utils/getFavicon.ts
 
-interface FaviconConfig {
+export interface FaviconConfig {
     icon: string;
     apple: string;
     shortcut: string;
