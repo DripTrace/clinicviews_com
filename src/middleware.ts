@@ -77,7 +77,7 @@ export function middleware(request: NextRequest) {
 
     const protocol = process.env.NODE_ENV === "production" ? "https" : "http";
 
-    if (domainPort === "4" || domainHostname === "site.fsclinicals.com") {
+    if (domainPort === "4" || domainHostname === "fsclinicals.com") {
         domainContext = "fsclinicals";
         fullUrl = `${protocol}://${domainHostname}`;
         if (domainPathname === "/") {
@@ -85,7 +85,7 @@ export function middleware(request: NextRequest) {
         }
     } else if (
         domainPort === "65535" ||
-        domainHostname === "site.lomalindapsych.com"
+        domainHostname === "lomalindapsych.com"
     ) {
         domainContext = "llpmg";
         fullUrl = `${protocol}://${domainHostname}`;
