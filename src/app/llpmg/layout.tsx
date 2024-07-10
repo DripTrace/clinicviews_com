@@ -140,6 +140,14 @@ import { store } from "@/store/store";
 export const metadata: Metadata = {
     title: "LLPMG",
     description: "Loma Linda Psychiatric Medical Group",
+    // icons: [
+    //     {
+    //         rel: "apple-touch-icon",
+    //         url: "manifest-icons/llpmg-logo-128.png",
+    //     },
+    //     { rel: "icon", url: "manifest-icons/llpmg-logo-128.png" },
+
+    // ],
 };
 
 export default function LLPMGRootLayout({

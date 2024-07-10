@@ -43,17 +43,17 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
-	render() {
-		return (
-			<Html lang="en" className="">
-				<Head>
-					<link rel="icon" href="/favicon.ico" sizes="any" />
-					<link
-						href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-						rel="stylesheet"
-					/>
+    render() {
+        return (
+            <Html lang="en" className="">
+                <Head>
+                    {/* <link rel="icon" href="/favicon.ico" sizes="any" /> */}
+                    <link
+                        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+                        rel="stylesheet"
+                    />
 
-					{/* <meta
+                    {/* <meta
 						name="viewport"
 						content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
 					/>
@@ -73,11 +73,11 @@ class MyDocument extends Document {
 					<meta name="mobile-web-app-capable" content="yes" />
 					<meta name="msapplication-TileColor" content="#88B0BD" />
 					<meta name="msapplication-tap-highlight" content="no" /> */}
-					{/* <meta name="theme-color" content="#79A5B4" /> */}
-					{/* <meta name="theme-color" content="#6BA3C5" /> */}
-					{/* <meta name="theme-color" content="#5590B6" /> */}
-					{/* <meta name="theme-color" content="#0967AA" /> */}
-					{/* <meta name="theme-color" content="#165394" />
+                    {/* <meta name="theme-color" content="#79A5B4" /> */}
+                    {/* <meta name="theme-color" content="#6BA3C5" /> */}
+                    {/* <meta name="theme-color" content="#5590B6" /> */}
+                    {/* <meta name="theme-color" content="#0967AA" /> */}
+                    {/* <meta name="theme-color" content="#165394" />
 
 					<link
 						rel="apple-touch-icon"
@@ -85,12 +85,12 @@ class MyDocument extends Document {
 					/>
 					<link rel="manifest" href="/manifest.json" />
 					<link rel="shortcut icon" href="/llpmg_-logo.ico" /> */}
-				</Head>
-				<Main />
-				<NextScript />
-			</Html>
-		);
-	}
+                </Head>
+                <Main />
+                <NextScript />
+            </Html>
+        );
+    }
 }
 
 export default MyDocument;
