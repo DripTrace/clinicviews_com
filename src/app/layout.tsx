@@ -90,12 +90,7 @@ export async function generateMetadata(): Promise<Metadata> {
     const favicon = getFavicon(domainContext);
 
     return {
-        manifest: "/manifest.webmanifest",
-        // icons: {
-        //     icon: favicon.icon,
-        //     apple: favicon.apple,
-        //     shortcut: favicon.shortcut,
-        // },
+        manifest: `/manifest_${domainContext}.webmanifest`,
         icons: {
             icon: [
                 { url: favicon.icon, sizes: "any" },

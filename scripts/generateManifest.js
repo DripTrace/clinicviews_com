@@ -170,47 +170,36 @@ async function generateManifest() {
             "../config/manifestConfig.ts"
         );
 
-        const commonManifest = {
-            start_url: "/",
-            scope: "/",
-            display: "standalone",
-            orientation: "portrait",
-        };
-
-        const dynamicDomains = {};
-
         Object.entries(manifestConfig).forEach(([domain, config]) => {
-            dynamicDomains[domain] = {
+            const manifest = {
                 name: config.name,
                 short_name: config.shortName,
                 description: config.description,
+                start_url: domain === "driptrace" ? "/" : `/${domain}/landing`,
+                scope: "/",
+                display: "standalone",
                 background_color: config.backgroundColor,
                 theme_color: config.themeColor,
+                orientation: "portrait",
                 icons: getManifestIcons(config.iconPrefix).map((icon) => ({
                     ...icon,
                     src: `/manifest-icons/${icon.src}`,
                 })),
             };
+
+            const manifestJson = JSON.stringify(manifest, null, 2);
+            const outputPath = path.join(
+                __dirname,
+                "..",
+                "public",
+                `manifest_${domain}.webmanifest`
+            );
+
+            fs.writeFileSync(outputPath, manifestJson);
+            console.log(`Generated manifest for ${domain} at ${outputPath}`);
         });
-
-        const manifestContent = {
-            ...commonManifest,
-            dynamicDomains,
-        };
-
-        const manifestJson = JSON.stringify(manifestContent, null, 2);
-        const outputPath = path.join(
-            __dirname,
-            "..",
-            "public",
-            "manifest.webmanifest"
-        );
-
-        fs.writeFileSync(outputPath, manifestJson);
-        console.log(`Generated manifest at ${outputPath}`);
-        console.log("Manifest content:", manifestJson);
     } catch (error) {
-        console.error("Error generating manifest:", error);
+        console.error("Error generating manifests:", error);
         process.exit(1);
     }
 }

@@ -5,14 +5,6 @@ import path from "path";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-    console.log("Manifest request received");
-    const manifestPath = path.join(
-        process.cwd(),
-        "public",
-        "manifest.webmanifest"
-    );
-    const manifestContent = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
-
     const host = req.headers.host || "";
     console.log("Request host:", host);
 
@@ -26,22 +18,22 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
     console.log("Selected domain:", domain);
 
-    const domainSpecificContent = manifestContent.dynamicDomains[domain];
+    const manifestPath = path.join(
+        process.cwd(),
+        "public",
+        `manifest_${domain}.webmanifest`
+    );
 
-    if (!domainSpecificContent) {
-        console.error(`No manifest configuration found for domain: ${domain}`);
+    if (!fs.existsSync(manifestPath)) {
+        console.error(`No manifest file found for domain: ${domain}`);
         res.status(404).json({ error: "Manifest not found for this domain" });
         return;
     }
 
-    // Remove the dynamicDomains property from the served manifest
-    const { dynamicDomains, ...finalManifest } = manifestContent;
+    const manifestContent = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
 
-    // Merge domain-specific content into the final manifest
-    Object.assign(finalManifest, domainSpecificContent);
-
-    console.log("Serving manifest:", JSON.stringify(finalManifest, null, 2));
+    console.log("Serving manifest:", JSON.stringify(manifestContent, null, 2));
 
     res.setHeader("Content-Type", "application/manifest+json");
-    res.status(200).json(finalManifest);
+    res.status(200).json(manifestContent);
 }
