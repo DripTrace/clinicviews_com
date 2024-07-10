@@ -20,8 +20,8 @@ export const faviconConfig: FaviconConfig = {
         shortcut: "/fsclinicals/llpmg_-logo_512.png/",
     },
     driptrace: {
-        icon: "/favicons/driptrace/favicon.ico",
-        apple: "/favicons/driptrace/apple-touch-icon.png",
-        shortcut: "/favicons/driptrace/favicon-16x16.png",
+        icon: "/favicon.ico",
+        apple: "/fsclinicals/llpmg_apple-touch-icon.png",
+        shortcut: "/fsclinicals/llpmg_-logo_512.png/",
     },
 };

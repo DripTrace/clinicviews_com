@@ -35,8 +35,10 @@ const nextConfig = {
         domains: ["driptrace.github.io"],
     },
     output: "export",
-    basePath: "/clinicviews_com",
-    assetPrefix: "/clinicviews_com/",
+    // basePath: "/clinicviews_com",
+    // assetPrefix: "/clinicviews_com/",
+    basePath: "/",
+    assetPrefix: "//",
     transpilePackages: ["framer-motion"],
     webpack: (config, { isServer }) => {
         if (!isServer) {
