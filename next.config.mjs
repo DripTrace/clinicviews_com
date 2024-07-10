@@ -103,6 +103,14 @@ const nextConfig = {
     output: "export",
     basePath: "/clinicviews_com",
     assetPrefix: "/clinicviews_com/",
+    exportPathMap: async function (
+        defaultPathMap,
+        { dev, dir, outDir, distDir, buildId }
+    ) {
+        // Remove the [...not_found] route from static export
+        delete defaultPathMap["/[...not_found]"];
+        return defaultPathMap;
+    },
     transpilePackages: ["framer-motion"],
     webpack: (config, { isServer }) => {
         if (!isServer) {
