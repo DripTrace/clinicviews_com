@@ -24,12 +24,18 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         domain = "driptrace";
     }
 
+    const domainSpecificContent = manifestContent.dynamicDomains[domain] || {};
+
     const dynamicManifest = {
         ...manifestContent,
-        ...manifestContent.dynamicDomains[domain],
+        ...domainSpecificContent,
+        icons: domainSpecificContent.icons || manifestContent.icons,
     };
 
     delete dynamicManifest.dynamicDomains;
+
+    console.log(`Serving manifest for domain: ${domain}`);
+    console.log("Dynamic Manifest:", JSON.stringify(dynamicManifest, null, 2));
 
     res.setHeader("Content-Type", "application/manifest+json");
     res.status(200).json(dynamicManifest);

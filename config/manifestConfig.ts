@@ -370,6 +370,80 @@
 
 // config/manifestConfig.ts
 
+// import { MetadataRoute } from "next";
+
+// export interface ManifestConfigItem {
+//     name: string;
+//     shortName: string;
+//     description: string;
+//     themeColor: string;
+//     backgroundColor: string;
+//     iconPrefix: string;
+// }
+
+// export type ManifestConfig = {
+//     [key: string]: ManifestConfigItem;
+// };
+
+// export const manifestConfig: ManifestConfig = {
+//     llpmg: {
+//         name: "LomaLindaPsychMedGroup",
+//         shortName: "LLPMG",
+//         description: "Loma Linda Psychiatric Medical Group",
+//         themeColor: "#255378",
+//         backgroundColor: "#6497B0",
+//         iconPrefix: "llpmg-logo",
+//     },
+//     fsclinicals: {
+//         name: "FourSquareClinicals",
+//         shortName: "FSClinicals",
+//         description: "Four Square Clinicals",
+//         themeColor: "#1FABC7",
+//         backgroundColor: "#D1E0EB",
+//         iconPrefix: "fsc-logo",
+//     },
+// };
+
+// export function getManifestIcons(
+//     prefix: string
+// ): NonNullable<MetadataRoute.Manifest["icons"]> {
+//     return [
+//         {
+//             src: `manifest-icons/${prefix}-favicon.ico`,
+//             sizes: "any",
+//             type: "image/x-icon",
+//         },
+//         {
+//             src: `manifest-icons/${prefix}-x192.png`,
+//             sizes: "192x192",
+//             type: "image/png",
+//         },
+//         {
+//             src: `manifest-icons/${prefix}-x256.png`,
+//             sizes: "256x256",
+//             type: "image/png",
+//         },
+//         {
+//             src: `manifest-icons/${prefix}-x384.png`,
+//             sizes: "384x384",
+//             type: "image/png",
+//         },
+//         {
+//             src: `manifest-icons/${prefix}-x512.png`,
+//             sizes: "512x512",
+//             type: "image/png",
+//         },
+//         {
+//             src: `${prefix}-maskable-icon_x512.png`,
+//             sizes: "512x512",
+//             type: "image/png",
+//             purpose: "maskable",
+//         },
+//     ];
+// }
+
+// config/manifestConfig.ts
+
 import { MetadataRoute } from "next";
 
 export interface ManifestConfigItem {
@@ -381,18 +455,14 @@ export interface ManifestConfigItem {
     iconPrefix: string;
 }
 
-export type ManifestConfig = {
-    [key: string]: ManifestConfigItem;
-};
-
-export const manifestConfig: ManifestConfig = {
+export const manifestConfig: Record<string, ManifestConfigItem> = {
     llpmg: {
         name: "LomaLindaPsychMedGroup",
         shortName: "LLPMG",
         description: "Loma Linda Psychiatric Medical Group",
         themeColor: "#255378",
         backgroundColor: "#6497B0",
-        iconPrefix: "llpmg-logo",
+        iconPrefix: "llpmg-logo-",
     },
     fsclinicals: {
         name: "FourSquareClinicals",
@@ -400,41 +470,39 @@ export const manifestConfig: ManifestConfig = {
         description: "Four Square Clinicals",
         themeColor: "#1FABC7",
         backgroundColor: "#D1E0EB",
-        iconPrefix: "fsc-logo",
+        iconPrefix: "fsc-logo-",
+    },
+    driptrace: {
+        name: "DripTrace Medical",
+        shortName: "DripTrace",
+        description: "DripTrace Medical Services",
+        themeColor: "#0C3C60",
+        backgroundColor: "#99AAC0",
+        iconPrefix: "driptrace-logo-",
     },
 };
 
 export function getManifestIcons(
     prefix: string
-): NonNullable<MetadataRoute.Manifest["icons"]> {
+): MetadataRoute.Manifest["icons"] {
     return [
         {
-            src: `manifest-icons/${prefix}-favicon.ico`,
-            sizes: "any",
+            src: `${prefix}favicon.ico`,
+            sizes: "64x64 32x32 24x24 16x16",
             type: "image/x-icon",
         },
         {
-            src: `manifest-icons/${prefix}-x192.png`,
+            src: `${prefix}icon-192x192.png`,
             sizes: "192x192",
             type: "image/png",
         },
         {
-            src: `manifest-icons/${prefix}-x256.png`,
-            sizes: "256x256",
-            type: "image/png",
-        },
-        {
-            src: `manifest-icons/${prefix}-x384.png`,
-            sizes: "384x384",
-            type: "image/png",
-        },
-        {
-            src: `manifest-icons/${prefix}-x512.png`,
+            src: `${prefix}icon-512x512.png`,
             sizes: "512x512",
             type: "image/png",
         },
         {
-            src: `${prefix}-maskable-icon_x512.png`,
+            src: `${prefix}icon-512x512.png`,
             sizes: "512x512",
             type: "image/png",
             purpose: "maskable",

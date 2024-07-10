@@ -48,6 +48,61 @@
 
 // scripts/generateManifest.js
 
+// const fs = require("fs");
+// const path = require("path");
+
+// async function generateManifest() {
+//     try {
+//         const { manifestConfig, getManifestIcons } = await import(
+//             "../config/manifestConfig.ts"
+//         );
+
+//         const universalManifest = {
+//             name: "Dynamic Web App",
+//             short_name: "DWA",
+//             description: "A multi-domain web application",
+//             start_url: "/",
+//             scope: "/",
+//             display: "standalone",
+//             background_color: "#ffffff",
+//             theme_color: "#000000",
+//             icons: getManifestIcons("default"),
+//             orientation: "portrait",
+//             id: "/",
+//             dynamicDomains: {},
+//         };
+
+//         Object.entries(manifestConfig).forEach(([domain, config]) => {
+//             universalManifest.dynamicDomains[domain] = {
+//                 name: config.name,
+//                 short_name: config.shortName,
+//                 description: config.description,
+//                 background_color: config.backgroundColor,
+//                 theme_color: config.themeColor,
+//                 icons: getManifestIcons(config.iconPrefix),
+//             };
+//         });
+
+//         const manifestJson = JSON.stringify(universalManifest, null, 2);
+//         const outputPath = path.join(
+//             __dirname,
+//             "..",
+//             "public",
+//             "manifest.webmanifest"
+//         );
+
+//         fs.writeFileSync(outputPath, manifestJson);
+//         console.log(`Generated universal manifest at ${outputPath}`);
+//     } catch (error) {
+//         console.error("Error generating manifest:", error);
+//         process.exit(1);
+//     }
+// }
+
+// generateManifest();
+
+// scripts/generateManifest.js
+
 const fs = require("fs");
 const path = require("path");
 
@@ -79,7 +134,12 @@ async function generateManifest() {
                 description: config.description,
                 background_color: config.backgroundColor,
                 theme_color: config.themeColor,
-                icons: getManifestIcons(config.iconPrefix),
+                icons: getManifestIcons(config.iconPrefix).map((icon) => ({
+                    ...icon,
+                    src: `/manifest-icons/${config.iconPrefix}${icon.src
+                        .split("/")
+                        .pop()}`,
+                })),
             };
         });
 
@@ -93,6 +153,7 @@ async function generateManifest() {
 
         fs.writeFileSync(outputPath, manifestJson);
         console.log(`Generated universal manifest at ${outputPath}`);
+        console.log("Manifest content:", manifestJson);
     } catch (error) {
         console.error("Error generating manifest:", error);
         process.exit(1);
