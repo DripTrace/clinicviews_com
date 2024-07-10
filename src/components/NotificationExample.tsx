@@ -1,5 +1,7 @@
 // components/NotificationExample.tsx
 
+"use client";
+
 import { useEffect } from "react";
 import {
     requestNotificationPermission,
