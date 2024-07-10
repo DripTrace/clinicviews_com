@@ -208,7 +208,8 @@ export default function manifest(): MetadataRoute.Manifest {
     console.log("Manifest function called");
 
     const cookieStore = cookies();
-    const domainContext = cookieStore.get("domainContext")?.value || "llpmg";
+    const domainContext =
+        cookieStore.get("domainContext")?.value || "driptrace";
 
     console.log("Generating manifest for domain context:", domainContext);
 
@@ -221,7 +222,8 @@ export default function manifest(): MetadataRoute.Manifest {
         return {} as MetadataRoute.Manifest;
     }
 
-    const basePath = "/clinicviews_com";
+    // const basePath = "/clinicviews_com";
+    const basePath = "";
 
     const generatedManifest: MetadataRoute.Manifest = {
         name: config.name,
@@ -236,6 +238,8 @@ export default function manifest(): MetadataRoute.Manifest {
             ...icon,
             src: `${basePath}/${icon.src}`,
         })),
+        orientation: "portrait",
+        id: "/",
     };
 
     console.log(
