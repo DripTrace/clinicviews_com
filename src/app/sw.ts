@@ -75,6 +75,20 @@ installSerwist({
     },
 });
 
+self.addEventListener("push", function (event) {
+    if (event.data) {
+        const data = event.data.json();
+        const options = {
+            body: data.body,
+            icon: data.icon,
+            badge: data.badge,
+        };
+        event.waitUntil(
+            self.registration.showNotification(data.title, options)
+        );
+    }
+});
+
 // Custom service worker logic for all domains
 self.addEventListener("message", async (event) => {
     if (event.data.action === "cache-on-demand") {

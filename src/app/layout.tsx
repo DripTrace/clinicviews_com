@@ -81,6 +81,7 @@ import { getFavicon } from "@/utils/getFavicon";
 import RootClientLayout from "@/components/RootClientLayout";
 import { DomainContextInitializer } from "./DomainContextInitializer";
 import FaviconLinks from "@/components/FaviconLinks";
+import InstallPrompt from "@/components/InstallPrompt";
 // import ClientLayout from "./ClientLayout";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -117,6 +118,7 @@ export default function RootLayout({
     return (
         <>
             {/* <DomainContextInitializer /> */}
+            <InstallPrompt />
             <RootClientLayout>{children}</RootClientLayout>
         </>
     );
