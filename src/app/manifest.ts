@@ -190,7 +190,7 @@ export default function manifest(): MetadataRoute.Manifest {
 
 function generateManifest(config: ManifestConfigItem): MetadataRoute.Manifest {
     // const basePath = "/clinicviews_com";
-    const basePath = "/";
+    const basePath = "";
 
     const generatedManifest: MetadataRoute.Manifest = {
         name: config.name,

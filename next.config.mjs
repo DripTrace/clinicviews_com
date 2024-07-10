@@ -37,8 +37,8 @@ const nextConfig = {
     output: "export",
     // basePath: "/clinicviews_com",
     // assetPrefix: "/clinicviews_com/",
-    basePath: "/",
-    assetPrefix: "//",
+    basePath: "",
+    assetPrefix: "",
     transpilePackages: ["framer-motion"],
     webpack: (config, { isServer }) => {
         if (!isServer) {
