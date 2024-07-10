@@ -42,7 +42,10 @@ const nextConfig = {
     // basePath: "/clinicviews_com",
     // assetPrefix: "/clinicviews_com/",
     basePath: "",
-    assetPrefix: "",
+    assetPrefix: "/",
+    images: {
+        unoptimized: true,
+    },
     transpilePackages: ["framer-motion"],
     webpack: (config, { isServer }) => {
         if (!isServer) {
