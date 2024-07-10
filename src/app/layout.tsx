@@ -1,6 +1,6 @@
-// "use client";
+"use client";
 
-// import React, { useEffect } from "react";
+import React, { useEffect } from "react";
 import { Metadata } from "next";
 import DomainProvider from "@/components/RootStoreProvider";
 import { cookies } from "next/headers";
@@ -24,6 +24,11 @@ export async function generateMetadata(): Promise<Metadata> {
     };
 }
 
+export const metadata: Metadata = {
+    manifest: "/manifest.webmanifest",
+    // other metadata...
+};
+
 // export const metadata: Metadata = {
 //     title: "DOMAIN",
 //     description: "Root Domain",
@@ -34,26 +39,26 @@ export default function RootLayout({
 }: {
     children: React.ReactNode;
 }) {
-    // useEffect(() => {
-    //     if ("serviceWorker" in navigator) {
-    //         window.addEventListener("load", function () {
-    //             navigator.serviceWorker.register("/sw.js").then(
-    //                 function (registration) {
-    //                     console.log(
-    //                         "Service Worker registration successful with scope: ",
-    //                         registration.scope
-    //                     );
-    //                 },
-    //                 function (err) {
-    //                     console.log(
-    //                         "Service Worker registration failed: ",
-    //                         err
-    //                     );
-    //                 }
-    //             );
-    //         });
-    //     }
-    // }, []);
+    useEffect(() => {
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", function () {
+                navigator.serviceWorker.register("/sw.js").then(
+                    function (registration) {
+                        console.log(
+                            "Service Worker registration successful with scope: ",
+                            registration.scope
+                        );
+                    },
+                    function (err) {
+                        console.log(
+                            "Service Worker registration failed: ",
+                            err
+                        );
+                    }
+                );
+            });
+        }
+    }, []);
 
     return (
         // <>

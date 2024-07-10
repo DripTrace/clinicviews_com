@@ -199,22 +199,69 @@
 
 // app/manifest.ts
 
+// import { MetadataRoute } from "next";
+// import { cookies } from "next/headers";
+// import { getManifestIcons, manifestConfig } from "../../config/manifestConfig";
+// // import { manifestConfig, getManifestIcons, ManifestConfigItem } from '../config/manifestConfig';
+
+// export default function manifest(): MetadataRoute.Manifest {
+//     console.log("Manifest function called");
+
+//     const cookieStore = cookies();
+//     const domainContext =
+//         cookieStore.get("domainContext")?.value || "driptrace";
+
+//     console.log("Generating manifest for domain context:", domainContext);
+
+//     const config = manifestConfig[domainContext as keyof typeof manifestConfig];
+
+//     if (!config) {
+//         console.error(
+//             `No manifest configuration found for domain context: ${domainContext}`
+//         );
+//         return {} as MetadataRoute.Manifest;
+//     }
+
+//     // const basePath = "/clinicviews_com";
+//     const basePath = "";
+
+//     const generatedManifest: MetadataRoute.Manifest = {
+//         name: config.name,
+//         short_name: config.shortName,
+//         description: config.description,
+//         start_url: `${basePath}/`,
+//         scope: basePath,
+//         display: "standalone",
+//         background_color: config.backgroundColor,
+//         theme_color: config.themeColor,
+//         icons: getManifestIcons(config.iconPrefix).map((icon) => ({
+//             ...icon,
+//             src: `${basePath}/${icon.src}`,
+//         })),
+//         orientation: "portrait",
+//         id: "/",
+//     };
+
+//     console.log(
+//         "Generated manifest:",
+//         JSON.stringify(generatedManifest, null, 2)
+//     );
+
+//     return generatedManifest;
+// }
+
 import { MetadataRoute } from "next";
 import { cookies } from "next/headers";
 import { getManifestIcons, manifestConfig } from "../../config/manifestConfig";
-// import { manifestConfig, getManifestIcons, ManifestConfigItem } from '../config/manifestConfig';
 
 export default function manifest(): MetadataRoute.Manifest {
     console.log("Manifest function called");
-
     const cookieStore = cookies();
     const domainContext =
         cookieStore.get("domainContext")?.value || "driptrace";
-
     console.log("Generating manifest for domain context:", domainContext);
 
     const config = manifestConfig[domainContext as keyof typeof manifestConfig];
-
     if (!config) {
         console.error(
             `No manifest configuration found for domain context: ${domainContext}`
@@ -222,9 +269,7 @@ export default function manifest(): MetadataRoute.Manifest {
         return {} as MetadataRoute.Manifest;
     }
 
-    // const basePath = "/clinicviews_com";
     const basePath = "";
-
     const generatedManifest: MetadataRoute.Manifest = {
         name: config.name,
         short_name: config.shortName,
@@ -246,6 +291,5 @@ export default function manifest(): MetadataRoute.Manifest {
         "Generated manifest:",
         JSON.stringify(generatedManifest, null, 2)
     );
-
     return generatedManifest;
 }
