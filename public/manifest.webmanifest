@@ -15,7 +15,8 @@
         {
           "src": "/manifest-icons/llpmg-logo-x192.png",
           "sizes": "192x192",
-          "type": "image/png"
+          "type": "image/png",
+          "purpose": "any"
         },
         {
           "src": "/manifest-icons/llpmg-logo-x256.png",
@@ -28,14 +29,14 @@
           "type": "image/png"
         },
         {
-          "src": "/manifest-icons/llpmg-logo-maskable-logo_x512png",
+          "src": "/manifest-icons/llpmg-logo-maskable-icon_x512png",
           "sizes": "512x512",
           "type": "image/png",
           "purpose": "maskable"
         }
       ],
-      "start_url": "{{START_URL_PLACEHOLDER}}",
-      "id": "{{ID_PLACEHOLDER}}",
+      "start_url": "/llpmg/landing",
+      "id": "/llpmg/landing",
       "scope": "/",
       "display": "standalone",
       "orientation": "portrait"
@@ -55,7 +56,8 @@
         {
           "src": "/manifest-icons/fsc-logo-x192.png",
           "sizes": "192x192",
-          "type": "image/png"
+          "type": "image/png",
+          "purpose": "any"
         },
         {
           "src": "/manifest-icons/fsc-logo-x256.png",
@@ -68,14 +70,14 @@
           "type": "image/png"
         },
         {
-          "src": "/manifest-icons/fsc-logo-maskable-logo_x512png",
+          "src": "/manifest-icons/fsc-logo-maskable-icon_x512png",
           "sizes": "512x512",
           "type": "image/png",
           "purpose": "maskable"
         }
       ],
-      "start_url": "{{START_URL_PLACEHOLDER}}",
-      "id": "{{ID_PLACEHOLDER}}",
+      "start_url": "/fsclinicals/fsclinicals-landing",
+      "id": "/fsclinicals/fsclinicals-landing",
       "scope": "/",
       "display": "standalone",
       "orientation": "portrait"
@@ -95,7 +97,8 @@
         {
           "src": "/manifest-icons/driptrace-logo-x192.png",
           "sizes": "192x192",
-          "type": "image/png"
+          "type": "image/png",
+          "purpose": "any"
         },
         {
           "src": "/manifest-icons/driptrace-logo-x256.png",
@@ -108,14 +111,14 @@
           "type": "image/png"
         },
         {
-          "src": "/manifest-icons/driptrace-logo-maskable-logo_x512png",
+          "src": "/manifest-icons/driptrace-logo-maskable-icon_x512png",
           "sizes": "512x512",
           "type": "image/png",
           "purpose": "maskable"
         }
       ],
-      "start_url": "{{START_URL_PLACEHOLDER}}",
-      "id": "{{ID_PLACEHOLDER}}",
+      "start_url": "/",
+      "id": "/",
       "scope": "/",
       "display": "standalone",
       "orientation": "portrait"

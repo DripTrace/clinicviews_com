@@ -462,7 +462,7 @@ export const manifestConfig: Record<string, ManifestConfigItem> = {
         description: "Loma Linda Psychiatric Medical Group",
         themeColor: "#255378",
         backgroundColor: "#6497B0",
-        iconPrefix: "llpmg-logo-",
+        iconPrefix: "llpmg-logo",
     },
     fsclinicals: {
         name: "FourSquareClinicals",
@@ -470,7 +470,7 @@ export const manifestConfig: Record<string, ManifestConfigItem> = {
         description: "Four Square Clinicals",
         themeColor: "#1FABC7",
         backgroundColor: "#D1E0EB",
-        iconPrefix: "fsc-logo-",
+        iconPrefix: "fsc-logo",
     },
     driptrace: {
         name: "DripTrace Medical",
@@ -478,7 +478,7 @@ export const manifestConfig: Record<string, ManifestConfigItem> = {
         description: "DripTrace Medical Services",
         themeColor: "#0C3C60",
         backgroundColor: "#99AAC0",
-        iconPrefix: "driptrace-logo-",
+        iconPrefix: "driptrace-logo",
     },
 };
 
@@ -487,17 +487,18 @@ export function getManifestIcons(
 ): MetadataRoute.Manifest["icons"] {
     return [
         {
-            src: `${prefix}favicon.ico`,
+            src: `${prefix}-favicon.ico`,
             sizes: "64x64 32x32 24x24 16x16",
             type: "image/x-icon",
         },
         {
-            src: `${prefix}x192.png`,
+            src: `${prefix}-x192.png`,
             sizes: "192x192",
             type: "image/png",
+            purpose: "any",
         },
         {
-            src: `${prefix}x256.png`,
+            src: `${prefix}-x256.png`,
             sizes: "256x256",
             type: "image/png",
         },
@@ -507,12 +508,12 @@ export function getManifestIcons(
         //     type: "image/png",
         // },
         {
-            src: `${prefix}x512.png`,
+            src: `${prefix}-x512.png`,
             sizes: "512x512",
             type: "image/png",
         },
         {
-            src: `${prefix}maskable-logo_x512png`,
+            src: `${prefix}-maskable-icon_x512png`,
             sizes: "512x512",
             type: "image/png",
             purpose: "maskable",

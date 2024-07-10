@@ -15,17 +15,11 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
     const host = req.headers.host;
     let domain = "driptrace"; // Default to driptrace
-    let startUrl = "/";
-    let id = "/";
 
     if (host && host.includes("lomalindapsych.com")) {
         domain = "llpmg";
-        startUrl = "/llpmg/landing";
-        id = "/llpmg/landing";
     } else if (host && host.includes("fsclinicals.com")) {
         domain = "fsclinicals";
-        startUrl = "/fsclinicals/fsclinicals-landing";
-        id = "/fsclinicals/fsclinicals-landing";
     }
 
     const domainSpecificContent = manifestContent.dynamicDomains[domain];
@@ -36,18 +30,12 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         return;
     }
 
-    const dynamicManifest = {
-        ...domainSpecificContent,
-        start_url: startUrl,
-        scope: "/",
-        display: "standalone",
-        orientation: "portrait",
-        id: id,
-    };
-
     console.log(`Serving manifest for domain: ${domain}`);
-    console.log("Dynamic Manifest:", JSON.stringify(dynamicManifest, null, 2));
+    console.log(
+        "Dynamic Manifest:",
+        JSON.stringify(domainSpecificContent, null, 2)
+    );
 
     res.setHeader("Content-Type", "application/manifest+json");
-    res.status(200).json(dynamicManifest);
+    res.status(200).json(domainSpecificContent);
 }
