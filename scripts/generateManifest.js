@@ -136,9 +136,8 @@ async function generateManifest() {
                 theme_color: config.themeColor,
                 icons: getManifestIcons(config.iconPrefix).map((icon) => ({
                     ...icon,
-                    src: `/manifest-icons/${config.iconPrefix}${icon.src
-                        .split("/")
-                        .pop()}`,
+                    // src: `/manifest-icons/${config.iconPrefix}${icon.src
+                    src: `/manifest-icons/${icon.src.split("/").pop()}`,
                 })),
             };
         });

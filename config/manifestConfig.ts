@@ -492,17 +492,27 @@ export function getManifestIcons(
             type: "image/x-icon",
         },
         {
-            src: `${prefix}icon-192x192.png`,
+            src: `${prefix}x192.png`,
             sizes: "192x192",
             type: "image/png",
         },
         {
-            src: `${prefix}icon-512x512.png`,
+            src: `${prefix}x256.png`,
+            sizes: "256x256",
+            type: "image/png",
+        },
+        // {
+        //     src: `${prefix}-x384.png`,
+        //     sizes: "384x384",
+        //     type: "image/png",
+        // },
+        {
+            src: `${prefix}x512.png`,
             sizes: "512x512",
             type: "image/png",
         },
         {
-            src: `${prefix}icon-512x512.png`,
+            src: `${prefix}maskable-logo_x512png`,
             sizes: "512x512",
             type: "image/png",
             purpose: "maskable",
