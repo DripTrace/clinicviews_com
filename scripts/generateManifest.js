@@ -175,7 +175,12 @@ async function generateManifest() {
                 name: config.name,
                 short_name: config.shortName,
                 description: config.description,
-                start_url: domain === "driptrace" ? "/" : `/${domain}/landing`,
+                start_url:
+                    domain === "driptrace"
+                        ? "/"
+                        : `${
+                              domain && domain === "fsclinicals"
+                          } ? /${domain}/${domain}-landing : /${domain}/landing`,
                 scope: "/",
                 display: "standalone",
                 background_color: config.backgroundColor,
