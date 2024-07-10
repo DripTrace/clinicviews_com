@@ -513,7 +513,7 @@ export function getManifestIcons(
             type: "image/png",
         },
         {
-            src: `${prefix}-maskable-icon_x512png`,
+            src: `${prefix}-maskable-icon_x512.png`,
             sizes: "512x512",
             type: "image/png",
             purpose: "maskable",
