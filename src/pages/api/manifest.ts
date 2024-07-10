@@ -14,25 +14,30 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     const manifestContent = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
 
     const host = req.headers.host;
-    let domain = "default";
+    let domain = "driptrace"; // Default to driptrace
 
     if (host && host.includes("lomalindapsych.com")) {
         domain = "llpmg";
     } else if (host && host.includes("fsclinicals.com")) {
         domain = "fsclinicals";
-    } else if (host && host.includes("medical.driptrace.com")) {
-        domain = "driptrace";
     }
 
-    const domainSpecificContent = manifestContent.dynamicDomains[domain] || {};
+    const domainSpecificContent = manifestContent.dynamicDomains[domain];
+
+    if (!domainSpecificContent) {
+        console.error(`No manifest configuration found for domain: ${domain}`);
+        res.status(404).json({ error: "Manifest not found for this domain" });
+        return;
+    }
 
     const dynamicManifest = {
-        ...manifestContent,
         ...domainSpecificContent,
-        icons: domainSpecificContent.icons || manifestContent.icons,
+        start_url: "/",
+        scope: "/",
+        display: "standalone",
+        orientation: "portrait",
+        id: "/",
     };
-
-    delete dynamicManifest.dynamicDomains;
 
     console.log(`Serving manifest for domain: ${domain}`);
     console.log("Dynamic Manifest:", JSON.stringify(dynamicManifest, null, 2));

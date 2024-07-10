@@ -103,6 +103,8 @@
 
 // scripts/generateManifest.js
 
+// scripts/generateManifest.js
+
 const fs = require("fs");
 const path = require("path");
 
@@ -113,17 +115,6 @@ async function generateManifest() {
         );
 
         const universalManifest = {
-            name: "Dynamic Web App",
-            short_name: "DWA",
-            description: "A multi-domain web application",
-            start_url: "/",
-            scope: "/",
-            display: "standalone",
-            background_color: "#ffffff",
-            theme_color: "#000000",
-            icons: getManifestIcons("default"),
-            orientation: "portrait",
-            id: "/",
             dynamicDomains: {},
         };
 
@@ -136,8 +127,7 @@ async function generateManifest() {
                 theme_color: config.themeColor,
                 icons: getManifestIcons(config.iconPrefix).map((icon) => ({
                     ...icon,
-                    // src: `/manifest-icons/${config.iconPrefix}${icon.src
-                    src: `/manifest-icons/${icon.src.split("/").pop()}`,
+                    src: `/manifest-icons/${icon.src}`,
                 })),
             };
         });
