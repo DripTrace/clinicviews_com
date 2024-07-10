@@ -172,7 +172,8 @@ export function getManifestIcons(
         },
         {
             src: `/manifest-icons/${prefix}-maskable.png`,
-            sizes: "192x192",
+            // sizes: "192x192",
+            sizes: "512x512",
             type: "image/png",
             purpose: "maskable",
         },
