@@ -378,7 +378,8 @@ import { MetadataRoute } from "next";
 import { cookies } from "next/headers";
 // import { getManifestIcons, manifestConfig } from "../config/manifestConfig";
 import { getFavicon } from "@/utils/getFavicon";
-import { getManifestIcons, manifestConfig } from "../../config/manifestConfig";
+import { getManifestIcons, manifestConfig } from "../config/manifestConfig";
+// import { getManifestIcons, manifestConfig } from "../../config/manifestConfig";
 
 export default function manifest(): MetadataRoute.Manifest {
     const cookieStore = cookies();
