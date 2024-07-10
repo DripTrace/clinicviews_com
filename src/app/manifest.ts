@@ -196,6 +196,7 @@ function generateManifest(config: ManifestConfigItem): MetadataRoute.Manifest {
         name: config.name,
         short_name: config.shortName,
         description: config.description,
+        orientation: "portrait",
         start_url: `${basePath}/`,
         scope: basePath,
         display: "standalone",

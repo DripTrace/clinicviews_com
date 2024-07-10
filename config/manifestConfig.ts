@@ -136,14 +136,14 @@ export const manifestConfig: Record<string, ManifestConfigItem> = {
         backgroundColor: "#D1E0EB",
         iconPrefix: "fsc-logo",
     },
-    driptrace: {
-        name: "DripTrace Medical",
-        shortName: "DripTrace",
-        description: "DripTrace Medical Services",
-        themeColor: "#0C3C60",
-        backgroundColor: "#99AAC0",
-        iconPrefix: "driptrace-logo",
-    },
+    // driptrace: {
+    //     name: "DripTrace Medical",
+    //     shortName: "DripTrace",
+    //     description: "DripTrace Medical Services",
+    //     themeColor: "#0C3C60",
+    //     backgroundColor: "#99AAC0",
+    //     iconPrefix: "driptrace-logo",
+    // },
 };
 
 export function getManifestIcons(
@@ -235,7 +235,8 @@ export function getManifestIcons(
             src: `/manifest-icons/${prefix}-maskable.png`,
             // sizes: "192x192",
             sizes: "512x512",
-            type: "image/png",
+            // type: "image/png",
+            type: "image/x-icon",
             purpose: "maskable",
         },
     ];
