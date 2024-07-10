@@ -79,7 +79,7 @@ const RootClientLayout: React.FC<RootClientLayoutProps> = ({ children }) => {
         <html lang="en">
             <body>
                 <NotificationExample />
-                <InstallPrompt />
+                {/* <InstallPrompt /> */}
                 <DomainProvider>{children}</DomainProvider>
             </body>
         </html>

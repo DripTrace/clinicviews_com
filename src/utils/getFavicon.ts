@@ -62,7 +62,7 @@ export function getFavicon(domainContext: string): FaviconConfig {
         return {
             icon: "/manifest-icons/default-favicon.ico",
             apple: "/manifest-icons/default-icon-192x192.png",
-            shortcut: "/manifest-icons/default-icon-192x192.png",
+            shortcut: "/manifest-icons/default-icon-512x512.png",
         };
     }
 
@@ -72,6 +72,6 @@ export function getFavicon(domainContext: string): FaviconConfig {
     return {
         icon: `${basePath}/${prefix}-favicon.ico`,
         apple: `${basePath}/${prefix}-x192.png`,
-        shortcut: `${basePath}/${prefix}-x192.png`,
+        shortcut: `${basePath}/${prefix}-x512.png`,
     };
 }
