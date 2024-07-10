@@ -1,4 +1,6 @@
-import React from "react";
+// "use client";
+
+// import React, { useEffect } from "react";
 import { Metadata } from "next";
 import DomainProvider from "@/components/RootStoreProvider";
 import { cookies } from "next/headers";
@@ -32,6 +34,27 @@ export default function RootLayout({
 }: {
     children: React.ReactNode;
 }) {
+    // useEffect(() => {
+    //     if ("serviceWorker" in navigator) {
+    //         window.addEventListener("load", function () {
+    //             navigator.serviceWorker.register("/sw.js").then(
+    //                 function (registration) {
+    //                     console.log(
+    //                         "Service Worker registration successful with scope: ",
+    //                         registration.scope
+    //                     );
+    //                 },
+    //                 function (err) {
+    //                     console.log(
+    //                         "Service Worker registration failed: ",
+    //                         err
+    //                     );
+    //                 }
+    //             );
+    //         });
+    //     }
+    // }, []);
+
     return (
         // <>
         <html lang="en">

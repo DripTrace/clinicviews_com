@@ -185,6 +185,8 @@ export default function manifest(): MetadataRoute.Manifest {
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
         icons: getManifestIcons(config.iconPrefix),
+        id: "/",
+        scope: "/",
     };
 
     console.log(

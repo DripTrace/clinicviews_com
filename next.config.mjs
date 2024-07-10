@@ -20,6 +20,10 @@ const nextConfig = {
                         key: "Cache-Control",
                         value: "no-store, max-age=0",
                     },
+                    {
+                        key: "Content-Type",
+                        value: "application/manifest+json",
+                    },
                 ],
             },
         ];
