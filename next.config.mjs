@@ -49,6 +49,7 @@ const nextConfig = {
     transpilePackages: ["framer-motion"],
     webpack: (config, { isServer }) => {
         if (!isServer) {
+            execSync("node generateManifest.js");
             config.resolve.fallback = {
                 ...config.resolve.fallback,
                 fs: false,

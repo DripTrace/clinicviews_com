@@ -3,6 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
+        "prebuild": "node scripts/runGenerateManifest.js",
         "sim": "chmod +x ./scripts/start-dev-servers.sh && sh ./scripts/start-dev-servers.sh",
         "dev": "next dev",
         "dev:driptrace": "next dev -p 42069",
