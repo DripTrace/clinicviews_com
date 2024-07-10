@@ -110,7 +110,7 @@
 
 import { MetadataRoute } from "next";
 
-interface ManifestConfigItem {
+export interface ManifestConfigItem {
     name: string;
     shortName: string;
     description: string;
@@ -119,11 +119,7 @@ interface ManifestConfigItem {
     iconPrefix: string;
 }
 
-type ManifestConfig = {
-    [key: string]: ManifestConfigItem;
-};
-
-export const manifestConfig: ManifestConfig = {
+export const manifestConfig: Record<string, ManifestConfigItem> = {
     llpmg: {
         name: "LomaLindaPsychMedGroup",
         shortName: "LLPMG",
@@ -152,72 +148,31 @@ export const manifestConfig: ManifestConfig = {
 
 export function getManifestIcons(
     prefix: string
-): MetadataRoute.Manifest["icons"] {
+): NonNullable<MetadataRoute.Manifest["icons"]> {
     return [
         {
-            src: "/favicon.ico",
-            sizes: "any",
-            type: "image/x-icon",
-        },
-        {
-            src: `manifest-icons/${prefix}-16.png`,
+            src: `/manifest-icons/${prefix}-16.png`,
             sizes: "16x16",
             type: "image/png",
-            purpose: "maskable",
         },
         {
-            src: `manifest-icons/${prefix}-48.png`,
-            sizes: "48x48",
+            src: `/manifest-icons/${prefix}-32.png`,
+            sizes: "32x32",
             type: "image/png",
         },
         {
-            src: `manifest-icons/${prefix}-72.png`,
-            sizes: "72x72",
-            type: "image/png",
-        },
-        {
-            src: `manifest-icons/${prefix}-96.png`,
-            sizes: "96x96",
-            type: "image/png",
-        },
-        {
-            src: `manifest-icons/${prefix}-128.png`,
-            sizes: "128x128",
-            type: "image/png",
-        },
-        {
-            src: `manifest-icons/${prefix}-144.png`,
-            sizes: "144x144",
-            type: "image/png",
-        },
-        {
-            src: `manifest-icons/${prefix}-152.png`,
-            sizes: "152x152",
-            type: "image/png",
-        },
-        {
-            src: `manifest-icons/${prefix}-192.png`,
+            src: `/manifest-icons/${prefix}-192.png`,
             sizes: "192x192",
             type: "image/png",
         },
         {
-            src: `manifest-icons/${prefix}-256.png`,
-            sizes: "256x256",
-            type: "image/png",
-        },
-        {
-            src: `manifest-icons/${prefix}-384.png`,
-            sizes: "384x384",
-            type: "image/png",
-        },
-        {
-            src: `manifest-icons/${prefix}-512.png`,
+            src: `/manifest-icons/${prefix}-512.png`,
             sizes: "512x512",
             type: "image/png",
         },
         {
-            src: `${prefix}-maskable_icon_x512.png`,
-            sizes: "512x512",
+            src: `/manifest-icons/${prefix}-maskable.png`,
+            sizes: "192x192",
             type: "image/png",
             purpose: "maskable",
         },
