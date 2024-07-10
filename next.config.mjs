@@ -37,7 +37,6 @@ const nextConfig = {
     output: "export",
     basePath: "/clinicviews_com",
     assetPrefix: "/clinicviews_com/",
-    reactStrictMode: true,
     transpilePackages: ["framer-motion"],
     webpack: (config, { isServer }) => {
         if (!isServer) {
