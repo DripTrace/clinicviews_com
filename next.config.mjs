@@ -14,6 +14,10 @@ const nextConfig = {
                 source: "/manifest.webmanifest",
                 destination: "/api/manifest",
             },
+            {
+                source: "/favicon.ico",
+                destination: "/api/favicon",
+            },
         ];
     },
     async headers() {

@@ -44,14 +44,16 @@
 
 "use client";
 
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import DomainProvider from "@/components/RootStoreProvider";
+import InstallPrompt from "./InstallPrompt";
+import NotificationExample from "./NotificationExample";
 
-export default function ClientLayout({
-    children,
-}: {
+interface RootClientLayoutProps {
     children: React.ReactNode;
-}) {
+}
+
+const RootClientLayout: React.FC<RootClientLayoutProps> = ({ children }) => {
     useEffect(() => {
         if (typeof window !== "undefined" && "serviceWorker" in navigator) {
             window.addEventListener("load", function () {
@@ -76,8 +78,12 @@ export default function ClientLayout({
     return (
         <html lang="en">
             <body>
+                <NotificationExample />
+                <InstallPrompt />
                 <DomainProvider>{children}</DomainProvider>
             </body>
         </html>
     );
-}
+};
+
+export default RootClientLayout;

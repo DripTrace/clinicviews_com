@@ -112,15 +112,11 @@ export default function RootLayout({
 }: {
     children: React.ReactNode;
 }) {
-    const cookieStore = cookies();
-    const domainContext =
-        cookieStore.get("domainContext")?.value || "driptrace";
-    const favicon = getFavicon(domainContext);
     return (
         <>
             {/* <DomainContextInitializer /> */}
-            <NotificationExample />
-            <InstallPrompt />
+            {/* <NotificationExample /> */}
+            {/* <InstallPrompt /> */}
             <RootClientLayout>{children}</RootClientLayout>
         </>
     );
