@@ -11,6 +11,19 @@ const nextConfig = {
             },
         ];
     },
+    async headers() {
+        return [
+            {
+                source: "/manifest.webmanifest",
+                headers: [
+                    {
+                        key: "Cache-Control",
+                        value: "no-store, max-age=0",
+                    },
+                ],
+            },
+        ];
+    },
     swcMinify: true,
     api: {
         bodyParser: {

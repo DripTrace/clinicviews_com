@@ -130,6 +130,32 @@
 
 // app/manifest.ts
 
+// import { MetadataRoute } from "next";
+// import { cookies } from "next/headers";
+// import { getManifestIcons, manifestConfig } from "../../config/manifestConfig";
+// // import { manifestConfig, getManifestIcons } from '../config/manifestConfig';
+
+// export default function manifest(): MetadataRoute.Manifest {
+//     const cookieStore = cookies();
+//     const domainContext = cookieStore.get("domainContext")?.value || "llpmg";
+
+//     const config = manifestConfig[domainContext];
+
+//     return {
+//         theme_color: config.themeColor,
+//         background_color: config.backgroundColor,
+//         display: "standalone",
+//         start_url: "/",
+//         name: config.name,
+//         short_name: config.shortName,
+//         description: config.description,
+//         orientation: "portrait",
+//         icons: getManifestIcons(config.iconPrefix),
+//     };
+// }
+
+// app/manifest.ts
+
 import { MetadataRoute } from "next";
 import { cookies } from "next/headers";
 import { getManifestIcons, manifestConfig } from "../../config/manifestConfig";
@@ -137,19 +163,35 @@ import { getManifestIcons, manifestConfig } from "../../config/manifestConfig";
 
 export default function manifest(): MetadataRoute.Manifest {
     const cookieStore = cookies();
-    const domainContext = cookieStore.get("domainContext")?.value || "llpmg";
+    const domainContext =
+        cookieStore.get("domainContext")?.value || "driptrace";
+
+    console.log("Generating manifest for domain context:", domainContext);
 
     const config = manifestConfig[domainContext];
 
-    return {
-        theme_color: config.themeColor,
-        background_color: config.backgroundColor,
-        display: "standalone",
-        start_url: "/",
+    if (!config) {
+        console.error(
+            `No manifest configuration found for domain context: ${domainContext}`
+        );
+        return manifestConfig.driptrace; // Fallback to driptrace config
+    }
+
+    const generatedManifest: MetadataRoute.Manifest = {
         name: config.name,
         short_name: config.shortName,
         description: config.description,
-        orientation: "portrait",
+        start_url: "/",
+        display: "standalone",
+        background_color: config.backgroundColor,
+        theme_color: config.themeColor,
         icons: getManifestIcons(config.iconPrefix),
     };
+
+    console.log(
+        "Generated manifest:",
+        JSON.stringify(generatedManifest, null, 2)
+    );
+
+    return generatedManifest;
 }
