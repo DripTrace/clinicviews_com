@@ -158,11 +158,7 @@
 
 import { MetadataRoute } from "next";
 import { cookies } from "next/headers";
-import {
-    getManifestIcons,
-    manifestConfig,
-    ManifestConfigItem,
-} from "../../config/manifestConfig";
+import { getManifestIcons, manifestConfig } from "../../config/manifestConfig";
 
 export default function manifest(): MetadataRoute.Manifest {
     const cookieStore = cookies();
@@ -171,41 +167,24 @@ export default function manifest(): MetadataRoute.Manifest {
 
     console.log("Generating manifest for domain context:", domainContext);
 
-    const config = manifestConfig[domainContext as keyof typeof manifestConfig];
+    const config = manifestConfig[domainContext];
 
     if (!config) {
         console.error(
             `No manifest configuration found for domain context: ${domainContext}`
         );
-        // Ensure driptrace config exists and use it as fallback
-        const fallbackConfig = manifestConfig.driptrace;
-        if (!fallbackConfig) {
-            throw new Error("Fallback configuration (driptrace) not found");
-        }
-        return generateManifest(fallbackConfig);
+        return manifestConfig.driptrace; // Fallback to driptrace config
     }
-
-    return generateManifest(config);
-}
-
-function generateManifest(config: ManifestConfigItem): MetadataRoute.Manifest {
-    // const basePath = "/clinicviews_com";
-    const basePath = "";
 
     const generatedManifest: MetadataRoute.Manifest = {
         name: config.name,
         short_name: config.shortName,
         description: config.description,
-        orientation: "portrait",
-        start_url: `${basePath}/`,
-        scope: basePath,
+        start_url: "/",
         display: "standalone",
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
-        icons: getManifestIcons(config.iconPrefix).map((icon) => ({
-            ...icon,
-            src: `${basePath}${icon.src}`,
-        })),
+        icons: getManifestIcons(config.iconPrefix),
     };
 
     console.log(
