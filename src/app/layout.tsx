@@ -115,8 +115,8 @@ export default function RootLayout({
     return (
         <>
             {/* <DomainContextInitializer /> */}
-            {/* <NotificationExample /> */}
-            {/* <InstallPrompt /> */}
+            <NotificationExample />
+            <InstallPrompt />
             <RootClientLayout>{children}</RootClientLayout>
         </>
     );

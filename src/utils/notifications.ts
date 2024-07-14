@@ -27,7 +27,9 @@ export async function sendNotification(
     const registration = await navigator.serviceWorker.getRegistration();
     if (registration) {
         registration.showNotification(title, options);
+        console.log("Notification sent from service worker");
     } else {
         new Notification(title, options);
+        console.log("Notification sent from main thread");
     }
 }

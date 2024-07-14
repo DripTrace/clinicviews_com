@@ -14,7 +14,7 @@ export default function StoreProvider({
     children: React.ReactNode;
 }) {
     useEffect(() => {
-        console.log("store provider");
+        console.log("(src/components/RootStoreProvider)\nstore provider");
     }, []);
 
     return (

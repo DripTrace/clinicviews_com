@@ -247,7 +247,7 @@ export default function SurveyComponent() {
     }
 
     useEffect(() => {
-        console.log("formResults:\n", formResults);
+        console.log("(src/components/Survey)\nformResults:\n", formResults);
     }, [formResults]);
 
     return (

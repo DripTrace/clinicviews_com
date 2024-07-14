@@ -281,6 +281,8 @@ const InstallPrompt: React.FC = () => {
             handleBeforeInstallPrompt
         );
 
+        console.log("Install prompt event listener added");
+
         return () => {
             window.removeEventListener(
                 "beforeinstallprompt",

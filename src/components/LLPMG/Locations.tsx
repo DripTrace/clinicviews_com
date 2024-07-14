@@ -7,7 +7,7 @@ import { FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
 const locations = [
     {
         city: "Apple Valley",
-        address: "18522 Highway 18 Ste. 260, Apple Valley, CA 92307",
+        address: "18522 Highway 18 Ste. 206, Apple Valley, CA 92307",
         phone: "(760) 946-4664",
         email: "av@lomalindapsych.com",
         mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3289.300956039574!2d-117.24590812333226!3d34.47262639850118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c36d37f8bd9ed9%3A0x14b6713b00f1b416!2s18522%20CA-18%20%23260%2C%20Apple%20Valley%2C%20CA%2092307!5e0!3m2!1sen!2sus!4v1685393124990!5m2!1sen!2sus",
