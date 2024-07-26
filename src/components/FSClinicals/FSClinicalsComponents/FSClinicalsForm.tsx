@@ -7,6 +7,7 @@ import { Survey } from "survey-react-ui";
 import { SurveyPDF } from "survey-pdf";
 import { useState, useEffect } from "react";
 import { fsclinicalsForm, fsclinicalsTheme } from "@/data/fsclinicals-config";
+import { fsclinicalsForm as fsclinicalsExtendedForm } from "@/data/fsclinicals-extended";
 import { useDomainSelector } from "@/store/domainHooks";
 {
     useDomainSelector;
@@ -168,7 +169,7 @@ export default function FSClinicalsFormComponent() {
     function saveFormData(form: SurveyModel) {
         const data = form.data;
         data.pageNo = form.currentPageNo;
-        window.localStorage.setItem(storageItemKey, JSON.stringify(data));
+        // window.localStorage.setItem(storageItemKey, JSON.stringify(data));
     }
 
     model.onValueChanged.add(saveFormData);

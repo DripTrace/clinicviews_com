@@ -1,34 +1,3 @@
-// 'use client'
-
-// import { useEffect, useState } from "react";
-// import { data, json } from "../../data/dashboard_data";
-// import { VisualizationPanel, VisualizationManager, WordCloud } from "survey-analytics";
-// import "survey-analytics/survey.analytics.css";
-// import { Model } from "survey-core";
-// // const WordCloud = require("wordcloud");
-// // (window as any)["WordCloud"] = WordCloud;
-
-// // VisualizationManager.unregisterVisualizerForAll(WordCloud);
-
-// export default function Dashboard() {
-//   let [vizPanel, setVizPanel] = useState<VisualizationPanel>();
-
-//   if (!vizPanel) {
-//     const survey = new Model(json);
-//     vizPanel = new VisualizationPanel(survey.getAllQuestions(), data);
-//     setVizPanel(vizPanel);
-//   }
-
-//   useEffect(() => {
-//     vizPanel?.render("surveyVizPanel");
-//     return () => {
-//       vizPanel?.clear();
-//     }
-//   }, [vizPanel]);
-
-//   return <div id="surveyVizPanel" style={{"margin": "auto", "width": "100%", "maxWidth": "1400px"}}></div>;
-// }
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -44,58 +13,49 @@ import { data, json } from "../../data/dashboard_data-0";
 // export * from "../../surveyjs-core/survey-library_dev/build/survey-core/typings/entries/core-wo-model.d";
 
 export default function Dashboard() {
-	const [vizPanel, setVizPanel] = useState<any>(null);
+    const [vizPanel, setVizPanel] = useState<any>(null);
 
-	useEffect(() => {
-		const loadSurveyAnalytics = async () => {
-			// const { VisualizationPanel } = await import(
-			// 	"../../surveyjs-core/survey-analytics_dev/src/visualizationPanel"
-			// );
-			const { VisualizationPanel } = await import("survey-analytics");
-			// const { VisualizationPanel } = await import(
-			// 	"/Users/rpalm/Downloads/surveyjs/survey-analytics/src/entries/summary"
-			// );
-			// const { VisualizationPanel } = await import("@/entries/summary");
-			// const { VisualizationPanel } = await import(
-			// 	"../../surveyjs-core/survey-analytics_dev/src/entries/summary"
-			// );
-			const survey = new Model(json);
-			const newVizPanel = new VisualizationPanel(
-				survey.getAllQuestions(),
-				data
-			);
-			setVizPanel(newVizPanel);
-		};
+    useEffect(() => {
+        const loadSurveyAnalytics = async () => {
+            // const { VisualizationPanel } = await import(
+            // 	"../../surveyjs-core/survey-analytics_dev/src/visualizationPanel"
+            // );
+            const { VisualizationPanel } = await import("survey-analytics");
+            // const { VisualizationPanel } = await import(
+            // 	"/Users/rpalm/Downloads/surveyjs/survey-analytics/src/entries/summary"
+            // );
+            // const { VisualizationPanel } = await import("@/entries/summary");
+            // const { VisualizationPanel } = await import(
+            // 	"../../surveyjs-core/survey-analytics_dev/src/entries/summary"
+            // );
+            const survey = new Model(json);
+            const newVizPanel = new VisualizationPanel(
+                survey.getAllQuestions(),
+                data
+            );
+            setVizPanel(newVizPanel);
+        };
 
-		loadSurveyAnalytics();
-	}, []);
+        loadSurveyAnalytics();
+    }, []);
 
-	useEffect(() => {
-		// if (vizPanel) {
-		// 	vizPanel.render("surveyVizPanel");
-		// }
-		// return () => {
-		// 	if (vizPanel) {
-		// 		vizPanel.clear();
-		// 	}
-		// };
+    useEffect(() => {
+        if (vizPanel) {
+            requestAnimationFrame(() => {
+                vizPanel.render("surveyVizPanel");
+            });
+        }
+        return () => {
+            if (vizPanel) {
+                vizPanel.clear();
+            }
+        };
+    }, [vizPanel]);
 
-		if (vizPanel) {
-			requestAnimationFrame(() => {
-				vizPanel.render("surveyVizPanel");
-			});
-		}
-		return () => {
-			if (vizPanel) {
-				vizPanel.clear();
-			}
-		};
-	}, [vizPanel]);
-
-	return (
-		<div
-			id="surveyVizPanel"
-			style={{ margin: "auto", width: "100%" /*, maxWidth: "1400px"*/ }}
-		></div>
-	);
+    return (
+        <div
+            id="surveyVizPanel"
+            style={{ margin: "auto", width: "100%" /*, maxWidth: "1400px"*/ }}
+        ></div>
+    );
 }
