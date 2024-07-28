@@ -528,13 +528,6 @@ export const fsclinicalsPatientForm = {
             description:
                 "Directions: Each rating should be considered in the context of what is appropriate for the age of your child. When completing this form, please think about your child's behaviors in the past 6 months or if this is a follow-up think about their behavior since the last assessment scale was filled out.",
             elements: [
-                // {
-                //     type: "html",
-                //     name: "diagnostics_of_adhd_use_parent",
-                //     html: "<div style='display: flex; flex-direction: column; align-items:center; justify-items: center; height: 100%; width: 100%;'><h4>Directions: </h4><p>Each rating should be considered in the context of what is appropriate for the age of your child. When completing this form, please think about your child's behaviors in the past 6 months or if this is a follow-up think about their behavior since the last assessment scale was filled out.</p></div>",
-                //     width: "100%",
-                //     minWidth: "256px",
-                // },
                 {
                     type: "text",
                     name: "date",

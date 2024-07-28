@@ -168,13 +168,13 @@ export default function FSClinicalsFormComponent() {
     //     title: "Preview PDF",
     //     action: previewPdf,
     // });
-    model.addNavigationItem({
-        id: "model_save_as_file",
-        title: "Save as PDF",
-        action: () => {
-            saveSurveyToPdf("modelResult.pdf", model);
-        },
-    });
+    // model.addNavigationItem({
+    //     id: "model_save_as_file",
+    //     title: "Save as PDF",
+    //     action: () => {
+    //         saveSurveyToPdf("modelResult.pdf", model);
+    //     },
+    // });
     // model.addNavigationItem({
     //     id: "patient_registry",
     //     title: "Register",
