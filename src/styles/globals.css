@@ -86,6 +86,10 @@ header a {
     text-decoration: none;
 }
 
+/* input {
+    cursor: pointer;
+} */
+
 @layer base {
     html {
         @apply p-0;
@@ -128,6 +132,55 @@ header a {
     background: var(--sjs-general-backcolor-dim, var(--background-dim, #f3f3f3));
 	background: #000 !important;
 }*/
+
+/* sd-item sd-radio sd-selectbase__item sv-q-col-1 sd-item--allowhover sd-radio--allowhover */
+
+/* sd-input sd-text */
+
+/* sd-boolean sd-boolean--allowhover sd-boolean--indeterminate */
+.sd-boolean {
+    cursor: pointer;
+}
+
+.sd-boolean__label {
+    cursor: pointer;
+}
+
+/* sjs_sp_canvas sd-signaturepad__canvas */
+.sjs_sp_canvas {
+    cursor: pointer;
+}
+
+.sd-selectbase__label {
+    cursor: pointer;
+}
+
+.sd-text {
+    cursor: pointer;
+}
+
+.sd-input {
+    cursor: pointer;
+}
+
+.sh-item--allowhover {
+    cursor: pointer;
+}
+
+/* sd-item sd-radio sd-matrix__label sd-radio--allowhover */
+.sd-item {
+    cursor: pointer;
+}
+
+/* sd-input sd-text */
+.sd-input {
+    cursor: pointer;
+}
+
+/* sd-item__decorator sd-radio__decorator */
+.sd-item__decorator {
+    cursor: pointer;
+}
 
 .svc-json-editor-tab__content-area {
     color: #000 !important;
@@ -232,10 +285,16 @@ header a {
 
 .sv-header {
     /* background-color: #000 !important; */
-    /* display: none !important; */
+    display: none !important;
     /* background: no-repeat center/80% url("/form-background.png") !important; */
-    background: no-repeat center/100% url("/form-background.png") !important;
+
+    /* background: no-repeat center/100% url("/form-background.png") !important; */
 }
+
+/* sv-header sv-header__overlap */
+/* .sv-header__overlap {
+    background-color: #000 !important;
+} */
 
 .sv-header__without-background {
     display: none !important;
@@ -297,9 +356,9 @@ header a {
     scrollbar-color: #3182ce #f1f1f1;
 }
 
-/* * {
-	cursor: auto !important;
-} */
+/* {
+    cursor: auto !important;
+}*/
 
 /* Dark mode scrollbar */
 @media (prefers-color-scheme: dark) {

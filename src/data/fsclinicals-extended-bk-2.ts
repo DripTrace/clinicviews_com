@@ -1486,7 +1486,7 @@ export const fsclinicalsForm = {
         //                         title: "Last Name",
         //                         width: "50%",
         //                         minWidth: "256px",
-        //                         ////isRequired: true,
+        //                         //isRequired: true,
         //                     },
         //                     {
         //                         type: "text",
@@ -1494,7 +1494,7 @@ export const fsclinicalsForm = {
         //                         title: "First Name",
         //                         width: "50%",
         //                         minWidth: "256px",
-        //                         ////isRequired: true,
+        //                         //isRequired: true,
         //                         startWithNewLine: false,
         //                     },
         //                     {
@@ -1512,7 +1512,7 @@ export const fsclinicalsForm = {
         //                         width: "50%",
         //                         minWidth: "256px",
         //                         startWithNewLine: false,
-        //                         ////isRequired: true,
+        //                         //isRequired: true,
         //                     },
         //                     {
         //                         type: "text",
@@ -2452,9 +2452,9 @@ export const fsclinicalsForm = {
         //                     "Trouble falling or staying asleep, or sleeping too much",
         //                     "Feeling tired or having little energy",
         //                     "Poor appetite or overeating",
-        //                     "Feeling bad about yourself - or that you are a failure or have let yourself or your family down",
+        //                     "Feeling bad about yourself – or that you are a failure or have let yourself or your family down",
         //                     "Trouble concentrating on things, such as reading the newspaper or watching television",
-        //                     "Moving or speaking so slowly that other people could have noticed? Or the opposite - being so fidgety or restless that you have been moving around a lot more than usual",
+        //                     "Moving or speaking so slowly that other people could have noticed? Or the opposite – being so fidgety or restless that you have been moving around a lot more than usual",
         //                     "Thoughts that you would be better off dead or of hurting yourself in some way",
         //                 ],
         //             },
@@ -2850,14 +2850,14 @@ export const fsclinicalsForm = {
         //                         type: "boolean",
         //                         name: "treatment_consent_agreement",
         //                         title: "I have read and understand the above, and I agree to these terms",
-        //                         ////isRequired: true,
+        //                         //isRequired: true,
         //                     },
         //                     {
         //                         type: "signaturepad",
         //                         name: "treatment_consent_signature",
         //                         title: "Patient Signature",
         //                         width: "100%",
-        //                         ////isRequired: true,
+        //                         //isRequired: true,
         //                     },
         //                 ],
         //             },
@@ -2875,14 +2875,14 @@ export const fsclinicalsForm = {
         //                         type: "boolean",
         //                         name: "telehealth_consent_agreement",
         //                         title: "I have read and understand the above, and I agree to these terms for telehealth sessions",
-        //                         ////isRequired: true,
+        //                         //isRequired: true,
         //                     },
         //                     {
         //                         type: "signaturepad",
         //                         name: "telehealth_consent_signature",
         //                         title: "Patient Signature",
         //                         width: "100%",
-        //                         ////isRequired: true,
+        //                         //isRequired: true,
         //                     },
         //                 ],
         //             },
@@ -2900,14 +2900,14 @@ export const fsclinicalsForm = {
         //                         type: "boolean",
         //                         name: "privacy_notice_agreement",
         //                         title: "I acknowledge that I have received and reviewed the Notice of Privacy Practices",
-        //                         ////isRequired: true,
+        //                         //isRequired: true,
         //                     },
         //                     {
         //                         type: "signaturepad",
         //                         name: "privacy_notice_signature",
         //                         title: "Patient Signature",
         //                         width: "100%",
-        //                         ////isRequired: true,
+        //                         //isRequired: true,
         //                     },
         //                 ],
         //             },
@@ -2925,14 +2925,14 @@ export const fsclinicalsForm = {
         //                         type: "boolean",
         //                         name: "financial_agreement_acceptance",
         //                         title: "I have read and agree to the financial terms described above",
-        //                         ////isRequired: true,
+        //                         //isRequired: true,
         //                     },
         //                     {
         //                         type: "signaturepad",
         //                         name: "financial_agreement_signature",
         //                         title: "Patient Signature",
         //                         width: "100%",
-        //                         ////isRequired: true,
+        //                         //isRequired: true,
         //                     },
         //                 ],
         //             },
@@ -2950,14 +2950,14 @@ export const fsclinicalsForm = {
         //                         type: "boolean",
         //                         name: "medication_consent_agreement",
         //                         title: "I have read and agree to the medication terms described above",
-        //                         ////isRequired: true,
+        //                         //isRequired: true,
         //                     },
         //                     {
         //                         type: "signaturepad",
         //                         name: "medication_consent_signature",
         //                         title: "Patient Signature",
         //                         width: "100%",
-        //                         ////isRequired: true,
+        //                         //isRequired: true,
         //                     },
         //                 ],
         //             },
@@ -2975,7 +2975,7 @@ export const fsclinicalsForm = {
         //                         type: "checkbox",
         //                         name: "rights-acknowledgement",
         //                         title: "I acknowledge receipt and understanding of:",
-        //                         //isRequired: true,
+        //                         isRequired: true,
         //                         choices: [
         //                             {
         //                                 value: "rights",
@@ -3028,20 +3028,20 @@ export const fsclinicalsForm = {
         //                         type: "signaturepad",
         //                         name: "patient-signature",
         //                         title: "Patient Signature",
-        //                         //isRequired: true,
+        //                         isRequired: true,
         //                     },
         //                     {
         //                         type: "text",
         //                         name: "patient-name",
         //                         title: "Patient Name (printed)",
-        //                         //isRequired: true,
+        //                         isRequired: true,
         //                     },
         //                     {
         //                         type: "text",
         //                         name: "date",
         //                         title: "Date",
         //                         inputType: "date",
-        //                         //isRequired: true,
+        //                         isRequired: true,
         //                     },
         //                 ],
         //                 width: "100%",
@@ -3155,7 +3155,7 @@ export const fsclinicalsForm = {
                             type: "text",
                             name: "last-name",
                             title: "Last Name",
-                            ////isRequired: true,
+                            //isRequired: true,
                             width: "50%",
                             minWidth: "256px",
                         },
@@ -3163,7 +3163,7 @@ export const fsclinicalsForm = {
                             type: "text",
                             name: "first-name",
                             title: "First Name",
-                            ////isRequired: true,
+                            //isRequired: true,
                             width: "50%",
                             minWidth: "256px",
                             startWithNewLine: false,
@@ -3189,7 +3189,7 @@ export const fsclinicalsForm = {
                             name: "dob",
                             title: "Date of Birth",
                             inputType: "date",
-                            ////isRequired: true,
+                            //isRequired: true,
                             width: "50%",
                             minWidth: "256px",
                         },
@@ -3197,7 +3197,7 @@ export const fsclinicalsForm = {
                             type: "text",
                             name: "ssn",
                             title: "Social Security #",
-                            ////isRequired: true,
+                            //isRequired: true,
                             inputType: "number",
                             width: "50%",
                             minWidth: "256px",
@@ -3207,7 +3207,7 @@ export const fsclinicalsForm = {
                             type: "dropdown",
                             name: "marital_status",
                             title: "Marital Status",
-                            ////isRequired: true,
+                            //isRequired: true,
                             choices: [
                                 "Single",
                                 "Married",
@@ -3222,7 +3222,7 @@ export const fsclinicalsForm = {
                             type: "dropdown",
                             name: "gender",
                             title: "Gender",
-                            ////isRequired: true,
+                            //isRequired: true,
                             choices: ["Male", "Female", "Other"],
                             width: "50%",
                             minWidth: "256px",
@@ -3232,7 +3232,7 @@ export const fsclinicalsForm = {
                             type: "text",
                             name: "address",
                             title: "Address",
-                            ////isRequired: true,
+                            //isRequired: true,
                             width: "100%",
                             minWidth: "256px",
                         },
@@ -3240,7 +3240,7 @@ export const fsclinicalsForm = {
                             type: "text",
                             name: "city",
                             title: "City",
-                            ////isRequired: true,
+                            //isRequired: true,
                             width: "33%",
                             minWidth: "128px",
                         },
@@ -3248,7 +3248,7 @@ export const fsclinicalsForm = {
                             type: "dropdown",
                             name: "state",
                             title: "State",
-                            ////isRequired: true,
+                            //isRequired: true,
                             choices: [
                                 "Alabama",
                                 "Alaska",
@@ -3311,7 +3311,7 @@ export const fsclinicalsForm = {
                             name: "zip",
                             inputType: "number",
                             title: "Zip Code",
-                            ////isRequired: true,
+                            //isRequired: true,
                             width: "34%",
                             minWidth: "128px",
                             startWithNewLine: false,
@@ -3329,7 +3329,7 @@ export const fsclinicalsForm = {
                             name: "phone-cell",
                             title: "Cell Phone",
                             inputType: "tel",
-                            ////isRequired: true,
+                            //isRequired: true,
                             width: "33%",
                             minWidth: "128px",
                             startWithNewLine: false,
@@ -3348,7 +3348,7 @@ export const fsclinicalsForm = {
                             name: "email",
                             title: "Email",
                             inputType: "email",
-                            ////isRequired: true,
+                            //isRequired: true,
                             width: "100%",
                             minWidth: "256px",
                         },
@@ -3358,7 +3358,7 @@ export const fsclinicalsForm = {
                             title: "Reason for Visit",
                             width: "100%",
                             minWidth: "256px",
-                            //isRequired: true,
+                            isRequired: true,
                         },
                     ],
                 },
@@ -3371,7 +3371,7 @@ export const fsclinicalsForm = {
                             type: "text",
                             name: "emergency_contact_name",
                             title: "Emergency Contact Name",
-                            ////isRequired: true,
+                            //isRequired: true,
                             width: "50%",
                             minWidth: "256px",
                         },
@@ -3379,7 +3379,7 @@ export const fsclinicalsForm = {
                             type: "dropdown",
                             name: "emergency_contact_relationship",
                             title: "Relationship",
-                            ////isRequired: true,
+                            //isRequired: true,
                             choices: [
                                 "Spouse",
                                 "Parent",
@@ -3397,7 +3397,7 @@ export const fsclinicalsForm = {
                             name: "emergency_contact_phone",
                             title: "Emergency Contact Phone",
                             inputType: "tel",
-                            ////isRequired: true,
+                            //isRequired: true,
                             width: "100%",
                             minWidth: "256px",
                         },
@@ -3418,7 +3418,7 @@ export const fsclinicalsForm = {
                             type: "text",
                             name: "release_from",
                             title: "Release From: Person/Entity",
-                            ////isRequired: true,
+                            //isRequired: true,
                             width: "50%",
                             minWidth: "256px",
                         },
@@ -3426,7 +3426,7 @@ export const fsclinicalsForm = {
                             type: "text",
                             name: "release_from_address",
                             title: "Address",
-                            ////isRequired: true,
+                            //isRequired: true,
                             width: "50%",
                             minWidth: "256px",
                             startWithNewLine: false,
@@ -3435,7 +3435,7 @@ export const fsclinicalsForm = {
                             type: "text",
                             name: "release_from_city",
                             title: "City/State/Zip",
-                            ////isRequired: true,
+                            //isRequired: true,
                             width: "50%",
                             minWidth: "256px",
                         },
@@ -3444,7 +3444,7 @@ export const fsclinicalsForm = {
                             name: "release_from_phone",
                             title: "Phone",
                             inputType: "tel",
-                            ////isRequired: true,
+                            //isRequired: true,
                             width: "50%",
                             minWidth: "256px",
                             startWithNewLine: false,
@@ -3461,7 +3461,7 @@ export const fsclinicalsForm = {
                             type: "text",
                             name: "release_to",
                             title: "Release To: Person/Entity",
-                            ////isRequired: true,
+                            //isRequired: true,
                             width: "50%",
                             minWidth: "256px",
                         },
@@ -3469,7 +3469,7 @@ export const fsclinicalsForm = {
                             type: "text",
                             name: "release_to_address",
                             title: "Address",
-                            ////isRequired: true,
+                            //isRequired: true,
                             width: "50%",
                             minWidth: "256px",
                             startWithNewLine: false,
@@ -3478,7 +3478,7 @@ export const fsclinicalsForm = {
                             type: "text",
                             name: "release_to_city",
                             title: "City/State/Zip",
-                            ////isRequired: true,
+                            //isRequired: true,
                             width: "50%",
                             minWidth: "256px",
                         },
@@ -3487,7 +3487,7 @@ export const fsclinicalsForm = {
                             name: "release_to_phone",
                             title: "Phone",
                             inputType: "tel",
-                            ////isRequired: true,
+                            //isRequired: true,
                             width: "50%",
                             minWidth: "256px",
                             startWithNewLine: false,
@@ -3504,7 +3504,7 @@ export const fsclinicalsForm = {
                             type: "checkbox",
                             name: "release_purpose",
                             title: "Purpose",
-                            ////isRequired: true,
+                            //isRequired: true,
                             choices: [
                                 "Continuing Treatment",
                                 "Legal",
@@ -3526,7 +3526,7 @@ export const fsclinicalsForm = {
                             name: "date_range_from",
                             title: "Date Range of Records Requested: From",
                             inputType: "date",
-                            ////isRequired: true,
+                            //isRequired: true,
                             width: "50%",
                             minWidth: "256px",
                         },
@@ -3535,7 +3535,7 @@ export const fsclinicalsForm = {
                             name: "date_range_to",
                             title: "To",
                             inputType: "date",
-                            ////isRequired: true,
+                            //isRequired: true,
                             width: "50%",
                             minWidth: "256px",
                             startWithNewLine: false,
@@ -3544,7 +3544,7 @@ export const fsclinicalsForm = {
                             type: "checkbox",
                             name: "information_requested",
                             title: "Please initial next to each type of information requested",
-                            ////isRequired: true,
+                            //isRequired: true,
                             choices: [
                                 "Summary Letter",
                                 "Attendance Record",
@@ -3565,7 +3565,7 @@ export const fsclinicalsForm = {
                             type: "radiogroup",
                             name: "family_counseling_release",
                             title: "Joint/Family Counseling: Information disclosed may include notes/records from joint/family counseling sessions, if any. Initial one of the following statements:",
-                            ////isRequired: true,
+                            //isRequired: true,
                             choices: [
                                 "I do authorize release of information from joint/family counseling sessions",
                                 "I do not authorize release of information from joint/family counseling sessions",
@@ -3574,7 +3574,7 @@ export const fsclinicalsForm = {
                         {
                             type: "html",
                             name: "notice_of_sensitive_information",
-                            html: `<article style="font-family: hevelica; color: #494949; line-height: normal; width: 100%; padding: 40px; box-sizing: border-box; background-color: #fff; overflow-y: auto; border-radius: 10px rgba(12, 60, 96, 0.1);">
+                            html: `<article style="font-family: hevelica; color: #494949; line-height: normal; width: 100%; height: 100%; padding: 40px; box-sizing: border-box; background-color: #fff; overflow-y: auto; border-radius: 10px rgba(12, 60, 96, 0.1);">
     <h1 style="color: #0C3C60; text-align: center;">Sensitive Information</h1>
     
     <div style="background-color: #D1E0EB; border-radius: 5px; padding: 20px;">
@@ -3588,7 +3588,7 @@ export const fsclinicalsForm = {
                             type: "text",
                             name: "sensitive_information_acknowledgement",
                             title: "Sensitive Information: My initials demonstrate my acknowledgement and authorization to release or disclose this type of information:",
-                            ////isRequired: true,
+                            //isRequired: true,
                             width: "100%",
                             minWidth: "256px",
                         },
@@ -3596,7 +3596,7 @@ export const fsclinicalsForm = {
                             type: "radiogroup",
                             name: "delivery_instructions",
                             title: "Delivery Instructions",
-                            ////isRequired: true,
+                            //isRequired: true,
                             choices: [
                                 "Mail",
                                 "Fax records directly to person/entity specified above",
@@ -3617,7 +3617,7 @@ export const fsclinicalsForm = {
                 //                 {
                 //                     type: "html",
                 //                     name: "notice_of_rights",
-                //                     html: `<article style="font-family: helvetica, sans-serif; color: #494949; line-height: normal; width: 100%; background-color: #fff; border-radius: 10px rgba(12, 60, 96, 0.1); padding: 40px;">
+                //                     html: `<article style="font-family: helvetica, sans-serif; color: #494949; line-height: normal; width: 100%; height: 100%; background-color: #fff; border-radius: 10px rgba(12, 60, 96, 0.1); padding: 40px;">
                 //     <h1 style="color: #0C3C60; text-align: center;">Notice of Rights</h1>
 
                 //     <ul style="list-style-type: none; padding: 0;">
@@ -3655,7 +3655,7 @@ export const fsclinicalsForm = {
                     type: "signaturepad",
                     name: "patient_signature",
                     title: "Signature of Patient or Legal Representative",
-                    ////isRequired: true,
+                    //isRequired: true,
                     width: "50%",
                     minWidth: "256px",
                 },
@@ -3664,7 +3664,7 @@ export const fsclinicalsForm = {
                     name: "patient_signature_date",
                     title: "Date",
                     inputType: "date",
-                    ////isRequired: true,
+                    //isRequired: true,
                     width: "50%",
                     minWidth: "256px",
                     startWithNewLine: false,
@@ -3705,11 +3705,11 @@ export const fsclinicalsForm = {
                     type: "html",
                     name: "scoring_instructions",
                     title: "Scoring Instructions for the NICHQ Vanderbilt",
-                    html: `<article style="font-family: helvetica, sans-serif; color: #494949; line-height: normal; width: 100%; background-color: #fff; border-radius: 10px rgba(12, 60, 96, 0.1); padding: 40px;">
+                    html: `<article style="font-family: helvetica, sans-serif; color: #494949; line-height: normal; width: 100%; height: 100%; background-color: #fff; border-radius: 10px rgba(12, 60, 96, 0.1); padding: 40px;">
         <h1 style="color: #0C3C60; text-align: center;">Scoring Instructions for ADHD Assessment Scales</h1><div id="scoringInstructions" style="background-color: #D1E0EB; border-radius: 5px; padding: 20px; margin-bottom: 20px;">
         <div id="mainContent" style="display: block;">
             <p>These scales should NOT be used alone to make any diagnosis. You must take into consideration information from multiple sources. Scores of 2 or 3 on a single Symptom question reflect often-occurring behaviors. Scores of 4 or 5 on Performance questions reflect problems in performance.</p>
-            <p>The initial assessment scales, parent and teacher, have 2 components: symptom assessment and impairment in performance. On both the parent and teacher initial scales, the symptom assessment screens for symptoms that meet criteria for both inattentive (items 1-9) and hyperactive ADHD (items 10-18).</p>
+            <p>The initial assessment scales, parent and teacher, have 2 components: symptom assessment and impairment in performance. On both the parent and teacher initial scales, the symptom assessment screens for symptoms that meet criteria for both inattentive (items 1–9) and hyperactive ADHD (items 10–18).</p>
             <p>To meet DSM-IV criteria for the diagnosis, one must have at least 6 positive responses to either the inattentive 9 or hyperactive 9 core symptoms, or both. A positive response is a 2 or 3 (often, very often) (you could draw a line straight down the page and count the positive answers in each subsegment).</p>
             <p>There is a place to record the number of positives in each subsegment, and a place for total score for the first 18 symptoms (just add them up).</p>
             <p>The initial scales also have symptom screens for 3 other comorbidities—oppositional-defiant, conduct, and anxiety/depression. These are screened by the number of positive responses in each of the segments separated by the "squares." The specific item sets and numbers of positives required for each co-morbid symptom screen set are detailed below.</p>
@@ -3721,13 +3721,13 @@ export const fsclinicalsForm = {
         <h2 style="color: #0C3C60;">Parent Assessment Scale</h2>
         <h3>Predominantly Inattentive subtype</h3>
         <ul>
-            <li>Must score a 2 or 3 on 6 out of 9 items on questions 1-9 AND</li>
-            <li>Score a 4 or 5 on any of the Performance questions 48-55</li>
+            <li>Must score a 2 or 3 on 6 out of 9 items on questions 1–9 AND</li>
+            <li>Score a 4 or 5 on any of the Performance questions 48–55</li>
         </ul>
         <h3>Predominantly Hyperactive/Impulsive subtype</h3>
         <ul>
-            <li>Must score a 2 or 3 on 6 out of 9 items on questions 10-18 AND</li>
-            <li>Score a 4 or 5 on any of the Performance questions 48-55</li>
+            <li>Must score a 2 or 3 on 6 out of 9 items on questions 10–18 AND</li>
+            <li>Score a 4 or 5 on any of the Performance questions 48–55</li>
         </ul>
         <h3>ADHD Combined Inattention/Hyperactivity</h3>
         <ul>
@@ -3735,18 +3735,18 @@ export const fsclinicalsForm = {
         </ul>
         <h3>Oppositional-Defiant Disorder Screen</h3>
         <ul>
-            <li>Must score a 2 or 3 on 4 out of 8 behaviors on questions 19-26 AND</li>
-            <li>Score a 4 or 5 on any of the Performance questions 48-55</li>
+            <li>Must score a 2 or 3 on 4 out of 8 behaviors on questions 19–26 AND</li>
+            <li>Score a 4 or 5 on any of the Performance questions 48–55</li>
         </ul>
         <h3>Conduct Disorder Screen</h3>
         <ul>
-            <li>Must score a 2 or 3 on 3 out of 14 behaviors on questions 27-40 AND</li>
-            <li>Score a 4 or 5 on any of the Performance questions 48-55</li>
+            <li>Must score a 2 or 3 on 3 out of 14 behaviors on questions 27–40 AND</li>
+            <li>Score a 4 or 5 on any of the Performance questions 48–55</li>
         </ul>
         <h3>Anxiety/Depression Screen</h3>
         <ul>
-            <li>Must score a 2 or 3 on 3 out of 7 behaviors on questions 41-47 AND</li>
-            <li>Score a 4 or 5 on any of the Performance questions 48-55</li>
+            <li>Must score a 2 or 3 on 3 out of 7 behaviors on questions 41–47 AND</li>
+            <li>Score a 4 or 5 on any of the Performance questions 48–55</li>
         </ul>
         </section>
         
@@ -3754,13 +3754,13 @@ export const fsclinicalsForm = {
         <h2 style="color: #0C3C60;">Teacher Assessment Scale</h2>
         <h3>Predominantly Inattentive subtype</h3>
         <ul>
-            <li>Must score a 2 or 3 on 6 out of 9 items on questions 1-9 AND</li>
-            <li>Score a 4 or 5 on any of the Performance questions 36-43</li>
+            <li>Must score a 2 or 3 on 6 out of 9 items on questions 1–9 AND</li>
+            <li>Score a 4 or 5 on any of the Performance questions 36–43</li>
         </ul>
         <h3>Predominantly Hyperactive/Impulsive subtype</h3>
         <ul>
-            <li>Must score a 2 or 3 on 6 out of 9 items on questions 10-18 AND</li>
-            <li>Score a 4 or 5 on any of the Performance questions 36-43</li>
+            <li>Must score a 2 or 3 on 6 out of 9 items on questions 10–18 AND</li>
+            <li>Score a 4 or 5 on any of the Performance questions 36–43</li>
         </ul>
         <h3>ADHD Combined Inattention/Hyperactivity</h3>
         <ul>
@@ -3768,29 +3768,29 @@ export const fsclinicalsForm = {
         </ul>
         <h3>Oppositional-Defiant/Conduct Disorder Screen</h3>
         <ul>
-            <li>Must score a 2 or 3 on 3 out of 10 items on questions 19-28 AND</li>
-            <li>Score a 4 or 5 on any of the Performance questions 36-43</li>
+            <li>Must score a 2 or 3 on 3 out of 10 items on questions 19–28 AND</li>
+            <li>Score a 4 or 5 on any of the Performance questions 36–43</li>
         </ul>
         <h3>Anxiety/Depression Screen</h3>
         <ul>
-            <li>Must score a 2 or 3 on 3 out of 7 items on questions 29-35 AND</li>
-            <li>Score a 4 or 5 on any of the Performance questions 36-43</li>
+            <li>Must score a 2 or 3 on 3 out of 7 items on questions 29–35 AND</li>
+            <li>Score a 4 or 5 on any of the Performance questions 36–43</li>
         </ul>
         </section>
         
         <section style="background-color: #D1E0EB; border-radius: 5px; padding: 20px; margin-bottom: 20px;">
         <h2 style="color: #0C3C60;">Follow-up Scales</h2>
         <p>The parent and teacher follow-up scales have the first 18 core ADHD symptoms, not the co-morbid symptoms. The section segment has the same Performance items and impairment assessment as the initial scales, and then has a side-effect reporting scale that can be used to both assess and monitor the presence of adverse reactions to medications prescribed, if any.</p>
-        <p>Scoring the follow-up scales involves only calculating a total symptom score for items 1-18 that can be tracked over time, and the average of the Performance items answered as measures of improvement over time with treatment.</p>
+        <p>Scoring the follow-up scales involves only calculating a total symptom score for items 1–18 that can be tracked over time, and the average of the Performance items answered as measures of improvement over time with treatment.</p>
         <h3>Parent Assessment Follow-up</h3>
         <ul>
-            <li>Calculate Total Symptom Score for questions 1-18.</li>
-            <li>Calculate Average Performance Score for questions 19-26.</li>
+            <li>Calculate Total Symptom Score for questions 1–18.</li>
+            <li>Calculate Average Performance Score for questions 19–26.</li>
         </ul>
         <h3>Teacher Assessment Follow-up</h3>
         <ul>
-            <li>Calculate Total Symptom Score for questions 1-18.</li>
-            <li>Calculate Average Performance Score for questions 19-26.</li>
+            <li>Calculate Total Symptom Score for questions 1–18.</li>
+            <li>Calculate Average Performance Score for questions 19–26.</li>
         </ul>
         </section>
         
@@ -3807,6 +3807,147 @@ export const fsclinicalsForm = {
                 },
             ],
         },
+        // {
+        //     name: "scoring_instructions",
+        //     title: "Scoring Instructions for the NICHQ Vanderbilt Assessment Scales",
+        //     elements: [
+        //         {
+        //             type: "panel",
+        //             name: "scoring_instructions_panel",
+        //             title: "Scoring Instructions",
+        //             state: "expanded",
+        //             elements: [
+        //                 {
+        //                     type: "html",
+        //                     name: "general_instructions",
+        //                     html: `
+        //               <p>These scales should NOT be used alone to make any diagnosis. You must take into consideration information from multiple sources. Scores of 2 or 3 on a single Symptom question reflect often-occurring behaviors. Scores of 4 or 5 on Performance questions reflect problems in performance.</p>
+        //               <p>The initial assessment scales, parent and teacher, have 2 components: symptom assessment and impairment in performance. On both the parent and teacher initial scales, the symptom assessment screens for symptoms that meet criteria for both inattentive (items 1–9) and hyperactive ADHD (items 10–18).</p>
+        //               <p>To meet DSM-IV criteria for the diagnosis, one must have at least 6 positive responses to either the inattentive 9 or hyperactive 9 core symptoms, or both. A positive response is a 2 or 3 (often, very often) (you could draw a line straight down the page and count the positive answers in each subsegment).</p>
+        //               <p>There is a place to record the number of positives in each subsegment, and a place for total score for the first 18 symptoms (just add them up).</p>
+        //               <p>The initial scales also have symptom screens for 3 other comorbidities—oppositional-defiant, conduct, and anxiety/depression. These are screened by the number of positive responses in each of the segments separated by the "squares." The specific item sets and numbers of positives required for each co-morbid symptom screen set are detailed below.</p>
+        //               <p>The second section of the scale has a set of performance measures, scored 1 to 5, with 4 and 5 being somewhat of a problem/problematic. To meet criteria for ADHD there must be at least one item of the Performance set in which the child scores a 4 or 5; ie, there must be impairment, not just symptoms to meet diagnostic criteria. The sheet has a place to record the number of positives (4s, 5s) and an Average Performance Score—add them up and divide by number of Performance criteria answered.</p>
+        //             `,
+        //                 },
+        //                 {
+        //                     type: "panel",
+        //                     name: "parent_assessment_scale",
+        //                     title: "Parent Assessment Scale",
+        //                     state: "collapsed",
+        //                     elements: [
+        //                         {
+        //                             type: "html",
+        //                             name: "parent_assessment_criteria",
+        //                             html: `
+        //                   <h4>Predominantly Inattentive subtype</h4>
+        //                   <ul>
+        //                     <li>Must score a 2 or 3 on 6 out of 9 items on questions 1–9 AND</li>
+        //                     <li>Score a 4 or 5 on any of the Performance questions 48–55</li>
+        //                   </ul>
+        //                   <h4>Predominantly Hyperactive/Impulsive subtype</h4>
+        //                   <ul>
+        //                     <li>Must score a 2 or 3 on 6 out of 9 items on questions 10–18 AND</li>
+        //                     <li>Score a 4 or 5 on any of the Performance questions 48–55</li>
+        //                   </ul>
+        //                   <h4>ADHD Combined Inattention/Hyperactivity</h4>
+        //                   <ul>
+        //                     <li>Requires the above criteria on both inattention and hyperactivity/impulsivity</li>
+        //                   </ul>
+        //                   <h4>Oppositional-Defiant Disorder Screen</h4>
+        //                   <ul>
+        //                     <li>Must score a 2 or 3 on 4 out of 8 behaviors on questions 19–26 AND</li>
+        //                     <li>Score a 4 or 5 on any of the Performance questions 48–55</li>
+        //                   </ul>
+        //                   <h4>Conduct Disorder Screen</h4>
+        //                   <ul>
+        //                     <li>Must score a 2 or 3 on 3 out of 14 behaviors on questions 27–40 AND</li>
+        //                     <li>Score a 4 or 5 on any of the Performance questions 48–55</li>
+        //                   </ul>
+        //                   <h4>Anxiety/Depression Screen</h4>
+        //                   <ul>
+        //                     <li>Must score a 2 or 3 on 3 out of 7 behaviors on questions 41–47 AND</li>
+        //                     <li>Score a 4 or 5 on any of the Performance questions 48–55</li>
+        //                   </ul>
+        //                 `,
+        //                         },
+        //                     ],
+        //                 },
+        //                 {
+        //                     type: "panel",
+        //                     name: "teacher_assessment_scale",
+        //                     title: "Teacher Assessment Scale",
+        //                     state: "collapsed",
+        //                     elements: [
+        //                         {
+        //                             type: "html",
+        //                             name: "teacher_assessment_criteria",
+        //                             html: `
+        //                   <h4>Predominantly Inattentive subtype</h4>
+        //                   <ul>
+        //                     <li>Must score a 2 or 3 on 6 out of 9 items on questions 1–9 AND</li>
+        //                     <li>Score a 4 or 5 on any of the Performance questions 36–43</li>
+        //                   </ul>
+        //                   <h4>Predominantly Hyperactive/Impulsive subtype</h4>
+        //                   <ul>
+        //                     <li>Must score a 2 or 3 on 6 out of 9 items on questions 10–18 AND</li>
+        //                     <li>Score a 4 or 5 on any of the Performance questions 36–43</li>
+        //                   </ul>
+        //                   <h4>ADHD Combined Inattention/Hyperactivity</h4>
+        //                   <ul>
+        //                     <li>Requires the above criteria on both inattention and hyperactivity/impulsivity</li>
+        //                   </ul>
+        //                   <h4>Oppositional-Defiant/Conduct Disorder Screen</h4>
+        //                   <ul>
+        //                     <li>Must score a 2 or 3 on 3 out of 10 items on questions 19–28 AND</li>
+        //                     <li>Score a 4 or 5 on any of the Performance questions 36–43</li>
+        //                   </ul>
+        //                   <h4>Anxiety/Depression Screen</h4>
+        //                   <ul>
+        //                     <li>Must score a 2 or 3 on 3 out of 7 items on questions 29–35 AND</li>
+        //                     <li>Score a 4 or 5 on any of the Performance questions 36–43</li>
+        //                   </ul>
+        //                 `,
+        //                         },
+        //                     ],
+        //                 },
+        //                 {
+        //                     type: "panel",
+        //                     name: "follow_up_scales",
+        //                     title: "Follow-up Scales",
+        //                     state: "collapsed",
+        //                     elements: [
+        //                         {
+        //                             type: "html",
+        //                             name: "follow_up_instructions",
+        //                             html: `
+        //                   <p>The parent and teacher follow-up scales have the first 18 core ADHD symptoms, not the co-morbid symptoms. The section segment has the same Performance items and impairment assessment as the initial scales, and then has a side-effect reporting scale that can be used to both assess and monitor the presence of adverse reactions to medications prescribed, if any.</p>
+        //                   <p>Scoring the follow-up scales involves only calculating a total symptom score for items 1–18 that can be tracked over time, and the average of the Performance items answered as measures of improvement over time with treatment.</p>
+        //                   <h4>Parent Assessment Follow-up</h4>
+        //                   <ul>
+        //                     <li>Calculate Total Symptom Score for questions 1–18.</li>
+        //                     <li>Calculate Average Performance Score for questions 19–26.</li>
+        //                   </ul>
+        //                   <h4>Teacher Assessment Follow-up</h4>
+        //                   <ul>
+        //                     <li>Calculate Total Symptom Score for questions 1–18.</li>
+        //                     <li>Calculate Average Performance Score for questions 19–26.</li>
+        //                   </ul>
+        //                 `,
+        //                         },
+        //                     ],
+        //                 },
+        //                 {
+        //                     type: "html",
+        //                     name: "copyright_notice",
+        //                     html: `
+        //               <p>The recommendations in this publication do not indicate an exclusive course of treatment or serve as a standard of medical care. Variations, taking into account individual circumstances, may be appropriate.</p>
+        //               <p>Copyright ©2002 American Academy of Pediatrics and National Initiative for Children's Healthcare Quality</p>
+        //             `,
+        //                 },
+        //             ],
+        //         },
+        //     ],
+        // },
         {
             name: "nichq_vanderbilt_assessment_scale_parent",
             title: "NICHQ Vanderbilt Assessment Scale—PARENT Informant",
@@ -3814,7 +3955,7 @@ export const fsclinicalsForm = {
                 {
                     type: "html",
                     name: "diagnostics_of_adhd_use_parent",
-                    html: `<section style="font-family: hevelica; color: #494949; line-height: normal; width: 100%; padding: 40px; box-sizing: border-box; background-color: #fff; overflow-y: auto; border-radius: 10px rgba(12, 60, 96, 0.1);">
+                    html: `<section style="font-family: hevelica; color: #494949; line-height: normal; width: 100%; height: 100%; padding: 40px; box-sizing: border-box; background-color: #fff; overflow-y: auto; border-radius: 10px rgba(12, 60, 96, 0.1);">
     <h1 style="color: #0C3C60; text-align: center;">Directions</h1>
     
     <div style="background-color: #D1E0EB; border-radius: 5px; padding: 20px;">
@@ -3829,7 +3970,7 @@ export const fsclinicalsForm = {
                     name: "date",
                     title: "Today's Date",
                     inputType: "date",
-                    ////isRequired: true,
+                    //isRequired: true,
                     width: "50%",
                     minWidth: "256px",
                 },
@@ -3837,7 +3978,7 @@ export const fsclinicalsForm = {
                     type: "text",
                     name: "child_name",
                     title: "Child's Name",
-                    ////isRequired: true,
+                    //isRequired: true,
                     width: "50%",
                     minWidth: "256px",
                     startWithNewLine: false,
@@ -3847,7 +3988,7 @@ export const fsclinicalsForm = {
                     name: "child_dob",
                     title: "Date of Birth",
                     inputType: "date",
-                    ////isRequired: true,
+                    //isRequired: true,
                     width: "50%",
                     minWidth: "256px",
                 },
@@ -3855,7 +3996,7 @@ export const fsclinicalsForm = {
                     type: "text",
                     name: "parent_name",
                     title: "Parent's Name",
-                    ////isRequired: true,
+                    //isRequired: true,
                     width: "50%",
                     minWidth: "256px",
                     startWithNewLine: false,
@@ -3865,7 +4006,7 @@ export const fsclinicalsForm = {
                     name: "parent_phone",
                     title: "Parent's Phone Number",
                     inputType: "tel",
-                    ////isRequired: true,
+                    //isRequired: true,
                     width: "50%",
                     minWidth: "256px",
                 },
@@ -3873,7 +4014,7 @@ export const fsclinicalsForm = {
                     type: "radiogroup",
                     name: "evaluation_basis",
                     title: "Is this evaluation based on a time when the child",
-                    ////isRequired: true,
+                    //isRequired: true,
                     choices: [
                         "Was on medication",
                         "Was not on medication",
@@ -3887,7 +4028,7 @@ export const fsclinicalsForm = {
                     type: "matrix",
                     name: "symptoms",
                     title: "Symptoms",
-                    ////isRequired: true,
+                    //isRequired: true,
                     columns: [
                         { value: 0, text: "Never" },
                         { value: 1, text: "Occasionally" },
@@ -3948,7 +4089,7 @@ export const fsclinicalsForm = {
                     type: "matrix",
                     name: "performance",
                     title: "Performance",
-                    ////isRequired: true,
+                    //isRequired: true,
                     columns: [
                         { value: 1, text: "Excellent" },
                         { value: 2, text: "Above Average" },
@@ -3983,7 +4124,7 @@ export const fsclinicalsForm = {
                 {
                     type: "html",
                     name: "diagnostics_of_adhd_use_teacher",
-                    html: `<section style="font-family: hevelica; color: #494949; line-height: normal; width: 100%; padding: 40px; box-sizing: border-box; background-color: #fff; overflow-y: auto; border-radius: 10px rgba(12, 60, 96, 0.1);">
+                    html: `<section style="font-family: hevelica; color: #494949; line-height: normal; width: 100%; height: 100%; padding: 40px; box-sizing: border-box; background-color: #fff; overflow-y: auto; border-radius: 10px rgba(12, 60, 96, 0.1);">
     <h1 style="color: #0C3C60; text-align: center;">Directions</h1>
     
     <div style="background-color: #D1E0EB; border-radius: 5px; padding: 20px;">
@@ -3997,7 +4138,7 @@ export const fsclinicalsForm = {
                     type: "text",
                     name: "teacher_name",
                     title: "Teacher's Name",
-                    ////isRequired: true,
+                    //isRequired: true,
                     width: "50%",
                     minWidth: "256px",
                 },
@@ -4005,7 +4146,7 @@ export const fsclinicalsForm = {
                     type: "text",
                     name: "class_time",
                     title: "Class Time",
-                    ////isRequired: true,
+                    //isRequired: true,
                     width: "50%",
                     minWidth: "256px",
                     startWithNewLine: false,
@@ -4014,7 +4155,7 @@ export const fsclinicalsForm = {
                     type: "text",
                     name: "class_name_period",
                     title: "Class Name/Period",
-                    ////isRequired: true,
+                    //isRequired: true,
                     width: "50%",
                     minWidth: "256px",
                 },
@@ -4023,7 +4164,7 @@ export const fsclinicalsForm = {
                     name: "date",
                     title: "Today's Date",
                     inputType: "date",
-                    ////isRequired: true,
+                    //isRequired: true,
                     width: "50%",
                     minWidth: "256px",
                     startWithNewLine: false,
@@ -4032,7 +4173,7 @@ export const fsclinicalsForm = {
                     type: "text",
                     name: "child_name",
                     title: "Child's Name",
-                    ////isRequired: true,
+                    //isRequired: true,
                     width: "50%",
                     minWidth: "256px",
                 },
@@ -4040,7 +4181,7 @@ export const fsclinicalsForm = {
                     type: "text",
                     name: "grade_level",
                     title: "Grade Level",
-                    ////isRequired: true,
+                    //isRequired: true,
                     width: "50%",
                     minWidth: "256px",
                     startWithNewLine: false,
@@ -4049,7 +4190,7 @@ export const fsclinicalsForm = {
                     type: "text",
                     name: "evaluation_period",
                     title: "Please indicate the number of weeks or months you have been able to evaluate the behaviors",
-                    ////isRequired: true,
+                    //isRequired: true,
                     width: "50%",
                     minWidth: "256px",
                 },
@@ -4057,7 +4198,7 @@ export const fsclinicalsForm = {
                     type: "radiogroup",
                     name: "evaluation_basis",
                     title: "Is this evaluation based on a time when the child",
-                    ////isRequired: true,
+                    //isRequired: true,
                     choices: [
                         "Was on medication",
                         "Was not on medication",
@@ -4071,7 +4212,7 @@ export const fsclinicalsForm = {
                     type: "matrix",
                     name: "symptoms",
                     title: "Symptoms",
-                    ////isRequired: true,
+                    //isRequired: true,
                     columns: [
                         { value: 0, text: "Never" },
                         { value: 1, text: "Occasionally" },
@@ -4120,7 +4261,7 @@ export const fsclinicalsForm = {
                     type: "matrix",
                     name: "performance",
                     title: "Performance",
-                    ////isRequired: true,
+                    //isRequired: true,
                     columns: [
                         { value: 1, text: "Excellent" },
                         { value: 2, text: "Above Average" },
@@ -4156,19 +4297,19 @@ export const fsclinicalsForm = {
                     type: "text",
                     name: "patient_name",
                     title: "Patient Name",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "text",
                     name: "date",
                     title: "Today’s Date",
                     inputType: "date",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "html",
                     name: "asrs_instructions",
-                    html: `<aside style="font-family: hevelica; color: #494949; line-height: normal; width: 100%; padding: 40px; box-sizing: border-box; background-color: #fff; overflow-y: auto; border-radius: 10px rgba(12, 60, 96, 0.1);">
+                    html: `<aside style="font-family: hevelica; color: #494949; line-height: normal; width: 100%; height: 100%; padding: 40px; box-sizing: border-box; background-color: #fff; overflow-y: auto; border-radius: 10px rgba(12, 60, 96, 0.1);">
     <h2 style="color: #0C3C60; text-align: center;">Instructions</h2>
     
     <div style="background-color: #D1E0EB; border-radius: 5px; padding: 20px;">
@@ -4192,7 +4333,7 @@ export const fsclinicalsForm = {
                                 "Often",
                                 "Very Often",
                             ],
-                            ////isRequired: true,
+                            //isRequired: true,
                         },
                         {
                             type: "radiogroup",
@@ -4205,7 +4346,7 @@ export const fsclinicalsForm = {
                                 "Often",
                                 "Very Often",
                             ],
-                            ////isRequired: true,
+                            //isRequired: true,
                         },
                         {
                             type: "radiogroup",
@@ -4218,7 +4359,7 @@ export const fsclinicalsForm = {
                                 "Often",
                                 "Very Often",
                             ],
-                            ////isRequired: true,
+                            //isRequired: true,
                         },
                         {
                             type: "radiogroup",
@@ -4231,7 +4372,7 @@ export const fsclinicalsForm = {
                                 "Often",
                                 "Very Often",
                             ],
-                            ////isRequired: true,
+                            //isRequired: true,
                         },
                         {
                             type: "radiogroup",
@@ -4244,7 +4385,7 @@ export const fsclinicalsForm = {
                                 "Often",
                                 "Very Often",
                             ],
-                            ////isRequired: true,
+                            //isRequired: true,
                         },
                         {
                             type: "radiogroup",
@@ -4257,7 +4398,7 @@ export const fsclinicalsForm = {
                                 "Often",
                                 "Very Often",
                             ],
-                            ////isRequired: true,
+                            //isRequired: true,
                         },
                     ],
                 },
@@ -4277,7 +4418,7 @@ export const fsclinicalsForm = {
                                 "Often",
                                 "Very Often",
                             ],
-                            ////isRequired: true,
+                            //isRequired: true,
                         },
                         {
                             type: "radiogroup",
@@ -4290,7 +4431,7 @@ export const fsclinicalsForm = {
                                 "Often",
                                 "Very Often",
                             ],
-                            ////isRequired: true,
+                            //isRequired: true,
                         },
                         {
                             type: "radiogroup",
@@ -4303,7 +4444,7 @@ export const fsclinicalsForm = {
                                 "Often",
                                 "Very Often",
                             ],
-                            ////isRequired: true,
+                            //isRequired: true,
                         },
                         {
                             type: "radiogroup",
@@ -4316,7 +4457,7 @@ export const fsclinicalsForm = {
                                 "Often",
                                 "Very Often",
                             ],
-                            ////isRequired: true,
+                            //isRequired: true,
                         },
                         {
                             type: "radiogroup",
@@ -4329,7 +4470,7 @@ export const fsclinicalsForm = {
                                 "Often",
                                 "Very Often",
                             ],
-                            ////isRequired: true,
+                            //isRequired: true,
                         },
                         {
                             type: "radiogroup",
@@ -4342,7 +4483,7 @@ export const fsclinicalsForm = {
                                 "Often",
                                 "Very Often",
                             ],
-                            ////isRequired: true,
+                            //isRequired: true,
                         },
                         {
                             type: "radiogroup",
@@ -4355,7 +4496,7 @@ export const fsclinicalsForm = {
                                 "Often",
                                 "Very Often",
                             ],
-                            ////isRequired: true,
+                            //isRequired: true,
                         },
                         {
                             type: "radiogroup",
@@ -4368,7 +4509,7 @@ export const fsclinicalsForm = {
                                 "Often",
                                 "Very Often",
                             ],
-                            ////isRequired: true,
+                            //isRequired: true,
                         },
                         {
                             type: "radiogroup",
@@ -4381,7 +4522,7 @@ export const fsclinicalsForm = {
                                 "Often",
                                 "Very Often",
                             ],
-                            ////isRequired: true,
+                            //isRequired: true,
                         },
                         {
                             type: "radiogroup",
@@ -4394,7 +4535,7 @@ export const fsclinicalsForm = {
                                 "Often",
                                 "Very Often",
                             ],
-                            ////isRequired: true,
+                            //isRequired: true,
                         },
                         {
                             type: "radiogroup",
@@ -4407,7 +4548,7 @@ export const fsclinicalsForm = {
                                 "Often",
                                 "Very Often",
                             ],
-                            ////isRequired: true,
+                            //isRequired: true,
                         },
                         {
                             type: "radiogroup",
@@ -4420,7 +4561,7 @@ export const fsclinicalsForm = {
                                 "Often",
                                 "Very Often",
                             ],
-                            ////isRequired: true,
+                            //isRequired: true,
                         },
                     ],
                 },
@@ -4435,7 +4576,7 @@ export const fsclinicalsForm = {
                     type: "matrix",
                     name: "gad7_questions",
                     title: "Over the last 2 weeks, how often have you been bothered by any of the following problems?",
-                    ////isRequired: true,
+                    //isRequired: true,
                     columns: [
                         { value: 0, text: "Not at all" },
                         { value: 1, text: "Several days" },
@@ -4473,7 +4614,7 @@ export const fsclinicalsForm = {
                     type: "matrix",
                     name: "phq9_questions",
                     title: "Over the last 2 weeks, how often have you been bothered by any of the following problems?",
-                    ////isRequired: true,
+                    //isRequired: true,
                     columns: [
                         { value: 0, text: "Not at all" },
                         { value: 1, text: "Several days" },
@@ -4486,9 +4627,9 @@ export const fsclinicalsForm = {
                         "Trouble falling or staying asleep, or sleeping too much",
                         "Feeling tired or having little energy",
                         "Poor appetite or overeating",
-                        "Feeling bad about yourself - or that you are a failure or have let yourself or your family down",
+                        "Feeling bad about yourself – or that you are a failure or have let yourself or your family down",
                         "Trouble concentrating on things, such as reading the newspaper or watching television",
-                        "Moving or speaking so slowly that other people could have noticed? Or the opposite - being so fidgety or restless that you have been moving around a lot more than usual",
+                        "Moving or speaking so slowly that other people could have noticed? Or the opposite – being so fidgety or restless that you have been moving around a lot more than usual",
                         "Thoughts that you would be better off dead or of hurting yourself in some way",
                     ],
                 },
@@ -4546,7 +4687,7 @@ export const fsclinicalsForm = {
                     type: "matrix",
                     name: "dast_questions",
                     title: "Please answer the following questions:",
-                    ////isRequired: true,
+                    //isRequired: true,
                     columns: ["No", "Yes"],
                     rows: [
                         "Have you used drugs other than those required for medical reasons?",
@@ -4565,14 +4706,14 @@ export const fsclinicalsForm = {
                     type: "radiogroup",
                     name: "inject_drugs",
                     title: "Do you inject drugs?",
-                    ////isRequired: true,
+                    //isRequired: true,
                     choices: ["No", "Yes"],
                 },
                 {
                     type: "radiogroup",
                     name: "treatment_history",
                     title: "Have you ever been in treatment for a drug problem?",
-                    ////isRequired: true,
+                    //isRequired: true,
                     choices: ["No", "Yes"],
                 },
             ],
@@ -4586,7 +4727,7 @@ export const fsclinicalsForm = {
                 {
                     type: "html",
                     name: "dast_scoring",
-                    html: `<article style="font-family: helvetica, sans-serif; color: #494949; line-height: normal; width: 100%; background-color: #fff; border-radius: 10px rgba(12, 60, 96, 0.1); padding: 40px;">
+                    html: `<article style="font-family: helvetica, sans-serif; color: #494949; line-height: normal; width: 100%; height: 100%; background-color: #fff; border-radius: 10px rgba(12, 60, 96, 0.1); padding: 40px;">
     <h1 style="color: #0C3C60; text-align: center;">Scoring and Interpreting the DAST</h1>
     
     <div style="margin-bottom: 20px; background-color: #D1E0EB; border-radius: 5px; padding: 15px;">
@@ -4600,10 +4741,10 @@ export const fsclinicalsForm = {
     <div style="background-color: #D1E0EB; border-radius: 5px; padding: 15px; margin-bottom: 20px;">
         <h2 style="color: #0C3C60;">Interpretation Guide</h2>
         <ul style="list-style-type: none; padding: 0;">
-            <li style="margin-bottom: 15px;"><strong>0 I - Low Risk:</strong> "Someone at this level is not currently using drugs and is at low risk for health or social complications." <br><em>Action:</em> Reinforce positive choices and educate about risks of drug use</li>
-            <li style="margin-bottom: 15px;"><strong>1-2 II - Risky:</strong> "Someone using drugs at this level may develop health problems or existing problems may worsen." <br><em>Action:</em> Brief Intervention to reduce or abstain from use</li>
-            <li style="margin-bottom: 15px;"><strong>3-5 III - Harmful:</strong> "Someone using drugs at this level has experienced negative effects from drug use." <br><em>Action:</em> Brief Intervention to reduce use and specific follow-up appointment (Brief Treatment if available)</li>
-            <li style="margin-bottom: 15px;"><strong>6-10 IV - Severe:</strong> "Someone using drugs at this level could benefit from more assessment and assistance." <br><em>Action:</em> Brief Intervention to accept referral to specialty treatment for a full assessment</li>
+            <li style="margin-bottom: 15px;"><strong>0 I – Low Risk:</strong> "Someone at this level is not currently using drugs and is at low risk for health or social complications." <br><em>Action:</em> Reinforce positive choices and educate about risks of drug use</li>
+            <li style="margin-bottom: 15px;"><strong>1-2 II – Risky:</strong> "Someone using drugs at this level may develop health problems or existing problems may worsen." <br><em>Action:</em> Brief Intervention to reduce or abstain from use</li>
+            <li style="margin-bottom: 15px;"><strong>3-5 III – Harmful:</strong> "Someone using drugs at this level has experienced negative effects from drug use." <br><em>Action:</em> Brief Intervention to reduce use and specific follow-up appointment (Brief Treatment if available)</li>
+            <li style="margin-bottom: 15px;"><strong>6-10 IV – Severe:</strong> "Someone using drugs at this level could benefit from more assessment and assistance." <br><em>Action:</em> Brief Intervention to accept referral to specialty treatment for a full assessment</li>
         </ul>
     </div>
 
@@ -4630,19 +4771,19 @@ export const fsclinicalsForm = {
                     type: "text",
                     name: "patient_name_42CFR",
                     title: "I, (Name of patient)",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "text",
                     name: "provider_name_42CFR",
                     title: "authorize (Name of provider)",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "checkbox",
                     name: "information_to_disclose",
                     title: "Information to be disclosed (check all that apply):",
-                    ////isRequired: true,
+                    //isRequired: true,
                     choices: [
                         "All my substance use disorder records",
                         "Attendance",
@@ -4666,7 +4807,7 @@ export const fsclinicalsForm = {
                     type: "text",
                     name: "disclose_to",
                     title: "To: (Name of person or organization to which disclosure is to be made)",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "text",
@@ -4684,7 +4825,7 @@ export const fsclinicalsForm = {
                     type: "checkbox",
                     name: "purpose_of_disclosure",
                     title: "Purpose of disclosure:",
-                    ////isRequired: true,
+                    //isRequired: true,
                     choices: [
                         "Continuity of Care",
                         "Coordinating Treatment",
@@ -4697,7 +4838,7 @@ export const fsclinicalsForm = {
                     type: "radiogroup",
                     name: "expiration",
                     title: "This consent will terminate:",
-                    ////isRequired: true,
+                    //isRequired: true,
                     choices: [
                         "In one year from the date of signature OR 90 days after discharge (whichever comes first)",
                         "Upon a specific date, event, or condition as listed here:",
@@ -4714,27 +4855,27 @@ export const fsclinicalsForm = {
                     type: "signaturepad",
                     name: "patient_signature_42CFR",
                     title: "Patient's Signature:",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "text",
                     name: "signature_date_42CFR",
                     title: "Date:",
                     inputType: "date",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "text",
                     name: "patient_name_printed_42CFR",
                     title: "Print Name:",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "text",
                     name: "patient_dob_42CFR",
                     title: "Date of Birth (MM/DD/YY):",
                     inputType: "date",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
             ],
         },
@@ -4747,7 +4888,7 @@ export const fsclinicalsForm = {
                 {
                     type: "html",
                     name: "notice_of_federal_requirements",
-                    html: `<article style="font-family: helvetica, sans-serif; color: #494949; line-height: normal; width: 100%; background-color: #fff; border-radius: 10px rgba(12, 60, 96, 0.1); padding: 40px;">
+                    html: `<article style="font-family: helvetica, sans-serif; color: #494949; line-height: normal; width: 100%; height: 100%; background-color: #fff; border-radius: 10px rgba(12, 60, 96, 0.1); padding: 40px;">
     <h1 style="color: #0C3C60; text-align: center;">Notice of Federal Requirements Regarding the Confidentiality of Substance Use Disorder Patient Information</h1>
     
     <p style="background-color: #D1E0EB; border-radius: 5px; padding: 15px; margin-bottom: 20px;"><strong>The confidentiality of substance use disorder patient records maintained by this program is protected by federal law and regulations. Generally, the program may not say to a person outside the program that a patient attends the program, or disclose any information identifying a patient as an alcohol or drug abuser unless:</strong></p>
@@ -4785,7 +4926,7 @@ export const fsclinicalsForm = {
                 {
                     type: "html",
                     name: "ptsd_scoring",
-                    html: `<article style="font-family: helvetica, sans-serif; color: #494949; line-height: normal; width: 100%; background-color: #fff; border-radius: 10px rgba(12, 60, 96, 0.1); padding: 40px;">
+                    html: `<article style="font-family: helvetica, sans-serif; color: #494949; line-height: normal; width: 100%; height: 100%; background-color: #fff; border-radius: 10px rgba(12, 60, 96, 0.1); padding: 40px;">
     <h1 style="color: #0C3C60;">PCL (PTSD Checklist) Scoring Instructions</h1>
     
     <section style="background-color: #D1E0EB; border-radius: 5px; padding: 20px; margin-bottom: 20px; transition: all 0.3s ease;">
@@ -4802,7 +4943,7 @@ export const fsclinicalsForm = {
         <h2 style="color: #0C3C60;">How is the PCL completed?</h2>
         <ul>
             <li>The PCL is self-administered</li>
-            <li>Respondents indicate how much they have been bothered by a symptom over the past month using a 5-point (1-5) scale, circling their responses. Responses range from 1 Not at All - 5 Extremely</li>
+            <li>Respondents indicate how much they have been bothered by a symptom over the past month using a 5-point (1–5) scale, circling their responses. Responses range from 1 Not at All – 5 Extremely</li>
         </ul>
     </section>
 
@@ -4810,12 +4951,12 @@ export const fsclinicalsForm = {
         <h2 style="color: #0C3C60;">How is the PCL Scored?</h2>
         <ol>
             <li>Add up all items for a total severity score</li>
-            <li>Treat response categories 3-5 (Moderately or above) as symptomatic and responses 1-2 (below Moderately) as non-symptomatic, then use the following DSM criteria for a diagnosis:</li>
+            <li>Treat response categories 3–5 (Moderately or above) as symptomatic and responses 1–2 (below Moderately) as non-symptomatic, then use the following DSM criteria for a diagnosis:</li>
         </ol>
         <ul>
-            <li>Symptomatic response to at least 1 "B" item (Questions 1-5),</li>
-            <li>Symptomatic response to at least 3 "C" items (Questions 6-12), and</li>
-            <li>Symptomatic response to at least 2 "D" items (Questions 13-17)</li>
+            <li>Symptomatic response to at least 1 "B" item (Questions 1–5),</li>
+            <li>Symptomatic response to at least 3 "C" items (Questions 6–12), and</li>
+            <li>Symptomatic response to at least 2 "D" items (Questions 13–17)</li>
         </ul>
     </section>
 
@@ -4841,13 +4982,13 @@ export const fsclinicalsForm = {
         },
         {
             name: "ptsd_checklist_civilian",
-            title: "PTSD CheckList - Civilian Version (PCL-C)",
+            title: "PTSD CheckList – Civilian Version (PCL-C)",
             elements: [
                 {
                     type: "matrix",
                     name: "pcl_c_questions",
                     title: "Below is a list of problems and complaints that people sometimes have in response to stressful life experiences. Please read each one carefully, then select one of the answers to indicate how much you have been bothered by that problem in the last month.",
-                    ////isRequired: true,
+                    //isRequired: true,
                     columns: [
                         { value: 1, text: "Not at all" },
                         { value: 2, text: "A little bit" },
@@ -4879,13 +5020,13 @@ export const fsclinicalsForm = {
         },
         {
             name: "ptsd_checklist_military",
-            title: "PTSD CheckList - Military Version (PCL-M)",
+            title: "PTSD CheckList – Military Version (PCL-M)",
             elements: [
                 {
                     type: "matrix",
                     name: "pcl_m_questions",
                     title: "Below is a list of problems and complaints that veterans sometimes have in response to stressful military experiences. Please read each one carefully, then select one of the answers to indicate how much you have been bothered by that problem in the last month.",
-                    ////isRequired: true,
+                    //isRequired: true,
                     columns: [
                         { value: 1, text: "Not at all" },
                         { value: 2, text: "A little bit" },
@@ -4924,7 +5065,7 @@ export const fsclinicalsForm = {
                 {
                     type: "html",
                     name: "cage_scoring",
-                    html: `<article style="font-family: helvetica, sans-serif; color: #494949; line-height: normal; width: 100%; background-color: #fff; border-radius: 10px rgba(12, 60, 96, 0.1); padding: 40px;">
+                    html: `<article style="font-family: helvetica, sans-serif; color: #494949; line-height: normal; width: 100%; height: 100%; background-color: #fff; border-radius: 10px rgba(12, 60, 96, 0.1); padding: 40px;">
     <h1 style="color: #0C3C60;">CAGE Questionnaire Scoring Information</h1>
     
     <section style="background-color: #D1E0EB; border-radius: 5px; padding: 20px; margin-bottom: 20px; transition: all 0.3s ease;">
@@ -4964,28 +5105,28 @@ export const fsclinicalsForm = {
                     type: "radiogroup",
                     name: "cage_cut_down",
                     title: "Have you ever felt you should Cut down on your drinking?",
-                    ////isRequired: true,
+                    //isRequired: true,
                     choices: ["Yes", "No"],
                 },
                 {
                     type: "radiogroup",
                     name: "cage_annoyed",
                     title: "Have people Annoyed you by criticizing your drinking?",
-                    ////isRequired: true,
+                    //isRequired: true,
                     choices: ["Yes", "No"],
                 },
                 {
                     type: "radiogroup",
                     name: "cage_guilty",
                     title: "Have you ever felt bad or Guilty about your drinking?",
-                    ////isRequired: true,
+                    //isRequired: true,
                     choices: ["Yes", "No"],
                 },
                 {
                     type: "radiogroup",
                     name: "cage_eye_opener",
                     title: "Have you ever had a drink first thing in the morning to steady your nerves or to get rid of a hangover (Eye opener)?",
-                    ////isRequired: true,
+                    //isRequired: true,
                     choices: ["Yes", "No"],
                 },
             ],
@@ -5095,19 +5236,19 @@ export const fsclinicalsForm = {
                             type: "text",
                             name: "medication_name",
                             title: "Medication Name",
-                            ////isRequired: true,
+                            //isRequired: true,
                         },
                         {
                             type: "text",
                             name: "dose",
                             title: "Dose",
-                            ////isRequired: true,
+                            //isRequired: true,
                         },
                         {
                             type: "text",
                             name: "frequency",
                             title: "Frequency",
-                            ////isRequired: true,
+                            //isRequired: true,
                         },
                     ],
                     panelCount: 1,
@@ -5136,13 +5277,13 @@ export const fsclinicalsForm = {
                             type: "text",
                             name: "allergy_name",
                             title: "Allergy Name",
-                            ////isRequired: true,
+                            //isRequired: true,
                         },
                         {
                             type: "text",
                             name: "reaction",
                             title: "Reaction",
-                            ////isRequired: true,
+                            //isRequired: true,
                         },
                     ],
                     panelCount: 1,
@@ -5173,14 +5314,14 @@ export const fsclinicalsForm = {
                             type: "text",
                             name: "surgery_name",
                             title: "Surgical Procedure",
-                            ////isRequired: true,
+                            //isRequired: true,
                         },
                         {
                             type: "text",
                             name: "surgery_date",
                             title: "Date",
                             inputType: "date",
-                            ////isRequired: true,
+                            //isRequired: true,
                         },
                     ],
                     panelCount: 1,
@@ -5264,7 +5405,7 @@ export const fsclinicalsForm = {
                 {
                     type: "html",
                     name: "financial_authorization_to_bill_insurance",
-                    html: `<div style="font-family: hevelica; color: #494949; line-height: normal; width: 100%; padding: 40px; box-sizing: border-box; background-color: #fff; overflow-y: auto; border-radius: 1rem">
+                    html: `<div style="font-family: hevelica; color: #494949; line-height: normal; width: 100%; height: 100%; padding: 40px; box-sizing: border-box; background-color: #fff; overflow-y: auto; border-radius: 1rem">
     <h1 style="color: #0C3C60; text-align: center;">AUTHORIZATION TO BILL INSURANCE</h1>
     
     <div style="background-color: #D1E0EB; border-radius: 5px; padding: 20px; margin-bottom: 20px;">
@@ -5291,20 +5432,20 @@ export const fsclinicalsForm = {
                     type: "signaturepad",
                     name: "patient_signature",
                     title: "Patient Signature",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "text",
                     name: "signature_date",
                     title: "Date",
                     inputType: "date",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "text",
                     name: "patient_printed_name",
                     title: "Printed Full Name of Patient",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "text",
@@ -5314,7 +5455,7 @@ export const fsclinicalsForm = {
                 {
                     type: "html",
                     name: "benefits_and_risks_of_therapy",
-                    html: `<div style="font-family: hevelica; color: #494949; line-height: normal; width: 100%; padding: 40px; box-sizing: border-box; background-color: #fff; overflow-y: auto; border-radius: 1rem">
+                    html: `<div style="font-family: hevelica; color: #494949; line-height: normal; width: 100%; height: 100%; padding: 40px; box-sizing: border-box; background-color: #fff; overflow-y: auto; border-radius: 1rem">
     <h1 style="color: #0C3C60; text-align: center;">BENEFITS AND RISKS OF THERAPY<br>CONSENT FOR TREATMENT</h1>
     
     <div style="background-color: #D1E0EB; border-radius: 5px; padding: 20px; margin-bottom: 20px;">
@@ -5342,25 +5483,25 @@ export const fsclinicalsForm = {
                     type: "signaturepad",
                     name: "therapy_consent_signature",
                     title: "Patient Signature (parent if patient is minor)",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "text",
                     name: "therapy_consent_date",
                     title: "Date",
                     inputType: "date",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "text",
                     name: "therapy_consent_printed_name",
                     title: "Patient's Printed Name",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "html",
                     name: "patient_consent_for_treatment",
-                    html: `<article style="font-family: hevelica; color: #494949; line-height: normal; width: 100%; padding: 40px; box-sizing: border-box; background-color: #fff; overflow-y: auto; border-radius: 10px rgba(12, 60, 96, 0.1);">
+                    html: `<article style="font-family: hevelica; color: #494949; line-height: normal; width: 100%; height: 100%; padding: 40px; box-sizing: border-box; background-color: #fff; overflow-y: auto; border-radius: 10px rgba(12, 60, 96, 0.1);">
     <h1 style="color: #0C3C60; text-align: center;">PATIENT CONSENT FOR TREATMENT</h1>
     
     <div style="background-color: #D1E0EB; border-radius: 5px; padding: 20px; margin-bottom: 20px;">
@@ -5376,20 +5517,20 @@ export const fsclinicalsForm = {
                     type: "signaturepad",
                     name: "treatment_consent_signature",
                     title: "Signature of Responsible Party",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "text",
                     name: "treatment_consent_date",
                     title: "Date",
                     inputType: "date",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "text",
                     name: "treatment_consent_printed_name",
                     title: "Printed Full Name of Patient",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "text",
@@ -5405,7 +5546,7 @@ export const fsclinicalsForm = {
                 {
                     type: "html",
                     name: "telehealth_consent_info",
-                    html: `<article style="font-family: helvetica, sans-serif; color: #494949; line-height: normal; width: 100%; background-color: #fff; border-radius: 10px rgba(12, 60, 96, 0.1); padding: 40px;">
+                    html: `<article style="font-family: helvetica, sans-serif; color: #494949; line-height: normal; width: 100%; height: 100%; background-color: #fff; border-radius: 10px rgba(12, 60, 96, 0.1); padding: 40px;">
     <h1 style="color: #0C3C60; text-align: center;">TELEHEALTH CONSENT FORM</h1>
     
     <p style="font-weight: bold;">By signing this form, I understand and agree to the following:</p>
@@ -5446,7 +5587,7 @@ export const fsclinicalsForm = {
             <li>Qualified audits or evaluations of the program</li>
             <li>Research</li>
             <li>Qualified service organization agreement</li>
-            <li>Pursuant to a Part 2 - specific court order</li>
+            <li>Pursuant to a Part 2 – specific court order</li>
         </ul>
     </section>
 
@@ -5474,27 +5615,27 @@ export const fsclinicalsForm = {
                     type: "checkbox",
                     name: "telehealth_consent_agreement",
                     title: "I hereby consent to the use of telehealth/telemedicine in the provision of care and the above terms and conditions.",
-                    ////isRequired: true,
+                    //isRequired: true,
                     choices: ["I agree"],
                 },
                 {
                     type: "text",
                     name: "telehealth_consent_name",
                     title: "Patient's Printed Name or Patient's Legal Representative",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "signaturepad",
                     name: "telehealth_consent_signature",
                     title: "Signature of Patient or Patient's Legal Representative",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "text",
                     name: "telehealth_consent_date",
                     title: "Date",
                     inputType: "date",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "panel",
@@ -5505,27 +5646,27 @@ export const fsclinicalsForm = {
                             type: "text",
                             name: "interpreter_language",
                             title: "I certify that I am fluent in the language of the person providing consent:",
-                            ////isRequired: false,
+                            //isRequired: false,
                         },
                         {
                             type: "checkbox",
                             name: "interpreter_certification",
                             title: "I certify that I have accurately and completely interpreted the contents of this form, and that the person giving consent has indicated their understanding of the contents.",
                             choices: ["I agree"],
-                            ////isRequired: false,
+                            //isRequired: false,
                         },
                         {
                             type: "signaturepad",
                             name: "interpreter_signature",
                             title: "Signature of Interpreter",
-                            ////isRequired: false,
+                            //isRequired: false,
                         },
                         {
                             type: "text",
                             name: "interpreter_date",
                             title: "Date",
                             inputType: "date",
-                            ////isRequired: false,
+                            //isRequired: false,
                         },
                     ],
                 },
@@ -5538,7 +5679,7 @@ export const fsclinicalsForm = {
                 {
                     type: "html",
                     name: "confidentiality_info",
-                    html: `<article style="font-family: helvetica, sans-serif; color: #494949; line-height: normal; width: 100%; background-color: #fff; border-radius: 10px rgba(12, 60, 96, 0.1); padding: 40px;">
+                    html: `<article style="font-family: helvetica, sans-serif; color: #494949; line-height: normal; height: 100%; width: 100%; background-color: #fff; border-radius: 10px rgba(12, 60, 96, 0.1); padding: 40px;">
     <h1 style="color: #0C3C60; text-align: center;">Confidentiality and Consent Information</h1>
     
     <section style="background-color: #D1E0EB; border-radius: 5px; padding: 20px; margin-bottom: 20px;">
@@ -5596,7 +5737,7 @@ export const fsclinicalsForm = {
                     type: "checkbox",
                     name: "confidentiality_agreement",
                     title: "I have read this statement and fully understand the contents. I agree to these limits of confidentiality and will not hold the agency staff or the agency liable for any breach of confidentiality under the conditions stated above.",
-                    ////isRequired: true,
+                    //isRequired: true,
                     choices: ["I agree"],
                 },
                 {
@@ -5609,20 +5750,20 @@ export const fsclinicalsForm = {
                     type: "signaturepad",
                     name: "confidentiality_signature",
                     title: "Signature",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "text",
                     name: "confidentiality_date",
                     title: "Date",
                     inputType: "date",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "text",
                     name: "confidentiality_printed_name",
                     title: "PRINTED FULL NAME OF PATIENT",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
             ],
         },
@@ -5633,7 +5774,7 @@ export const fsclinicalsForm = {
                 {
                     type: "html",
                     name: "policy_agreement_info",
-                    html: `<article style="font-family: helvetica, sans-serif; color: #494949; line-height: normal; width: 100%; background-color: #fff; border-radius: 10px rgba(12, 60, 96, 0.1); padding: 40px;">
+                    html: `<article style="font-family: helvetica, sans-serif; color: #494949; line-height: normal; height: 100%; width: 100%; background-color: #fff; border-radius: 10px rgba(12, 60, 96, 0.1); padding: 40px;">
     <h1 style="color: #0C3C60; text-align: center;">FOUR SQUARE CLINICALS POLICY AGREEMENT</h1>
     
     <section style="background-color: #D1E0EB; border-radius: 5px; padding: 20px; margin-bottom: 20px;">
@@ -5664,27 +5805,27 @@ export const fsclinicalsForm = {
                     type: "checkbox",
                     name: "policy_agreement",
                     title: "I acknowledge that I have read and understand the above information as well as received a copy of the local 24 hour access and crisis lines.",
-                    ////isRequired: true,
+                    //isRequired: true,
                     choices: ["I agree"],
                 },
                 {
                     type: "signaturepad",
                     name: "policy_agreement_signature",
                     title: "Signature",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "text",
                     name: "policy_agreement_date",
                     title: "Date",
                     inputType: "date",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "text",
                     name: "policy_agreement_printed_name",
                     title: "Printed Full Name of Patient",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
             ],
         },
@@ -5695,7 +5836,7 @@ export const fsclinicalsForm = {
                 {
                     type: "html",
                     name: "acknowledgement-intro",
-                    html: `<article style="font-family: hevelica; color: #494949; line-height: normal; width: 100%; padding: 40px; box-sizing: border-box; background-color: #fff; overflow-y: auto; border-radius: 10px rgba(12, 60, 96, 0.1);">
+                    html: `<article style="font-family: hevelica; color: #494949; line-height: normal; width: 100%; height: 100%; padding: 40px; box-sizing: border-box; background-color: #fff; overflow-y: auto; border-radius: 10px rgba(12, 60, 96, 0.1);">
     <h2 style="color: #0C3C60; text-align: center;">Acknowledgment of Information Receipt</h2>
     
     <div style="background-color: #D1E0EB; border-radius: 5px; padding: 20px;">
@@ -5707,7 +5848,7 @@ export const fsclinicalsForm = {
                     type: "checkbox",
                     name: "rights-acknowledgement",
                     title: "I acknowledge receipt and understanding of:",
-                    ////isRequired: true,
+                    //isRequired: true,
                     choices: [
                         {
                             value: "rights",
@@ -5760,20 +5901,20 @@ export const fsclinicalsForm = {
                     type: "signaturepad",
                     name: "patient-signature",
                     title: "Patient Signature",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "text",
                     name: "patient-name",
                     title: "Patient Name (printed)",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "text",
                     name: "date",
                     title: "Date",
                     inputType: "date",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
             ],
             width: "100%",
@@ -5786,7 +5927,7 @@ export const fsclinicalsForm = {
                 {
                     type: "html",
                     name: "local-24-hour",
-                    html: `<article style="font-family: helvetica, sans-serif; color: #494949; line-height: normal; width: 100%; background-color: #fff; border-radius: 10px rgba(12, 60, 96, 0.1); padding: 40px;">
+                    html: `<article style="font-family: helvetica, sans-serif; color: #494949; line-height: normal; height: 100%; width: 100%; background-color: #fff; border-radius: 10px rgba(12, 60, 96, 0.1); padding: 40px;">
     <h1 style="color: #0C3C60; text-align: center;">Local 24 Hour Access and Crisis Lines</h1>
     
     <section style="background-color: #D1E0EB; border-radius: 5px; padding: 20px; margin-bottom: 20px;">
@@ -5847,7 +5988,7 @@ export const fsclinicalsForm = {
         //             type: "matrix",
         //             name: "asrs_questions",
         //             title: "Please answer the questions below, rating yourself on each of the criteria shown using the scale on the right side of the page. As you answer each question, select the box that best describes how you have felt and conducted yourself over the past 6 months.",
-        //             ////isRequired: true,
+        //             //isRequired: true,
         //             columns: [
         //                 { value: 0, text: "Never" },
         //                 { value: 1, text: "Rarely" },
@@ -5873,7 +6014,7 @@ export const fsclinicalsForm = {
                 {
                     type: "html",
                     name: "medication_consent_info",
-                    html: `<article style="font-family: helvetica, sans-serif; color: #494949; line-height: normal; width: 100%; background-color: #fff; border-radius: 10px rgba(12, 60, 96, 0.1); padding: 40px;">
+                    html: `<article style="font-family: helvetica, sans-serif; color: #494949; line-height: normal; height: 100%; width: 100%; background-color: #fff; border-radius: 10px rgba(12, 60, 96, 0.1); padding: 40px;">
     <h1 style="color: #0C3C60; text-align: center;">Four Square Clinicals Psychotropic Medication Consent Information</h1>
     
     <div style="background-color: #D1E0EB; border-radius: 5px; padding: 20px; margin-bottom: 20px;">
@@ -5907,7 +6048,7 @@ export const fsclinicalsForm = {
                     type: "checkbox",
                     name: "medication_classes",
                     title: "The original and/or subsequent class(es) of medication(s) discussed, and recommended by your provider is/are:",
-                    ////isRequired: true,
+                    //isRequired: true,
                     choices: [
                         "Antipsychotics/Neuroleptics",
                         "Antidepressant",
@@ -5925,7 +6066,7 @@ export const fsclinicalsForm = {
                     type: "checkbox",
                     name: "medication_consent_agreement",
                     title: "Your signature below constitutes your acknowledgement:",
-                    ////isRequired: true,
+                    //isRequired: true,
                     choices: [
                         "That you have read and agree to the foregoing.",
                         "That the medications and treatment set forth above have been adequately explained and/or discussed with you by your physician, and that you have received all the information you desire concerning such medication and treatment.",
@@ -5938,20 +6079,20 @@ export const fsclinicalsForm = {
                     type: "signaturepad",
                     name: "medication_consent_signature",
                     title: "Signature",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "text",
                     name: "medication_consent_date",
                     title: "Date",
                     inputType: "date",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
                 {
                     type: "text",
                     name: "medication_consent_printed_name",
                     title: "Printed Full Name of Patient",
-                    ////isRequired: true,
+                    //isRequired: true,
                 },
             ],
         },
@@ -5964,7 +6105,7 @@ export const fsclinicalsForm = {
                     type: "boolean",
                     name: "suggestAppointment",
                     title: "Would you like to suggest an appointment?",
-                    //isRequired: true,
+                    isRequired: true,
                 },
                 {
                     type: "text",

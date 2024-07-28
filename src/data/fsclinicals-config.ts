@@ -7,6 +7,64 @@ export const fsclinicalsTheme: ITheme = {
     backgroundImageFit: "cover",
     backgroundImageAttachment: "fixed",
     backgroundOpacity: 0.75,
+    // cssVariables: {
+    //     "--sjs-general-backcolor": "rgba(205, 224, 235, 0.75)", // Light blue background
+    //     "--sjs-general-backcolor-dark": "rgba(12, 60, 96, 1)", // Dark blue
+    //     "--sjs-general-backcolor-dim": "#1FABC7", // Teal
+    //     "--sjs-general-backcolor-dim-light": "rgba(255, 255, 255, 1)", // White
+    //     "--sjs-general-backcolor-dim-dark": "rgba(73, 73, 73, 1)", // Dark gray
+    //     "--sjs-general-forecolor": "rgba(12, 60, 96, 1)", // Dark blue text
+    //     "--sjs-general-forecolor-light": "rgba(110, 164, 206, 1)", // Light blue text
+    //     "--sjs-general-dim-forecolor": "rgba(12, 60, 96, 1)", // Dark blue text
+    //     "--sjs-general-dim-forecolor-light": "rgba(110, 164, 206, 1)", // Light blue text
+    //     "--sjs-primary-backcolor": "rgba(12, 60, 96, 1)", // Dark blue
+    //     "--sjs-primary-backcolor-light": "rgba(209, 224, 235, 0.65)", // Light blue background
+    //     "--sjs-primary-backcolor-dark": "rgba(12, 60, 96, 0.75)", // Dark blue with opacity
+    //     "--sjs-primary-forecolor": "rgba(255, 255, 255, 1)", // White text
+    //     "--sjs-primary-forecolor-light": "rgba(209, 224, 235, 0.65)", // Light blue text
+    //     "--sjs-base-unit": "8px",
+    //     "--sjs-corner-radius": "4px",
+    //     "--sjs-secondary-backcolor": "rgba(31, 171, 199, 1)", // Teal
+    //     "--sjs-secondary-backcolor-light": "rgba(31, 171, 199, 0.1)", // Light teal
+    //     "--sjs-secondary-backcolor-semi-light": "rgba(31, 171, 199, 0.25)", // Semi-light teal
+    //     "--sjs-secondary-forecolor": "rgba(255, 255, 255, 1)", // White text
+    //     "--sjs-secondary-forecolor-light": "rgba(209, 224, 235, 0.65)", // Light blue text
+    //     "--sjs-shadow-small": "0px 0px 0px 0px rgba(0, 0, 0, 0)",
+    //     "--sjs-shadow-medium": "0px 2px 6px 0px rgba(12, 60, 96, 0.1)", // Dark blue shadow
+    //     "--sjs-shadow-large": "0px 8px 16px 0px rgba(12, 60, 96, 0.1)", // Dark blue shadow
+    //     "--sjs-shadow-inner": "0px 0px 0px 0px rgba(0, 0, 0, 0)",
+    //     "--sjs-border-light": "rgba(110, 164, 206, 0.15)", // Light blue border
+    //     "--sjs-border-default": "rgba(12, 60, 96, 0.25)", // Dark blue border
+    //     "--sjs-border-inside": "rgba(12, 60, 96, 0.16)", // Dark blue border
+    //     "--sjs-special-red": "rgba(229, 10, 62, 1)", // Keep original red
+    //     "--sjs-special-red-light": "rgba(229, 10, 62, 0.1)",
+    //     "--sjs-special-red-forecolor": "rgba(255, 255, 255, 1)",
+    //     "--sjs-special-green": "rgba(25, 179, 148, 1)", // Keep original green
+    //     "--sjs-special-green-light": "rgba(25, 179, 148, 0.1)",
+    //     "--sjs-special-green-forecolor": "rgba(255, 255, 255, 1)",
+    //     "--sjs-special-blue": "rgba(110, 164, 206, 1)", // Light blue
+    //     "--sjs-special-blue-light": "rgba(110, 164, 206, 0.1)",
+    //     "--sjs-special-blue-forecolor": "rgba(255, 255, 255, 1)",
+    //     "--sjs-special-yellow": "rgba(179, 190, 220, 1)", // Lavender
+    //     "--sjs-special-yellow-light": "rgba(179, 190, 220, 0.1)",
+    //     "--sjs-special-yellow-forecolor": "rgba(12, 60, 96, 1)", // Dark blue text
+    //     "--sjs-question-background": "rgba(255, 255, 255, 1)", // White
+    //     "--font-family": "Open Sans",
+    //     "--sjs-questionpanel-cornerRadius": "8px",
+    //     "--sjs-editor-background": "rgba(255, 255, 255, 1)", // White
+    //     "--sjs-editorpanel-hovercolor": "rgba(31, 171, 199, 1)", // Teal
+    //     "--sjs-editorpanel-cornerRadius": "3px",
+    //     "--sjs-font-pagetitle-color": "rgba(12, 60, 96, 1)", // Dark blue
+    //     "--sjs-font-editorfont-color": "rgba(12, 60, 96, 0.9)", // Dark blue
+    //     "--sjs-font-editorfont-placeholdercolor": "rgba(110, 164, 206, 0.5)", // Light blue
+    //     "--sjs-font-questiontitle-color": "rgba(12, 60, 96, 1)", // Dark blue
+    //     "--sjs-font-questiondescription-color": "rgba(110, 164, 206, 0.75)", // Light blue
+    //     "--sjs-questionpanel-hovercolor": "rgba(31, 171, 199, 0.15)", // Light teal
+    //     "--sjs-header-backcolor": "rgba(12, 60, 96, 1)", // Dark blue
+    //     "--sjs-font-headertitle-color": "rgba(255, 255, 255, 1)", // White
+    //     "--sjs-font-headerdescription-color": "rgba(209, 224, 235, 1)", // Pale blue
+    //     "--sjs-questionpanel-backcolor": "rgba(209, 224, 235, 0.65)", // Light blue background
+    // },
     cssVariables: {
         "--sjs-general-backcolor": "rgba(255, 255, 255, 0.65)",
         "--sjs-general-backcolor-dark": "rgba(248, 248, 248, 1)",

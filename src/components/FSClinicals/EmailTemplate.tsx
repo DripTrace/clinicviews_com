@@ -118,6 +118,10 @@ interface EmailTemplateProps {
     name: string;
     email: string;
     phone: string;
+    gad7_score: string;
+    phq9_score: string;
+    asrs_score: string;
+    dast_score: string;
     reason: string;
     appointmentDate?: string;
     appointmentTime?: string;
@@ -129,6 +133,10 @@ const EmailTemplate: React.FC<EmailTemplateProps> = ({
     name,
     email,
     phone,
+    gad7_score,
+    phq9_score,
+    asrs_score,
+    dast_score,
     reason,
     appointmentDate,
     appointmentTime,
@@ -204,10 +212,18 @@ const EmailTemplate: React.FC<EmailTemplateProps> = ({
                     <strong>Phone:</strong> {phone}
                 </p>
                 {isNewPatient && (
-                    <p>
-                        <strong>Reason for Visit:</strong> {reason}
-                    </p>
+                    <span>
+                        <p>
+                            <strong>Reason for Visit:</strong> {reason}
+                        </p>
+                    </span>
                 )}
+                <span className="flex flex-col items-center justify-center">
+                    <strong>GAD-7 Score:</strong> {gad7_score}{" "}
+                    <strong>PHQ-9 Score:</strong> {phq9_score}{" "}
+                    <strong>ASRS Score:</strong> {asrs_score}{" "}
+                    <strong>DAST Score:</strong> {dast_score}{" "}
+                </span>
                 {appointmentDate && appointmentTime && (
                     <>
                         <h2>
