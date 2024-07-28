@@ -25,7 +25,7 @@ const ContactPage: React.FC = () => {
             <h1 className="text-3xl font-bold mb-8 text-center">Contact Us</h1>
             <div className="max-w-lg mx-auto">
                 <div className="relative mb-8">
-                    <div className="flex justify-between">
+                    {/* <div className="flex justify-between">
                         <button
                             onClick={() => setActiveTab("registration")}
                             className={`w-full py-2 text-center z-10 transition-colors duration-300 ${
@@ -36,7 +36,7 @@ const ContactPage: React.FC = () => {
                         >
                             Appointment Suggestion
                         </button>
-                    </div>
+                    </div> */}
                     <motion.div
                         className="absolute bottom-0 left-0 h-full bg-[#1FABC7] rounded-full"
                         initial={false}
