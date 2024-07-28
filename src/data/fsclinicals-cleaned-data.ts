@@ -2638,6 +2638,7 @@ export const fsclinicalsPatientForm = {
                         },
                     ],
                     defaultValueExpression: "today() + 3",
+                    isRequired: true,
                 },
                 {
                     type: "text",
@@ -2649,6 +2650,7 @@ export const fsclinicalsPatientForm = {
                     max: "17:00",
                     step: 900,
                     defaultValue: "09:00",
+                    isRequired: true,
                 },
             ],
             width: "100%",
