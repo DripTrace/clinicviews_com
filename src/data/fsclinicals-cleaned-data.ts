@@ -2617,18 +2617,18 @@ export const fsclinicalsPatientForm = {
             name: "appointment-suggestion",
             title: "Appointment Suggestion",
             elements: [
-                {
-                    type: "boolean",
-                    name: "suggestAppointment",
-                    title: "Would you like to suggest an appointment?",
-                    isRequired: true,
-                },
+                // {
+                //     type: "boolean",
+                //     name: "suggestAppointment",
+                //     title: "Would you like to suggest an appointment?",
+                //     isRequired: true,
+                // },
                 {
                     type: "text",
                     name: "appointmentDate",
                     title: "Preferred Date",
                     inputType: "date",
-                    visibleIf: "{suggestAppointment} = true",
+                    // visibleIf: "{suggestAppointment} = true",
                     validators: [
                         {
                             type: "expression",
@@ -2644,7 +2644,7 @@ export const fsclinicalsPatientForm = {
                     name: "appointmentTime",
                     title: "Preferred Time",
                     inputType: "time",
-                    visibleIf: "{suggestAppointment} = true",
+                    // visibleIf: "{suggestAppointment} = true",
                     min: "09:00",
                     max: "17:00",
                     step: 900,
