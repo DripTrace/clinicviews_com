@@ -157,7 +157,7 @@ const PatientRegistration: React.FC = () => {
     return (
         <form
             onSubmit={handleSubmit}
-            className={`h-full max-w-md mx-auto ${
+            className={`flex-1 flex flex-col h-full max-w-md mx-auto ${
                 isDarkMode ? "text-[#D1E0EB]" : "text-[#494949]"
             }`}
         >

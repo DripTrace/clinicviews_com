@@ -16,7 +16,7 @@ const ContactPage: React.FC = () => {
 
     return (
         <div
-            className={`size-full flex items-center justify-center flex-col p-4 ${
+            className={`flex-1 size-full flex items-center justify-center flex-col p-4 ${
                 isDarkMode
                     ? "bg-[#0C3C60] text-[#D1E0EB]"
                     : "bg-[#D1E0EB] text-[#0C3C60]"

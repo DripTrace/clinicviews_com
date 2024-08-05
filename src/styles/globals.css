@@ -427,3 +427,57 @@ textarea {
 .sd-html {
     color: #000 !important;
 }
+
+.react-datepicker {
+    background-color: #1f2937;
+    color: #e5e7eb;
+    border-color: #374151;
+}
+
+.react-datepicker__header {
+    background-color: #374151;
+    border-bottom-color: #4b5563;
+}
+
+.react-datepicker__current-month,
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker__time-name {
+    color: #e5e7eb;
+}
+
+.react-datepicker__day:hover,
+.react-datepicker__month-text:hover,
+.react-datepicker__quarter-text:hover,
+.react-datepicker__year-text:hover {
+    background-color: #4b5563;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+    background-color: #3b82f6;
+    color: #ffffff;
+}
+
+.react-datepicker__time-container {
+    border-left-color: #374151;
+}
+
+.react-datepicker__time-container .react-datepicker__time {
+    background-color: #1f2937;
+}
+
+.react-datepicker__time-container
+    .react-datepicker__time-box
+    ul.react-datepicker__time-list
+    li.react-datepicker__time-list-item:hover {
+    background-color: #4b5563;
+}
+
+.react-datepicker__time-container
+    .react-datepicker__time-box
+    ul.react-datepicker__time-list
+    li.react-datepicker__time-list-item--selected {
+    background-color: #3b82f6;
+    color: #ffffff;
+}
