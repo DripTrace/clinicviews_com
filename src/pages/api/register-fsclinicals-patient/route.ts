@@ -22,9 +22,11 @@ export const smtpAuthUser =
     local.FSCLINICALS_CLINICVIEWS_USER_ENDPOINT as string;
 export const smtpAuthPass =
     local.FSCLINICALS_CLINICVIEWS_USER_PASSWORD as string;
-export const smtpRecipient = devMode
-    ? (local.RUSSELLPALMA_USER_ENDPOINT as string)
-    : (local.FSCLINICALS_USER_ENDPOINT as string);
+export const smtpRecipient = local.FSCLINICALS_USER_ENDPOINT as string;
+// export const smtpRecipient = devMode
+//     ? (local.RUSSELLPALMA_USER_ENDPOINT as string)
+//     : (local.FSCLINICALS_USER_ENDPOINT as string);
+// export const smtpRecipient = "russell.palma@wallawalla.edu";
 export const smtpHost = local.OFFICE365_SMTP_DOMAIN as string;
 export const smtpPort = local.OFFICE365_SMTP_PORT as string;
 
