@@ -164,13 +164,17 @@
 // }
 
 import type { NextApiRequest, NextApiResponse } from "next";
-import { IncomingForm } from "formidable";
+import { IncomingForm, File } from "formidable";
 import nodemailer from "nodemailer";
 import { renderToString } from "react-dom/server";
 import LLPMGEmailTemplate from "@/components/LLPMG/LLPMGEmailTemplate";
 import { SDK } from "@ringcentral/sdk";
 import ical from "ical-generator";
 import { ICalAttendeeRole, ICalAttendeeStatus } from "ical-generator";
+import fs from "fs/promises";
+import { createWriteStream } from "fs";
+import archiver from "archiver";
+import path from "path";
 
 export const config = {
     api: {
@@ -219,6 +223,20 @@ async function sendSMS(to: string | number, message: string) {
     }
 }
 
+async function compressFile(file: File): Promise<string> {
+    const zipFilePath = path.join("/tmp", `${file.originalFilename}.zip`);
+    const output = createWriteStream(zipFilePath);
+    const archive = archiver("zip", { zlib: { level: 9 } });
+
+    return new Promise((resolve, reject) => {
+        output.on("close", () => resolve(zipFilePath));
+        archive.on("error", reject);
+        archive.pipe(output);
+        archive.file(file.filepath, { name: file.originalFilename ?? "file" });
+        archive.finalize();
+    });
+}
+
 function formatDateTime(dateString: string): string {
     const date = new Date(dateString);
     return date.toLocaleString("en-US", {
@@ -237,7 +255,8 @@ async function sendEmailWithCalendar(
     to: string,
     subject: string,
     content: string,
-    calendarEvent: any
+    calendarEvent: any,
+    attachments?: nodemailer.SendMailOptions["attachments"]
 ) {
     const mailOptions: nodemailer.SendMailOptions = {
         from: `"${process.env.PROTONMAIL_NAME}" <${process.env.PROTONMAIL_SENDER}>`,
@@ -245,6 +264,7 @@ async function sendEmailWithCalendar(
         subject,
         html: content,
         attachments: [
+            ...(attachments || []),
             {
                 filename: "event.ics",
                 content: calendarEvent.toString(),
@@ -351,13 +371,33 @@ export default async function handler(
             })
         );
 
+        let fileContent, fileSize;
+        if (file) {
+            const zipFilePath = await compressFile(file);
+            fileContent = await fs.readFile(zipFilePath);
+            fileSize = fileContent.length;
+
+            console.log("Compressed file details:", {
+                name: `${file.originalFilename}.zip`,
+                size: fileSize,
+            });
+        }
+
         // Send email to patient
         await sendEmailWithCalendar(
             emailTransporter,
             email,
             `Registration Confirmation - ${formattedAppointmentTime}`,
             patientEmailHtml,
-            calendarEvent
+            calendarEvent,
+            file
+                ? [
+                      {
+                          filename: `${file.originalFilename}.zip`,
+                          content: fileContent,
+                      },
+                  ]
+                : undefined
         );
 
         // Send email to LLPMG
@@ -366,7 +406,15 @@ export default async function handler(
             process.env.PROTONMAIL_RECIPIENT!,
             `New Patient Registration Details - ${formattedAppointmentTime}`,
             doctorEmailHtml,
-            calendarEvent
+            calendarEvent,
+            file
+                ? [
+                      {
+                          filename: `${file.originalFilename}.zip`,
+                          content: fileContent,
+                      },
+                  ]
+                : undefined
         );
 
         const smsMessage = `Hello ${name}, thank you for registering with Loma Linda Psychiatric Medical Group. Your appointment suggestion for ${formattedAppointmentTime} has been received. We will contact you soon to confirm.`;
