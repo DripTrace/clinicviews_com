@@ -38,7 +38,7 @@ const ContactPage: React.FC = () => {
                         </button>
                     </div> */}
                     <motion.div
-                        className="absolute bottom-0 left-0 h-full bg-[#1FABC7] rounded-full"
+                        className="absolute bottom-0 left-0 h-full bg-[#1FABC7] rounded-full p-4"
                         initial={false}
                         animate={{
                             x: "0%",

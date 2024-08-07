@@ -11,7 +11,7 @@ const insurances = [
     {
         name: "Blue Cross Blue Shield",
         // logo: "/bluecross-logo.png",
-        logo: "/blue-cross-blue-shield.svg",
+        logo: "/BlueCrossBlueShield.svg",
         url: "https://www.blueshieldca.com/",
     },
     {
