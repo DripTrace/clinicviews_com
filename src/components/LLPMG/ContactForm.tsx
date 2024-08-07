@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { motion } from "framer-motion";
+import debounce from "lodash/debounce";
 
 interface FormData {
     firstName: string;
@@ -21,9 +22,85 @@ interface FormData {
     zipCode: string;
     pharmacy: string;
     reason: string;
+    customReason?: string;
     suggestedAppointment: Date | null;
     consentGiven: boolean;
 }
+
+const states = [
+    "AL",
+    "AK",
+    "AZ",
+    "AR",
+    "CA",
+    "CO",
+    "CT",
+    "DE",
+    "FL",
+    "GA",
+    "HI",
+    "ID",
+    "IL",
+    "IN",
+    "IA",
+    "KS",
+    "KY",
+    "LA",
+    "ME",
+    "MD",
+    "MA",
+    "MI",
+    "MN",
+    "MS",
+    "MO",
+    "MT",
+    "NE",
+    "NV",
+    "NH",
+    "NJ",
+    "NM",
+    "NY",
+    "NC",
+    "ND",
+    "OH",
+    "OK",
+    "OR",
+    "PA",
+    "RI",
+    "SC",
+    "SD",
+    "TN",
+    "TX",
+    "UT",
+    "VT",
+    "VA",
+    "WA",
+    "WV",
+    "WI",
+    "WY",
+];
+
+const pharmacies = [
+    "CVS",
+    "Walgreens",
+    "Walmart",
+    "Rite Aid",
+    "Safeway",
+    "Kroger",
+    "Target Pharmacy",
+    "Costco Pharmacy",
+    "Albertsons",
+    "Vons",
+];
+
+const reasons = [
+    "New Patient Registration",
+    "Follow-up Appointment",
+    "Prescription Refill",
+    "Mental Health Consultation",
+    "Therapy Session",
+    "Other",
+];
 
 const ContactForm: React.FC = () => {
     const {
@@ -35,8 +112,10 @@ const ContactForm: React.FC = () => {
     } = useForm<FormData>();
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState("");
+    const [addressSuggestions, setAddressSuggestions] = useState<string[]>([]);
     const fileInputRef = useRef<HTMLInputElement>(null);
     const watchSuggestedAppointment = watch("suggestedAppointment");
+    const watchReason = watch("reason");
 
     const onSubmit = async (data: FormData) => {
         setIsLoading(true);
@@ -74,12 +153,20 @@ const ContactForm: React.FC = () => {
                 formData.append(key, (value as Date).toISOString());
             } else if (key === "phone") {
                 formData.append(key, formattedPhone);
-            } else if (key !== "year" && key !== "month" && key !== "day") {
+            } else if (
+                key !== "year" &&
+                key !== "month" &&
+                key !== "day" &&
+                key !== "customReason"
+            ) {
                 formData.append(key, value as string);
             }
         });
 
         formData.append("birthday", birthDate.toISOString());
+        if (data.reason === "Other" && data.customReason) {
+            formData.append("reason", data.customReason);
+        }
 
         if (fileInputRef.current?.files?.[0]) {
             formData.append("pdf", fileInputRef.current.files[0]);
@@ -127,6 +214,50 @@ const ContactForm: React.FC = () => {
         const digitsOnly = phone.replace(/\D/g, "");
         return `+1${digitsOnly.slice(-10)}`;
     };
+
+    const debouncedAddressSearch = debounce(async (input: string) => {
+        if (input.length > 2) {
+            try {
+                const response = await fetch(
+                    `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
+                        input
+                    )}&countrycodes=us`
+                );
+                const data = await response.json();
+                const suggestions = data.map((item: any) => item.display_name);
+                setAddressSuggestions(suggestions.slice(0, 5));
+            } catch (error) {
+                console.error("Error fetching address suggestions:", error);
+            }
+        } else {
+            setAddressSuggestions([]);
+        }
+    }, 300);
+
+    const handleAddressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        setValue("address", value);
+        debouncedAddressSearch(value);
+    };
+
+    const handleAddressSelect = (selectedAddress: string) => {
+        setValue("address", selectedAddress);
+        setAddressSuggestions([]);
+        // Parse the selected address to fill in city, state, and zip code
+        const parts = selectedAddress.split(", ");
+        if (parts.length >= 3) {
+            setValue("city", parts[parts.length - 3]);
+            const stateZip = parts[parts.length - 2].split(" ");
+            setValue("state", stateZip[0]);
+            setValue("zipCode", stateZip[1]);
+        }
+    };
+
+    useEffect(() => {
+        return () => {
+            debouncedAddressSearch.cancel();
+        };
+    }, []);
 
     const containerVariants = {
         hidden: { opacity: 0, y: 50 },
@@ -383,8 +514,24 @@ const ContactForm: React.FC = () => {
                         {...register("address", {
                             required: "Address is required",
                         })}
+                        onChange={handleAddressChange}
                         className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text"
                     />
+                    {addressSuggestions.length > 0 && (
+                        <ul className="mt-2 bg-white dark:bg-gray-800 border rounded">
+                            {addressSuggestions.map((suggestion, index) => (
+                                <li
+                                    key={index}
+                                    className="px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
+                                    onClick={() =>
+                                        handleAddressSelect(suggestion)
+                                    }
+                                >
+                                    {suggestion}
+                                </li>
+                            ))}
+                        </ul>
+                    )}
                     {errors.address && (
                         <span className="text-red-500">
                             {errors.address.message}
@@ -418,13 +565,22 @@ const ContactForm: React.FC = () => {
                     >
                         State
                     </label>
-                    <input
+                    <select
                         id="state"
                         {...register("state", {
                             required: "State is required",
                         })}
-                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text"
-                    />
+                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                    >
+                        <option value="" disabled>
+                            Select your state
+                        </option>
+                        {states.map((state) => (
+                            <option key={state} value={state}>
+                                {state}
+                            </option>
+                        ))}
+                    </select>
                     {errors.state && (
                         <span className="text-red-500">
                             {errors.state.message}
@@ -460,13 +616,22 @@ const ContactForm: React.FC = () => {
                     >
                         Preferred Pharmacy
                     </label>
-                    <input
+                    <select
                         id="pharmacy"
                         {...register("pharmacy", {
                             required: "Preferred pharmacy is required",
                         })}
-                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text"
-                    />
+                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                    >
+                        <option value="" disabled>
+                            Select your preferred pharmacy
+                        </option>
+                        {pharmacies.map((pharmacy) => (
+                            <option key={pharmacy} value={pharmacy}>
+                                {pharmacy}
+                            </option>
+                        ))}
+                    </select>
                     {errors.pharmacy && (
                         <span className="text-red-500">
                             {errors.pharmacy.message}
@@ -484,16 +649,40 @@ const ContactForm: React.FC = () => {
                     >
                         Reason for Visit
                     </label>
-                    <textarea
+                    <select
                         id="reason"
                         {...register("reason", {
                             required: "Reason for visit is required",
                         })}
-                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text"
-                    />
+                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                    >
+                        <option value="" disabled>
+                            Select your reason for visit
+                        </option>
+                        {reasons.map((reason) => (
+                            <option key={reason} value={reason}>
+                                {reason}
+                            </option>
+                        ))}
+                    </select>
+                    {watchReason === "Other" && (
+                        <textarea
+                            id="customReason"
+                            {...register("customReason", {
+                                required: "Please specify your reason",
+                            })}
+                            placeholder="Please specify your reason"
+                            className="w-full mt-2 px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text"
+                        />
+                    )}
                     {errors.reason && (
                         <span className="text-red-500">
                             {errors.reason.message}
+                        </span>
+                    )}
+                    {watchReason === "Other" && errors.customReason && (
+                        <span className="text-red-500">
+                            {errors.customReason.message}
                         </span>
                     )}
                 </motion.div>
