@@ -28,7 +28,8 @@ export function middleware(request: NextRequest) {
         domainHostname === "lomalindapsych.com"
     ) {
         domainContext = "llpmg";
-        fullUrl = `${protocol}://${domainHostname}`;
+        // fullUrl = `${protocol}://${domainHostname}`;
+        fullUrl = `${process.env.WEBHOOK_URL}`;
         if (domainPathname === "/") {
             domainRedirectPath = "/llpmg/landing";
         }

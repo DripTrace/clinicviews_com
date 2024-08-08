@@ -39,7 +39,8 @@ FSCLINICALS="fsclinicals.com"
 
 # Define local development ports
 LOCAL_DRIPTRACE="localhost:2999"
-LOCAL_LLPMG="localhost:4"
+# LOCAL_LLPMG="localhost:4"
+LOCAL_LLPMG="a34e-2603-8001-4d40-7862-6166-6d8c-6ef5-4e57.ngrok-free.app"
 LOCAL_FSCLINICALS="localhost:65535"
 
 # Check if NODE_ENV is set
