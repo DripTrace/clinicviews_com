@@ -791,6 +791,83 @@ const rcsdk = new SDK({
     clientSecret: process.env.RC_CLIENT_SECRET,
 });
 
+interface TeamResponse {
+    id: string;
+    name: string;
+    description: string;
+    creationTime: string;
+    lastModifiedTime: string;
+    // Add other properties as needed
+}
+
+async function createTeam(
+    patientName: string,
+    doctorName: string,
+    patientExtensionId: string,
+    doctorExtensionId: string
+): Promise<TeamResponse> {
+    console.log(
+        `Creating team for patient ${patientName} and doctor ${doctorName}`
+    );
+    try {
+        await platform.login({ jwt: process.env.RC_JWT });
+        const response = await platform.post("/team-messaging/v1/teams", {
+            public: false,
+            name: `${patientName} - ${doctorName} Consultation`,
+            description: `Private team for consultation between ${patientName} and ${doctorName}`,
+            members: [{ id: patientExtensionId }, { id: doctorExtensionId }],
+        });
+        const data = await response.json();
+        console.log(`Team created:`, JSON.stringify(data, null, 2));
+        return data;
+    } catch (error) {
+        console.error(`Error creating team:`, error);
+        throw error;
+    }
+}
+
+async function sendTeamMessage(teamId: string, text: string): Promise<void> {
+    console.log(`Sending message to team ${teamId}:`, text);
+    try {
+        await platform.login({ jwt: process.env.RC_JWT });
+        const response = await platform.post(
+            `/team-messaging/v1/chats/${teamId}/posts`,
+            {
+                text: text,
+            }
+        );
+        console.log(`Message sent to team`);
+    } catch (error) {
+        console.error(`Error sending team message:`, error);
+        throw error;
+    }
+}
+
+async function getExtensionIdFromPhoneNumber(
+    phoneNumber: string
+): Promise<string | null> {
+    console.log(`Getting extension ID for phone number: ${phoneNumber}`);
+    try {
+        await platform.login({ jwt: process.env.RC_JWT });
+        const response = await platform.get(
+            "/restapi/v1.0/account/~/extension",
+            {
+                phoneNumber: phoneNumber,
+            }
+        );
+        const data = await response.json();
+        if (data.records && data.records.length > 0) {
+            console.log(`Extension ID found:`, data.records[0].id);
+            return data.records[0].id;
+        }
+        console.log(`No extension found for phone number: ${phoneNumber}`);
+        return null;
+    } catch (error) {
+        console.error(`Error getting extension ID:`, error);
+        throw error;
+    }
+}
+
 const platform = rcsdk.platform();
 
 async function createSubscription() {
@@ -1116,8 +1193,8 @@ export default async function handler(
                 : undefined
         );
 
-        const smsMessage = `Hello ${firstName}, thank you for registering with Loma Linda Psychiatric Medical Group. Your appointment suggestion for ${formattedAppointmentTime} with ${suggestedProvider} has been received. We will contact you soon to confirm.`;
-        const providerSMS = `Hello ${suggestedProvider}, a new patient has registered for an appointment suggestion on ${formattedAppointmentTime}. Please review the details in your email and contact the patient to confirm.`;
+        // const smsMessage = `Hello ${firstName}, thank you for registering with Loma Linda Psychiatric Medical Group. Your appointment suggestion for ${formattedAppointmentTime} with ${suggestedProvider} has been received. We will contact you soon to confirm.`;
+        // const providerSMS = `Hello ${suggestedProvider}, a new patient has registered for an appointment suggestion on ${formattedAppointmentTime}. Please review the details in your email and contact the patient to confirm.`;
 
         // Check the phone number format before sending SMS
         if (!/^\+1\d{10}$/.test(phone as string)) {
@@ -1127,6 +1204,13 @@ export default async function handler(
         if (!/^\+1\d{10}$/.test(providerPhone as string)) {
             throw new Error(`Invalid phone number format: ${providerPhone}`);
         }
+
+        const patientFirstName = (firstName as string[])[0];
+        const patientLastName = (lastName as string[])[0];
+        const patientFullName = `${patientFirstName} ${patientLastName}`;
+
+        const smsMessage = `Hello ${patientFirstName}, thank you for registering with Loma Linda Psychiatric Medical Group. Your appointment suggestion with ${suggestedProvider} for ${formattedAppointmentTime} has been received. We will contact you soon to confirm.`;
+        const providerSMS = `Hello ${suggestedProvider}, you have a new patient appointment suggestion from ${patientFullName} for ${formattedAppointmentTime}. Please review the details in your email and contact the patient to confirm.`;
 
         await sendSMS(phone as string, smsMessage);
         await sendSMS(providerPhone as string, providerSMS);
