@@ -204,6 +204,14 @@ const Landing: React.FC = () => {
                                 </div>
                             ))}
                         </Slider>
+                        <div className="mt-8 text-center">
+                            <Link
+                                href="/llpmg/feedback"
+                                className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out"
+                            >
+                                Share Your Feedback
+                            </Link>
+                        </div>
                     </div>
                     <SVGWave
                         className="absolute bottom-0 left-0 w-full text-blue-900 dark:text-gray-900"
