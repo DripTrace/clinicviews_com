@@ -415,7 +415,9 @@ textarea {
     font-weight: bold;
     border-radius: 50px;
     cursor: pointer;
-    transition: transform 0.3s ease, background 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
 }
 .special-link:hover {
     transform: scale(1.05);
@@ -480,4 +482,24 @@ textarea {
     li.react-datepicker__time-list-item--selected {
     background-color: #3b82f6;
     color: #ffffff;
+}
+
+@media (max-width: 640px) {
+    .grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 16px !important; /* Prevents zoom on focus in iOS */
+    }
+
+    .react-datepicker-wrapper {
+        width: 100% !important;
+    }
+
+    .react-datepicker__input-container input {
+        width: 100% !important;
+    }
 }
