@@ -1,18 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
-import { SDK } from "@ringcentral/sdk";
-
-const rcsdk = new SDK({
-    server: process.env.RC_SERVER_URL,
-    clientId: process.env.RC_CLIENT_ID,
-    clientSecret: process.env.RC_CLIENT_SECRET,
-});
-
-const platform = rcsdk.platform();
+import { ringCentralClient } from "@/lib/ringcentralClient";
 
 async function sendSMS(to: string, message: string) {
     try {
-        await platform.login({ jwt: process.env.RC_JWT });
+        await ringCentralClient.login({ jwt: process.env.RC_JWT });
 
         const formattedPhoneNumber = to.startsWith("+1")
             ? to
@@ -24,7 +16,7 @@ async function sendSMS(to: string, message: string) {
             );
         }
 
-        const resp = await platform.post(
+        const resp = await ringCentralClient.post(
             "/restapi/v1.0/account/~/extension/~/sms",
             {
                 from: { phoneNumber: process.env.RC_PHONE_NUMBER },

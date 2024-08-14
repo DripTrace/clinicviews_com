@@ -1,14 +1,6 @@
+import { ringCentralClient } from "@/lib/ringcentralClient";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { SDK } from "@ringcentral/sdk";
 import { v4 as uuidv4 } from "uuid";
-
-const rcsdk = new SDK({
-    server: process.env.RC_SERVER_URL,
-    clientId: process.env.RC_CLIENT_ID,
-    clientSecret: process.env.RC_CLIENT_SECRET,
-});
-
-const platform = rcsdk.platform();
 
 const sessions: { [key: string]: { patient: string; doctor: string } } = {};
 
@@ -24,8 +16,8 @@ function formatPhoneNumber(phone: string | number): string {
 
 async function getMessageDetails(messageId: string) {
     try {
-        await platform.login({ jwt: process.env.RC_JWT });
-        const response = await platform.get(
+        await ringCentralClient.login({ jwt: process.env.RC_JWT });
+        const response = await ringCentralClient.get(
             `/restapi/v1.0/account/~/extension/~/message-store/${messageId}`
         );
         return response.json();
@@ -37,10 +29,10 @@ async function getMessageDetails(messageId: string) {
 
 async function sendSMS(to: string, message: string) {
     try {
-        await platform.login({ jwt: process.env.RC_JWT });
+        await ringCentralClient.login({ jwt: process.env.RC_JWT });
         const formattedPhoneNumber = formatPhoneNumber(to);
 
-        const resp = await platform.post(
+        const resp = await ringCentralClient.post(
             "/restapi/v1.0/account/~/extension/~/sms",
             {
                 from: { phoneNumber: process.env.RC_PHONE_NUMBER },

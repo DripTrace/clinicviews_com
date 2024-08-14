@@ -9,7 +9,7 @@
 //     clientSecret: process.env.RC_CLIENT_SECRET,
 // });
 
-// const platform = rcsdk.platform();
+// const ringCentralClient = rcsdk.platform();
 
 // const sessions: { [key: string]: { patient: string; doctor: string } } = {};
 
@@ -1527,16 +1527,8 @@
 // //     }
 // // }
 
+import { ringCentralClient } from "@/lib/ringcentralClient";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { SDK } from "@ringcentral/sdk";
-
-const rcsdk = new SDK({
-    server: process.env.RC_SERVER_URL,
-    clientId: process.env.RC_CLIENT_ID,
-    clientSecret: process.env.RC_CLIENT_SECRET,
-});
-
-const platform = rcsdk.platform();
 
 interface MessageDetails {
     id: string;
@@ -1553,8 +1545,8 @@ const teamIds: { [key: string]: string } = {};
 async function getMessageDetails(messageId: string): Promise<MessageDetails> {
     console.log(`Getting message details for ID: ${messageId}`);
     try {
-        await platform.login({ jwt: process.env.RC_JWT });
-        const response = await platform.get(
+        await ringCentralClient.login({ jwt: process.env.RC_JWT });
+        const response = await ringCentralClient.get(
             `/restapi/v1.0/account/~/extension/~/message-store/${messageId}`
         );
         const data = await response.json();
@@ -1572,8 +1564,8 @@ async function getMessageDetails(messageId: string): Promise<MessageDetails> {
 async function sendTeamMessage(teamId: string, text: string): Promise<void> {
     console.log(`Sending message to team ${teamId}:`, text);
     try {
-        await platform.login({ jwt: process.env.RC_JWT });
-        const response = await platform.post(
+        await ringCentralClient.login({ jwt: process.env.RC_JWT });
+        const response = await ringCentralClient.post(
             `/team-messaging/v1/chats/${teamId}/posts`,
             {
                 text: text,
