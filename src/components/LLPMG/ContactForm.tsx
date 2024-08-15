@@ -1187,6 +1187,12 @@ const reasons = [
     "Other",
 ];
 
+// intern to be
+// "chrisgray"
+// "crgray63@yahoo.com"
+// "9514436008"
+// "N.P., MSN"
+
 const providers: Provider[] = [
     {
         providerName: "Mubashir Farooqi",
@@ -1737,6 +1743,7 @@ const ContactForm: React.FC = () => {
                         {...register("insurance", {
                             required: "Insurance provider is required",
                         })}
+                        defaultValue=""
                         className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
                     >
                         <option value="" disabled>
@@ -1832,6 +1839,7 @@ const ContactForm: React.FC = () => {
                         {...register("state", {
                             required: "State is required",
                         })}
+                        defaultValue=""
                         className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
                     >
                         <option value="" disabled>
@@ -1883,6 +1891,7 @@ const ContactForm: React.FC = () => {
                         {...register("pharmacy", {
                             required: "Preferred pharmacy is required",
                         })}
+                        defaultValue=""
                         className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
                     >
                         <option value="" disabled>

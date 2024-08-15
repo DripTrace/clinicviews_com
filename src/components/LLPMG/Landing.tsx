@@ -109,80 +109,6 @@ const Landing: React.FC = () => {
             </motion.section>
 
             <main className="container mx-auto px-4 py-8 gap-[5rem] space-y-[8rem] size-full">
-                <section className="mb-0 flex items-center justify-center flex-col">
-                    <h2 className="text-3xl font-bold text-blue-900 mb-4">
-                        Quick Links
-                    </h2>
-                    <div className="relative grid md:grid-cols-2 lg:grid-cols-3 gap-6 size-full">
-                        <Link
-                            href="/llpmg/why-choose-us"
-                            className="bg-white/70 dark:bg-white/10 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 relative w-full"
-                        >
-                            <div className="absolute z-10 rounded-lg flex items-center justify-center top-0 right-0 h-[7rem]">
-                                <Image
-                                    src="/question.svg"
-                                    alt="llpmg-services-img"
-                                    height={50}
-                                    width={150}
-                                    className="relative object-fill z-20 rounded-lg size-[6rem]"
-                                />
-                            </div>
-                            <h3 className="relative text-xl font-semibold mb-2 z-30">
-                                Why Choose LLPMG
-                            </h3>
-                            {/* <div className="absolute">helo</div> */}
-                            <p className="relative z-30 text-blue-300">
-                                Learn about our mission, vision, and core
-                                values.
-                            </p>
-                        </Link>
-                        <Link
-                            href="/llpmg/services"
-                            className="bg-white/70 dark:bg-white/10 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 relative w-full"
-                        >
-                            <div className="absolute z-10 rounded-lg flex items-center justify-center top-0 right-0 h-[7rem]">
-                                <Image
-                                    src="/services.svg"
-                                    alt="llpmg-services-img"
-                                    height={50}
-                                    width={150}
-                                    className="relative object-fill z-20 rounded-lg size-[6rem]"
-                                />
-                            </div>
-                            <h3 className="relative text-xl font-semibold mb-2 z-30">
-                                Our Services
-                            </h3>
-                            {/* <div className="absolute">helo</div> */}
-                            <p className="relative z-30 text-blue-300">
-                                Explore our comprehensive mental health
-                                services.
-                            </p>
-                        </Link>
-                        <Link
-                            href="/llpmg/locations"
-                            className="bg-white/70 dark:bg-white/10 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 relative w-full"
-                        >
-                            <div className="absolute z-10 rounded-lg flex items-center justify-center top-0 right-0 h-[7rem]">
-                                <Image
-                                    src="/locations.svg"
-                                    alt="llpmg-services-img"
-                                    height={50}
-                                    width={150}
-                                    className="relative object-fill z-20 rounded-lg size-[6rem]"
-                                />
-                            </div>
-                            <h3 className="relative text-xl font-semibold mb-2 z-30">
-                                Our Locations
-                            </h3>
-                            {/* <div className="absolute">helo</div> */}
-                            <p className="relative z-30 text-blue-300">
-                                Find a Loma Linda Psychiatric Medical Group near
-                                you.
-                            </p>
-                        </Link>
-                    </div>
-                </section>
-
                 {/* <Testimonials /> */}
                 <section className="py-16 bg-white dark:bg-gray-800 relative overflow-hidden transition-colors duration-300 rounded-xl">
                     <div className="container mx-auto px-4 relative z-10">
@@ -204,10 +130,10 @@ const Landing: React.FC = () => {
                                 </div>
                             ))}
                         </Slider>
-                        <div className="mt-8 text-center">
+                        <div className="mt-8 text-center z-50 relative top-[2rem]">
                             <Link
                                 href="/llpmg/feedback"
-                                className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out"
+                                className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out z-50"
                             >
                                 Share Your Feedback
                             </Link>
@@ -217,6 +143,80 @@ const Landing: React.FC = () => {
                         className="absolute bottom-0 left-0 w-full text-blue-900 dark:text-gray-900"
                         style={{ zIndex: 1 }}
                     />
+                </section>
+
+                <section className="mb-0 flex items-center justify-center flex-col">
+                    <h2 className="text-3xl font-bold text-blue-900 mb-4 dark:text-blue-300">
+                        Quick Links
+                    </h2>
+                    <div className="relative grid md:grid-cols-2 lg:grid-cols-3 gap-6 size-full">
+                        <Link
+                            href="/llpmg/why-choose-us"
+                            className="bg-white/70 dark:bg-white/10 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 relative w-full"
+                        >
+                            <div className="absolute z-10 rounded-lg flex items-center justify-center top-0 right-0 h-[7rem]">
+                                <Image
+                                    src="/question.svg"
+                                    alt="llpmg-services-img"
+                                    height={50}
+                                    width={150}
+                                    className="relative object-fill z-20 rounded-lg size-[6rem]"
+                                />
+                            </div>
+                            <h3 className="relative text-xl font-semibold mb-2 z-30 dark:text-blue-100">
+                                Why Choose LLPMG
+                            </h3>
+                            {/* <div className="absolute">helo</div> */}
+                            <p className="relative z-30 text-blue-500">
+                                Learn about our mission, vision, and core
+                                values.
+                            </p>
+                        </Link>
+                        <Link
+                            href="/llpmg/services"
+                            className="bg-white/70 dark:bg-white/10 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 relative w-full"
+                        >
+                            <div className="absolute z-10 rounded-lg flex items-center justify-center top-0 right-0 h-[7rem]">
+                                <Image
+                                    src="/services.svg"
+                                    alt="llpmg-services-img"
+                                    height={50}
+                                    width={150}
+                                    className="relative object-fill z-20 rounded-lg size-[6rem]"
+                                />
+                            </div>
+                            <h3 className="relative text-xl font-semibold mb-2 z-30 dark:text-blue-100">
+                                Our Services
+                            </h3>
+                            {/* <div className="absolute">helo</div> */}
+                            <p className="relative z-30 text-blue-500">
+                                Explore our comprehensive mental health
+                                services.
+                            </p>
+                        </Link>
+                        <Link
+                            href="/llpmg/locations"
+                            className="bg-white/70 dark:bg-white/10 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 relative w-full"
+                        >
+                            <div className="absolute z-10 rounded-lg flex items-center justify-center top-0 right-0 h-[7rem]">
+                                <Image
+                                    src="/locations.svg"
+                                    alt="llpmg-services-img"
+                                    height={50}
+                                    width={150}
+                                    className="relative object-fill z-20 rounded-lg size-[6rem]"
+                                />
+                            </div>
+                            <h3 className="relative text-xl font-semibold mb-2 z-30 dark:text-blue-100">
+                                Our Locations
+                            </h3>
+                            {/* <div className="absolute">helo</div> */}
+                            <p className="relative z-30 text-blue-500">
+                                Find a Loma Linda Psychiatric Medical Group near
+                                you.
+                            </p>
+                        </Link>
+                    </div>
                 </section>
                 <ConditionsTreated />
 

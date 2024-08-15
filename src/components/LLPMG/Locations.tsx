@@ -84,7 +84,7 @@ const Locations: React.FC = () => {
                             )}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center mb-2 dark:text-blue-100 text-blue-600 dark:hover:text-blue-300 hover:text-blue-800 transition-colors duration-300"
+                            className=" sm:text-[1rem] text-[0.9rem] flex items-center mb-2 dark:text-blue-100 text-blue-600 dark:hover:text-blue-300 hover:text-blue-800 transition-colors duration-300"
                         >
                             <FaMapMarkerAlt className="mr-2" />
                             <span className="underline">
@@ -93,14 +93,14 @@ const Locations: React.FC = () => {
                         </a>
                         <a
                             href={`tel:${location.phone}`}
-                            className="flex items-center mb-2 dark:text-blue-100 text-blue-600 dark:hover:text-blue-300 hover:text-blue-800 transition-colors duration-300"
+                            className=" sm:text-[1rem] text-[0.9rem] flex items-center mb-2 dark:text-blue-100 text-blue-600 dark:hover:text-blue-300 hover:text-blue-800 transition-colors duration-300"
                         >
                             <FaPhone className="mr-2" />
                             <span className="underline">{location.phone}</span>
                         </a>
                         <a
                             href={`mailto:${location.email}`}
-                            className="flex items-center dark:text-blue-100 text-blue-600 dark:hover:text-blue-300 hover:text-blue-800 transition-colors duration-300"
+                            className=" sm:text-[1rem] text-[0.9rem] flex items-center dark:text-blue-100 text-blue-600 dark:hover:text-blue-300 hover:text-blue-800 transition-colors duration-300"
                         >
                             <FaEnvelope className="mr-2" />
                             <span className="underline">{location.email}</span>
