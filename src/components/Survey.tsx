@@ -90,7 +90,7 @@ export default function SurveyComponent() {
 
         setIsLoading(false);
         // router.push("/");
-        // router.push("https://lomalindapsych.com");
+        router.push("https://lomalindapsych.com");
     };
 
     // const handleFormSubmit = async (newpatient: string) => {
