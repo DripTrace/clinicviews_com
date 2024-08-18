@@ -50,6 +50,113 @@ export default function FSClinicalsReturningFormComponent() {
         return surveyPDF;
     }
 
+    // const handleSubmit = async () => {
+    //     setIsLoading(true);
+    //     setResponse("");
+
+    //     try {
+    //         const formData = new FormData();
+    //         formData.append(
+    //             "file",
+    //             new Blob([pdfData], { type: "application/pdf" }),
+    //             "fsclinicals-newpatient.pdf"
+    //         );
+
+    //         // Add additional form fields
+    //         formData.append(
+    //             "patientName",
+    //             `${formResults["first-name"]} ${formResults["last-name"]}`
+    //         );
+    //         formData.append("email", formResults["email"]);
+    //         formData.append("phone", formResults["phone-cell"]);
+    //         formData.append("reason", formResults["reason"]);
+    //         // Calculate and append DAST score
+    //         const dastScore = Object.entries(formResults.dast_questions).reduce(
+    //             (score, [_, answer]) => {
+    //                 return score + (answer === "Yes" ? 1 : 0);
+    //             },
+    //             0
+    //         );
+    //         console.log("dastScore: ", dastScore);
+    //         formData.append("dast_score", String(dastScore));
+
+    //         // Calculate and append ASRS score
+    //         const asrsScoreMap: { [key: string]: number } = {
+    //             Never: 0,
+    //             Rarely: 1,
+    //             Sometimes: 2,
+    //             Often: 3,
+    //             "Very Often": 4,
+    //         };
+    //         const asrsScore = [1, 2, 3, 4, 5, 6].reduce(
+    //             (sum, i) =>
+    //                 sum +
+    //                 (asrsScoreMap[
+    //                     formResults[
+    //                         `question_${i}`
+    //                     ] as keyof typeof asrsScoreMap
+    //                 ] || 0),
+    //             0
+    //         );
+    //         formData.append("asrs_score", String(asrsScore));
+
+    //         // Calculate and append PHQ-9 score
+    //         const phq9Score = Object.values(formResults.phq9_questions).reduce(
+    //             (sum: number, score) =>
+    //                 sum + (typeof score === "number" ? score : 0),
+    //             0
+    //         );
+    //         formData.append("phq9_score", String(phq9Score));
+
+    //         // Calculate and append GAD-7 score
+    //         const gad7Score = Object.values(formResults.gad7_questions).reduce(
+    //             (sum: number, score) =>
+    //                 sum + (typeof score === "number" ? score : 0),
+    //             0
+    //         );
+    //         formData.append("gad7_score", String(gad7Score));
+    //         formData.append(
+    //             "suggestAppointment",
+    //             String(formResults["suggestAppointment"])
+    //         );
+    //         formData.append("appointmentDate", formResults["appointmentDate"]);
+    //         formData.append("appointmentTime", formResults["appointmentTime"]);
+    //         console.log("FORM RESULTS:\n", formResults);
+
+    //         console.log("Sending form data: ", formData);
+
+    //         const res = await fetch("/api/register-fsclinicals-patient/route", {
+    //             method: "POST",
+    //             body: formData,
+    //         });
+
+    //         if (!res.ok) {
+    //             const errorText = await res.text();
+    //             console.log("res:\n", res);
+    //             throw new Error(
+    //                 `HTTP error! status: ${res.status}, body: ${errorText}`
+    //             );
+    //         } else {
+    //             console.log("res\n", res);
+    //         }
+
+    //         const data = await res.json();
+    //         setResponse(data.message || data.error);
+    //     } catch (error: unknown) {
+    //         console.error("Error in handleSubmit:", error);
+    //         if (error instanceof Error) {
+    //             setResponse(
+    //                 `An error occurred while sending the form: ${error.message}`
+    //             );
+    //         } else {
+    //             setResponse("An unknown error occurred while sending the form");
+    //         }
+    //     }
+
+    //     setIsLoading(false);
+    //     router.refresh();
+    //     router.push("/");
+    // };
     const handleSubmit = async () => {
         setIsLoading(true);
         setResponse("");
@@ -70,51 +177,64 @@ export default function FSClinicalsReturningFormComponent() {
             formData.append("email", formResults["email"]);
             formData.append("phone", formResults["phone-cell"]);
             formData.append("reason", formResults["reason"]);
-            // Calculate and append DAST score
-            const dastScore = Object.entries(formResults.dast_questions).reduce(
-                (score, [_, answer]) => {
+
+            // Check if DAST was completed and calculate score
+            if (formResults.dast_questions) {
+                const dastScore = Object.entries(
+                    formResults.dast_questions
+                ).reduce((score, [_, answer]) => {
                     return score + (answer === "Yes" ? 1 : 0);
-                },
-                0
-            );
-            console.log("dastScore: ", dastScore);
-            formData.append("dast_score", String(dastScore));
+                }, 0);
+                console.log("dastScore: ", dastScore);
+                formData.append("dast_score", String(dastScore));
+            }
 
-            // Calculate and append ASRS score
-            const asrsScoreMap: { [key: string]: number } = {
-                Never: 0,
-                Rarely: 1,
-                Sometimes: 2,
-                Often: 3,
-                "Very Often": 4,
-            };
-            const asrsScore = [1, 2, 3, 4, 5, 6].reduce(
-                (sum, i) =>
-                    sum +
-                    (asrsScoreMap[
-                        formResults[
-                            `question_${i}`
-                        ] as keyof typeof asrsScoreMap
-                    ] || 0),
-                0
-            );
-            formData.append("asrs_score", String(asrsScore));
+            // Check if ASRS was completed and calculate score
+            if (formResults.question_1) {
+                const asrsScoreMap: { [key: string]: number } = {
+                    Never: 0,
+                    Rarely: 1,
+                    Sometimes: 2,
+                    Often: 3,
+                    "Very Often": 4,
+                };
+                const asrsScore = [1, 2, 3, 4, 5, 6].reduce(
+                    (sum, i) =>
+                        sum +
+                        (asrsScoreMap[
+                            formResults[
+                                `question_${i}`
+                            ] as keyof typeof asrsScoreMap
+                        ] || 0),
+                    0
+                );
+                formData.append("asrs_score", String(asrsScore));
+            }
 
-            // Calculate and append PHQ-9 score
-            const phq9Score = Object.values(formResults.phq9_questions).reduce(
-                (sum: number, score) =>
-                    sum + (typeof score === "number" ? score : 0),
-                0
-            );
-            formData.append("phq9_score", String(phq9Score));
+            // Check if PHQ-9 was completed and calculate score
+            if (formResults.phq9_questions) {
+                const phq9Score = Object.values(
+                    formResults.phq9_questions
+                ).reduce(
+                    (sum: number, score) =>
+                        sum + (typeof score === "number" ? score : 0),
+                    0
+                );
+                formData.append("phq9_score", String(phq9Score));
+            }
 
-            // Calculate and append GAD-7 score
-            const gad7Score = Object.values(formResults.gad7_questions).reduce(
-                (sum: number, score) =>
-                    sum + (typeof score === "number" ? score : 0),
-                0
-            );
-            formData.append("gad7_score", String(gad7Score));
+            // Check if GAD-7 was completed and calculate score
+            if (formResults.gad7_questions) {
+                const gad7Score = Object.values(
+                    formResults.gad7_questions
+                ).reduce(
+                    (sum: number, score) =>
+                        sum + (typeof score === "number" ? score : 0),
+                    0
+                );
+                formData.append("gad7_score", String(gad7Score));
+            }
+
             formData.append(
                 "suggestAppointment",
                 String(formResults["suggestAppointment"])
