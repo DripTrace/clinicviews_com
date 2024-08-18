@@ -97,6 +97,243 @@ async function sendEmailWithCalendar(
     }
 }
 
+// export default async function handler(
+//     req: NextApiRequest,
+//     res: NextApiResponse
+// ) {
+//     console.log("Received request to /api/register-fsclinicals-patient");
+//     console.log("Headers:", req.headers);
+
+//     if (req.method !== "POST") {
+//         return res.status(405).json({ error: "Method Not Allowed" });
+//     }
+
+//     const form = new IncomingForm();
+
+//     try {
+//         const [fields, files] = await new Promise<[any, any]>(
+//             (resolve, reject) => {
+//                 form.parse(req, (err, fields, files) => {
+//                     if (err) reject(err);
+//                     resolve([fields, files]);
+//                 });
+//             }
+//         );
+
+//         console.log("Received form data:", fields);
+//         console.log("Received files:", files);
+
+//         const patientName = Array.isArray(fields.patientName)
+//             ? fields.patientName[0]
+//             : fields.patientName;
+//         const email = Array.isArray(fields.email)
+//             ? fields.email[0]
+//             : fields.email;
+//         const phone = Array.isArray(fields.phone)
+//             ? fields.phone[0]
+//             : fields.phone;
+//         const reason = Array.isArray(fields.reason)
+//             ? fields.reason[0]
+//             : fields.reason;
+//         const gad7_score = Array.isArray(fields.gad7_score)
+//             ? fields.gad7_score[0]
+//             : fields.gad7_score;
+//         const phq9_score = Array.isArray(fields.phq9_score)
+//             ? fields.phq9_score[0]
+//             : fields.phq9_score;
+//         const asrs_score = Array.isArray(fields.asrs_score)
+//             ? fields.asrs_score[0]
+//             : fields.asrs_score;
+//         const dast_score = Array.isArray(fields.dast_score)
+//             ? fields.dast_score[0]
+//             : fields.dast_score;
+//         const appointmentDate = Array.isArray(fields.appointmentDate)
+//             ? fields.appointmentDate[0]
+//             : fields.appointmentDate;
+//         const appointmentTime = Array.isArray(fields.appointmentTime)
+//             ? fields.appointmentTime[0]
+//             : fields.appointmentTime;
+
+//         const isNewPatient = !!files.file;
+
+//         let fileContent, fileSize;
+//         if (isNewPatient) {
+//             const file = files.file[0] as File;
+//             const zipFilePath = await compressFile(file);
+//             fileContent = await fs.readFile(zipFilePath);
+//             fileSize = fileContent.length;
+
+//             console.log("Compressed file details:", {
+//                 name: `${file.originalFilename}.zip`,
+//                 size: fileSize,
+//             });
+//         }
+
+//         const appointmentDateTime = new Date(
+//             `${appointmentDate}T${appointmentTime}`
+//         );
+//         const formattedAppointmentTime = formatTo12HourTime(
+//             appointmentDateTime.toISOString()
+//         );
+
+//         console.log("Parsed form data:", {
+//             patientName,
+//             email,
+//             phone,
+//             reason,
+//             gad7_score,
+//             phq9_score,
+//             asrs_score,
+//             dast_score,
+//             appointmentDate,
+//             appointmentTime,
+//             appointmentDateTime,
+//             formattedAppointmentTime,
+//             isNewPatient,
+//         });
+
+//         // Create iCal event
+//         const calendarEvent = ical({
+//             prodId: { company: "FSClinicals", product: "Appointment" },
+//             name: "FSClinicals Appointment",
+//         });
+
+//         calendarEvent.createEvent({
+//             start: appointmentDateTime,
+//             end: new Date(appointmentDateTime.getTime() + 60 * 60 * 1000),
+//             summary: `Appointment with ${patientName}`,
+//             description: `Appointment details for ${patientName} on ${appointmentDate} at ${formattedAppointmentTime}.\nReason: ${reason}\nAssessment Scores:\nGAD-7: ${gad7_score}\nPHQ-9: ${phq9_score}\nASRS: ${asrs_score}\nDAST: ${dast_score}`,
+//             location: "FSClinicals Office",
+//             url: "https://fsclinicals.com",
+//             organizer: {
+//                 name: "FSClinicals Connect",
+//                 email: smtpRecipient,
+//             },
+//             attendees: [
+//                 {
+//                     name: patientName,
+//                     email: email,
+//                     rsvp: true,
+//                     role: ICalAttendeeRole.REQ,
+//                     status: ICalAttendeeStatus.NEEDSACTION,
+//                 },
+//             ],
+//         });
+
+//         console.log("Creating nodemailer transporter with following config:");
+//         console.log({
+//             host: smtpHost,
+//             port: parseInt(smtpPort!, 10),
+//             secure: false,
+//             auth: {
+//                 user: smtpAuthUser,
+//                 pass: "********", // Mask the password in logs
+//             },
+//         });
+
+//         const transporter = nodemailer.createTransport({
+//             host: smtpHost,
+//             port: parseInt(smtpPort!, 10),
+//             secure: false,
+//             auth: {
+//                 user: smtpAuthUser,
+//                 pass: smtpAuthPass,
+//             },
+//             tls: {
+//                 ciphers: "SSLv3",
+//                 rejectUnauthorized: false,
+//             },
+//         });
+
+//         // Verify SMTP connection configuration
+//         try {
+//             await transporter.verify();
+//             console.log("SMTP connection verified successfully");
+//         } catch (error) {
+//             console.error("SMTP connection verification failed:", error);
+//             throw new Error("Failed to establish SMTP connection");
+//         }
+
+//         const patientEmailHtml = renderToString(
+//             EmailTemplate({
+//                 name: patientName,
+//                 email,
+//                 phone,
+//                 reason,
+//                 gad7_score,
+//                 phq9_score,
+//                 asrs_score,
+//                 dast_score,
+//                 appointmentDate,
+//                 appointmentTime: formattedAppointmentTime,
+//                 isDoctor: false,
+//                 isNewPatient,
+//             })
+//         );
+
+//         const doctorEmailHtml = renderToString(
+//             EmailTemplate({
+//                 name: patientName,
+//                 email,
+//                 phone,
+//                 reason,
+//                 gad7_score,
+//                 phq9_score,
+//                 asrs_score,
+//                 dast_score,
+//                 appointmentDate,
+//                 appointmentTime: formattedAppointmentTime,
+//                 isDoctor: true,
+//                 isNewPatient,
+//             })
+//         );
+
+//         // Send email to doctor
+//         await sendEmailWithCalendar(
+//             transporter,
+//             smtpRecipient,
+//             isNewPatient
+//                 ? "New Patient Registration and Appointment"
+//                 : "New Appointment Suggestion",
+//             doctorEmailHtml,
+//             calendarEvent,
+//             isNewPatient
+//                 ? [
+//                       {
+//                           filename: `${
+//                               (files.file[0] as File).originalFilename
+//                           }.zip`,
+//                           content: fileContent,
+//                       },
+//                   ]
+//                 : undefined
+//         );
+
+//         // Send email to patient
+//         await sendEmailWithCalendar(
+//             transporter,
+//             email,
+//             isNewPatient
+//                 ? "Registration Confirmation"
+//                 : "Appointment Suggestion Confirmation",
+//             patientEmailHtml,
+//             calendarEvent
+//         );
+
+//         res.status(200).json({
+//             message: isNewPatient
+//                 ? "Patient registered successfully"
+//                 : "Appointment suggested successfully",
+//         });
+//     } catch (error) {
+//         console.error("Error in patient registration process:", error);
+//         res.status(500).json({
+//             error: "Error processing patient registration",
+//             details: (error as Error).message,
+//         });
+//     }
+// }
+
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
@@ -135,18 +372,6 @@ export default async function handler(
         const reason = Array.isArray(fields.reason)
             ? fields.reason[0]
             : fields.reason;
-        const gad7_score = Array.isArray(fields.gad7_score)
-            ? fields.gad7_score[0]
-            : fields.gad7_score;
-        const phq9_score = Array.isArray(fields.phq9_score)
-            ? fields.phq9_score[0]
-            : fields.phq9_score;
-        const asrs_score = Array.isArray(fields.asrs_score)
-            ? fields.asrs_score[0]
-            : fields.asrs_score;
-        const dast_score = Array.isArray(fields.dast_score)
-            ? fields.dast_score[0]
-            : fields.dast_score;
         const appointmentDate = Array.isArray(fields.appointmentDate)
             ? fields.appointmentDate[0]
             : fields.appointmentDate;
@@ -154,10 +379,34 @@ export default async function handler(
             ? fields.appointmentTime[0]
             : fields.appointmentTime;
 
-        const isNewPatient = !!files.file;
+        // Check if assessment scores are present
+        const gad7_score = fields.gad7_score
+            ? Array.isArray(fields.gad7_score)
+                ? fields.gad7_score[0]
+                : fields.gad7_score
+            : undefined;
+        const phq9_score = fields.phq9_score
+            ? Array.isArray(fields.phq9_score)
+                ? fields.phq9_score[0]
+                : fields.phq9_score
+            : undefined;
+        const asrs_score = fields.asrs_score
+            ? Array.isArray(fields.asrs_score)
+                ? fields.asrs_score[0]
+                : fields.asrs_score
+            : undefined;
+        const dast_score = fields.dast_score
+            ? Array.isArray(fields.dast_score)
+                ? fields.dast_score[0]
+                : fields.dast_score
+            : undefined;
+
+        const isNewPatient =
+            !!files.file ||
+            (gad7_score && phq9_score && asrs_score && dast_score);
 
         let fileContent, fileSize;
-        if (isNewPatient) {
+        if (isNewPatient && files.file) {
             const file = files.file[0] as File;
             const zipFilePath = await compressFile(file);
             fileContent = await fs.readFile(zipFilePath);
@@ -202,7 +451,11 @@ export default async function handler(
             start: appointmentDateTime,
             end: new Date(appointmentDateTime.getTime() + 60 * 60 * 1000),
             summary: `Appointment with ${patientName}`,
-            description: `Appointment details for ${patientName} on ${appointmentDate} at ${formattedAppointmentTime}.\nReason: ${reason}\nAssessment Scores:\nGAD-7: ${gad7_score}\nPHQ-9: ${phq9_score}\nASRS: ${asrs_score}\nDAST: ${dast_score}`,
+            description: `Appointment details for ${patientName} on ${appointmentDate} at ${formattedAppointmentTime}.\nReason: ${reason}${
+                isNewPatient
+                    ? `\nAssessment Scores:\nGAD-7: ${gad7_score}\nPHQ-9: ${phq9_score}\nASRS: ${asrs_score}\nDAST: ${dast_score}`
+                    : ""
+            }`,
             location: "FSClinicals Office",
             url: "https://fsclinicals.com",
             organizer: {
@@ -220,6 +473,7 @@ export default async function handler(
             ],
         });
 
+        // ... (keep the existing SMTP setup code)
         console.log("Creating nodemailer transporter with following config:");
         console.log({
             host: smtpHost,
@@ -244,15 +498,6 @@ export default async function handler(
                 rejectUnauthorized: false,
             },
         });
-
-        // Verify SMTP connection configuration
-        try {
-            await transporter.verify();
-            console.log("SMTP connection verified successfully");
-        } catch (error) {
-            console.error("SMTP connection verification failed:", error);
-            throw new Error("Failed to establish SMTP connection");
-        }
 
         const patientEmailHtml = renderToString(
             EmailTemplate({
@@ -288,6 +533,14 @@ export default async function handler(
             })
         );
 
+        try {
+            await transporter.verify();
+            console.log("SMTP connection verified successfully");
+        } catch (error) {
+            console.error("SMTP connection verification failed:", error);
+            throw new Error("Failed to establish SMTP connection");
+        }
+
         // Send email to doctor
         await sendEmailWithCalendar(
             transporter,
@@ -297,7 +550,7 @@ export default async function handler(
                 : "New Appointment Suggestion",
             doctorEmailHtml,
             calendarEvent,
-            isNewPatient
+            isNewPatient && files.file
                 ? [
                       {
                           filename: `${

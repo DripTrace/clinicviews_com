@@ -6,18 +6,14 @@ import "survey-core/defaultV2.css";
 import { Survey } from "survey-react-ui";
 import { SurveyPDF } from "survey-pdf";
 import { useState, useEffect } from "react";
-import { fsclinicalsForm, fsclinicalsTheme } from "@/data/fsclinicals-config";
-// import { fsclinicalsForm as fsclinicalsExtendedForm } from "@/data/fsclinicals-extended";
-// import { fsclinicalsForm as fsclinicalsPatientForm } from "@/data/fsclinicals-extended";
-// import { fsclinicalsPatientForm } from "@/data/fsclinicals-patient-form";
-// import { fsclinicalsPatientForm } from "@/data/fsclinicals-patient-form-bk";
-import { fsclinicalsPatientForm } from "@/data/fsclinicals-cleaned-data";
+import { fsclinicalsTheme } from "@/data/fsclinicals-config";
+import { returningFsclinicalsPatientForm } from "@/data/fsclinicals-cleaned-data";
 import { useDomainSelector } from "@/store/domainHooks";
 {
     useDomainSelector;
 }
 
-export default function FSClinicalsFormComponent() {
+export default function FSClinicalsReturningFormComponent() {
     const router = useRouter();
 
     const [isLoading, setIsLoading] = useState(false);
@@ -43,7 +39,10 @@ export default function FSClinicalsFormComponent() {
             useCustomFontInHtml: true,
         };
         // const surveyPDF = new SurveyPDF(fsclinicalsExtendedForm, options);
-        const surveyPDF = new SurveyPDF(fsclinicalsPatientForm, options);
+        const surveyPDF = new SurveyPDF(
+            returningFsclinicalsPatientForm,
+            options
+        );
         if (surveyModel) {
             surveyPDF.mode = "display";
             surveyPDF.data = surveyModel.data;
@@ -71,55 +70,55 @@ export default function FSClinicalsFormComponent() {
             formData.append("email", formResults["email"]);
             formData.append("phone", formResults["phone-cell"]);
             formData.append("reason", formResults["reason"]);
-            // // Calculate and append DAST score
-            // const dastScore = Object.entries(formResults.dast_questions).reduce(
-            //     (score, [_, answer]) => {
-            //         return score + (answer === "Yes" ? 1 : 0);
-            //     },
-            //     0
-            // );
-            // console.log("dastScore: ", dastScore);
-            // formData.append("dast_score", String(dastScore));
+            // Calculate and append DAST score
+            const dastScore = Object.entries(formResults.dast_questions).reduce(
+                (score, [_, answer]) => {
+                    return score + (answer === "Yes" ? 1 : 0);
+                },
+                0
+            );
+            console.log("dastScore: ", dastScore);
+            formData.append("dast_score", String(dastScore));
 
-            // // Calculate and append ASRS score
-            // const asrsScoreMap: { [key: string]: number } = {
-            //     Never: 0,
-            //     Rarely: 1,
-            //     Sometimes: 2,
-            //     Often: 3,
-            //     "Very Often": 4,
-            // };
-            // const asrsScore = [1, 2, 3, 4, 5, 6].reduce(
-            //     (sum, i) =>
-            //         sum +
-            //         (asrsScoreMap[
-            //             formResults[
-            //                 `question_${i}`
-            //             ] as keyof typeof asrsScoreMap
-            //         ] || 0),
-            //     0
-            // );
-            // formData.append("asrs_score", String(asrsScore));
+            // Calculate and append ASRS score
+            const asrsScoreMap: { [key: string]: number } = {
+                Never: 0,
+                Rarely: 1,
+                Sometimes: 2,
+                Often: 3,
+                "Very Often": 4,
+            };
+            const asrsScore = [1, 2, 3, 4, 5, 6].reduce(
+                (sum, i) =>
+                    sum +
+                    (asrsScoreMap[
+                        formResults[
+                            `question_${i}`
+                        ] as keyof typeof asrsScoreMap
+                    ] || 0),
+                0
+            );
+            formData.append("asrs_score", String(asrsScore));
 
-            // // Calculate and append PHQ-9 score
-            // const phq9Score = Object.values(formResults.phq9_questions).reduce(
-            //     (sum: number, score) =>
-            //         sum + (typeof score === "number" ? score : 0),
-            //     0
-            // );
-            // formData.append("phq9_score", String(phq9Score));
+            // Calculate and append PHQ-9 score
+            const phq9Score = Object.values(formResults.phq9_questions).reduce(
+                (sum: number, score) =>
+                    sum + (typeof score === "number" ? score : 0),
+                0
+            );
+            formData.append("phq9_score", String(phq9Score));
 
-            // // Calculate and append GAD-7 score
-            // const gad7Score = Object.values(formResults.gad7_questions).reduce(
-            //     (sum: number, score) =>
-            //         sum + (typeof score === "number" ? score : 0),
-            //     0
-            // );
-            // formData.append("gad7_score", String(gad7Score));
-            // formData.append(
-            //     "suggestAppointment",
-            //     String(formResults["suggestAppointment"])
-            // );
+            // Calculate and append GAD-7 score
+            const gad7Score = Object.values(formResults.gad7_questions).reduce(
+                (sum: number, score) =>
+                    sum + (typeof score === "number" ? score : 0),
+                0
+            );
+            formData.append("gad7_score", String(gad7Score));
+            formData.append(
+                "suggestAppointment",
+                String(formResults["suggestAppointment"])
+            );
             formData.append("appointmentDate", formResults["appointmentDate"]);
             formData.append("appointmentTime", formResults["appointmentTime"]);
             console.log("FORM RESULTS:\n", formResults);
@@ -159,7 +158,7 @@ export default function FSClinicalsFormComponent() {
         router.push("/");
     };
 
-    const model = new Model(fsclinicalsPatientForm);
+    const model = new Model(returningFsclinicalsPatientForm);
     // model.mode = "display";
     model.validationAllowSwitchPages = true;
 

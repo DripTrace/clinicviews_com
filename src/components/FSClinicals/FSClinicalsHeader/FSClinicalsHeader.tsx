@@ -67,6 +67,30 @@ const FSClinicalsHeader: React.FC = () => {
                     <ul className="flex items-center justify-center space-x-[7rem]">
                         <li>
                             <Link
+                                href="/fsclinicals/fsclinicals-view/fsclinicals-form"
+                                className={`${
+                                    isDarkMode
+                                        ? "text-[#1FABC7]"
+                                        : "text-[#0C3C60]"
+                                } hover:text-[#D1E0EB] transition-colors`}
+                            >
+                                New Patient
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                href="/fsclinicals/fsclinicals-view/fsclinicals-returning-form"
+                                className={`${
+                                    isDarkMode
+                                        ? "text-[#1FABC7]"
+                                        : "text-[#0C3C60]"
+                                } hover:text-[#D1E0EB] transition-colors`}
+                            >
+                                Returning Patient
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
                                 href="/fsclinicals/fsclinicals-landing"
                                 className={`${
                                     isDarkMode
@@ -99,18 +123,6 @@ const FSClinicalsHeader: React.FC = () => {
                                 } hover:text-[#D1E0EB] transition-colors`}
                             >
                                 About
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                href="/fsclinicals/fsclinicals-view/fsclinicals-form"
-                                className={`${
-                                    isDarkMode
-                                        ? "text-[#1FABC7]"
-                                        : "text-[#0C3C60]"
-                                } hover:text-[#D1E0EB] transition-colors`}
-                            >
-                                New Patient
                             </Link>
                         </li>
                     </ul>
