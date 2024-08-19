@@ -32,13 +32,18 @@ const services = [
     {
         title: "Outpatient Mental Health Treatment",
         description:
-            "We provide group home services for the developmentally disabled, community-based homes for serious mental illness, and Intensive Outpatient Program (IOP) for chemical dependency.",
+            "We provide group home services for the developmentally disabled, community-based homes for serious mental illness.",
     },
 ];
 
-const Services: React.FC = () => {
+interface ServicesProps {
+    id: string;
+}
+
+const Services: React.FC<ServicesProps> = ({ id }: ServicesProps) => {
     return (
         <motion.div
+            id={id}
             // initial={{ opacity: 0 }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

@@ -1,11 +1,7 @@
 import Services from "@/components/LLPMG/Services";
 
 const LLPMGServicesPage = () => {
-	return (
-		<>
-			<Services />
-		</>
-	);
+    return <>{/* <Services /> */}</>;
 };
 
 export default LLPMGServicesPage;

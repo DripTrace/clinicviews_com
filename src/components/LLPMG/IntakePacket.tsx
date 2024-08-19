@@ -7,7 +7,7 @@ import { SurveyPDF } from "survey-pdf";
 import { useEffect, useState } from "react";
 import { json, themeJson } from "@/data/llpmg-patient-form";
 
-export default function SurveyComponent() {
+export default function IntakePacket() {
     const router = useRouter();
 
     const [isLoading, setIsLoading] = useState(false);

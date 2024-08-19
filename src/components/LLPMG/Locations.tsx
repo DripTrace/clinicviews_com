@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
 import { FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import MapSkeleton from "./MapSkeleton";
 
 const locations = [
     {
@@ -43,10 +44,29 @@ const locations = [
 ];
 
 const Locations: React.FC = () => {
+    const [loadedMaps, setLoadedMaps] = useState<boolean[]>(
+        new Array(locations.length).fill(false)
+    );
+
+    const handleMapLoad = (index: number) => {
+        setLoadedMaps((prev) => {
+            const newLoadedMaps = [...prev];
+            newLoadedMaps[index] = true;
+            return newLoadedMaps;
+        });
+    };
+
+    useEffect(() => {
+        const timeouts = locations.map((_, index) =>
+            setTimeout(() => handleMapLoad(index), (index + 1) * 1000)
+        );
+
+        return () => timeouts.forEach(clearTimeout);
+    }, []);
+
     return (
         <motion.div
             initial={{ opacity: 0 }}
-            // initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
@@ -64,18 +84,24 @@ const Locations: React.FC = () => {
                         <h3 className="text-xl font-semibold mb-2 dark:text-blue-100 text-blue-700">
                             {location.city}
                         </h3>
-                        {/* <div className="mb-4 aspect-w-16 aspect-h-9"> */}
-                        <div className="mb-4 w-full">
+                        <div className="mb-4 w-full h-[200px] relative">
+                            {!loadedMaps[index] && <MapSkeleton />}
                             <iframe
                                 src={location.mapUrl}
                                 width="100%"
                                 height="100%"
-                                style={{ border: 0 }}
+                                style={{
+                                    border: 0,
+                                    position: "absolute",
+                                    top: 0,
+                                    left: 0,
+                                }}
                                 allowFullScreen={false}
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"
                                 title={`Map of ${location.city} location`}
-                                className="rounded-md size-full"
+                                className={`rounded-md size-full ${loadedMaps[index] ? "opacity-100" : "opacity-0"}`}
+                                onLoad={() => handleMapLoad(index)}
                             ></iframe>
                         </div>
                         <a

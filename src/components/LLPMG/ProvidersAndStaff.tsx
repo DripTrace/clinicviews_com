@@ -105,13 +105,21 @@ const ProvidersAndStaff: React.FC = () => {
             degree: "PMHNP-BC",
         },
         {
-            alt: "Adaobi_Adimorah_PMHNP-BC",
+            alt: "Grace_Somoso_PMHNP-BC",
             url: "/providers-and-staff",
-            name: "Adaobi Adimorah",
+            name: "Grace Somoso",
             title: "Psychiatric Nurse Practitioner",
             role: "provider",
             degree: "PMHNP-BC",
         },
+        // {
+        //     alt: "Adaobi_Adimorah_PMHNP-BC",
+        //     url: "/providers-and-staff",
+        //     name: "Adaobi Adimorah",
+        //     title: "Psychiatric Nurse Practitioner",
+        //     role: "provider",
+        //     degree: "PMHNP-BC",
+        // },
         {
             alt: "Guy_Biakop_PMHNP-BC",
             url: "/providers-and-staff/Guy_Biakop.webp",
@@ -188,7 +196,7 @@ const ProvidersAndStaff: React.FC = () => {
         // },
         {
             alt: "Nelly_Saucedo_LCSW",
-            url: "/providers-and-staff/Nelly_Saucedo.webp",
+            url: "/providers-and-staff",
             name: "Nelly Saucedo",
             title: "Psychotherapist",
             role: "provider",

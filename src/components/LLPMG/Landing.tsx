@@ -9,6 +9,7 @@ import { FaQuoteLeft } from "react-icons/fa";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
+import Services from "./Services";
 
 const SVGWave: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" {...props}>
@@ -39,6 +40,14 @@ const SVGHeart: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 );
 
 const Landing: React.FC = () => {
+    const handleScrollToServices = (e: React.MouseEvent) => {
+        e.preventDefault();
+        const servicesSection = document.getElementById("services");
+        if (servicesSection) {
+            servicesSection.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     const handleClick = () => {
         if (
             /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -172,8 +181,8 @@ const Landing: React.FC = () => {
                                 values.
                             </p>
                         </Link>
-                        <Link
-                            href="/llpmg/services"
+                        <a
+                            onClick={(e) => handleScrollToServices(e)}
                             className="bg-white/70 dark:bg-white/10 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 relative w-full"
                         >
                             <div className="absolute z-10 rounded-lg flex items-center justify-center top-0 right-0 h-[7rem]">
@@ -193,7 +202,7 @@ const Landing: React.FC = () => {
                                 Explore our comprehensive mental health
                                 services.
                             </p>
-                        </Link>
+                        </a>
                         <Link
                             href="/llpmg/locations"
                             className="bg-white/70 dark:bg-white/10 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 relative w-full"
@@ -219,6 +228,7 @@ const Landing: React.FC = () => {
                     </div>
                 </section>
                 <ConditionsTreated />
+                <Services id="services" />
 
                 {/* <section id="contact-us" className="mb-12">
 					<h2 className="text-3xl font-bold text-blue-900 mb-4 dark:text-blue-100">

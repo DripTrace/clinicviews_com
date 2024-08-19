@@ -15,13 +15,12 @@ const Header: React.FC = () => {
     const navItems = [
         { name: "Home", path: "/llpmg/landing" },
         { name: "Why Choose Us", path: "/llpmg/why-choose-us" },
-        { name: "Our Services", path: "/llpmg/services" },
+        // { name: "Our Services", path: "/llpmg/services" },
         { name: "Locations", path: "/llpmg/locations" },
         { name: "Providers & Staff", path: "/llpmg/providers-and-staff" },
         { name: "Privacy & Notices", path: "/llpmg/privacy-and-notices" },
-        // { name: "Contact Us", path: "/llpmg/landing#contact-us" },
         { name: "Contact Us", path: "/llpmg/register" },
-        { name: "New Patient Packet", path: "/survey" },
+        // { name: "New Patient Packet", path: "/survey" },
     ];
 
     useEffect(() => {
