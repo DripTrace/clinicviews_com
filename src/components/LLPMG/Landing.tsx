@@ -154,7 +154,7 @@ const Landing: React.FC = () => {
                     />
                 </section>
 
-                <section className="mb-0 flex items-center justify-center flex-col relative max-h-[10rem]">
+                <section className="mb-0 flex items-center justify-center flex-col relative max-h-[10rem] z-30">
                     <h2 className="text-3xl font-bold text-blue-900 mb-4 dark:text-blue-300">
                         Quick Links
                     </h2>
