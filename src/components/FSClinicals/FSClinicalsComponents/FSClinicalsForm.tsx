@@ -137,9 +137,8 @@ export default function FSClinicalsFormComponent() {
                 throw new Error(
                     `HTTP error! status: ${res.status}, body: ${errorText}`
                 );
-            } else {
-                console.log("res\n", res);
             }
+            console.log("res\n", res);
 
             const data = await res.json();
             setResponse(data.message || data.error);
