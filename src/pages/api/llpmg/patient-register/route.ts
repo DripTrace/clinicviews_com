@@ -10,6 +10,9 @@ import { createWriteStream } from "fs";
 import archiver from "archiver";
 import path from "path";
 import { ringCentralClient } from "@/lib/ringcentralClient";
+import { v4 as uuidv4 } from "uuid";
+import { createOrUpdateConversation } from "../../webhooks/ringcentral/sms";
+// import { createOrUpdateConversation } from "../../webhooks/ringcentral/sms";
 
 export const config = {
     api: {
@@ -25,6 +28,11 @@ interface TeamResponse {
     lastModifiedTime: string;
     // Add other properties as needed
 }
+
+// Add this at the top of your file
+const conversations: {
+    [key: string]: { patientNumber: string; doctorNumber: string };
+} = {};
 
 async function createTeam(
     patientName: string,
@@ -444,17 +452,59 @@ export default async function handler(
         const patientLastName = (lastName as string[])[0];
         const patientFullName = `${patientFirstName} ${patientLastName}`;
 
-        const smsMessage = `Hello ${patientFirstName}, thank you for registering with Loma Linda Psychiatric Medical Group. Your appointment suggestion with ${suggestedProvider} for ${formattedAppointmentTime} has been received. We will contact you soon to confirm.`;
-        const providerSMS = `Hello ${suggestedProvider}, you have a new patient appointment suggestion from ${patientFullName} for ${formattedAppointmentTime}. Please review the details in your email and contact the patient to confirm.`;
+        // const smsMessage = `Hello ${patientFirstName}, thank you for registering with Loma Linda Psychiatric Medical Group. Your appointment suggestion with ${suggestedProvider} for ${formattedAppointmentTime} has been received. We will contact you soon to confirm.`;
+        // const providerSMS = `Hello ${suggestedProvider}, you have a new patient appointment suggestion from ${patientFullName} for ${formattedAppointmentTime}. Please review the details in your email and contact the patient to confirm.`;
 
-        await sendSMS(phone as string, smsMessage);
-        await sendSMS(providerPhone as string, providerSMS);
+        // await sendSMS(phone as string, smsMessage);
+        // await sendSMS(providerPhone as string, providerSMS);
 
-        // Create subscription and sync messages
+        // // Create subscription and sync messages
+        // await createSubscription();
+        // await syncMessages();
+
+        // Inside your handler function, after sending SMS messages
+        // const conversationId = uuidv4();
+        // conversations[conversationId] = {
+        //     patientNumber: phone as string,
+        //     doctorNumber: providerPhone as string,
+        // };
+
+        // Create or update the conversation
+        // const conversationId = createOrUpdateConversation(phone, providerPhone);
+
+        // // Modify your SMS messages to include the conversation ID
+        // const patientMessage = `Hello ${patientFirstName}, thank you for registering with Loma Linda Psychiatric Medical Group. Your appointment suggestion with ${suggestedProvider} for ${formattedAppointmentTime} has been received. We will contact you soon to confirm. (Conversation ID: ${conversationId})`;
+        // const providerMessage = `Hello ${suggestedProvider}, you have a new patient appointment suggestion from ${patientFullName} for ${formattedAppointmentTime}. Please review the details in your email and contact the patient to confirm. (Conversation ID: ${conversationId})`;
+
+        // await sendSMS(phone as string, patientMessage);
+        // await sendSMS(providerPhone as string, providerMessage);
+
         await createSubscription();
         await syncMessages();
 
-        res.status(200).json({ message: "Registration successful" });
+        console.log(
+            `Registering patient: ${firstName} ${lastName}, phone: ${phone}`
+        );
+        console.log(`Provider: ${suggestedProvider}, phone: ${providerPhone}`);
+
+        // Create or update the conversation
+        const conversationId = createOrUpdateConversation(phone, providerPhone);
+        console.log(`Created conversation with ID: ${conversationId}`);
+
+        const patientMessage = `Hello ${firstName}, thank you for registering with Loma Linda Psychiatric Medical Group. Your appointment suggestion with ${suggestedProvider} for ${suggestedAppointment} has been received. We will contact you soon to confirm. (Conversation ID: ${conversationId})`;
+        const providerMessage = `Hello ${suggestedProvider}, you have a new patient appointment suggestion from ${firstName} ${lastName} for ${suggestedAppointment}. Please review the details in your email and contact the patient to confirm. (Conversation ID: ${conversationId})`;
+
+        console.log(`Sending SMS to patient: ${phone}`);
+        await sendSMS(phone, patientMessage);
+        console.log(`Sending SMS to provider: ${providerPhone}`);
+        await sendSMS(providerPhone, providerMessage);
+
+        res.status(200).json({
+            message: "Registration successful",
+            conversationId,
+        });
+
+        // res.status(200).json({ message: "Registration successful" });
     } catch (error) {
         console.error("Error in API route:", error);
         res.status(500).json({

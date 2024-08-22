@@ -44,6 +44,7 @@
         "@wix/data": "^1.0.137",
         "amqplib": "^0.10.4",
         "archiver": "^7.0.1",
+        "axios": "^1.7.4",
         "bootstrap": "^5.3.3",
         "browser": "link:@serwist/next/browser",
         "datatables.net": "^2.0.8",

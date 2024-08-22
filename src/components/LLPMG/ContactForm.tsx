@@ -53,6 +53,7 @@ const ContactForm: React.FC = () => {
     const fileInputRef = useRef<HTMLInputElement>(null);
     const watchSuggestedAppointment = watch("suggestedAppointment");
     const watchReason = watch("reason");
+    const [theFormData, setTheFormData] = useState({});
 
     const onSubmit = async (data: FormData) => {
         setIsLoading(true);
@@ -111,6 +112,9 @@ const ContactForm: React.FC = () => {
         }
 
         try {
+            setTheFormData(formData);
+
+            console.log("this is the form data:\n >>>> ", formData);
             const response = await fetch("/api/llpmg/patient-register/route", {
                 method: "POST",
                 body: formData,
@@ -214,6 +218,7 @@ const ContactForm: React.FC = () => {
                 formatPhoneNumber(selectedProvider.providerPhone || "")
             );
             setValue("providerEmail", selectedProvider.providerEmail || "");
+            console.log(selectedProvider);
         }
     };
 
@@ -247,6 +252,10 @@ const ContactForm: React.FC = () => {
         },
     };
 
+    // useEffect(() => {
+    //     console.log("refreshed form data: >>>> \n", theFormData);
+    // }, [register]);
+
     return (
         <motion.form
             onSubmit={handleSubmit(onSubmit)}
@@ -261,7 +270,7 @@ const ContactForm: React.FC = () => {
                 <motion.div className="mb-4" variants={itemVariants}>
                     <label
                         htmlFor="firstName"
-                        className="block mb-2 text-gray-700 dark:text-gray-300"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
                     >
                         First Name
                     </label>
@@ -282,7 +291,7 @@ const ContactForm: React.FC = () => {
                 <motion.div className="mb-4" variants={itemVariants}>
                     <label
                         htmlFor="lastName"
-                        className="block mb-2 text-gray-700 dark:text-gray-300"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
                     >
                         Last Name
                     </label>
@@ -303,7 +312,7 @@ const ContactForm: React.FC = () => {
                 <motion.div className="mb-4" variants={itemVariants}>
                     <label
                         htmlFor="email"
-                        className="block mb-2 text-gray-700 dark:text-gray-300"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
                     >
                         Email
                     </label>
@@ -329,7 +338,7 @@ const ContactForm: React.FC = () => {
                 <motion.div className="mb-4" variants={itemVariants}>
                     <label
                         htmlFor="phone"
-                        className="block mb-2 text-gray-700 dark:text-gray-300"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
                     >
                         Phone
                     </label>
@@ -365,7 +374,7 @@ const ContactForm: React.FC = () => {
                 >
                     <label
                         htmlFor="year"
-                        className="block mb-2 text-gray-700 dark:text-gray-300"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
                     >
                         Date of Birth
                     </label>
@@ -433,7 +442,7 @@ const ContactForm: React.FC = () => {
                 <motion.div className="mb-4" variants={itemVariants}>
                     <label
                         htmlFor="insurance"
-                        className="block mb-2 text-gray-700 dark:text-gray-300"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
                     >
                         Insurance Provider
                     </label>
@@ -476,7 +485,7 @@ const ContactForm: React.FC = () => {
                 >
                     <label
                         htmlFor="address"
-                        className="block mb-2 text-gray-700 dark:text-gray-300"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
                     >
                         Address
                     </label>
@@ -513,7 +522,7 @@ const ContactForm: React.FC = () => {
                 <motion.div className="mb-4" variants={itemVariants}>
                     <label
                         htmlFor="city"
-                        className="block mb-2 text-gray-700 dark:text-gray-300"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
                     >
                         City
                     </label>
@@ -532,7 +541,7 @@ const ContactForm: React.FC = () => {
                 <motion.div className="mb-4" variants={itemVariants}>
                     <label
                         htmlFor="state"
-                        className="block mb-2 text-gray-700 dark:text-gray-300"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
                     >
                         State
                     </label>
@@ -563,7 +572,7 @@ const ContactForm: React.FC = () => {
                 <motion.div className="mb-4" variants={itemVariants}>
                     <label
                         htmlFor="zipCode"
-                        className="block mb-2 text-gray-700 dark:text-gray-300"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
                     >
                         Zip Code
                     </label>
@@ -584,7 +593,7 @@ const ContactForm: React.FC = () => {
                 <motion.div className="mb-4" variants={itemVariants}>
                     <label
                         htmlFor="pharmacy"
-                        className="block mb-2 text-gray-700 dark:text-gray-300"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
                     >
                         Preferred Pharmacy
                     </label>
@@ -615,7 +624,7 @@ const ContactForm: React.FC = () => {
                 <motion.div className="mb-4" variants={itemVariants}>
                     <label
                         htmlFor="reason"
-                        className="block mb-2 text-gray-700 dark:text-gray-300"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
                     >
                         Reason for Visit
                     </label>
@@ -660,7 +669,7 @@ const ContactForm: React.FC = () => {
                 <motion.div className="mb-4" variants={itemVariants}>
                     <label
                         htmlFor="suggestedAppointment"
-                        className="block mb-2 text-gray-700 dark:text-gray-300"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
                     >
                         Suggested Appointment Time
                     </label>
@@ -688,7 +697,7 @@ const ContactForm: React.FC = () => {
                 <motion.div className="mb-4" variants={itemVariants}>
                     <label
                         htmlFor="suggestedProvider"
-                        className="block mb-2 text-gray-700 dark:text-gray-300"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
                     >
                         Suggested Provider
                     </label>
@@ -700,7 +709,7 @@ const ContactForm: React.FC = () => {
                         onChange={handleSuggestedProviderChange}
                         className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
                     >
-                        <option value="" disabled selected defaultValue="">
+                        <option disabled selected defaultValue="">
                             Select a provider
                         </option>
                         {providers.map((provider) => {
@@ -735,7 +744,7 @@ const ContactForm: React.FC = () => {
                 <motion.div className="mb-4" variants={itemVariants}>
                     <label
                         htmlFor="pdf"
-                        className="block mb-2 text-gray-700 dark:text-gray-300"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
                     >
                         Upload PDF Document (optional)
                     </label>
