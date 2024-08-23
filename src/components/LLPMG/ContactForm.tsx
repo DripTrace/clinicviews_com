@@ -192,6 +192,45 @@ const ContactForm: React.FC = () => {
         }
     };
 
+    // const handleSuggestedProviderChange = (
+    //     e: React.ChangeEvent<HTMLSelectElement>
+    // ) => {
+    //     const providerName = e.target.value;
+    //     const selectedProvider = providers.find(
+    //         (p) => p.providerName === providerName
+    //     );
+
+    //     if (selectedProvider) {
+    //         let formattedProviderName = selectedProvider.providerName;
+    //         if (
+    //             !formattedProviderName.startsWith("Dr. ") &&
+    //             (selectedProvider.title === "Psychiatrist" ||
+    //                 selectedProvider.title === "Psychologist" ||
+    //                 selectedProvider.degree === "M.D." ||
+    //                 selectedProvider.degree === "Ph.D")
+    //         ) {
+    //             formattedProviderName = `Dr. ${formattedProviderName}`;
+    //         }
+
+    //         setValue("suggestedProvider", formattedProviderName);
+    //         setValue(
+    //             "providerPhone",
+    //             formatPhoneNumber(selectedProvider.providerPhone || "")
+    //         );
+    //         setValue("providerEmail", selectedProvider.providerEmail || "");
+    //         console.log(selectedProvider);
+    //     }
+    // };
+
+    const formatProviderName = (provider: Provider): string => {
+        let displayName = provider.providerName;
+        // Prefix "Dr." to all provider names
+        if (!displayName.startsWith("Dr. ")) {
+            displayName = `Dr. ${displayName}`;
+        }
+        return displayName;
+    };
+
     const handleSuggestedProviderChange = (
         e: React.ChangeEvent<HTMLSelectElement>
     ) => {
@@ -201,18 +240,7 @@ const ContactForm: React.FC = () => {
         );
 
         if (selectedProvider) {
-            let formattedProviderName = selectedProvider.providerName;
-            if (
-                !formattedProviderName.startsWith("Dr. ") &&
-                (selectedProvider.title === "Psychiatrist" ||
-                    selectedProvider.title === "Psychologist" ||
-                    selectedProvider.degree === "M.D." ||
-                    selectedProvider.degree === "Ph.D")
-            ) {
-                formattedProviderName = `Dr. ${formattedProviderName}`;
-            }
-
-            setValue("suggestedProvider", formattedProviderName);
+            // Set the form fields based on the selected provider
             setValue(
                 "providerPhone",
                 formatPhoneNumber(selectedProvider.providerPhone || "")
@@ -701,7 +729,7 @@ const ContactForm: React.FC = () => {
                     >
                         Suggested Provider
                     </label>
-                    <select
+                    {/* <select
                         id="suggestedProvider"
                         {...register("suggestedProvider", {
                             required: "Suggested provider is required",
@@ -733,7 +761,29 @@ const ContactForm: React.FC = () => {
                                 </option>
                             );
                         })}
+                    </select> */}
+                    <select
+                        id="suggestedProvider"
+                        {...register("suggestedProvider", {
+                            required: "Suggested provider is required",
+                        })}
+                        onChange={handleSuggestedProviderChange}
+                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                    >
+                        <option disabled value="" selected defaultValue="">
+                            Select a provider
+                        </option>
+                        {providers.map((provider) => (
+                            <option
+                                key={provider.providerName}
+                                value={provider.providerName}
+                            >
+                                {formatProviderName(provider)} ({provider.title}
+                                , {provider.degree})
+                            </option>
+                        ))}
                     </select>
+
                     {errors.suggestedProvider && (
                         <span className="text-red-500">
                             {errors.suggestedProvider.message}

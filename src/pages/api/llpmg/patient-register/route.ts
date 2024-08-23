@@ -409,15 +409,15 @@ export default async function handler(
             email as string,
             `Registration Confirmation - ${formattedAppointmentTime}`,
             patientEmailHtml,
-            calendarEvent,
-            file
-                ? [
-                      {
-                          filename: `${file.originalFilename}.zip`,
-                          content: fileContent,
-                      },
-                  ]
-                : undefined
+            calendarEvent
+            // file
+            //     ? [
+            //           {
+            //               filename: `${file.originalFilename}.zip`,
+            //               content: fileContent,
+            //           },
+            //       ]
+            //     : undefined
         );
 
         await sendEmailWithCalendar(
