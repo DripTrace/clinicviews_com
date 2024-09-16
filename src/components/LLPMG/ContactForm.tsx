@@ -530,7 +530,7 @@ const ContactForm: React.FC = () => {
                             {addressSuggestions.map((suggestion, index) => (
                                 <li
                                     key={index}
-                                    className="px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
+                                    className="px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100"
                                     onClick={() =>
                                         handleAddressSelect(suggestion)
                                     }

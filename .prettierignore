@@ -1,4 +1,10 @@
 .yarn
 .bun
-dist
-node_modules
+node_modules/
+dist/
+lib/
+.github/
+.coverage/
+docs/
+.coverage/
+.parcel-cache/

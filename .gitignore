@@ -48,3 +48,23 @@ next-env.d.ts
 # pwa sw
 **/public/sw.js
 **/public/workbox-*.js
+
+# Logs
+logs
+*.log
+npm-debug.log*
+*~
+# Dependency directory
+node_modules
+**/*/__pycache__
+**/.DS_Store
+api.json
+release
+build
+.env
+.env.test
+extension
+src/noise-reduction
+site
+src/plugins.json
+

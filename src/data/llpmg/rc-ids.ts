@@ -3537,3 +3537,802 @@ const messageDetails = {
     },
     lastModifiedTime: "2024-08-21T18:24:01.512Z",
 };
+
+const deviceInfo = {
+    domain: "sip.ringcentral.com",
+    outboundProxies: [
+        {
+            region: "EMEA",
+            proxy: "sip40.ringcentral.com:5090",
+            proxyTLS: "sip40.ringcentral.com:5096",
+        },
+        {
+            region: "APAC",
+            proxy: "sip71.ringcentral.com:5090",
+            proxyTLS: "sip71.ringcentral.com:5096",
+        },
+        {
+            region: "South Africa",
+            proxy: "sip90.ringcentral.com:5090",
+            proxyTLS: "sip90.ringcentral.com:5096",
+        },
+        {
+            region: "APAC",
+            proxy: "sip60.ringcentral.com:5090",
+            proxyTLS: "sip60.ringcentral.com:5096",
+        },
+        {
+            region: "EMEA",
+            proxy: "sip30.ringcentral.com:5090",
+            proxyTLS: "sip30.ringcentral.com:5096",
+        },
+        {
+            region: "APAC",
+            proxy: "sip70.ringcentral.com:5090",
+            proxyTLS: "sip70.ringcentral.com:5096",
+        },
+        {
+            region: "APAC",
+            proxy: "sip50.ringcentral.com:5090",
+            proxyTLS: "sip50.ringcentral.com:5096",
+        },
+        {
+            region: "NA",
+            proxy: "SIP10.ringcentral.com:5090",
+            proxyTLS: "sip10.ringcentral.com:5096",
+        },
+        {
+            region: "NA",
+            proxy: "SIP20.ringcentral.com:5090",
+            proxyTLS: "sip20.ringcentral.com:5096",
+        },
+        {
+            region: "LATAM",
+            proxy: "sip80.ringcentral.com:5090",
+            proxyTLS: "sip80.ringcentral.com:5096",
+        },
+    ],
+    userName: "19098804200",
+    password: "gcttAuHPZP",
+    authorizationId: "801112619035",
+};
+
+const callHandlingRules = {
+    uri: "https://platform.ringcentral.com/restapi/v1.0/account/147175035/extension/147175035/answering-rule?page=1&perPage=100",
+    records: [
+        {
+            uri: "https://platform.ringcentral.com/restapi/v1.0/account/147175035/extension/147175035/answering-rule/business-hours-rule",
+            id: "business-hours-rule",
+            type: "BusinessHours",
+            enabled: true,
+        },
+        {
+            uri: "https://platform.ringcentral.com/restapi/v1.0/account/147175035/extension/147175035/answering-rule/after-hours-rule",
+            id: "after-hours-rule",
+            type: "AfterHours",
+            enabled: true,
+        },
+    ],
+    paging: {
+        page: 1,
+        totalPages: 1,
+        perPage: 100,
+        totalElements: 2,
+        pageStart: 0,
+        pageEnd: 1,
+    },
+    navigation: {
+        firstPage: {
+            uri: "https://platform.ringcentral.com/restapi/v1.0/account/147175035/extension/147175035/answering-rule?page=1&perPage=100",
+        },
+        lastPage: {
+            uri: "https://platform.ringcentral.com/restapi/v1.0/account/147175035/extension/147175035/answering-rule?page=1&perPage=100",
+        },
+    },
+};
+
+const callHandleBusiness = {
+    uri: "https://platform.ringcentral.com/restapi/v1.0/account/147175035/extension/147175035/answering-rule/business-hours-rule",
+    id: "business-hours-rule",
+    type: "BusinessHours",
+    enabled: true,
+    schedule: {
+        ref: "BusinessHours",
+    },
+    greetings: [
+        {
+            type: "Voicemail",
+            custom: {
+                uri: "https://platform.ringcentral.com/restapi/v1.0/account/147175035/extension/147175035/greeting/236011034",
+                id: "236011034",
+            },
+        },
+        {
+            type: "Introductory",
+            custom: {
+                uri: "https://platform.ringcentral.com/restapi/v1.0/account/147175035/extension/147175035/greeting/237938034",
+                id: "237938034",
+            },
+        },
+        {
+            type: "ConnectingAudio",
+            preset: {
+                uri: "https://platform.ringcentral.com/restapi/v1.0/dictionary/greeting/66319",
+                id: "66319",
+                name: "Reggae",
+            },
+        },
+        {
+            type: "Unavailable",
+            preset: {
+                uri: "https://platform.ringcentral.com/restapi/v1.0/dictionary/greeting/66816",
+                id: "66816",
+                name: "Default",
+            },
+        },
+        {
+            type: "ConnectingMessage",
+            custom: {
+                uri: "https://platform.ringcentral.com/restapi/v1.0/account/147175035/extension/147175035/greeting/237942034",
+                id: "237942034",
+            },
+        },
+        {
+            type: "HoldMusic",
+            preset: {
+                uri: "https://platform.ringcentral.com/restapi/v1.0/dictionary/greeting/197390",
+                id: "197390",
+                name: "Nature",
+            },
+        },
+    ],
+    callHandlingAction: "ForwardCalls",
+    forwarding: {
+        notifyMySoftPhones: false,
+        softPhonesPositionTop: false,
+        notifyAdminSoftPhones: false,
+        softPhonesRingCount: 4,
+        mobileTimeout: true,
+        ringingMode: "Sequentially",
+        rules: [
+            {
+                index: 1,
+                ringCount: 4,
+                forwardingNumbers: [
+                    {
+                        uri: "https://platform.ringcentral.com/restapi/v1.0/account/147175035/extension/147175035/forwarding-number/446837035",
+                        id: "446837035",
+                        phoneNumber: "+19098804200",
+                        label: "LLPMG-c-device-0",
+                        type: "PhoneLine",
+                    },
+                ],
+            },
+        ],
+        softPhonesAlwaysRing: false,
+    },
+    transfer: {
+        extension: {
+            uri: "https://platform.ringcentral.com/restapi/v1.0/account/147175035/extension/147175035",
+            id: "147175035",
+        },
+    },
+    voicemail: {
+        enabled: true,
+        recipient: {
+            uri: "https://platform.ringcentral.com/restapi/v1.0/account/147175035/extension/147175035",
+            id: 147175035,
+        },
+    },
+    screening: "Off",
+};
+
+const getCallRecordingSettings = {
+    onDemand: {
+        enabled: true,
+        retentionPeriod: 90,
+    },
+    automatic: {
+        enabled: false,
+        outboundCallTones: true,
+        outboundCallAnnouncement: true,
+        allowMute: false,
+        extensionCount: 0,
+    },
+    greetings: [
+        {
+            type: "StartRecording",
+            mode: "Default",
+        },
+        {
+            type: "StopRecording",
+            mode: "Default",
+        },
+        {
+            type: "AutomaticRecording",
+            mode: "Default",
+        },
+    ],
+};
+
+const modifyCallRecordings = {
+    onDemand: {
+        enabled: true,
+        retentionPeriod: 90,
+    },
+    automatic: {
+        enabled: true,
+        outboundCallTones: true,
+        outboundCallAnnouncement: true,
+        allowMute: false,
+        extensionCount: 0,
+        retentionPeriod: 90,
+        maxNumberLimit: 100000,
+    },
+    greetings: [
+        {
+            type: "StartRecording",
+            mode: "Default",
+        },
+        {
+            type: "StopRecording",
+            mode: "Default",
+        },
+        {
+            type: "AutomaticRecording",
+            mode: "Default",
+        },
+    ],
+};
+
+// const session = Invitation {pendingReinvite: false, pendingReinviteAck: false, _state: 'Establishing', delegate: {…}, _stateEventEmitter: EmitterImpl, …}
+// accept
+// :
+// ƒ ()
+// addListener
+// :
+// ƒ ()
+// addTrack
+// :
+// ƒ ()
+// barge
+// :
+// ƒ ()
+// blindTransfer
+// :
+// ƒ ()
+// canUseRCMCallControl
+// :
+// ƒ ()
+// createSessionMessage
+// :
+// ƒ ()
+// delegate
+// :
+// {onSessionDescriptionHandler: ƒ}
+// dispose
+// :
+// ƒ ()
+// disposed
+// :
+// true
+// dtmf
+// :
+// ƒ ()
+// emit
+// :
+// ƒ ()
+// expiresTimer
+// :
+// undefined
+// flip
+// :
+// ƒ ()
+// forward
+// :
+// ƒ ()
+// held
+// :
+// false
+// hold
+// :
+// ƒ ()
+// ignore
+// :
+// ƒ ()
+// incomingInviteRequest
+// :
+// InviteUserAgentServer {core: UserAgentCore, message: IncomingRequestMessage, delegate: {…}, logger: Logger, transactionConstructor: ƒ, …}
+// isCanceled
+// :
+// false
+// logger
+// :
+// Logger {logger: LoggerFactory, category: 'sip.Invitation', label: undefined}
+// media
+// :
+// {remote: audio#remoteAudio, local: audio#localAudio}
+// mediaStatsStarted
+// :
+// true
+// mediaStreams
+// :
+// MediaStreams {mediaStreamsImpl: MediaStreamsImpl, release: ƒ, reconnectMedia: ƒ, getMediaStats: ƒ, stopMediaStats: ƒ}
+// mute
+// :
+// ƒ ()
+// muted
+// :
+// false
+// noAudioReportCount
+// :
+// 0
+// off
+// :
+// ƒ ()
+// on
+// :
+// ƒ ()
+// once
+// :
+// ƒ ()
+// park
+// :
+// ƒ ()
+// pendingReinvite
+// :
+// false
+// pendingReinviteAck
+// :
+// false
+// rcHeaders
+// :
+// {sid: '36502314292867', request: '17527627619785417247871627345662111', from: '#238035@sip.ringcentral.com:5060', to: '18888996669*101', srvLvl: '-149699523', …}
+// reinvite
+// :
+// ƒ ()
+// reinviteForNoAudioSent
+// :
+// false
+// rel100
+// :
+// "none"
+// removeAllListeners
+// :
+// ƒ ()
+// removeListener
+// :
+// ƒ ()
+// replyWithMessage
+// :
+// ƒ ()
+// rseq
+// :
+// 3167
+// sendInfoAndReceiveResponse
+// :
+// ƒ ()
+// sendMoveResponse
+// :
+// ƒ ()
+// sendReceiveConfirm
+// :
+// ƒ ()
+// sendSessionMessage
+// :
+// ƒ ()
+// setQosStats
+// :
+// ƒ ()
+// startRecord
+// :
+// ƒ ()
+// startTime
+// :
+// Mon Sep 09 2024 11:00:39 GMT-0700 (Pacific Daylight Time) {}
+// stopMediaStats
+// :
+// ƒ ()
+// stopRecord
+// :
+// ƒ ()
+// toVoicemail
+// :
+// ƒ ()
+// transfer
+// :
+// ƒ ()
+// unhold
+// :
+// ƒ ()
+// unmute
+// :
+// ƒ ()
+// userNoAnswerTimer
+// :
+// undefined
+// waitingForPrack
+// :
+// false
+// waitingForPrackPromise
+// :
+// undefined
+// waitingForPrackReject
+// :
+// undefined
+// waitingForPrackResolve
+// :
+// undefined
+// warmTransfer
+// :
+// ƒ ()
+// whisper
+// :
+// ƒ ()
+// __accept
+// :
+// ƒ ()
+// __dispose
+// :
+// ƒ ()
+// __patched
+// :
+// true
+// __qosStats
+// :
+// {}
+// __userAgentCoreEventsSetup
+// :
+// true
+// _contact
+// :
+// "<sip:hetug1q0@o2jltm2sl1kv.invalid;transport=ws>"
+// _dialog
+// :
+// SessionDialog
+// ackProcessing
+// :
+// false
+// ackWait
+// :
+// false
+// core
+// :
+// UserAgentCore {userAgentClients: Map(0), userAgentServers: Map(0), configuration: {…}, delegate: {…}, dialogs: Map(0), …}
+// delegate
+// :
+// {onAck: ƒ, onAckTimeout: ƒ, onBye: ƒ, onInfo: ƒ, onInvite: ƒ, …}
+// dialogState
+// :
+// {id: '822bddc0-b408-4452-9fac-80cc8fc74699pd9rv5i9pq10.114.128.244-5070-8f949ce4-554b-4b', early: false, callId: '822bddc0-b408-4452-9fac-80cc8fc74699', localTag: 'pd9rv5i9pq', remoteTag: '10.114.128.244-5070-8f949ce4-554b-4b', …}
+// initialTransaction
+// :
+// InviteServerTransaction
+// L
+// :
+// undefined
+// lastFinalResponse
+// :
+// "SIP/2.0 200 OK\r\nVia: SIP/2.0/WSS 104.245.57.247:8083;branch=z9hG4bKbvN5PcLNEfx\r\nFrom: <sip:+19092895924@104.245.57.247>;tag=10.114.128.244-5070-8f949ce4-554b-4b\r\nTo: <sip:18888996669*101@104.33.132.93>;tag=pd9rv5i9pq\r\nCSeq: 354134113 INVITE\r\nCall-ID: 822bddc0-b408-4452-9fac-80cc8fc74699\r\nSupported: outbound\r\nUser-Agent: LLPMG WebPhone/1.0.0 Macintosh-Intel-Mac-OS-X-10_15_7 RCWEBPHONE/0.1.1\r\nP-rc-endpoint-id: c4d37fb6-e76b-4d16-b3c9-4e5cb67fad76\r\nAllow: ACK,BYE,CANCEL,INFO,INVITE,MESSAGE,NOTIFY,OPTIONS,PRACK,REFER,REGISTER,SUBSCRIBE\r\nContact: <sip:hetug1q0@o2jltm2sl1kv.invalid;transport=ws>\r\nContent-Type: application/sdp\r\nContent-Length: 1156\r\n\r\nv=0\r\no=- 4490113848009338367 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=msid-semantic: WMS 4e2e07c9-4c40-4eec-8ff4-a5f1a0165c81\r\nm=audio 52617 UDP/TLS/RTP/SAVPF 63 111 0 8 9 101\r\nc=IN IP4 192.168.1.24\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=candidate:3989259500 1 udp 2122194687 192.168.1.24 52617 typ host generation 0 network-id 1 network-cost 10\r\na=candidate:2875499867 1 udp 2122129151 10.255.254.4 59626 typ host generation 0 network-id 3 network-cost 50\r\na=candidate:636909943 1 udp 2122262783 2603:8001:4c00:3a99:5945:bc9c:d5e0:6d58 52439 typ host generation 0 network-id 2 network-cost 10\r\na=ice-ufrag:Xcoz\r\na=ice-pwd:ysH912cuhTvIrQS6Zu40eWGL\r\na=ice-options:trickle\r\na=fingerprint:sha-256 EC:84:A0:10:EA:C5:44:01:EC:45:38:24:12:10:03:13:9D:59:96:98:4C:A6:30:79:46:12:C0:B9:A0:54:34:F0\r\na=setup:active\r\na=mid:0\r\na=sendrecv\r\na=msid:4e2e07c9-4c40-4eec-8ff4-a5f1a0165c81 c22d3ae9-d936-4b71-99dd-15c5f8bca981\r\na=rtcp-mux\r\na=rtpmap:63 red/48000/2\r\na=fmtp:63 111/111\r\na=rtpmap:111 OPUS/48000/2\r\na=fmtp:111 minptime=10;useinbandfec=1\r\na=rtpmap:0 pcmu/8000\r\na=rtpmap:8 pcma/8000\r\na=rtpmap:9 g722/8000\r\na=rtpmap:101 telephone-event/8000\r\na=ssrc:311593613 cname:aC7SFGS1QzLbcUZ4\r\n"
+// lastProvisionalResponse
+// :
+// "SIP/2.0 180 Ringing\r\nVia: SIP/2.0/WSS 104.245.57.247:8083;branch=z9hG4bKbvN5PcLNEfx\r\nFrom: <sip:+19092895924@104.245.57.247>;tag=10.114.128.244-5070-8f949ce4-554b-4b\r\nTo: <sip:18888996669*101@104.33.132.93>;tag=pd9rv5i9pq\r\nCSeq: 354134113 INVITE\r\nCall-ID: 822bddc0-b408-4452-9fac-80cc8fc74699\r\nSupported: outbound\r\nUser-Agent: LLPMG WebPhone/1.0.0 Macintosh-Intel-Mac-OS-X-10_15_7 RCWEBPHONE/0.1.1\r\nContact: <sip:hetug1q0@o2jltm2sl1kv.invalid;transport=ws>\r\nContent-Length: 0\r\n\r\n"
+// listeners
+// :
+// []
+// logger
+// :
+// Logger
+// category
+// :
+// "sip.transaction.ist"
+// label
+// :
+// undefined
+// logger
+// :
+// LoggerFactory {builtinEnabled: true, _level: 1, loggers: {…}, logger: Logger, _connector: ƒ}
+// level
+// :
+// (...)
+// [[Prototype]]
+// :
+// Object
+// progressExtensionTimer
+// :
+// undefined
+// user
+// :
+// {loggerFactory: LoggerFactory, onStateChange: ƒ, onTransportError: ƒ}
+// _id
+// :
+// "z9hG4bKbvN5PcLNEfx"
+// _request
+// :
+// IncomingRequestMessage
+// body
+// :
+// "v=0\r\no=- 4969760186574228193 1920497432690909891 IN IP4 208.87.41.97\r\ns=SmcSip\r\nc=IN IP4 208.87.41.97\r\nt=0 0\r\na=ice-options:ice2 trickle renomination\r\na=ice-pacing:50\r\na=ice-ufrag:9CgT\r\na=ice-pwd:QzoZ4zM2gKd+54aJgItj5F\r\na=fingerprint:sha-256 C1:4E:5A:76:D0:D5:58:9B:23:AA:CF:C1:AF:38:77:FD:64:8A:00:BB:F4:39:5A:5A:41:7D:82:B8:FE:53:B7:9A\r\nm=audio 50184 UDP/TLS/RTP/SAVPF 63 109 111 18 0 8 9 96 101\r\na=sendrecv\r\na=rtpmap:63 red/48000/2\r\na=fmtp:63 111/111\r\na=rtpmap:109 OPUS/16000\r\na=fmtp:109 useinbandfec=1;usedtx=0\r\na=rtpmap:111 OPUS/48000/2\r\na=fmtp:111 useinbandfec=1;usedtx=0\r\na=rtpmap:18 g729/8000\r\na=fmtp:18 annexb=no\r\na=rtpmap:0 pcmu/8000\r\na=rtpmap:8 pcma/8000\r\na=rtpmap:9 g722/8000\r\na=rtpmap:96 ilbc/8000\r\na=fmtp:96 mode=20\r\na=rtpmap:101 telephone-event/8000\r\na=fmtp:101 0-15\r\na=rtcp-fb:109 ccm tmmbr\r\na=rtcp-fb:111 ccm tmmbr\r\na=mid:0\r\na=setup:actpass\r\na=candidate:eedb4cc1 1 UDP 4294902018 208.87.41.97 50184 typ host\r\na=candidate:eedb4cc1 2 UDP 4294902531 208.87.41.97 50185 typ host\r\na=end-of-candidates\r\na=rtcp-mux\r\na=rtcp:50185\r\n"
+// callId
+// :
+// "822bddc0-b408-4452-9fac-80cc8fc74699"
+// cseq
+// :
+// 354134113
+// data
+// :
+// "INVITE sip:hetug1q0@o2jltm2sl1kv.invalid;transport=ws SIP/2.0\r\nVia: SIP/2.0/WSS 104.245.57.247:8083;branch=z9hG4bKbvN5PcLNEfx\r\nTo: <sip:18888996669*101@104.33.132.93>\r\nFrom: <sip:+19092895924@104.245.57.247>;tag=10.114.128.244-5070-8f949ce4-554b-4b\r\nCall-Id: 822bddc0-b408-4452-9fac-80cc8fc74699\r\nCSeq: 354134113 INVITE\r\nMax-Forwards: 67\r\nContent-Type: application/sdp\r\np-rc-api-call-info: callAttributes=reject,send-vm\r\np-rc-api-ids: party-id=p-a7280f40ef205z191d7f1bf4dz129b31b0000-2;session-id=s-a7280f40ef205z191d7f1bf4dz129b31b0000\r\np-rc-ice-servers: [{\"credential\":\"password\",\"urls\":[\"stun:sjc31-c10-hbm33.m.ringcentral.com:443\",\"turn:sjc31-c10-hbm33.m.ringcentral.com:443?transport=tcp\",\"turns:sjc31-c10-hbm33.m.ringcentral.com:443?transport=tcp\"],\"username\":\"user\"}]\r\nContact: <sip:+19092895924@104.245.57.247:8083;transport=wss>\r\nAllow: SUBSCRIBE, NOTIFY, REFER, INVITE, ACK, BYE, CANCEL, UPDATE, INFO\r\nUser-Agent: RC_SIPWRP_128.244-TEL\r\nSupported: replaces, timer, diversion, histinfo\r\nP-rc: <Msg><Hdr SID=\"36502314292867\" Req=\"17527627619785417247871627345662111\" Cmd=\"6\" From=\"#238035@sip.ringcentral.com:5060\" To=\"18888996669*101\"/><Bdy SrvLvl=\"-149699523\" SrvLvlExt=\"390\" Phn=\"+19092895924\" Nm=\"\" ToPhn=\"+19098804200\" ToNm=\"LLPMG Colton Office Loma Linda Psychiatric Medical Group\" RecUrl=\"\"/></Msg>\r\nCall-Info: <369670722_125726130@10.14.116.50>;purpose=info\r\np-rc-session-id: 369670722_125726130@10.14.116.50\r\nContent-Length: 1040\r\n\r\nv=0\r\no=- 4969760186574228193 1920497432690909891 IN IP4 208.87.41.97\r\ns=SmcSip\r\nc=IN IP4 208.87.41.97\r\nt=0 0\r\na=ice-options:ice2 trickle renomination\r\na=ice-pacing:50\r\na=ice-ufrag:9CgT\r\na=ice-pwd:QzoZ4zM2gKd+54aJgItj5F\r\na=fingerprint:sha-256 C1:4E:5A:76:D0:D5:58:9B:23:AA:CF:C1:AF:38:77:FD:64:8A:00:BB:F4:39:5A:5A:41:7D:82:B8:FE:53:B7:9A\r\nm=audio 50184 UDP/TLS/RTP/SAVPF 63 109 111 18 0 8 9 96 101\r\na=sendrecv\r\na=rtpmap:63 red/48000/2\r\na=fmtp:63 111/111\r\na=rtpmap:109 OPUS/16000\r\na=fmtp:109 useinbandfec=1;usedtx=0\r\na=rtpmap:111 OPUS/48000/2\r\na=fmtp:111 useinbandfec=1;usedtx=0\r\na=rtpmap:18 g729/8000\r\na=fmtp:18 annexb=no\r\na=rtpmap:0 pcmu/8000\r\na=rtpmap:8 pcma/8000\r\na=rtpmap:9 g722/8000\r\na=rtpmap:96 ilbc/8000\r\na=fmtp:96 mode=20\r\na=rtpmap:101 telephone-event/8000\r\na=fmtp:101 0-15\r\na=rtcp-fb:109 ccm tmmbr\r\na=rtcp-fb:111 ccm tmmbr\r\na=mid:0\r\na=setup:actpass\r\na=candidate:eedb4cc1 1 UDP 4294902018 208.87.41.97 50184 typ host\r\na=candidate:eedb4cc1 2 UDP 4294902531 208.87.41.97 50185 typ host\r\na=end-of-candidates\r\na=rtcp-mux\r\na=rtcp:50185\r\n"
+// from
+// :
+// NameAddrHeader {parameters: {…}, uri: URI, _displayName: undefined}
+// fromTag
+// :
+// "10.114.128.244-5070-8f949ce4-554b-4b"
+// headers
+// :
+// Allow
+// :
+// [{…}]
+// CSeq
+// :
+// [{…}]
+// Call-ID
+// :
+// [{…}]
+// Call-Info
+// :
+// [{…}]
+// Contact
+// :
+// Array(1)
+// 0
+// :
+// parsed
+// :
+// NameAddrHeader {parameters: {…}, uri: URI, _displayName: undefined}
+// raw
+// :
+// "<sip:+19092895924@104.245.57.247:8083;transport=wss>"
+// [[Prototype]]
+// :
+// Object
+// length
+// :
+// 1
+// [[Prototype]]
+// :
+// Array(0)
+// Content-Length
+// :
+// [{…}]
+// Content-Type
+// :
+// [{…}]
+// From
+// :
+// [{…}]
+// Max-Forwards
+// :
+// [{…}]
+// P-Rc
+// :
+// [{…}]
+// P-Rc-Api-Call-Info
+// :
+// [{…}]
+// P-Rc-Api-Ids
+// :
+// [{…}]
+// P-Rc-Ice-Servers
+// :
+// [{…}]
+// P-Rc-Session-Id
+// :
+// [{…}]
+// Supported
+// :
+// [{…}]
+// To
+// :
+// [{…}]
+// User-Agent
+// :
+// [{…}]
+// Via
+// :
+// [{…}]
+// [[Prototype]]
+// :
+// Object
+// method
+// :
+// "INVITE"
+// ruri
+// :
+// URI {parameters: {…}, headers: {…}, raw: {…}, normal: {…}}
+// to
+// :
+// NameAddrHeader {parameters: {…}, uri: URI, _displayName: undefined}
+// toTag
+// :
+// "pd9rv5i9pq"
+// via
+// :
+// {protocol: 'SIP', transport: 'WSS', host_type: 'IPv4', host: '104.245.57.247', port: 8083, …}
+// viaBranch
+// :
+// "z9hG4bKbvN5PcLNEfx"
+// [[Prototype]]
+// :
+// IncomingMessage
+// _state
+// :
+// "Terminated"
+// _transport
+// :
+// Transport {_state: 'Connected', transitioningState: false, _stateEventEmitter: EmitterImpl, logger: Logger, configuration: {…}, …}
+// _user
+// :
+// {loggerFactory: LoggerFactory, onStateChange: ƒ, onTransportError: ƒ}
+// id
+// :
+// (...)
+// kind
+// :
+// (...)
+// request
+// :
+// (...)
+// state
+// :
+// (...)
+// transport
+// :
+// (...)
+// [[Prototype]]
+// :
+// ServerTransaction
+// invite2xxTimer
+// :
+// undefined
+// logger
+// :
+// Logger {logger: LoggerFactory, category: 'sip.invite-dialog', label: undefined}
+// _answer
+// :
+// undefined
+// _offer
+// :
+// undefined
+// _signalingState
+// :
+// "Closed"
+// answer
+// :
+// (...)
+// callId
+// :
+// (...)
+// early
+// :
+// (...)
+// id
+// :
+// (...)
+// localSequenceNumber
+// :
+// (...)
+// localTag
+// :
+// (...)
+// localURI
+// :
+// (...)
+// offer
+// :
+// (...)
+// remoteSequenceNumber
+// :
+// (...)
+// remoteTag
+// :
+// (...)
+// remoteTarget
+// :
+// (...)
+// remoteURI
+// :
+// (...)
+// routeSet
+// :
+// (...)
+// secure
+// :
+// (...)
+// sessionState
+// :
+// (...)
+// signalingState
+// :
+// (...)
+// userAgentCore
+// :
+// (...)
+// [[Prototype]]
+// :
+// Dialog
+// _id
+// :
+// "822bddc0-b408-4452-9fac-80cc8fc7469910.114.128.244-5070-8f949ce4-554b-4b"
+// _sessionDescriptionHandler
+// :
+// SessionDescriptionHandler {logger: Logger, sessionDescriptionHandlerConfiguration: {…}, _localMediaStream: MediaStream, _remoteMediaStream: MediaStream, mediaStreamFactory: ƒ, …}
+// _sessionDescriptionHandlerOptions
+// :
+// {constraints: {…}}
+// _state
+// :
+// "Terminated"
+// _stateEventEmitter
+// :
+// EmitterImpl {listeners: Array(1)}
+// _userAgent
+// :
+// UserAgent {_publishers: {…}, _registerers: {…}, _sessions: {…}, _subscriptions: {…}, _state: 'Started', …}
+// assertedIdentity
+// :
+// (...)
+// autoSendAnInitialProvisionalResponse
+// :
+// (...)
+// body
+// :
+// (...)
+// dialog
+// :
+// (...)
+// id
+// :
+// (...)
+// localIdentity
+// :
+// (...)
+// remoteIdentity
+// :
+// (...)
+// replacee
+// :
+// (...)
+// request
+// :
+// (...)
+// sessionDescriptionHandler
+// :
+// (...)
+// sessionDescriptionHandlerFactory
+// :
+// (...)
+// sessionDescriptionHandlerModifiers
+// :
+// (...)
+// sessionDescriptionHandlerModifiersReInvite
+// :
+// (...)
+// sessionDescriptionHandlerOptions
+// :
+// (...)
+// sessionDescriptionHandlerOptionsReInvite
+// :
+// (...)
+// state
+// :
+// (...)
+// stateChange
+// :
+// (...)
+// userAgent
+// :
+// (...)
+// [[Prototype]]
+// :
+// Session

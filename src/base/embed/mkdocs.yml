@@ -1,0 +1,142 @@
+# Project information
+site_name: RingCentral Embeddable
+site_url: https://ringcentral.github.io/ringcentral-embeddable/docs
+
+# Repository
+repo_url: https://github.com/ringcentral/ringcentral-embeddable
+repo_name: ringcentral/ringcentral-embeddable
+edit_uri: tree/main/docs
+docs_dir: docs
+
+theme:
+  name: material
+  custom_dir: overrides
+  features:
+      - navigation.path
+#      - navigation.sections
+      - navigation.tabs
+      - navigation.top
+      - navigation.expand
+      - navigation.sections
+      - search.sharing
+      - search.highlight
+      - content.code.copy
+      - content.action.edit
+      - content.action.view
+      - content.code.annotate
+  palette:
+    - scheme: default
+      primary: custom
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+plugins:
+  - search:
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - badges
+  - exclude:
+      regex:
+        - '^\.#.*'
+        - '.*\.\#.*$'
+hooks:
+  - scripts/mkdocs/hooks/shortcodes.py
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ringcentral
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/ringcentraldevs
+extra_css:
+  - extra.css
+extra_javascript:
+  - extra.js
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - mdx_include
+  - admonition
+  - tables
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+
+copyright: "2024 RingCentral, Inc. All rights reserved."
+
+nav:
+- 'Home': https://apps.ringcentral.com/integration/ringcentral-embeddable/latest/index.html
+
+- 'Getting started':
+  - 'Registering your application': app-registration.md
+  - 'Develop and graduate your app': app-development.md
+  - 'Initialization':
+     - 'Javascript vs iframes': initialization.md
+     - 'Version control': versions.md
+     - 'Self-hosting': self-hosting.md
+
+- 'Configuration':
+  - 'All parameters': config/index.md
+  - 'Setting parameters': config/setting-params.md
+  - 'Advanced parameters':
+    - 'Custom X-User-Agent': config/user-agent.md
+    - 'Custom Client ID': config/client-id.md
+    - 'Custom styles through CSS': config/styles.md
+    - 'Custom redirect Uri': config/redirect-uri.md
+    - 'Custom prefix': config/prefix.md
+    - 'Default call settings': config/call-settings.md
+    - 'Multiple Partner Brand Support': multiple-brands.md
+    - 'Noise reduction': config/noise-reduction.md
+    - 'Opening in a separate window': config/popup-window.md
+    - 'Running in multiple tabs': config/multiple-tabs.md
+    - 'Setting your environment': config/environment.md
+    - 'SMS templates': config/sms-template.md
+    - 'Quick access badge': config/badge.md
+
+- 'Developer guide':
+  - 'Events': integration/events.md
+  - 'API': integration/api.md
+  - 'Authorization': integration/authorization.md
+  - 'Embeddable 2.0': 2.x.md
+  - 'Service features':
+    - 'Service registration': integration/index.md
+    - 'Address book integration': integration/address-book.md
+    - 'Authentication': integration/third-party-auth.md
+    - 'Contact activities': integration/contact-activities.md
+    - 'Log calls': integration/call-logging.md
+    - 'Log meetings': integration/log-video-meeting.md
+    - 'Log messages': integration/message-logging.md
+    - 'Schedule meetings': integration/meeting-schedule.md
+    - 'View upcoming meetings': integration/upcoming-meetings.md
+    - 'VCard click handling': integration/vcard-clicks.md
+    - 'SMS toolbar button': 'integration/sms-toolbar-button.md'
+    - 'Do not contact': integration/do-not-contact.md
+  - 'User interface customization':
+    - 'Call logging form': integration/custom-call-log-page.md
+    - 'Pages': integration/custom-page.md
+    - 'Settings': integration/custom-settings.md
+    - 'Tabs': integration/custom-tab.md
+  - 'Recipes':
+    - 'Analytics integration': integration/analytics.md
+    - 'Click-to-dial enablement': integration/click-to-dial.md
+    - 'Call pop': integration/call-pop.md
+    - 'Add a feedback prompt': integration/feedback-prompt.md
+  - 'Migration':
+    - 'Migrating from Github Page build': integration/new-latest-uri.md
+- 'Troubleshooting': support.md
+
+- 'Changelog': https://github.com/ringcentral/ringcentral-embeddable/releases

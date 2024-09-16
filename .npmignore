@@ -1,0 +1,11 @@
+/*.js
+/.chrome
+/.coverage
+/screenshots
+/demo
+/dist/*.html
+/dist/demo*.js
+/test
+/tsconfig.json
+/docs
+/.parcel-cache

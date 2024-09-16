@@ -37,7 +37,7 @@ const locations = [
     {
         city: "Indio",
         address: "81880 Doctor Carreon Blvd, Ste C202, Indio, CA 92201",
-        phone: "(760) 922-7320",
+        phone: "(760) 922-7322",
         email: "indioblythe@lomalindapsych.com",
         mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3315.4059728804644!2d-116.22079972334737!3d33.8218185442915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80daf4efa0c74f5b%3A0x70a3a4a91a7d2c44!2s81880%20Dr%20Carreon%20Blvd%20c202%2C%20Indio%2C%20CA%2092201!5e0!3m2!1sen!2sus!4v1685393369978!5m2!1sen!2sus",
     },
