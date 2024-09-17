@@ -35,6 +35,11 @@ const replacements = [
         search: 'licenseBanner = (react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", { className: "svc-creator__banner" }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", { className: "svc-creator__non-commercial-text", dangerouslySetInnerHTML: htmlValue })));',
         replace: "licenseBanner = null;",
     },
+    {
+        search: `export const t = getTranslateFn(i18n);`,
+        replace: `// @ts-ignore
+export const t = getTranslateFn(i18n);`,
+    },
 ];
 
 async function replaceInFile(filePath) {
