@@ -40,7 +40,7 @@ const replacements: Replacement[] = [
 ];
 
 async function replaceInFile(filePath: string): Promise<void> {
-    console.log(`Processing file: ${filePath}`);
+    // console.log(`Processing file: ${filePath}`);
     let content = await fs.readFile(filePath, "utf8");
     let modified = false;
 
