@@ -1,6 +1,0 @@
---ignore-dir=dist
---ignore-dir=lib
---ignore-file=match:/^yarn\.lock$/
---ignore-dir=.coverage
---ignore-dir=docs
---ignore-dir=.parcel-cache

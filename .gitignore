@@ -68,8 +68,4 @@ src/noise-reduction
 site
 src/plugins.json
 
-src/ref/embeded/*
-
-.npmignore
-.ackrc
-.eslintignore
+src/ref/embed/*
