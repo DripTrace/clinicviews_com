@@ -108,9 +108,9 @@ const nextConfig = {
     // output: "standalone",
     // useFileSystemPublicRoutes: true,
     // Reduce build output
-    silent: true,
+    // silent: true,
     // Disable source maps in production
-    productionBrowserSourceMaps: false,
+    // productionBrowserSourceMaps: false,
     // typescript: {
     //     // !! WARN !!
     //     // Dangerously allow production builds to successfully complete even if
