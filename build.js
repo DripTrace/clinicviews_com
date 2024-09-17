@@ -61,7 +61,8 @@ async function replaceInFile(filePath) {
         await fs.writeFile(filePath, content, "utf8");
         console.log(`Modified: ${filePath}\n`);
     } else {
-        console.log(`No modifications made to ${filePath}\n`);
+        // console.log(`No modifications made to ${filePath}\n`);
+        return;
     }
 }
 
