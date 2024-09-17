@@ -1,7 +1,6 @@
-// File: /components/LLPMG/sip/SipConvoContent.tsx
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import SipConvoComponent from "@/components/LLPMG/sip/SipConvoComponent";
 import SipErrorBoundary from "@/components/LLPMG/sip/SipErrorBoundary";
@@ -14,7 +13,6 @@ const SipConvoContent: React.FC = () => {
     const searchParams = useSearchParams();
 
     useEffect(() => {
-        // Check if token data is already available in localStorage
         const storedTokenData = localStorage.getItem("rcTokenData");
         if (storedTokenData) {
             const parsedTokenData = JSON.parse(storedTokenData);
@@ -36,7 +34,7 @@ const SipConvoContent: React.FC = () => {
                     JSON.stringify(parsedTokenData)
                 );
                 setTokenData(parsedTokenData);
-                router.replace("/llpmg/sip"); // Redirect without the token in the URL
+                router.replace("/llpmg/sip-convo"); // Redirect without the token in the URL
             }
 
             if (code && state) {

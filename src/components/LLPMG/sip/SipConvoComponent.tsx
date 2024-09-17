@@ -63,7 +63,7 @@ const SipConvoComponent: React.FC<SipConvoComponentProps> = ({
     const isAnalyzingRef = useRef<boolean>(false);
 
     const dispatch = useDispatch();
-    const conversation = useSelector((state: any) => state.convo.conversation);
+    // const conversation = useSelector((state: any) => state.convo.conversation);
 
     const stopAllAudioProcessing = useCallback(() => {
         if (audioContextRef.current) {
