@@ -32,6 +32,7 @@
         "build": "next build --debug && yarn run change",
         "start": "next start",
         "lint": "next lint",
+        "lint-more": "eslint 'src/**/*.{js,ts,tsx}'",
         "change": "node build.js",
         "static": "touch ./.next/.nojekyll && echo 'driptrace.github.io' > ./.next/CNAME",
         "deploy": "gh-pages -d .next -t true",
