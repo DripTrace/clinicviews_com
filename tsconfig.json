@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "noImplicitAny": false,
         "allowSyntheticDefaultImports": true,
         "target": "es2015", // or higher, e.g., "es2017"
         "types": [

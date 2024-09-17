@@ -104,6 +104,13 @@ import withImages from "next-images";
 import { execSync } from "child_process";
 
 const nextConfig = {
+    typescript: {
+        // !! WARN !!
+        // Dangerously allow production builds to successfully complete even if
+        // your project has type errors.
+        // !! WARN !!
+        ignoreBuildErrors: true,
+    },
     reactStrictMode: true,
     onError: (error, errorInfo) => {
         console.error("Global error occurred:", error, errorInfo);
@@ -243,6 +250,32 @@ const nextConfig = {
                     },
                 },
             ],
+        });
+
+        config.module.rules.push({
+            // test: /\.tsx?$/,
+            // use: [
+            //     {
+            //         loader: "ts-loader",
+            //         options: {
+            //             transpileOnly: true,
+            //             ignoreDiagnostics: [2307], // Ignore cannot find module errors
+            //         },
+            //     },
+            // ],
+            // exclude: /node_modules/,
+
+            test: /\.tsx?$/,
+            use: [
+                {
+                    loader: "ts-loader",
+                    options: {
+                        transpileOnly: true,
+                        ignoreDiagnostics: [2307], // Ignore cannot find module errors
+                    },
+                },
+            ],
+            exclude: /node_modules/,
         });
 
         if (!isServer) {

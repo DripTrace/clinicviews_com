@@ -23,4 +23,8 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true
     }
+    // "typescript.tsserver.watchOptions": {
+    //     "watchDirectory": "useFsEvents",
+    //     "excludeDirectories": ["**/node_modules"]
+    // }
 }
