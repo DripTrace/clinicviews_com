@@ -1,12 +1,13 @@
 import { Home } from "@/components";
-import React from "react";
+
+export const dynamic = "force-dynamic";
 
 const FSClinicalsLandingPage = () => {
-	return (
-		<>
-			<Home />
-		</>
-	);
+    return (
+        <>
+            <Home />
+        </>
+    );
 };
 
 export default FSClinicalsLandingPage;

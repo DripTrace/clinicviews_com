@@ -1,5 +1,6 @@
 import Feedback from "@/components/LLPMG/Feedback";
-import React from "react";
+
+export const dynamic = "force-dynamic";
 
 const FeedbackPage = () => {
     return (

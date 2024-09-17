@@ -1,6 +1,8 @@
 import { headers } from "next/headers";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 export default function DebugPage() {
     const headersList = headers();
     const allHeaders = Object.fromEntries(headersList.entries());

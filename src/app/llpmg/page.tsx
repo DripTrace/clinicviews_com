@@ -1,7 +1,8 @@
-import React from "react";
 import { LandingPage } from "./landing";
 
-const page = () => {
+export const dynamic = "force-dynamic";
+
+const LLPMGLandingPage = () => {
     return (
         <>
             <LandingPage />
@@ -9,8 +10,4 @@ const page = () => {
     );
 };
 
-export default page;
-
-// export default function LLPMGPage() {
-//     return <h1>LLPMG Page</h1>
-//   }
+export default LLPMGLandingPage;

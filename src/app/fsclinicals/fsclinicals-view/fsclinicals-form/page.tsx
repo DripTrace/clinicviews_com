@@ -1,5 +1,3 @@
-// import FSClinicalsFormComponent from "@/components/FSClinicals/FSClinicalsComponents/FSClinicalsForm";
-
 import dynamic from "next/dynamic";
 const FSClinicalsFormComponent = dynamic(
     () =>
