@@ -45,7 +45,8 @@
         "src/types",
         "out/types/**/*.ts",
         "src/**/*.ts", // Make sure it includes only relevant files
-        "src/**/*.tsx" // Include TypeScript and JSX files
+        "src/**/*.tsx", // Include TypeScript and JSX files
+        "ringcentral-integration-utils.d.ts"
     ],
     "exclude": [
         "node_modules",
