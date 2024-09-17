@@ -499,6 +499,22 @@ const nextConfig = {
     },
     transpilePackages: ["framer-motion"],
     webpack: (config, { isServer }) => {
+        config.module.rules.push({
+            test: /\.(mp3|ogg|wav|flac|mpe?g)$/,
+            use: [
+                {
+                    loader: "url-loader",
+                    options: {
+                        limit: 8192,
+                        fallback: "file-loader",
+                        publicPath: `/_next/static/media/`,
+                        outputPath: `${isServer ? "../" : ""}static/media/`,
+                        name: "[name].[hash].[ext]",
+                    },
+                },
+            ],
+        });
+
         if (!isServer) {
             execSync("node scripts/runGenerateManifest.js");
             config.resolve.fallback = {
