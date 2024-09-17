@@ -52,7 +52,8 @@ async function replaceInFile(filePath) {
             modified = true;
             console.log(`Match found and replaced in ${filePath}`);
         } else {
-            console.log(`No match found for "${search}" in ${filePath}`);
+            // console.log(`No match found for "${search}" in ${filePath}`);
+            continue;
         }
     }
 
