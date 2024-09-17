@@ -138,7 +138,6 @@
         "next-redux-wrapper": "^8.1.0",
         "node-fetch": "^3.3.2",
         "node-interval-tree": "^2.1.2",
-        "node-opus": "^0.3.3",
         "nodemailer": "^6.9.14",
         "normalize.css": "^8.0.1",
         "openai": "^4.61.0",
