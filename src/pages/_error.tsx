@@ -1,5 +1,3 @@
-// pages/_error.tsx
-
 import { NextPageContext } from "next";
 
 interface ErrorProps {

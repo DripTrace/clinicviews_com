@@ -1,4 +1,3 @@
-// store/store.ts
 import { configureStore, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface DomainState {

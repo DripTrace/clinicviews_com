@@ -1,11 +1,10 @@
-// src/store/store.ts
-import { configureStore } from '@reduxjs/toolkit';
-import fsclinicalsThemeReducer from './slices/fsclinicalsThemeSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import fsclinicalsThemeReducer from "./slices/fsclinicalsThemeSlice";
 
 export const fsclinicalsStore = configureStore({
-  reducer: {
-    theme: fsclinicalsThemeReducer,
-  },
+    reducer: {
+        theme: fsclinicalsThemeReducer,
+    },
 });
 
 export type FSClinicalsRootState = ReturnType<typeof fsclinicalsStore.getState>;

@@ -1,10 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import sgMail from "@sendgrid/mail";
 import { IncomingForm } from "formidable";
 import nodemailer from "nodemailer";
 import { ringCentralClient } from "@/lib/ringcentralClient";
-
-sgMail.setApiKey(process.env.SENDGRID_API_KEY as string);
 
 export const config = {
     api: {

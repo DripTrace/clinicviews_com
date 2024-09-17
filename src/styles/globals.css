@@ -4,63 +4,28 @@
 
 :root {
     position: relative;
-    /* --foreground-rgb: 0, 0, 0;
-	--background-start-rgb: 214, 219, 220;
-	--background-end-rgb: 255, 255, 255; */
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         position: relative;
-        /* --foreground-rgb: 255, 255, 255;
-		--background-start-rgb: 0, 0, 0;
-		--background-end-rgb: 0, 0, 0; */
     }
 }
 
 html {
-    scroll-padding-top: 4rem; /* Adjust this value based on your header height */
+    scroll-padding-top: 4rem;
     scroll-behavior: smooth;
 }
 
-/* If you're using scroll-behavior: smooth; for smooth scrolling, add this: */
-/* html {
-	scroll-behavior: smooth;
-} */
-
-/* body {
-    overflow-y: scroll;
-  } */
-
 html {
-    scroll-padding-top: 4rem; /* Adjust this value based on your header height */
+    scroll-padding-top: 4rem;
     scroll-behavior: smooth;
     overflow-y: scroll;
 }
 
 body {
     position: relative;
-    /* needed for custom pointer */
-    /* cursor: none; */
-    /* padding-top: 64px;  */
-    /* color: rgb(var(--foreground-rgb));
-	background: linear-gradient(
-			to bottom,
-			transparent,
-			rgb(var(--background-end-rgb))
-		)
-		rgb(var(--background-start-rgb)); */
 }
-
-/* @media (max-width: 768px) {
-	body {
-		padding-top: 56px; 
-	}
-} */
-
-/* a {
-	text-decoration: none;
-} */
 
 html,
 body {
@@ -78,21 +43,9 @@ html {
     scroll-behavior: smooth;
 }
 
-/* main a {
-    text-decoration: underline;
-} */
-
-/* section {
-    text-decoration: none !important;
-} */
-
 header a {
     text-decoration: none;
 }
-
-/* input {
-    cursor: pointer;
-} */
 
 @layer base {
     html {
@@ -104,7 +57,7 @@ header a {
     }
 
     a {
-        @apply block w-fit /*text-blue-700 hover:text-red-800*/ /*underline*/;
+        @apply block w-fit;
     }
 
     button {
@@ -122,26 +75,6 @@ header a {
     }
 }
 
-/*.svc-creator__banner {
-	display: none !important;
-}*/
-
-/*.svc-creator__area--with-banner {
-	height: calc(100% - calc(4 * var(--base-unit, 0px))) !important;
-}*/
-
-/*.svc-tab-json-editor-textarea {
-	 width: 100%;
-    height: 100%;
-    background: var(--sjs-general-backcolor-dim, var(--background-dim, #f3f3f3));
-	background: #000 !important;
-}*/
-
-/* sd-item sd-radio sd-selectbase__item sv-q-col-1 sd-item--allowhover sd-radio--allowhover */
-
-/* sd-input sd-text */
-
-/* sd-boolean sd-boolean--allowhover sd-boolean--indeterminate */
 .sd-boolean {
     cursor: pointer;
 }
@@ -150,7 +83,6 @@ header a {
     cursor: pointer;
 }
 
-/* sjs_sp_canvas sd-signaturepad__canvas */
 .sjs_sp_canvas {
     cursor: pointer;
 }
@@ -171,38 +103,28 @@ header a {
     cursor: pointer;
 }
 
-/* sd-item sd-radio sd-matrix__label sd-radio--allowhover */
 .sd-item {
     cursor: pointer;
 }
 
-/* sd-input sd-text */
 .sd-input {
     cursor: pointer;
 }
 
-/* sd-item__decorator sd-radio__decorator */
 .sd-item__decorator {
     cursor: pointer;
 }
 
 .svc-json-editor-tab__content-area {
     color: #000 !important;
-    /* background: #000 !important; */
 }
 .svc-creator__banner {
     display: none !important;
 }
 
-/*.sv-string-viewer*/
 .sv-string-viewer--multiline {
-    /* background: #000 !important; */
     color: #000 !important;
 }
-
-/* .svd-test-results__text .svd-light-bg-color {
-    background: #000 !important; 
-}*/
 
 .svd-test-results__text {
     color: #000 !important;
@@ -216,61 +138,19 @@ header a {
     color: #000 !important;
 }
 
-.sa-datatables__table /*.display .responsive .dataTable*/ {
+.sa-datatables__table {
     color: #000 !important;
 }
 
 .svd-dark-border-color {
-    /* border-color: #000 !important; */
     background-color: lightgrey !important;
 }
 
-/* .st-comment {
-	color: #000 !important;
-} */
-
-/* .spg-color-editor__input {
-	color: #690077 !important;
-} */
-
-/* .sv-string-editor {
-	color: #690077 !important;
-} */
-
-/*.svc-text*/
-/*.svc-tabbed-menu-item__text*/ /*svc-text--normal*/
-/* .svc-text--bold {
-	color: #690077 !important;
-} */
-
-/*.svc-text
-/*.svc-tabbed-menu-item__text*/ /*svc-text--normal*/
-/* .svc-text--bold {
-	color: #690077 !important;
-} */
-
-/* .sv-action-bar-item--active .sv-action-bar-item__icon use {
-	fill: var(--sjs-primary-backcolor, var(--primary, #690077)) !important;
-} */
-
-/*.sa-visualizer__content .sa-panel__content .sa-grid .muuri {
-	padding: 0 !important;
-}*/
-
-.sa-question /*.sa-question-layouted .muuri-item .muuri-item-shown */ {
+.sa-question {
     padding: 0 !important;
 }
 
-/*.sa-visualizer__content*/
-/*.sa-panel__content*/
-/*.sa-grid*/
-/* .muuri {
-	padding: 0 !important;
-} */
-
 .sv-header__background-image {
-    /* background: no-repeat center/80% url("/form-background.png") !important; */
-    /* display: none !important; */
     height: 0 !important;
 }
 
@@ -278,41 +158,19 @@ header a {
     color: #000 !important;
 }
 
-/* sv-header__content sv-header__content--responsive */
-
 .sv-header__content {
     background-color: #000 !important;
     display: none !important;
 }
 
-/* sv-header sv-header__without-background */
-
 .sv-header {
-    /* background-color: #000 !important; */
     display: none !important;
-    /* background: no-repeat center/80% url("/form-background.png") !important; */
-
-    /* background: no-repeat center/100% url("/form-background.png") !important; */
 }
-
-/* sv-header sv-header__overlap */
-/* .sv-header__overlap {
-    background-color: #000 !important;
-} */
 
 .sv-header__without-background {
     display: none !important;
 }
 
-/* sv-components-column sv-components-column--expandable */
-
-/* .sd-root-modern .sd-root--compact .sd-root-modern--full-container {
-	background: #fff !important;
-} */
-
-/* Hide the default cursor */
-
-/* Custom cursor styles */
 .custom-cursor {
     width: 20px;
     height: 20px;
@@ -336,7 +194,6 @@ header a {
     transition: all 0.15s ease-out;
 }
 
-/* Custom scrollbar styles */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -354,23 +211,12 @@ header a {
     background: #2c5282;
 }
 
-/* For Firefox */
 * {
     scrollbar-width: thin;
     scrollbar-color: #3182ce #f1f1f1;
 }
 
-/* {
-    cursor: auto !important;
-}*/
-
-/* Dark mode scrollbar */
 @media (prefers-color-scheme: dark) {
-    /* width */
-    /* ::-webkit-scrollbar {
-		width: 2rem;
-	} */
-
     ::-webkit-scrollbar-track {
         background: #2d3748;
     }
@@ -427,8 +273,6 @@ textarea {
     transform: scale(1.05);
     background: linear-gradient(45deg, #c850c0, #ffcc70);
 }
-
-/* sd-html sd-element--nested sd-html--nested */
 
 .sd-html {
     color: #000 !important;
@@ -496,7 +340,7 @@ textarea {
     input,
     select,
     textarea {
-        font-size: 16px !important; /* Prevents zoom on focus in iOS */
+        font-size: 16px !important;
     }
 
     .react-datepicker-wrapper {

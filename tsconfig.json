@@ -28,14 +28,7 @@
             }
         ],
         "paths": {
-            "@/*": [
-                "./src/*"
-                // "./surveyjs-core/survey-analytics_dev/src/*",
-                // "./survey-core/survey-creator_dev/*",
-                // "./surveyjs-core/survey-library_dev/src/*",
-                // "./surveyjs-core/survey-pdf_dev/src/*"
-            ]
-            // "@serwist/next/*": ["node_modules/@serwist/next/*"]
+            "@/*": ["./src/*"]
         }
     },
     "include": [
@@ -45,18 +38,13 @@
         ".next/types/**/*.ts",
         "src/types",
         "out/types/**/*.ts",
-        "src/**/*.ts", // Make sure it includes only relevant files
-        "src/**/*.tsx", // Include TypeScript and JSX files
-        "ringcentral-integration-utils.d.ts"
+        "src/**/*.ts",
+        "src/**/*.tsx"
     ],
     "exclude": [
         "node_modules",
         "surveyjs-core/*",
-        "**/*.test.ts", // Add test exclusions
+        "**/*.test.ts",
         "src/ref/embed/*"
-        // "src/app/llpmg/sip-convo/*",
-        // "src/components/LLPMG/sip/SipConvoComponent.tsx",
-        // "src/app/llpmg/sip/*",
-        // "src/components/LLPMG/sip/SipComponent.tsx"
     ]
 }

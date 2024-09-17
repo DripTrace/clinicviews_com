@@ -1,5 +1,3 @@
-// pages/api/manifest.ts
-
 import fs from "fs";
 import path from "path";
 import { NextApiRequest, NextApiResponse } from "next";
@@ -8,7 +6,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     const host = req.headers.host || "";
     console.log("Request host:", host);
 
-    let domain = "driptrace"; // Default to driptrace
+    let domain = "driptrace";
 
     if (host.includes("lomalindapsych.com")) {
         domain = "llpmg";

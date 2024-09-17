@@ -69,3 +69,5 @@ site
 src/plugins.json
 
 src/ref/embed/*
+
+# out

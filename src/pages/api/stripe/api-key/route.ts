@@ -7,12 +7,10 @@ const stripeApiKeyHandler = async (
     req: NextApiRequest,
     res: NextApiResponse
 ) => {
-    // Do something with the request
     if (req.method === "GET") {
         //
 
         try {
-            // Do something with the request
             res.status(200).json({ message: "API Key received" });
         } catch (err) {
             console.error(err);

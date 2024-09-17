@@ -9,12 +9,3 @@ self.addEventListener("message", async (event) => {
     }
     event.ports[0].postMessage(true);
 });
-
-// Add any custom service worker logic here
-// self.addEventListener('install', (event) => {
-//     console.log('Custom service worker installed');
-//   });
-
-//   self.addEventListener('activate', (event) => {
-//     console.log('Custom service worker activated');
-//   });
