@@ -67,7 +67,3 @@ extension
 src/noise-reduction
 site
 src/plugins.json
-
-src/ref/embed/*
-
-# out

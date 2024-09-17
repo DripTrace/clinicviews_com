@@ -139,22 +139,22 @@ const nextConfig = {
                 source: "/favicon.ico",
                 destination: "/api/favicon",
             },
-            // {
-            //     source: "/api/:path*",
-            //     destination: "/api/:path*",
-            // },
-            // {
-            //     source: "/api/llpmg/sip-handler",
-            //     destination: "/api/llpmg/sip-handler",
-            // },
-            // {
-            //     source: "/api/llpmg/sip-ws",
-            //     destination: "/api/llpmg/sip-handler",
-            // },
-            // {
-            //     source: "/llpmg/audio/:path*",
-            //     destination: "/public/llpmg/audio/:path*",
-            // },
+            {
+                source: "/api/:path*",
+                destination: "/api/:path*",
+            },
+            {
+                source: "/api/llpmg/sip-handler",
+                destination: "/api/llpmg/sip-handler",
+            },
+            {
+                source: "/api/llpmg/sip-ws",
+                destination: "/api/llpmg/sip-handler",
+            },
+            {
+                source: "/llpmg/audio/:path*",
+                destination: "/public/llpmg/audio/:path*",
+            },
         ];
     },
     async headers() {
@@ -234,22 +234,22 @@ const nextConfig = {
     staticPageGenerationTimeout: 1000,
     transpilePackages: ["framer-motion"],
     webpack: (config, { isServer }) => {
-        config.module.rules.push({
-            test: /\.(mp3|ogg|wav|flac|mpe?g)$/,
-            use: [
-                {
-                    loader: "url-loader",
-                    options: {
-                        limit: config.inlineImageLimit,
-                        fallback: "file-loader",
-                        publicPath: `${config.assetPrefix}/_next/static/media/`,
-                        outputPath: `${isServer ? "../" : ""}static/media/`,
-                        name: "[name].[hash].[ext]",
-                        esModule: config.esModule || false,
-                    },
-                },
-            ],
-        });
+        // config.module.rules.push({
+        //     test: /\.(mp3|ogg|wav|flac|mpe?g)$/,
+        //     use: [
+        //         {
+        //             loader: "url-loader",
+        //             options: {
+        //                 limit: config.inlineImageLimit,
+        //                 fallback: "file-loader",
+        //                 publicPath: `${config.assetPrefix}/_next/static/media/`,
+        //                 outputPath: `${isServer ? "../" : ""}static/media/`,
+        //                 name: "[name].[hash].[ext]",
+        //                 esModule: config.esModule || false,
+        //             },
+        //         },
+        //     ],
+        // });
 
         config.module.rules.push({
             test: /\.svg$/,
