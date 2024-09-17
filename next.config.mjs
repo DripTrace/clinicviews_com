@@ -104,7 +104,8 @@ import withImages from "next-images";
 import { execSync } from "child_process";
 
 const nextConfig = {
-    output: "standalone",
+    output: "export",
+    // output: "standalone",
     // useFileSystemPublicRoutes: true,
     // Reduce build output
     silent: true,
