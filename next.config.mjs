@@ -151,10 +151,10 @@ const nextConfig = {
                 source: "/api/llpmg/sip-ws",
                 destination: "/api/llpmg/sip-handler",
             },
-            {
-                source: "/llpmg/audio/:path*",
-                destination: "/public/llpmg/audio/:path*",
-            },
+            // {
+            //     source: "/llpmg/audio/:path*",
+            //     destination: "/public/llpmg/audio/:path*",
+            // },
         ];
     },
     async headers() {

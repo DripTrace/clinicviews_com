@@ -2,9 +2,9 @@
     "name": "site-clinicviews-com",
     "version": "0.1.1",
     "private": true,
-    "homepage": "https://github.com/clinicviews/clinicviews-web-phone",
+    "homepage": "https://github.com/clinicviews",
     "bugs": {
-        "url": "https://github.com/clinicviews/clinicviews-web-phone/issues"
+        "url": "https://github.com/clinicviews/issues"
     },
     "repository": {
         "type": "git",
@@ -17,7 +17,7 @@
     },
     "contributors": [
         {
-            "name": "Russell Palma"
+            "name": "Russell Brian Fulache Dugaduga Jale Palma"
         }
     ],
     "browserslist": "defaults",

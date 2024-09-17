@@ -9,7 +9,7 @@ export async function initializeSDK(
     clientSecret: string,
     server: string
 ) {
-    console.log("Initializing SDK with:", { clientId, clientSecret, server }); // Ensure these values are correct
+    console.log("Initializing SDK with:", { clientId, clientSecret, server });
     sdk = new SDK({ clientId, clientSecret, server });
     platform = sdk.platform();
 }
@@ -17,7 +17,7 @@ export async function initializeSDK(
 export async function login(jwtToken: string) {
     try {
         const platform = getPlatform();
-        console.log("Attempting to login with JWT Token:", jwtToken); // Add this line
+        console.log("Attempting to login with JWT Token:", jwtToken);
         const response = await platform.login({ jwt: jwtToken });
         console.log("Login response:", response);
         return response;

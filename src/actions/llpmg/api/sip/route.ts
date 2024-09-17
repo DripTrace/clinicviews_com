@@ -7,8 +7,6 @@ export async function POST(request: Request) {
             await request.json();
         initializeSDK(clientId, clientSecret, server);
         await login(jwtToken);
-
-        // Example call to get the extension information after login
         const platform = getPlatform();
         const extension = await platform
             .get("/restapi/v1.0/account/~/extension/~")
@@ -19,7 +17,6 @@ export async function POST(request: Request) {
             extension,
         });
     } catch (error) {
-        // Cast error to Error type
         const err = error as Error;
         return NextResponse.json({ error: err.message }, { status: 500 });
     }
