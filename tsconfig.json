@@ -52,6 +52,11 @@
     "exclude": [
         "node_modules",
         "surveyjs-core/*",
-        "**/*.test.ts" // Add test exclusions
+        "**/*.test.ts", // Add test exclusions
+        "src/ref/embed/*"
+        // "src/app/llpmg/sip-convo/*",
+        // "src/components/LLPMG/sip/SipConvoComponent.tsx",
+        // "src/app/llpmg/sip/*",
+        // "src/components/LLPMG/sip/SipComponent.tsx"
     ]
 }

@@ -1,16 +1,24 @@
 "use client";
 
-import React, { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import WebPhone, { WebPhoneOptions } from "@/ref/web/src";
 import { WebPhoneSession, WebPhoneInvitation } from "@/ref/web/src/session";
 import { WebPhoneUserAgent } from "@/ref/web/src/userAgent";
+
+// interface SipComponentProps {
+//     onHangup: () => void;
+//     initiateAuth: () => void;
+//     tokenData: any;
+//     onLogout: () => void;
+//     setTokenData: (data: any) => void;
+// }
 
 interface SipComponentProps {
     onHangup: () => void;
     initiateAuth: () => void;
     tokenData: any;
     onLogout: () => void;
-    setTokenData: (data: any) => void;
+    setTokenData: React.Dispatch<React.SetStateAction<any>>;
 }
 
 const SipComponent: React.FC<SipComponentProps> = ({

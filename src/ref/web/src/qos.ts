@@ -4,6 +4,41 @@ import type { WebPhoneSession } from "./session";
 import type { SessionDescriptionHandler } from "sip.js/lib/platform/web";
 import { Events } from "./events";
 
+export interface QosStats {
+    localAddr: string;
+    remoteAddr: string;
+    callID: string;
+    localID: string;
+    remoteID: string;
+    origID: string;
+    fromTag: string;
+    toTag: string;
+    timestamp: {
+        start: string;
+        stop: string;
+    };
+    netType: { [key: string]: number };
+    jitterBufferNominal: number;
+    jitterBufferMax: number;
+    jitterBufferDiscardRate: number;
+    totalSumJitter: number;
+    totalIntervalCount: number;
+    NLR: string;
+    JBM: number;
+    JBN: string;
+    JDR: string;
+    MOSLQ: number;
+    MOSCQ: number;
+    RTD: number;
+    status: boolean;
+    localcandidate: any;
+    remotecandidate: any;
+    inboundPacketsLost: number;
+    inboundPacketsReceived: number;
+    outboundPacketsLost: number;
+    outboundPacketsSent: number;
+}
+
 const formatFloat = (input: any): string =>
     parseFloat(input.toString()).toFixed(2);
 
@@ -151,18 +186,28 @@ const publishQosStats = async (
     session.emit!(Events.Session.QOSPublished, body);
 };
 
+// const calculateNetworkUsage = (qosStatsObj: QosStats): string => {
+//     const networkType = [];
+//     for (const [key, value] of Object.entries(qosStatsObj.netType)) {
+//         networkType.push(
+//             key +
+//                 ":" +
+//                 formatFloat(
+//                     ((value as any) * 100) / qosStatsObj.totalIntervalCount
+//                 )
+//         );
+//     }
+//     return networkType.join();
+// };
+
 const calculateNetworkUsage = (qosStatsObj: QosStats): string => {
-    const networkType = [];
+    const networkType: string[] = [];
     for (const [key, value] of Object.entries(qosStatsObj.netType)) {
         networkType.push(
-            key +
-                ":" +
-                formatFloat(
-                    ((value as any) * 100) / qosStatsObj.totalIntervalCount
-                )
+            `${key}:${formatFloat((value * 100) / qosStatsObj.totalIntervalCount)}`
         );
     }
-    return networkType.join();
+    return networkType.join(",");
 };
 
 const calculateStats = (qosStatsObj: QosStats): QosStats => {
@@ -273,9 +318,17 @@ const getQoSStatsTemplate = (): QosStats => ({
     outboundPacketsSent: 0,
 });
 
-const addToMap = (map: any = {}, key: string): any => ({
+// const addToMap = (map: any = {}, key: string): any => ({
+//     ...map,
+//     [key]: (key in map ? parseInt(map[key], 10) : 0) + 1,
+// });
+
+const addToMap = (
+    map: { [key: string]: number },
+    key: string
+): { [key: string]: number } => ({
     ...map,
-    [key]: (key in map ? parseInt(map[key], 10) : 0) + 1,
+    [key]: (key in map ? map[key] : 0) + 1,
 });
 
 const networkTypeMap: { [key: string]: string } = {
@@ -315,7 +368,7 @@ export interface QosStats {
         stop: string;
     };
 
-    netType: any;
+    netType: { [key: string]: number };
 
     jitterBufferNominal: number;
     jitterBufferMax: number;

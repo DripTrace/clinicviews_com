@@ -7,6 +7,13 @@ import { SurveyPDF } from "survey-pdf";
 import { useEffect, useState } from "react";
 import { json, themeJson } from "@/data/llpmg-patient-form";
 
+interface FormResultItem {
+    name: string;
+    value: any;
+    title: string;
+    displayValue: string;
+}
+
 export default function IntakePacket() {
     const router = useRouter();
 
@@ -14,10 +21,12 @@ export default function IntakePacket() {
     const [response, setResponse] = useState("");
     const [patientFirstName, setPatientFirstName] = useState<Question>();
     const [patientLastName, setPatientLastName] = useState<Question>();
-    const [formResults, setFormResults] = useState<any>([]);
+    // const [formResults, setFormResults] = useState<any>([]);
     const [blobURL, setBlobURL] = useState<string>("");
 
     const storageItemKey = "patient-form";
+
+    const [formResults, setFormResults] = useState<FormResultItem[]>([]);
 
     function createSurveyPdfModel(surveyModel: SurveyModel) {
         const pdfWidth =
@@ -147,42 +156,69 @@ export default function IntakePacket() {
     // });
     model.applyTheme(themeJson);
 
+    // model.onComplete.add((sender, options) => {
+    //     // setPatientFirstName(model.getQuestionByName("first_name").value);
+    //     // setPatientLastName(model.getQuestionByName("last_name").value);
+    //     // const patientName = {
+    //     // 	firstName: patientFirstName,
+    //     // 	lastName: patientLastName,
+    //     // };
+    //     // console.log("patientName:\n", patientName);
+    //     const newPatient = JSON.stringify(sender.data, null, 3);
+    //     console.log("newPatient:\n", newPatient);
+    //     const resultData = [];
+    //     for (const key in model.data) {
+    //         const question = model.getQuestionByName(key);
+    //         if (!!question) {
+    //             const item = {
+    //                 name: key,
+    //                 value: question.value,
+    //                 title: question.displayValue,
+    //                 displayValue: question.displayValue,
+    //             };
+    //             resultData.push(item);
+    //             setFormResults(resultData);
+    //         }
+    //     }
+
+    //     const modelPDF = createSurveyPdfModel(model);
+    //     modelPDF.raw("blob").then((pdfData: string) => {
+    //         // console.log("pdfData:\n", pdfData);
+    //         handleSubmit(pdfData);
+    //     });
+
+    //     // const firstName = model.getQuestionByName("first_name");
+    //     // const lastName = model.getQuestionByName("last_name");
+
+    //     // console.log("first name:\n", firstName.value);
+    //     // console.log("last name:\n", lastName.value);
+
+    //     window.localStorage.setItem(storageItemKey, "");
+    // });
+
     model.onComplete.add((sender, options) => {
-        // setPatientFirstName(model.getQuestionByName("first_name").value);
-        // setPatientLastName(model.getQuestionByName("last_name").value);
-        // const patientName = {
-        // 	firstName: patientFirstName,
-        // 	lastName: patientLastName,
-        // };
-        // console.log("patientName:\n", patientName);
         const newPatient = JSON.stringify(sender.data, null, 3);
         console.log("newPatient:\n", newPatient);
-        const resultData = [];
+
+        const resultData: FormResultItem[] = [];
         for (const key in model.data) {
             const question = model.getQuestionByName(key);
-            if (!!question) {
-                const item = {
+            if (question) {
+                const item: FormResultItem = {
                     name: key,
                     value: question.value,
-                    title: question.displayValue,
+                    title: question.title,
                     displayValue: question.displayValue,
                 };
                 resultData.push(item);
-                setFormResults(resultData);
             }
         }
+        setFormResults(resultData);
 
         const modelPDF = createSurveyPdfModel(model);
         modelPDF.raw("blob").then((pdfData: string) => {
-            // console.log("pdfData:\n", pdfData);
             handleSubmit(pdfData);
         });
-
-        // const firstName = model.getQuestionByName("first_name");
-        // const lastName = model.getQuestionByName("last_name");
-
-        // console.log("first name:\n", firstName.value);
-        // console.log("last name:\n", lastName.value);
 
         window.localStorage.setItem(storageItemKey, "");
     });

@@ -1799,8 +1799,8 @@ import type Platform from "@ringcentral/sdk/lib/platform/Platform";
 import { SessionState } from "sip.js";
 
 import WebPhone from "../src/index";
-import incomingAudio from "./audio/incoming.ogg";
-import outgoingAudio from "./audio/outgoing.ogg";
+// import incomingAudio from "./audio/incoming.ogg";
+// import outgoingAudio from "./audio/outgoing.ogg";
 import type { WebPhoneInvitation, WebPhoneSession } from "../src/session";
 
 // TypeScript interfaces for typing
@@ -1965,8 +1965,10 @@ $(() => {
             clientId: localStorage.getItem("webPhoneclientId")!,
             audioHelper: {
                 enabled: true,
-                incoming: incomingAudio,
-                outgoing: outgoingAudio,
+                // incoming: incomingAudio,
+                // outgoing: outgoingAudio,
+                incoming: "./audio/incoming.ogg",
+                outgoing: "./audio/outgoing.ogg",
             },
             logLevel,
             appName: "WebPhoneDemo",
