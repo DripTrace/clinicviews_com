@@ -259,31 +259,31 @@ const nextConfig = {
             ],
         });
 
-        config.module.rules.push({
-            // test: /\.tsx?$/,
-            // use: [
-            //     {
-            //         loader: "ts-loader",
-            //         options: {
-            //             transpileOnly: true,
-            //             ignoreDiagnostics: [2307], // Ignore cannot find module errors
-            //         },
-            //     },
-            // ],
-            // exclude: /node_modules/,
+        // config.module.rules.push({
+        //     // test: /\.tsx?$/,
+        //     // use: [
+        //     //     {
+        //     //         loader: "ts-loader",
+        //     //         options: {
+        //     //             transpileOnly: true,
+        //     //             ignoreDiagnostics: [2307], // Ignore cannot find module errors
+        //     //         },
+        //     //     },
+        //     // ],
+        //     // exclude: /node_modules/,
 
-            test: /\.tsx?$/,
-            use: [
-                {
-                    loader: "ts-loader",
-                    options: {
-                        transpileOnly: true,
-                        ignoreDiagnostics: [2307], // Ignore cannot find module errors
-                    },
-                },
-            ],
-            exclude: /node_modules/,
-        });
+        //     test: /\.tsx?$/,
+        //     use: [
+        //         {
+        //             loader: "ts-loader",
+        //             options: {
+        //                 transpileOnly: true,
+        //                 ignoreDiagnostics: [2307], // Ignore cannot find module errors
+        //             },
+        //         },
+        //     ],
+        //     exclude: /node_modules/,
+        // });
 
         if (!isServer) {
             execSync("node scripts/runGenerateManifest.js");
