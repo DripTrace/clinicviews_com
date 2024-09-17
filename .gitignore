@@ -69,3 +69,7 @@ site
 src/plugins.json
 
 src/ref/embeded/*
+
+.npmignore
+.ackrc
+.eslintignore
