@@ -1,7 +1,7 @@
 import SurveyCreatorComponent from "@/components/SurveyCreator";
 // import dynamic from "next/dynamic";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "auto";
 
 // const IntakePacket = dynamic(() => import("@/components/SurveyCreator"), {
 //     ssr: false,

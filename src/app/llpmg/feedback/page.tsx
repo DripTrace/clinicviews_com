@@ -1,6 +1,6 @@
 import Feedback from "@/components/LLPMG/Feedback";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "auto";
 
 const FeedbackPage = () => {
     return (

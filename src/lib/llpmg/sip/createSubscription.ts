@@ -13,10 +13,9 @@ export async function createSubscription() {
                 deliveryMode: {
                     transportType: "WebHook",
                     address:
-                        // Replace with your webhook URL
                         `${process.env.WEBHOOK_URL}/api/webhooks/ringcentral/sms`,
                 },
-                expiresIn: 3600, // Adjust the subscription duration as needed
+                expiresIn: 3600,
             }
         );
 

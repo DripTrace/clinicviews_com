@@ -1,6 +1,6 @@
 import Landing from "@/components/LLPMG/Landing";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "auto";
 
 const LandingPage = () => {
     return (

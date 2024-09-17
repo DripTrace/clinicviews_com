@@ -1,6 +1,6 @@
 import FSClinicalsDashboardDatatables from "@/components/FSClinicals/FSClinicalsComponents/FSClinicalsDashboardDatatables";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "auto";
 
 export default function FSClinicalsDatatablesPage() {
     return (

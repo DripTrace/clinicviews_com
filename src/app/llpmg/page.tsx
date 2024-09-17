@@ -1,6 +1,6 @@
 import { LandingPage } from "./landing";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "auto";
 
 const LLPMGLandingPage = () => {
     return (

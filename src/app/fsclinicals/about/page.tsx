@@ -1,6 +1,6 @@
 import AboutUsSection from "@/components/FSClinicals/AboutUsSection";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "auto";
 
 export default function AboutPage() {
     return (

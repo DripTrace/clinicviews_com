@@ -1,6 +1,6 @@
 import { Home } from "@/components";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "auto";
 
 const FSClinicalsLandingPage = () => {
     return (

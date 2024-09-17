@@ -1,6 +1,6 @@
 import Dashboard from "@/components/Dashboard";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "auto";
 
 export default function DashboardPage() {
     return (

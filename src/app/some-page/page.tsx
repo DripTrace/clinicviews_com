@@ -1,6 +1,6 @@
 import SomeComponent from "@/components/SomeComponent";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "auto";
 
 const SomePage = () => {
     return (

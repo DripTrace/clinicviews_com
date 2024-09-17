@@ -104,6 +104,9 @@ import withImages from "next-images";
 import { execSync } from "child_process";
 
 const nextConfig = {
+    experimental: {
+        appDir: true,
+    },
     // output: "export",
     output: "standalone",
     // useFileSystemPublicRoutes: true,
@@ -228,6 +231,7 @@ const nextConfig = {
     basePath: "",
     assetPrefix: "/",
     staticExport: false,
+    staticPageGenerationTimeout: 1000,
     transpilePackages: ["framer-motion"],
     webpack: (config, { isServer }) => {
         config.module.rules.push({

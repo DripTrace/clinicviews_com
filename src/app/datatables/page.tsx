@@ -1,6 +1,6 @@
 import DashboardDatatables from "@/components/DashboardDatatables";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "auto";
 
 export default function SurveyDatatables() {
     return (

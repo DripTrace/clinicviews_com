@@ -1,6 +1,6 @@
 import ContactPage from "@/components/FSClinicals/ContactPage";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "auto";
 
 const ContactUsPage: React.FC = () => {
     return (

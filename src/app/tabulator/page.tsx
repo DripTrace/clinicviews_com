@@ -1,6 +1,6 @@
 import DashboardTabulator from "@/components/DashboardTabulator";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "auto";
 
 export default function SurveyTabulatorPage() {
     return (

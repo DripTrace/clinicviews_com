@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import ContactForm from "@/components/LLPMG/ContactForm";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "auto";
 
 const LLPMGContactUsPage: React.FC = () => {
     const [choice, setChoice] = useState<string | null>(null);

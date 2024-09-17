@@ -1,6 +1,6 @@
 import FSClinicalsDashboardTabulator from "@/components/FSClinicals/FSClinicalsComponents/FSClinicalsDashboardTabulator";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "auto";
 
 export default function FSClinicalsTabulatorPage() {
     return (

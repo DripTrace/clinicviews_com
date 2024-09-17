@@ -1,6 +1,3 @@
-// [broken outgoing calls, continuing, but latest working is sonnet-3.5 2nd attempt] sonnet-3.5 3rd attempt
-// ServerWebSocketWrapper.ts
-
 import WebSocket from 'ws';
 
 export class ServerWebSocketWrapper {
@@ -26,4 +23,3 @@ export class ServerWebSocketWrapper {
         this.ws.removeListener(event, listener);
     }
 }
-// [broken outgoing calls, continuing, but latest working is sonnet-3.5 2nd attempt] sonnet-3.5 3rd attempt (final no linting errors)

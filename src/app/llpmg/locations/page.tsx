@@ -1,6 +1,6 @@
 import Locations from "@/components/LLPMG/Locations";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "auto";
 
 const LLPMGLocationsPage = () => {
     return (

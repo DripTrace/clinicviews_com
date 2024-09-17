@@ -15,7 +15,7 @@ class AudioProcessor extends AudioWorkletProcessor {
             }
         }
 
-        return true; // Keep the processor alive
+        return true;
     }
 }
 

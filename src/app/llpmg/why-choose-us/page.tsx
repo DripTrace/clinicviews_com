@@ -1,6 +1,6 @@
 import WhyChooseUs from "@/components/LLPMG/WhyChooseUs";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "auto";
 
 const LLPMGWhyChooseUsPage = () => {
     return (

@@ -1,6 +1,6 @@
 import FSClinicalsDashboard from "@/components/FSClinicals/FSClinicalsComponents/FSClinicalsDashboard";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "auto";
 
 export default function FSClinicalsDashboardPage() {
     return (
