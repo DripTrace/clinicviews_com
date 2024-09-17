@@ -5673,7 +5673,7 @@
     libphonenumber-js "^1.9.48"
     ramda "^0.28.0"
 
-"@ringcentral-integration/utils@*", "@ringcentral-integration/utils@^0.15.0":
+"@ringcentral-integration/utils@*":
   version "0.15.0"
   resolved "https://registry.yarnpkg.com/@ringcentral-integration/utils/-/utils-0.15.0.tgz#60a3a645d5afcc21f1b2620b2480bde435853d09"
   integrity sha512-tLXTEsrdwlMHEtVLgh1LfzG7URfnqrUpv+Nk6bu7KYyBPbH7uBg+QTx53N/uPCVZYTSM1jc/pf5nRFRZNF9vbw==

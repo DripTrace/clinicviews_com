@@ -76,7 +76,6 @@
         "@ringcentral-integration/i18n": "^2.2.1",
         "@ringcentral-integration/locale-loader": "^2.2.5",
         "@ringcentral-integration/phone-number": "^1.1.1",
-        "@ringcentral-integration/utils": "^0.15.0",
         "@ringcentral-integration/widgets": "^0.15.0",
         "@ringcentral/juno": "^2.42.2",
         "@ringcentral/juno-icon": "^1.77.0",
