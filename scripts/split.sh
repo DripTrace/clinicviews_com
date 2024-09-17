@@ -1,43 +1,36 @@
 #!/bin/bash
 
-# Define domain variables
 DRIPTRACE_MEDICAL="medical.driptrace.com"
 LLPMG="lomalindapsych.com"
 FSCLINICALS="fsclinicals.com"
 
-# Define local development ports
 LOCAL_DRIPTRACE="localhost:2999"
 LOCAL_LLPMG="localhost:4"
 LOCAL_FSCLINICALS="localhost:65535"
 
-# Check if NODE_ENV is set
 if [ -z "$NODE_ENV" ]; then
     echo "NODE_ENV is not set. Defaulting to production mode."
     NODE_ENV="production"
 fi
 
-# Function to set domain based on DEV_DOMAIN
 set_dev_domain() {
     case "$DEV_DOMAIN" in
         "medical") echo "$LOCAL_DRIPTRACE" ;;
         "llpmg") echo "$LOCAL_LLPMG" ;;
         "fsclinicals") echo "$LOCAL_FSCLINICALS" ;;
-        *) echo "$LOCAL_DRIPTRACE" ;; # Default to DRIPTRACE if not specified
+        *) echo "$LOCAL_DRIPTRACE" ;; 
     esac
 }
 
-# Set NEXT_PUBLIC_ROOT_DOMAIN based on NODE_ENV and DEV_DOMAIN
 if [ "$NODE_ENV" = "development" ]; then
     export NEXT_PUBLIC_ROOT_DOMAIN=$(set_dev_domain)
 else
     export NEXT_PUBLIC_ROOT_DOMAIN="$DRIPTRACE_MEDICAL"
 fi
 
-# Output the result
 echo "NODE_ENV is set to: $NODE_ENV"
 echo "NEXT_PUBLIC_ROOT_DOMAIN is set to: $NEXT_PUBLIC_ROOT_DOMAIN"
 
-# Output all available domains and local ports (for reference)
 echo "Available production domains:"
 echo "DRIPTRACE_MEDICAL: $DRIPTRACE_MEDICAL"
 echo "LLPMG: $LLPMG"
