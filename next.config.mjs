@@ -104,6 +104,10 @@ import withImages from "next-images";
 import { execSync } from "child_process";
 
 const nextConfig = {
+    // Reduce build output
+    silent: true,
+    // Disable source maps in production
+    productionBrowserSourceMaps: false,
     // typescript: {
     //     // !! WARN !!
     //     // Dangerously allow production builds to successfully complete even if
