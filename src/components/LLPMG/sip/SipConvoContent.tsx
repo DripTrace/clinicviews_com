@@ -103,7 +103,7 @@ const SipConvoContent: React.FC = () => {
                         JSON.stringify(data.tokenData)
                     );
                     setIsAuthenticating(false);
-                    router.replace("/llpmg/sip"); // Redirect to the page after storing the token
+                    router.replace("/llpmg/sip-convo"); // Redirect to the page after storing the token
                 } else {
                     throw new Error("Token data not provided");
                 }
@@ -140,7 +140,7 @@ const SipConvoContent: React.FC = () => {
                     JSON.stringify(parsedTokenData)
                 );
                 setTokenData(parsedTokenData);
-                router.replace("/llpmg/sip");
+                router.replace("/llpmg/sip-convo");
             } else {
                 console.log("No tokenData found in localStorage or URL.");
             }
