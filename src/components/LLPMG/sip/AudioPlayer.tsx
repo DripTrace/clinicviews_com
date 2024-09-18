@@ -1,55 +1,3 @@
-// haven't used
-// "use client";
-
-// import React, { useEffect, useRef } from "react";
-
-// interface AudioPlayerProps {
-//     callId: string;
-// }
-
-// const AudioPlayer: React.FC<AudioPlayerProps> = ({ callId }) => {
-//     const audioContextRef = useRef<AudioContext | null>(null);
-//     const sourceNodeRef = useRef<AudioBufferSourceNode | null>(null);
-
-//     useEffect(() => {
-//         const ws = new WebSocket("ws://localhost:65535/api/llpmg/sip-ws");
-//         audioContextRef.current = new (window.AudioContext ||
-//             (window as any).webkitAudioContext)();
-
-//         ws.onopen = () => {
-//             console.log("WebSocket connected");
-//             ws.send(JSON.stringify({ type: "join", callId }));
-//         };
-
-//         ws.onmessage = (event) => {
-//             const arrayBuffer = event.data;
-//             audioContextRef.current!.decodeAudioData(arrayBuffer, (buffer) => {
-//                 if (sourceNodeRef.current) {
-//                     sourceNodeRef.current.stop();
-//                 }
-//                 sourceNodeRef.current =
-//                     audioContextRef.current!.createBufferSource();
-//                 sourceNodeRef.current.buffer = buffer;
-//                 sourceNodeRef.current.connect(
-//                     audioContextRef.current!.destination
-//                 );
-//                 sourceNodeRef.current.start();
-//             });
-//         };
-
-//         return () => {
-//             ws.close();
-//             if (audioContextRef.current) {
-//                 audioContextRef.current.close();
-//             }
-//         };
-//     }, [callId]);
-
-//     return <div>Audio Player Active</div>;
-// };
-
-// export default AudioPlayer;
-
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -64,7 +12,10 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ callId }) => {
 
     useEffect(() => {
         console.log("connecting to sip-ws in audio player");
-        const ws = new WebSocket("ws://localhost/api/llpmg/sip-ws");
+        // const ws = new WebSocket("ws://localhost/api/llpmg/sip-ws");
+        const ws = new WebSocket(
+            `ws://${process.env.LLPMG_DOMAIN}/api/llpmg/sip-ws`
+        );
         audioContextRef.current = new (window.AudioContext ||
             (window as any).webkitAudioContext)();
 
