@@ -465,7 +465,7 @@ const SipComponent: React.FC<SipComponentProps> = ({
                             </div>
                         )}
                         {recordedAudio && (
-                            <div className="recording-playback mt-6 invisible">
+                            <div className="recording-playback mt-6 hidden">
                                 <h3 className="text-white text-xl mb-3">
                                     Recorded Audio
                                 </h3>
