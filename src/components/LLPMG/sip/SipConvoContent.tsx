@@ -146,6 +146,12 @@ const SipConvoContent: React.FC = () => {
             }
         }
     }, [searchParams, router]);
+
+    useEffect(() => {
+        console.log("removing token data from url");
+        router.replace("/llpmg/sip-convo");
+    }, [router]);
+
     return (
         <SipErrorBoundary>
             {isAuthenticating ? (

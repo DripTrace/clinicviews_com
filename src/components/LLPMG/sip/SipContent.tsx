@@ -1,7 +1,7 @@
 // File: /components/LLPMG/sip/SipContent.tsx
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import SipComponent from "@/components/LLPMG/sip/SipComponent";
 import SipErrorBoundary from "@/components/LLPMG/sip/SipErrorBoundary";

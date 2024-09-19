@@ -38,14 +38,14 @@ const NeuralNoise: React.FC = () => {
             <div ref={contentRef} className="w-screen font-serif">
                 <section className="section w-full h-screen flex justify-center items-center text-[#FFF6F7] text-center">
                     <div className="w-[90%] text-[20vh] sm:text-[25vw] xs:text-[30px]">
-                        Neural Noise
+                        Loma Linda Psychiatric Medical Group
                     </div>
                 </section>
                 <section className="section w-full h-screen flex justify-center items-center text-[#FFF6F7] text-center">
                     <div className="w-[90%] max-w-[800px] text-[10vh] md:text-[9vw]">
                         GLSL shader based on{" "}
                         <a
-                            href="https://x.com/zozuar/"
+                            href="https://lomalindapsych.com"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="hover:text-[#a0a0ff] active:text-[#a0ffff]"
@@ -53,7 +53,7 @@ const NeuralNoise: React.FC = () => {
                             testing
                         </a>{" "}
                         <a
-                            href="https://x.com/zozuar/status/1625182758745128981/"
+                            href="https://lomalindapsych.com"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="hover:text-[#a0a0ff] active:text-[#a0ffff]"
@@ -65,7 +65,7 @@ const NeuralNoise: React.FC = () => {
                 <section className="section w-full h-screen flex justify-center items-center text-[#FFF6F7] text-center">
                     <div className="w-[90%] max-w-[900px] text-[8vh] md:text-[9vw]">
                         <a
-                            href="https://linkedin.com/in/ksenia-kondrashova/"
+                            href="https://lomalindapsych.com"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="px-[0.3em] hover:text-[#a0a0ff] active:text-[#a0ffff]"
@@ -73,7 +73,7 @@ const NeuralNoise: React.FC = () => {
                             linkedIn
                         </a>
                         <a
-                            href="https://codepen.io/ksenia-k"
+                            href="https://lomalindapsych.com"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="px-[0.3em] hover:text-[#a0a0ff] active:text-[#a0ffff]"
@@ -81,7 +81,7 @@ const NeuralNoise: React.FC = () => {
                             codepen
                         </a>
                         <a
-                            href="https://x.com/uuuuuulala"
+                            href="https://lomalindapsych.com"
                             target="_top"
                             className="px-[0.3em] hover:text-[#a0a0ff] active:text-[#a0ffff]"
                         >
