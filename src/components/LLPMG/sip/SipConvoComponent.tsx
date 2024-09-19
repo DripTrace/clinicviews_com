@@ -721,6 +721,39 @@ const SipConvoComponent: React.FC<SipConvoComponentProps> = ({
         [incomingCall, userAgent, handleCallAccepted, handleCallTerminated]
     );
 
+    const handlePark = useCallback(() => {
+        if (session) {
+            session.park?.();
+        }
+    }, [session]);
+
+    const handleTransfer = useCallback(() => {
+        if (session) {
+            const transferNumber = prompt("Enter the number to transfer to:");
+            if (transferNumber) {
+                session.transfer?.(transferNumber);
+            }
+        }
+    }, [session]);
+
+    const handleFlip = useCallback(() => {
+        if (session) {
+            const flipNumber = prompt("Enter the number to flip to:");
+            if (flipNumber) {
+                session.flip?.(flipNumber);
+            }
+        }
+    }, [session]);
+
+    const handleDTMF = useCallback(() => {
+        if (session) {
+            const digit = prompt("Enter the DTMF digit:");
+            if (digit) {
+                session.dtmf?.(digit);
+            }
+        }
+    }, [session]);
+
     useEffect(() => {
         remoteAudioRef.current = document.getElementById(
             "remoteAudio"
@@ -809,6 +842,30 @@ const SipConvoComponent: React.FC<SipConvoComponentProps> = ({
                                         className="py-2 text-white bg-gray-700 rounded-lg hover:bg-gray-600 transition-all duration-300"
                                     >
                                         {held ? "Unhold" : "Hold"}
+                                    </button>
+                                    <button
+                                        onClick={handlePark}
+                                        className="py-2 text-white bg-gray-700 rounded-lg hover:bg-gray-600 transition-all duration-300"
+                                    >
+                                        Park
+                                    </button>
+                                    <button
+                                        onClick={handleTransfer}
+                                        className="py-2 text-white bg-gray-700 rounded-lg hover:bg-gray-600 transition-all duration-300"
+                                    >
+                                        Transfer
+                                    </button>
+                                    <button
+                                        onClick={handleFlip}
+                                        className="py-2 text-white bg-gray-700 rounded-lg hover:bg-gray-600 transition-all duration-300"
+                                    >
+                                        Flip
+                                    </button>
+                                    <button
+                                        onClick={handleDTMF}
+                                        className="py-2 text-white bg-gray-700 rounded-lg hover:bg-gray-600 transition-all duration-300"
+                                    >
+                                        Send DTMF
                                     </button>
                                     <button
                                         onClick={() => adjustVolume(0.1)}

@@ -21,11 +21,11 @@ const locations = [
         mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.2559241133934!2d-117.3214612233426!3d34.05060392569352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcae1e85e6c59d%3A0x87ed79b2f04362de!2s1007%20E%20Cooley%20Dr%20%23109%2C%20Colton%2C%20CA%2092324!5e0!3m2!1sen!2sus!4v1685393220527!5m2!1sen!2sus",
     },
     {
-        city: "Loma Linda",
-        address: "10459 Mountain View Ave, Ste E, Loma Linda, CA 92354",
+        city: "Redlands",
+        address: "1200 California St., Redlands, CA 92374",
         phone: "(909) 792-6262",
         email: "llpmg@lomalindapsych.com",
-        mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.9466262524396!2d-117.27046822334172!3d34.0788839242675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcae5108f44295%3A0xf12989a5ab1a4d97!2s10459%20Mountain%20View%20Ave%20e%2C%20Loma%20Linda%2C%20CA%2092354!5e0!3m2!1sen!2sus!4v1685393277770!5m2!1sen!2sus",
+        mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.0298844045515!2d-117.2280156234117!3d34.068748173150844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcabaa1170bb19%3A0x9219662daa6aec3a!2s1200%20California%20St%2C%20Redlands%2C%20CA%2092374!5e0!3m2!1sen!2sus!4v1726759584659!5m2!1sen!2sus",
     },
     {
         city: "Blythe",
