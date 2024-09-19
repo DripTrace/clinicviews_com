@@ -44,7 +44,7 @@
 
 "use client";
 
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import DomainProvider from "@/components/RootStoreProvider";
 import InstallPrompt from "./SafeInstallPrompt";
 import NotificationExample from "./NotificationExample";

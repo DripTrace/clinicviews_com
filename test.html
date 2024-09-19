@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Event Listener Test</title>
+    </head>
+    <body style="height: 200vh">
+        <div
+            style="
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            "
+        >
+            Test Event Listeners
+        </div>
+
+        <script>
+            window.addEventListener("scroll", () => {
+                console.log("Scroll detected:", window.pageYOffset);
+            });
+
+            window.addEventListener("click", () => {
+                console.log("Click detected!");
+            });
+        </script>
+    </body>
+</html>

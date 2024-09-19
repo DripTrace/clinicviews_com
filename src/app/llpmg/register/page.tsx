@@ -54,7 +54,7 @@ const LLPMGContactUsPage: React.FC = () => {
                         href="tel:+14428804200"
                         className="text-4xl font-bold bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-transparent bg-clip-text hover:from-green-400 hover:to-blue-500 hover:via-teal-300 transition duration-300 transform hover:scale-110 animate-pulse focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 flex items-center justify-center"
                     >
-                        (442)-880-4200
+                        (909)-880-4200
                     </a>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
                         Call us to get in contact immediately!

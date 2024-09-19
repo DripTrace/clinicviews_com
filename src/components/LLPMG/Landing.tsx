@@ -101,7 +101,15 @@ const Landing: React.FC = () => {
                             priority
                         />
                     </div>
-                    <div className="relative z-30 size-full bg-blue-100/70 dark:bg-gray-700/70 rounded-lg p-8 shadow-lg leading-[1.5rem] sm:leading-[4rem] 2xl:leading-[5rem] text-[0.8rem] sm:text-[1rem] 2xl:text-[2rem]">
+                    <div className="relative z-30 size-full bg-blue-100/70 dark:bg-gray-700/70 rounded-lg p-8 shadow-lg leading-[1.5rem] sm:leading-[4rem] 2xl:leading-[5rem] text-[0.8rem] sm:text-[1rem] 2xl:text-[2rem] flex flex-col items-center justify-center">
+                        {/* Contact Number */}
+                        <a
+                            href="tel:+19098804200"
+                            className="text-4xl font-bold bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-transparent bg-clip-text hover:from-green-400 hover:to-blue-500 hover:via-teal-300 transition duration-300 transform hover:scale-110 animate-pulse focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 flex items-center justify-center mb-4 text-center"
+                        >
+                            Direct Line: (909)-880-4200
+                        </a>
+                        {/* Introductory Heading */}
                         <h2 className="text-3xl font-black text-blue-900 dark:text-blue-300 mb-4 text-center tracking-normal sm:tracking-wide 2xl:tracking-widest">
                             Welcome to Loma Linda Psychiatric Medical Group
                         </h2>

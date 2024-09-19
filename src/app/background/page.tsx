@@ -1,8 +1,6 @@
-import NeuralNoise from "@/components/LLPMG/NeuroNoise";
+import NeuralNoise from "@/components/LLPMG/NeuralNoise";
 const BackgroundPage = () => {
-    return (
-    <NeuralNoise />
-  )
-}
+    return <NeuralNoise />;
+};
 
 export default BackgroundPage;
