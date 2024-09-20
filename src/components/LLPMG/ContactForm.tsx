@@ -287,18 +287,18 @@ const ContactForm: React.FC = () => {
     return (
         <motion.form
             onSubmit={handleSubmit(onSubmit)}
-            className="max-w-7xl mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md"
+            className="max-w-7xl mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md z-10"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
         >
-            {error && <p className="text-red-500 mb-4">{error}</p>}
+            {error && <p className="text-red-500 mb-4 z-10">{error}</p>}
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                <motion.div className="mb-4" variants={itemVariants}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 z-10">
+                <motion.div className="mb-4 z-10" variants={itemVariants}>
                     <label
                         htmlFor="firstName"
-                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer z-10"
                     >
                         First Name
                     </label>
@@ -307,19 +307,19 @@ const ContactForm: React.FC = () => {
                         {...register("firstName", {
                             required: "First name is required",
                         })}
-                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text"
+                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text z-10"
                     />
                     {errors.firstName && (
-                        <span className="text-red-500">
+                        <span className="text-red-500 z-10">
                             {errors.firstName.message}
                         </span>
                     )}
                 </motion.div>
 
-                <motion.div className="mb-4" variants={itemVariants}>
+                <motion.div className="mb-4 z-10" variants={itemVariants}>
                     <label
                         htmlFor="lastName"
-                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer z-10"
                     >
                         Last Name
                     </label>
@@ -328,7 +328,7 @@ const ContactForm: React.FC = () => {
                         {...register("lastName", {
                             required: "Last name is required",
                         })}
-                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text"
+                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text z-10"
                     />
                     {errors.lastName && (
                         <span className="text-red-500">
@@ -340,7 +340,7 @@ const ContactForm: React.FC = () => {
                 <motion.div className="mb-4" variants={itemVariants}>
                     <label
                         htmlFor="email"
-                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer z-10"
                     >
                         Email
                     </label>
@@ -354,10 +354,10 @@ const ContactForm: React.FC = () => {
                                 message: "Invalid email address",
                             },
                         })}
-                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text"
+                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text z-10"
                     />
                     {errors.email && (
-                        <span className="text-red-500">
+                        <span className="text-red-500 z-10">
                             {errors.email.message}
                         </span>
                     )}
@@ -366,12 +366,12 @@ const ContactForm: React.FC = () => {
                 <motion.div className="mb-4" variants={itemVariants}>
                     <label
                         htmlFor="phone"
-                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer z-10"
                     >
                         Phone
                     </label>
                     <div className="flex">
-                        <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+                        <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600 z-10">
                             +1
                         </span>
                         <input
@@ -386,7 +386,7 @@ const ContactForm: React.FC = () => {
                                 },
                             })}
                             placeholder="1234567890"
-                            className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 cursor-text"
+                            className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 cursor-text z-10"
                         />
                     </div>
                     {errors.phone && (
@@ -397,22 +397,22 @@ const ContactForm: React.FC = () => {
                 </motion.div>
 
                 <motion.div
-                    className="mb-4 sm:col-span-2 xl:col-span-4"
+                    className="mb-4 sm:col-span-2 xl:col-span-4 z-10"
                     variants={itemVariants}
                 >
                     <label
                         htmlFor="year"
-                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer z-10"
                     >
                         Date of Birth
                     </label>
-                    <div className="grid grid-cols-3 gap-2">
+                    <div className="grid grid-cols-3 gap-2 z-10">
                         <select
                             id="year"
                             {...register("year", {
                                 required: "Year is required",
                             })}
-                            className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                            className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer z-10"
                         >
                             <option value="">Year</option>
                             {Array.from(
@@ -429,7 +429,7 @@ const ContactForm: React.FC = () => {
                             {...register("month", {
                                 required: "Month is required",
                             })}
-                            className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                            className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer z-10"
                         >
                             <option value="">Month</option>
                             {Array.from({ length: 12 }, (_, i) => i + 1).map(
@@ -448,7 +448,7 @@ const ContactForm: React.FC = () => {
                             {...register("day", {
                                 required: "Day is required",
                             })}
-                            className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                            className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer z-10"
                         >
                             <option value="">Day</option>
                             {Array.from({ length: 31 }, (_, i) => i + 1).map(
@@ -461,16 +461,16 @@ const ContactForm: React.FC = () => {
                         </select>
                     </div>
                     {(errors.year || errors.month || errors.day) && (
-                        <span className="text-red-500">
+                        <span className="text-red-500 z-10">
                             Invalid date of birth
                         </span>
                     )}
                 </motion.div>
 
-                <motion.div className="mb-4" variants={itemVariants}>
+                <motion.div className="mb-4 z-10" variants={itemVariants}>
                     <label
                         htmlFor="insurance"
-                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer z-10"
                     >
                         Insurance Provider
                     </label>
@@ -480,7 +480,7 @@ const ContactForm: React.FC = () => {
                             required: "Insurance provider is required",
                         })}
                         defaultValue=""
-                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer z-10"
                     >
                         <option value="" disabled>
                             Select your insurance provider
@@ -501,19 +501,19 @@ const ContactForm: React.FC = () => {
                         <option value="Medicare">Medicare</option>
                     </select>
                     {errors.insurance && (
-                        <span className="text-red-500">
+                        <span className="text-red-500 z-10">
                             {errors.insurance.message}
                         </span>
                     )}
                 </motion.div>
 
                 <motion.div
-                    className="mb-4 sm:col-span-2 xl:col-span-4"
+                    className="mb-4 sm:col-span-2 xl:col-span-4 z-10"
                     variants={itemVariants}
                 >
                     <label
                         htmlFor="address"
-                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer z-10"
                     >
                         Address
                     </label>
@@ -523,14 +523,14 @@ const ContactForm: React.FC = () => {
                             required: "Address is required",
                         })}
                         onChange={handleAddressChange}
-                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text"
+                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text z-10"
                     />
                     {addressSuggestions.length > 0 && (
-                        <ul className="mt-2 bg-white dark:bg-gray-800 border rounded">
+                        <ul className="mt-2 bg-white dark:bg-gray-800 border rounded z-10">
                             {addressSuggestions.map((suggestion, index) => (
                                 <li
                                     key={index}
-                                    className="px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100"
+                                    className="px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100 z-10"
                                     onClick={() =>
                                         handleAddressSelect(suggestion)
                                     }
@@ -541,35 +541,35 @@ const ContactForm: React.FC = () => {
                         </ul>
                     )}
                     {errors.address && (
-                        <span className="text-red-500">
+                        <span className="text-red-500 z-10">
                             {errors.address.message}
                         </span>
                     )}
                 </motion.div>
 
-                <motion.div className="mb-4" variants={itemVariants}>
+                <motion.div className="mb-4 z-10" variants={itemVariants}>
                     <label
                         htmlFor="city"
-                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer z-10"
                     >
                         City
                     </label>
                     <input
                         id="city"
                         {...register("city", { required: "City is required" })}
-                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text"
+                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text z-10"
                     />
                     {errors.city && (
-                        <span className="text-red-500">
+                        <span className="text-red-500 z-10">
                             {errors.city.message}
                         </span>
                     )}
                 </motion.div>
 
-                <motion.div className="mb-4" variants={itemVariants}>
+                <motion.div className="mb-4 z-10" variants={itemVariants}>
                     <label
                         htmlFor="state"
-                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer z-10"
                     >
                         State
                     </label>
@@ -579,7 +579,7 @@ const ContactForm: React.FC = () => {
                             required: "State is required",
                         })}
                         defaultValue=""
-                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer z-10"
                     >
                         <option value="" disabled>
                             Select your state
@@ -591,16 +591,16 @@ const ContactForm: React.FC = () => {
                         ))}
                     </select>
                     {errors.state && (
-                        <span className="text-red-500">
+                        <span className="text-red-500 z-10">
                             {errors.state.message}
                         </span>
                     )}
                 </motion.div>
 
-                <motion.div className="mb-4" variants={itemVariants}>
+                <motion.div className="mb-4 z-10" variants={itemVariants}>
                     <label
                         htmlFor="zipCode"
-                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer z-10"
                     >
                         Zip Code
                     </label>
@@ -609,19 +609,19 @@ const ContactForm: React.FC = () => {
                         {...register("zipCode", {
                             required: "Zip code is required",
                         })}
-                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text"
+                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text z-10"
                     />
                     {errors.zipCode && (
-                        <span className="text-red-500">
+                        <span className="text-red-500 z-10">
                             {errors.zipCode.message}
                         </span>
                     )}
                 </motion.div>
 
-                <motion.div className="mb-4" variants={itemVariants}>
+                <motion.div className="mb-4 z-10" variants={itemVariants}>
                     <label
                         htmlFor="pharmacy"
-                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer z-10"
                     >
                         Preferred Pharmacy
                     </label>
@@ -631,7 +631,7 @@ const ContactForm: React.FC = () => {
                             required: "Preferred pharmacy is required",
                         })}
                         defaultValue=""
-                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer z-10"
                     >
                         <option value="" disabled>
                             Select your preferred pharmacy
@@ -643,16 +643,16 @@ const ContactForm: React.FC = () => {
                         ))}
                     </select>
                     {errors.pharmacy && (
-                        <span className="text-red-500">
+                        <span className="text-red-500 z-10">
                             {errors.pharmacy.message}
                         </span>
                     )}
                 </motion.div>
 
-                <motion.div className="mb-4" variants={itemVariants}>
+                <motion.div className="mb-4 z-10" variants={itemVariants}>
                     <label
                         htmlFor="reason"
-                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer z-10"
                     >
                         Reason for Visit
                     </label>
@@ -661,7 +661,7 @@ const ContactForm: React.FC = () => {
                         {...register("reason", {
                             required: "Reason for visit is required",
                         })}
-                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer z-10"
                     >
                         <option value="" disabled>
                             Select your reason for visit
@@ -679,25 +679,25 @@ const ContactForm: React.FC = () => {
                                 required: "Please specify your reason",
                             })}
                             placeholder="Please specify your reason"
-                            className="w-full mt-2 px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text"
+                            className="w-full mt-2 px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text z-10"
                         />
                     )}
                     {errors.reason && (
-                        <span className="text-red-500">
+                        <span className="text-red-500 z-10">
                             {errors.reason.message}
                         </span>
                     )}
                     {watchReason === "Other" && errors.customReason && (
-                        <span className="text-red-500">
+                        <span className="text-red-500 z-10">
                             {errors.customReason.message}
                         </span>
                     )}
                 </motion.div>
 
-                <motion.div className="mb-4" variants={itemVariants}>
+                {/* <motion.div className="mb-4 z-10" variants={itemVariants}>
                     <label
                         htmlFor="suggestedAppointment"
-                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer z-10"
                     >
                         Suggested Appointment Time
                     </label>
@@ -709,23 +709,23 @@ const ContactForm: React.FC = () => {
                         showTimeSelect
                         timeIntervals={15}
                         dateFormat="MMMM d, yyyy h:mm aa"
-                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text"
+                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text z-10"
                         minDate={new Date()}
                         placeholderText="Select a date and time"
                         popperClassName="react-datepicker-popper"
                         calendarClassName="react-datepicker-calendar"
                     />
                     {errors.suggestedAppointment && (
-                        <span className="text-red-500">
+                        <span className="text-red-500 z-10">
                             {errors.suggestedAppointment.message}
                         </span>
                     )}
-                </motion.div>
+                </motion.div> */}
 
-                <motion.div className="mb-4" variants={itemVariants}>
+                <motion.div className="mb-4 z-10" variants={itemVariants}>
                     <label
                         htmlFor="suggestedProvider"
-                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer z-10"
                     >
                         Suggested Provider
                     </label>
@@ -768,7 +768,7 @@ const ContactForm: React.FC = () => {
                             required: "Suggested provider is required",
                         })}
                         onChange={handleSuggestedProviderChange}
-                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer z-10"
                     >
                         <option disabled value="" selected defaultValue="">
                             Select a provider
@@ -778,23 +778,23 @@ const ContactForm: React.FC = () => {
                                 key={provider.providerName}
                                 value={provider.providerName}
                             >
-                                {formatProviderName(provider)} ({provider.title}
-                                , {provider.degree})
+                                {/* {provider.providerName} ({provider.title},{" "} */}
+                                {provider.providerName} {provider.degree}
                             </option>
                         ))}
                     </select>
 
                     {errors.suggestedProvider && (
-                        <span className="text-red-500">
+                        <span className="text-red-500 z-10">
                             {errors.suggestedProvider.message}
                         </span>
                     )}
                 </motion.div>
 
-                <motion.div className="mb-4" variants={itemVariants}>
+                <motion.div className="mb-4 z-10" variants={itemVariants}>
                     <label
                         htmlFor="pdf"
-                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer"
+                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer z-10"
                     >
                         Upload PDF Document (optional)
                     </label>
@@ -803,23 +803,23 @@ const ContactForm: React.FC = () => {
                         id="pdf"
                         ref={fileInputRef}
                         accept=".pdf"
-                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer z-10"
                     />
                 </motion.div>
 
-                <motion.div className="mb-4" variants={itemVariants}>
-                    <label className="flex items-center text-gray-700 dark:text-gray-300 cursor-pointer">
+                <motion.div className="mb-4 z-10" variants={itemVariants}>
+                    <label className="flex items-center text-gray-700 dark:text-gray-300 cursor-pointer z-10">
                         <input
                             type="checkbox"
                             {...register("consentGiven", {
                                 required: "You must give consent to proceed",
                             })}
-                            className="mr-2 cursor-pointer"
+                            className="mr-2 cursor-pointer z-10"
                         />
                         I consent to the processing of my personal data
                     </label>
                     {errors.consentGiven && (
-                        <span className="text-red-500">
+                        <span className="text-red-500 z-10">
                             {errors.consentGiven.message}
                         </span>
                     )}
@@ -828,7 +828,7 @@ const ContactForm: React.FC = () => {
                 <motion.button
                     type="submit"
                     disabled={isLoading}
-                    className={`w-full py-3 px-4 bg-blue-500 hover:bg-blue-600 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 sm:col-span-2 lg:col-span-3 xl:col-span-4 ${
+                    className={`w-full py-3 px-4 bg-blue-500 hover:bg-blue-600 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 sm:col-span-2 lg:col-span-3 xl:col-span-4 z-10 ${
                         isLoading ? "opacity-50 cursor-not-allowed" : ""
                     }`}
                     variants={itemVariants}

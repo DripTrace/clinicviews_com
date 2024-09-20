@@ -17,7 +17,7 @@ const PrivacyAndNoticesPage: React.FC = () => {
             title: "Important Information Regarding Clinician Providers",
             content: (
                 <>
-                    <p className="mb-4">
+                    <p className="mb-4 z-10">
                         We value our patients and want to ensure clear
                         communication about the structure of our practice. This
                         announcement informs you that our providers (doctors,
@@ -25,7 +25,7 @@ const PrivacyAndNoticesPage: React.FC = () => {
                         independent contractors, not employees of Loma Linda
                         Psychiatric Medical Group.
                     </p>
-                    <ul className="list-disc pl-5 mb-4 space-y-2">
+                    <ul className="list-disc pl-5 mb-4 space-y-2 z-10">
                         <li>
                             <strong>High-Quality Care:</strong> Our independent
                             contractors are all licensed professionals who meet
@@ -51,7 +51,7 @@ const PrivacyAndNoticesPage: React.FC = () => {
                             do not hesitate to speak to our clinic staff.
                         </li>
                     </ul>
-                    <p className="mb-4">
+                    <p className="mb-4 z-10">
                         We appreciate your understanding and continued trust in
                         our practice.
                     </p>
@@ -63,25 +63,25 @@ const PrivacyAndNoticesPage: React.FC = () => {
             title: "Enhanced Privacy Protections Policy for Patients",
             content: (
                 <>
-                    <p className="mb-4">
+                    <p className="mb-4 z-10">
                         <strong>Purpose:</strong> This policy outlines our
                         commitment to protect the privacy and security of our
                         patients&apos; personal and health information at Loma
                         Linda Psychiatric Medical Group.
                     </p>
-                    <p className="mb-4">
+                    <p className="mb-4 z-10">
                         <strong>Scope:</strong> This policy applies to all
                         staff, patients, and contractors associated with Loma
                         Linda Psychiatric Medical Group.
                     </p>
-                    <p className="mb-4">
+                    <p className="mb-4 z-10">
                         <strong>Patient Information Collection:</strong> We
                         collect personal health information directly from our
                         patients or their legal representatives. This includes
                         medical history, treatment records, and billing
                         information.
                     </p>
-                    <p className="mb-4">
+                    <p className="mb-4 z-10">
                         <strong>Use of Information:</strong> Personal health
                         information is used solely for the purpose of providing
                         medical care, processing payments, and complying with
@@ -96,8 +96,8 @@ const PrivacyAndNoticesPage: React.FC = () => {
             title: "Enhanced Privacy Protections Announcement",
             content: (
                 <>
-                    <p className="mb-4">Dear Valued Patients,</p>
-                    <p className="mb-4">
+                    <p className="mb-4 z-10">Dear Valued Patients,</p>
+                    <p className="mb-4 z-10">
                         At Loma Linda Psychiatric Medical Group, we are
                         committed to safeguarding the privacy and
                         confidentiality of your medical information. We are
@@ -106,7 +106,7 @@ const PrivacyAndNoticesPage: React.FC = () => {
                         protecting your rights and ensuring the security of your
                         personal data.
                     </p>
-                    <ul className="list-disc pl-5 mb-4 space-y-2">
+                    <ul className="list-disc pl-5 mb-4 space-y-2 z-10">
                         <li>
                             <strong>Enhanced Security Measures:</strong> We have
                             implemented advanced security technologies and
@@ -132,11 +132,11 @@ const PrivacyAndNoticesPage: React.FC = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-blue-50 dark:bg-gray-900 py-12 transition-colors duration-300">
-            <div className="container mx-auto px-4">
+        <div className="min-h-screen bg-blue-50 dark:bg-gray-900 py-12 transition-colors duration-300 z-10">
+            <div className="container mx-auto px-4 z-10">
                 <h1
                     id="Privacy-and-Notices"
-                    className="text-4xl font-bold text-blue-900 dark:text-blue-300 mb-8 text-center"
+                    className="text-4xl font-bold text-blue-900 dark:text-blue-300 mb-8 text-center z-10"
                 >
                     Privacy and Notices
                 </h1>
@@ -144,7 +144,7 @@ const PrivacyAndNoticesPage: React.FC = () => {
                 {sections.map((section) => (
                     <motion.div
                         key={section.id}
-                        className="mb-6 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-colors duration-300 flex items-center justify-center flex-col"
+                        className="mb-6 bg-white/70 dark:bg-gray-800/70 rounded-lg shadow-md overflow-hidden transition-colors duration-300 flex items-center justify-center flex-col z-10"
                         initial={false}
                         animate={{
                             height:
@@ -153,20 +153,20 @@ const PrivacyAndNoticesPage: React.FC = () => {
                         transition={{ duration: 0.3 }}
                     >
                         <button
-                            className="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none"
+                            className="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none z-10"
                             onClick={() => toggleSection(section.id)}
                         >
-                            <h2 className="text-xl font-semibold text-blue-900 dark:text-blue-300">
+                            <h2 className="text-xl font-semibold text-blue-900 dark:text-blue-300 z-10">
                                 {section.title}
                             </h2>
                             {activeSection === section.id ? (
-                                <FaChevronUp className="text-blue-500" />
+                                <FaChevronUp className="text-blue-500 z-10" />
                             ) : (
-                                <FaChevronDown className="text-blue-500" />
+                                <FaChevronDown className="text-blue-500 z-10" />
                             )}
                         </button>
                         {activeSection === section.id && (
-                            <div className="px-6 py-4 text-gray-700 dark:text-gray-300">
+                            <div className="px-6 py-4 text-gray-700 dark:text-gray-300 z-10">
                                 {section.content}
                             </div>
                         )}

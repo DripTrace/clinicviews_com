@@ -94,7 +94,7 @@ const ConditionsTreated: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="py-16 bg-blue-900/80 dark:bg-gray-800 text-white relative transition-colors duration-300 rounded-xl z-20 2xl:mb-[40rem]"
+            className="py-16 bg-blue-900/80 dark:bg-gray-800/80 text-white relative transition-colors duration-300 rounded-xl z-20 2xl:mb-[40rem] top-[6rem]"
         >
             <div className="absolute w-full 2xl:w-full 2xl:h-full z-30 top-[0rem] lg:top-[-4rem] xl:top-[-15.2rem] 2xl:top-[0rem]">
                 <Image

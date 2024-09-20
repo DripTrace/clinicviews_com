@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
 
 const services = [
@@ -49,7 +48,7 @@ const Services: React.FC<ServicesProps> = ({ id }: ServicesProps) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="container mt-[4rem] mx-auto px-4 py-8 bg-blue-50 dark:bg-gray-700 rounded-md flex items-center justify-center size-full flex-col"
+            className="container mt-[4rem] mx-auto px-4 py-8 bg-blue-50/70 dark:bg-gray-700/70 rounded-md flex items-center justify-center flex-col"
         >
             <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-100 mb-4">
                 Our Services
@@ -58,7 +57,7 @@ const Services: React.FC<ServicesProps> = ({ id }: ServicesProps) => {
                 {services.map((service, index) => (
                     <motion.div
                         key={index}
-                        className="dark:bg-gray-800 bg-white p-6 rounded-lg shadow-md dark:text-blue-100 text-blue-900"
+                        className="dark:bg-gray-800/70 bg-white/70 p-6 rounded-lg shadow-md dark:text-blue-100 text-blue-900"
                         whileHover={{ scale: 1.05 }}
                         transition={{ type: "spring", stiffness: 300 }}
                     >

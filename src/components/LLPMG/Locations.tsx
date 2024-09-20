@@ -70,21 +70,21 @@ const Locations: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="container mx-auto px-4 py-8 size-full text-[0.5rem] sm:text-[1.5rem]"
+            className="container mx-auto px-4 py-8 size-full text-[0.5rem] sm:text-[1.5rem] z-10"
         >
-            <h2 className="text-3xl font-bold dark:text-blue-100 text-blue-800 mb-4">
+            <h2 className="text-3xl font-bold dark:text-blue-100 text-blue-800 mb-4 z-10">
                 Our Locations
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 w-full z-10">
                 {locations.map((location, index) => (
                     <div
                         key={index}
-                        className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md size-full"
+                        className="bg-white/70 dark:bg-gray-700/70 p-6 rounded-lg shadow-md size-full z-10"
                     >
-                        <h3 className="text-xl font-semibold mb-2 dark:text-blue-100 text-blue-700">
+                        <h3 className="text-xl font-semibold mb-2 dark:text-blue-100 text-blue-700 z-10">
                             {location.city}
                         </h3>
-                        <div className="mb-4 w-full h-[200px] relative">
+                        <div className="mb-4 w-full h-[200px] relative z-10">
                             {!loadedMaps[index] && <MapSkeleton />}
                             <iframe
                                 src={location.mapUrl}
@@ -110,26 +110,30 @@ const Locations: React.FC = () => {
                             )}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className=" sm:text-[1rem] text-[0.9rem] flex items-center mb-2 dark:text-blue-100 text-blue-600 dark:hover:text-blue-300 hover:text-blue-800 transition-colors duration-300"
+                            className="sm:text-[1rem] text-[0.9rem] flex items-center mb-2 dark:text-blue-100 text-blue-600 dark:hover:text-blue-300 hover:text-blue-800 transition-colors duration-300 z-10"
                         >
-                            <FaMapMarkerAlt className="mr-2" />
-                            <span className="underline">
+                            <FaMapMarkerAlt className="mr-2 z-10" />
+                            <span className="underline z-10">
                                 {location.address}
                             </span>
                         </a>
                         <a
                             href={`tel:${location.phone}`}
-                            className=" sm:text-[1rem] text-[0.9rem] flex items-center mb-2 dark:text-blue-100 text-blue-600 dark:hover:text-blue-300 hover:text-blue-800 transition-colors duration-300"
+                            className=" sm:text-[1rem] text-[0.9rem] flex items-center mb-2 dark:text-blue-100 text-blue-600 dark:hover:text-blue-300 hover:text-blue-800 transition-colors duration-300 z-10"
                         >
-                            <FaPhone className="mr-2" />
-                            <span className="underline">{location.phone}</span>
+                            <FaPhone className="mr-2 z-10" />
+                            <span className="underline z-10">
+                                {location.phone}
+                            </span>
                         </a>
                         <a
                             href={`mailto:${location.email}`}
-                            className=" sm:text-[1rem] text-[0.9rem] flex items-center dark:text-blue-100 text-blue-600 dark:hover:text-blue-300 hover:text-blue-800 transition-colors duration-300"
+                            className=" sm:text-[1rem] text-[0.9rem] flex items-center dark:text-blue-100 text-blue-600 dark:hover:text-blue-300 hover:text-blue-800 transition-colors duration-300 z-10"
                         >
-                            <FaEnvelope className="mr-2" />
-                            <span className="underline">{location.email}</span>
+                            <FaEnvelope className="mr-2 z-10" />
+                            <span className="underline z-10">
+                                {location.email}
+                            </span>
                         </a>
                     </div>
                 ))}
