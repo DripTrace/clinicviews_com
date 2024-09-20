@@ -112,7 +112,7 @@ const Landing: React.FC = () => {
                             href="tel:+19098804200"
                             className="text-4xl font-bold bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-transparent bg-clip-text hover:from-green-400 hover:to-blue-500 hover:via-teal-300 transition duration-300 transform hover:scale-110 animate-pulse focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 flex items-center justify-center mb-4 text-center"
                         >
-                            Direct Line: (909) 880-4200
+                            (909) 880-4200
                         </a>
                         {/* Introductory Heading */}
                         <h2 className="text-3xl font-black text-blue-900 dark:text-blue-300 mb-4 text-center tracking-normal sm:tracking-wide 2xl:tracking-widest">
@@ -166,6 +166,45 @@ const Landing: React.FC = () => {
                         style={{ zIndex: 1 }}
                     />
                 </section>
+
+                <section className="space-y-4 flex flex-col items-center justify-center z-10 max-w-[20rem] mx-auto">
+                    <Link href="/llpmg/register" className="w-full z-10">
+                        <button
+                            className="w-full bg-blue-500 text-white py-3 px-4 rounded hover:bg-blue-600 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 z-10"
+                            onClick={() => {
+                                setTimeout(() => {
+                                    window.scrollTo(0, 0);
+                                }, 100);
+                            }}
+                        >
+                            Contact the Clinic
+                        </button>
+                    </Link>
+                    <Link href="/llpmg/intake-packet" className="w-full z-10">
+                        <button className="w-full bg-gray-200 text-gray-800 py-3 px-4 rounded hover:bg-gray-300 transition duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 z-10">
+                            Fill Out New Patient Packet
+                        </button>
+                    </Link>
+                </section>
+
+                {/* <section id="contact-us" className="mb-12">
+					<h2 className="text-3xl font-bold text-blue-900 mb-4 dark:text-blue-100">
+						Contact Us
+					</h2>
+					<p className="mb-4 dark:text-blue-100 gap-[2-rem]">
+						<span>
+							For more information or to schedule an appointment,
+							please contact us at
+						</span>
+						<a
+							className="special-link"
+							href="#"
+							onClick={handleClick}
+						>
+							(909) 880-4200
+						</a>
+					</p>
+				</section> */}
 
                 <section className="mb-0 flex items-center justify-center flex-col relative max-h-[10rem] z-40">
                     <h2 className="text-3xl font-bold text-blue-900 mb-4 dark:text-blue-300 pt-16">

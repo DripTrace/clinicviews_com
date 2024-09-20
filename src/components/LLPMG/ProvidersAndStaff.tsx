@@ -407,7 +407,7 @@ const ProvidersAndStaff: React.FC = () => {
                         {providers.map((provider, index) => (
                             <div
                                 key={index}
-                                className="bg-white/70 dark:bg-gray-800/70 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 flex items-center justify-start min-w-[20rem] sm:max-w-[20rem] md:min-w-[20rem] md:max-w-[20rem] lg:min-w-[20rem] lg:max-w-[20rem] xl:min-w-[25rem] xl:max-w-[25rem] 2xl:min-w-[25rem] 2xl:max-w-[29rem] z-10"
+                                className="bg-white/70 dark:bg-gray-800/70 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 flex items-center justify-start w-full max-w-[20rem] sm:max-w-[20rem] md:max-w-[20rem] lg:max-w-[20rem] xl:max-w-[25rem] 2xl:max-w-[29rem] z-10"
                             >
                                 <div className="flex items-center justify-start flex-row gap-5 z-10">
                                     <div className="size-full flex items-center justify-center z-10">
@@ -453,7 +453,7 @@ const ProvidersAndStaff: React.FC = () => {
                         {staff.map((staffMember, index) => (
                             <div
                                 key={index}
-                                className="bg-white/70 dark:bg-gray-800/70 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 flex items-center justify-start min-w-[20rem] max-w-[20rem] sm:max-w-[20rem] md:min-w-[20rem] md:max-w-[20rem] lg:min-w-[24rem] lg:max-w-[24rem] xl:max-w-[28rem] 2xl:min-w-[29rem] 2xl:max-w-[29rem] z-10"
+                                className="bg-white/70 dark:bg-gray-800/70 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 flex items-center justify-start w-full max-w-[20rem] sm:max-w-[20rem] md:max-w-[20rem] lg:max-w-[20rem] xl:max-w-[25rem] 2xl:max-w-[29rem] z-10"
                             >
                                 <div className="flex items-center justify-start flex-row gap-5 z-10">
                                     <div className="size-full flex items-center justify-center z-10">

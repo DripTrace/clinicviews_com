@@ -192,36 +192,6 @@ const ContactForm: React.FC = () => {
         }
     };
 
-    // const handleSuggestedProviderChange = (
-    //     e: React.ChangeEvent<HTMLSelectElement>
-    // ) => {
-    //     const providerName = e.target.value;
-    //     const selectedProvider = providers.find(
-    //         (p) => p.providerName === providerName
-    //     );
-
-    //     if (selectedProvider) {
-    //         let formattedProviderName = selectedProvider.providerName;
-    //         if (
-    //             !formattedProviderName.startsWith("Dr. ") &&
-    //             (selectedProvider.title === "Psychiatrist" ||
-    //                 selectedProvider.title === "Psychologist" ||
-    //                 selectedProvider.degree === "M.D." ||
-    //                 selectedProvider.degree === "Ph.D")
-    //         ) {
-    //             formattedProviderName = `Dr. ${formattedProviderName}`;
-    //         }
-
-    //         setValue("suggestedProvider", formattedProviderName);
-    //         setValue(
-    //             "providerPhone",
-    //             formatPhoneNumber(selectedProvider.providerPhone || "")
-    //         );
-    //         setValue("providerEmail", selectedProvider.providerEmail || "");
-    //         console.log(selectedProvider);
-    //     }
-    // };
-
     const formatProviderName = (provider: Provider): string => {
         let displayName = provider.providerName;
         // Prefix "Dr." to all provider names
@@ -251,8 +221,22 @@ const ContactForm: React.FC = () => {
     };
 
     useEffect(() => {
+        const scrollToTop = () => {
+            window.scrollTo(0, 0);
+        };
+
+        // Attempt to scroll immediately
+        scrollToTop();
+
+        // Set a timeout to scroll again after a short delay
+        const timeoutId = setTimeout(scrollToTop, 100);
+
+        // Add an event listener for when the page has finished loading
+        window.addEventListener("load", scrollToTop);
+
         return () => {
-            debouncedAddressSearch.cancel();
+            clearTimeout(timeoutId);
+            window.removeEventListener("load", scrollToTop);
         };
     }, []);
 
@@ -280,12 +264,9 @@ const ContactForm: React.FC = () => {
         },
     };
 
-    // useEffect(() => {
-    //     console.log("refreshed form data: >>>> \n", theFormData);
-    // }, [register]);
-
     return (
         <motion.form
+            id="contact-form-top"
             onSubmit={handleSubmit(onSubmit)}
             className="max-w-7xl mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md z-10"
             variants={containerVariants}
@@ -694,34 +675,6 @@ const ContactForm: React.FC = () => {
                     )}
                 </motion.div>
 
-                {/* <motion.div className="mb-4 z-10" variants={itemVariants}>
-                    <label
-                        htmlFor="suggestedAppointment"
-                        className="block mb-2 text-gray-700 dark:text-gray-300 cursor-pointer z-10"
-                    >
-                        Suggested Appointment Time
-                    </label>
-                    <DatePicker
-                        selected={watchSuggestedAppointment}
-                        onChange={(date: Date | null) =>
-                            setValue("suggestedAppointment", date)
-                        }
-                        showTimeSelect
-                        timeIntervals={15}
-                        dateFormat="MMMM d, yyyy h:mm aa"
-                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text z-10"
-                        minDate={new Date()}
-                        placeholderText="Select a date and time"
-                        popperClassName="react-datepicker-popper"
-                        calendarClassName="react-datepicker-calendar"
-                    />
-                    {errors.suggestedAppointment && (
-                        <span className="text-red-500 z-10">
-                            {errors.suggestedAppointment.message}
-                        </span>
-                    )}
-                </motion.div> */}
-
                 <motion.div className="mb-4 z-10" variants={itemVariants}>
                     <label
                         htmlFor="suggestedProvider"
@@ -729,39 +682,6 @@ const ContactForm: React.FC = () => {
                     >
                         Suggested Provider
                     </label>
-                    {/* <select
-                        id="suggestedProvider"
-                        {...register("suggestedProvider", {
-                            required: "Suggested provider is required",
-                        })}
-                        onChange={handleSuggestedProviderChange}
-                        className="w-full px-3 py-2 border rounded text-gray-700 bg-white dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
-                    >
-                        <option disabled selected defaultValue="">
-                            Select a provider
-                        </option>
-                        {providers.map((provider) => {
-                            let displayName = provider.providerName;
-                            if (
-                                !displayName.startsWith("Dr. ") &&
-                                (provider.title === "Psychiatrist" ||
-                                    provider.title === "Psychologist" ||
-                                    provider.degree === "M.D." ||
-                                    provider.degree === "Ph.D")
-                            ) {
-                                displayName = `Dr. ${displayName}`;
-                            }
-                            return (
-                                <option
-                                    key={provider.providerName}
-                                    value={provider.providerName}
-                                >
-                                    {displayName} ({provider.title},{" "}
-                                    {provider.degree})
-                                </option>
-                            );
-                        })}
-                    </select> */}
                     <select
                         id="suggestedProvider"
                         {...register("suggestedProvider", {
@@ -778,7 +698,6 @@ const ContactForm: React.FC = () => {
                                 key={provider.providerName}
                                 value={provider.providerName}
                             >
-                                {/* {provider.providerName} ({provider.title},{" "} */}
                                 {provider.providerName} {provider.degree}
                             </option>
                         ))}

@@ -132,6 +132,14 @@ const PrivacyAndNoticesPage: React.FC = () => {
     ];
 
     return (
+        // <motion.div
+        //     // initial={{ opacity: 0 }}
+        //     initial={{ opacity: 0, y: 20 }}
+        //     animate={{ opacity: 1, y: 0 }}
+        //     exit={{ opacity: 0 }}
+        //     transition={{ duration: 0.5 }}
+        //     className="container mt-[4rem] mx-auto px-4 py-8 bg-blue-50/70 dark:bg-gray-700/70 rounded-md z-10"
+        // >
         <div className="min-h-screen bg-blue-50 dark:bg-gray-900 py-12 transition-colors duration-300 z-10">
             <div className="container mx-auto px-4 z-10">
                 <h1
@@ -174,6 +182,7 @@ const PrivacyAndNoticesPage: React.FC = () => {
                 ))}
             </div>
         </div>
+        // {/* </motion.div> */}
     );
 };
 
