@@ -226,13 +226,13 @@ async function sendEmailWithCalendar(
             //     contentType: "text/calendar",
             // },
         ],
-        alternatives: [
-            {
-                contentType: "text/calendar",
-                // content: Buffer.from(calendarEvent.toString()),
-                contentDisposition: "inline",
-            },
-        ],
+        // alternatives: [
+        //     {
+        //         contentType: "text/calendar",
+        //         content: Buffer.from(calendarEvent.toString()),
+        //         contentDisposition: "inline",
+        //     },
+        // ],
     };
 
     try {
