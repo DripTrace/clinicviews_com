@@ -449,7 +449,7 @@ export default async function handler(
         // const providerMessage = `Hello ${suggestedProvider}, you have a new patient appointment suggestion from ${firstName} ${lastName} for ${suggestedAppointment}. Please review the details in your email and contact the patient to confirm. (Conversation ID: ${conversationId})`;
 
         const patientMessage = `Hello ${firstName}, thank you for registering with Loma Linda Psychiatric Medical Group. Your appointment suggestion with ${suggestedProvider} has been received. We will contact you soon to confirm. (Conversation ID: ${conversationId})`;
-        const providerMessage = `Hello ${suggestedProvider}, you have a new patient appointment suggestion from ${firstName} ${lastName}. Please review the details in your email and contact the patient to confirm. (Conversation ID: ${conversationId})`;
+        const providerMessage = `Hello ${suggestedProvider}, you have a new patient appointment suggestion from ${patientFullName}. Please review the details in your email and contact the patient to confirm. (Conversation ID: ${conversationId})`;
 
         console.log(`Sending SMS to patient: ${phone}`);
         await sendSMS(phone, patientMessage);

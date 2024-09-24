@@ -153,7 +153,7 @@ export default async function handler(
             zipCode,
             pharmacy,
             reason,
-            suggestedAppointment,
+            // suggestedAppointment,
             providerPhone,
             suggestedProvider,
             providerEmail,
@@ -163,36 +163,36 @@ export default async function handler(
         const fullAddress = `${address}, ${city}, ${state} ${zipCode}`;
         const file = files.pdf ? files.pdf[0] : null;
 
-        const formattedAppointmentTime = formatDateTime(suggestedAppointment);
+        // const formattedAppointmentTime = formatDateTime(suggestedAppointment);
 
-        const calendarEvent = ical({
-            prodId: { company: "LLPMG", product: "Appointment" },
-            name: "LLPMG Appointment",
-        });
+        // const calendarEvent = ical({
+        //     prodId: { company: "LLPMG", product: "Appointment" },
+        //     name: "LLPMG Appointment",
+        // });
 
-        calendarEvent.createEvent({
-            start: new Date(suggestedAppointment),
-            end: new Date(
-                new Date(suggestedAppointment).getTime() + 60 * 60 * 1000
-            ),
-            summary: `Appointment with ${patientName}`,
-            description: `Appointment for ${patientName}\nReason: ${reason}`,
-            location: "Loma Linda Psychiatric Medical Group",
-            url: "https://lomalindapsych.com",
-            organizer: {
-                name: "LLPMG",
-                email: process.env.PROTONMAIL_SENDER,
-            },
-            attendees: [
-                {
-                    name: patientName,
-                    email: email,
-                    rsvp: true,
-                    role: ICalAttendeeRole.REQ,
-                    status: ICalAttendeeStatus.NEEDSACTION,
-                },
-            ],
-        });
+        // calendarEvent.createEvent({
+        //     start: new Date(suggestedAppointment),
+        //     end: new Date(
+        //         new Date(suggestedAppointment).getTime() + 60 * 60 * 1000
+        //     ),
+        //     summary: `Appointment with ${patientName}`,
+        //     description: `Appointment for ${patientName}\nReason: ${reason}`,
+        //     location: "Loma Linda Psychiatric Medical Group",
+        //     url: "https://lomalindapsych.com",
+        //     organizer: {
+        //         name: "LLPMG",
+        //         email: process.env.PROTONMAIL_SENDER,
+        //     },
+        //     attendees: [
+        //         {
+        //             name: patientName,
+        //             email: email,
+        //             rsvp: true,
+        //             role: ICalAttendeeRole.REQ,
+        //             status: ICalAttendeeStatus.NEEDSACTION,
+        //         },
+        //     ],
+        // });
 
         let emailTransporter = nodemailer.createTransport({
             host: process.env.PROTONMAIL_HOST,
@@ -225,7 +225,7 @@ export default async function handler(
                 address: fullAddress,
                 pharmacy,
                 reason,
-                suggestedAppointment: formattedAppointmentTime,
+                // suggestedAppointment: formattedAppointmentTime,
                 isDoctor: false,
                 suggestedProvider,
                 providerPhone,
@@ -244,7 +244,7 @@ export default async function handler(
                 address: fullAddress,
                 pharmacy,
                 reason,
-                suggestedAppointment: formattedAppointmentTime,
+                // suggestedAppointment: formattedAppointmentTime,
                 isDoctor: true,
                 suggestedProvider,
                 providerPhone,
@@ -263,7 +263,7 @@ export default async function handler(
                 address: fullAddress,
                 pharmacy,
                 reason,
-                suggestedAppointment: formattedAppointmentTime,
+                // suggestedAppointment: formattedAppointmentTime,
                 isDoctor: true,
                 suggestedProvider,
                 providerPhone,
@@ -285,55 +285,58 @@ export default async function handler(
             });
         }
 
-        await sendEmailWithCalendar(
-            emailTransporter,
-            email,
-            `Registration Confirmation - ${formattedAppointmentTime}`,
-            patientEmailHtml,
-            calendarEvent,
-            file
-                ? [
-                      {
-                          content: fileContent,
-                      },
-                  ]
-                : undefined
-        );
+        // await sendEmailWithCalendar(
+        //     emailTransporter,
+        //     email,
+        //     `Registration Confirmation - ${formattedAppointmentTime}`,
+        //     patientEmailHtml,
+        //     calendarEvent,
+        //     file
+        //         ? [
+        //               {
+        //                   content: fileContent,
+        //               },
+        //           ]
+        //         : undefined
+        // );
 
-        await sendEmailWithCalendar(
-            emailTransporter,
-            process.env.PROTONMAIL_RECIPIENT!,
-            `New Patient Registration Details - ${formattedAppointmentTime}`,
-            doctorEmailHtml,
-            calendarEvent,
-            file
-                ? [
-                      {
-                          filename: `${file.originalFilename}.zip`,
-                          content: fileContent,
-                      },
-                  ]
-                : undefined
-        );
+        // await sendEmailWithCalendar(
+        //     emailTransporter,
+        //     process.env.PROTONMAIL_RECIPIENT!,
+        //     `New Patient Registration Details - ${formattedAppointmentTime}`,
+        //     doctorEmailHtml,
+        //     calendarEvent,
+        //     file
+        //         ? [
+        //               {
+        //                   filename: `${file.originalFilename}.zip`,
+        //                   content: fileContent,
+        //               },
+        //           ]
+        //         : undefined
+        // );
 
-        await sendEmailWithCalendar(
-            emailTransporter,
-            suggestedProvider.email,
-            `New Patient Registration Details - ${formattedAppointmentTime}`,
-            providerEmailHtml,
-            calendarEvent,
-            file
-                ? [
-                      {
-                          filename: `${file.originalFilename}.zip`,
-                          content: fileContent,
-                      },
-                  ]
-                : undefined
-        );
+        // await sendEmailWithCalendar(
+        //     emailTransporter,
+        //     suggestedProvider.email,
+        //     `New Patient Registration Details - ${formattedAppointmentTime}`,
+        //     providerEmailHtml,
+        //     calendarEvent,
+        //     file
+        //         ? [
+        //               {
+        //                   filename: `${file.originalFilename}.zip`,
+        //                   content: fileContent,
+        //               },
+        //           ]
+        //         : undefined
+        // );
 
-        const smsMessage = `Hello ${firstName}, thank you for registering with Loma Linda Psychiatric Medical Group. Your appointment suggestion for ${formattedAppointmentTime} with ${suggestedProvider} has been received. We will contact you soon to confirm.`;
-        const providerSMS = `Hello ${suggestedProvider}, a new patient has registered for an appointment suggestion on ${formattedAppointmentTime}. Please review the details in your email and contact the patient to confirm.`;
+        // const smsMessage = `Hello ${firstName}, thank you for registering with Loma Linda Psychiatric Medical Group. Your appointment suggestion for ${formattedAppointmentTime} with ${suggestedProvider} has been received. We will contact you soon to confirm.`;
+        // const providerSMS = `Hello ${suggestedProvider}, a new patient has registered for an appointment suggestion on ${formattedAppointmentTime}. Please review the details in your email and contact the patient to confirm.`;
+        const smsMessage = `Hello ${firstName}, thank you for registering with Loma Linda Psychiatric Medical Group. Your appointment with ${suggestedProvider} has been received. We will contact you soon to confirm.`;
+        const providerSMS = `Hello ${suggestedProvider}, a new patient has registered for an appointment. Please review the details in your email and contact the patient to confirm.`;
+
         await sendSMS(phone, smsMessage);
         await sendSMS(providerPhone, providerSMS);
 
