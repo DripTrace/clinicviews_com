@@ -86,20 +86,22 @@ const ContactForm: React.FC = () => {
         const formattedPhone = formatPhoneNumber(data.phone);
 
         const formData = new FormData();
-        // Object.entries(data).forEach(([key, value]) => {
-        //     if (key === "suggestedAppointment" && value) {
-        //         formData.append(key, (value as Date).toISOString());
-        //     } else if (key === "phone") {
-        //         formData.append(key, formattedPhone);
-        //     } else if (
-        //         key !== "year" &&
-        //         key !== "month" &&
-        //         key !== "day" &&
-        //         key !== "customReason"
-        //     ) {
-        //         formData.append(key, value as string);
-        //     }
-        // });
+        Object.entries(data).forEach(([key, value]) => {
+            // if (key === "suggestedAppointment" && value) {
+            //     formData.append(key, (value as Date).toISOString());
+            // } else
+
+            if (key === "phone") {
+                formData.append(key, formattedPhone);
+            } else if (
+                key !== "year" &&
+                key !== "month" &&
+                key !== "day" &&
+                key !== "customReason"
+            ) {
+                formData.append(key, value as string);
+            }
+        });
 
         const formattedBirthday = `${data.month}-${data.day}-${data.year}`;
         formData.append("birthday", formattedBirthday);
