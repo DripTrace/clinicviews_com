@@ -20,12 +20,12 @@ const insurances = [
         logo: "/united-healthcare.svg",
         url: "https://www.uhc.com/",
     },
-    {
-        name: "Health Net",
-        // logo: "/healthnet-logo.png",
-        logo: "/health-net.svg",
-        url: "https://www.healthnet.com/content/healthnet/en_us.html",
-    },
+    // {
+    //     name: "Health Net",
+    //     // logo: "/healthnet-logo.png",
+    //     logo: "/health-net.svg",
+    //     url: "https://www.healthnet.com/content/healthnet/en_us.html",
+    // },
     {
         name: "Central Health Plan of California",
         // logo: "/centralhealth-logo.png",
@@ -49,6 +49,12 @@ const insurances = [
         // logo: "/medicare-logo.png",
         logo: "/medicare.svg",
         url: "https://www.medicare.gov/",
+    },
+    {
+        name: "Tricare",
+        // logo: "/medicare-logo.png",
+        logo: "/tricare.svg",
+        url: "https://www.tricare.mil/",
     },
 ];
 
