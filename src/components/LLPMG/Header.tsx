@@ -123,7 +123,7 @@ const Header: React.FC = () => {
                     >
                         <button
                             onClick={handleContactClick}
-                            className="text-gray-300 hover:text-white transition-colors duration-300 text-[0.6rem] pb-2"
+                            className="text-gray-300 hover:text-white transition-colors duration-300 text-[0.3rem] sm:text-[0.4rem] md:text-[0.6rem] pb-2"
                         >
                             Contact Us
                         </button>

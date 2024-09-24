@@ -10,7 +10,7 @@ interface LLPMGEmailTemplateProps {
     address: string;
     pharmacy: string;
     reason: string;
-    suggestedAppointment: string;
+    // suggestedAppointment: string;
     isDoctor: boolean;
     suggestedProvider: string;
     //?: string;
@@ -27,7 +27,7 @@ const LLPMGEmailTemplate: React.FC<LLPMGEmailTemplateProps> = ({
     address,
     pharmacy,
     reason,
-    suggestedAppointment,
+    // suggestedAppointment,
     isDoctor,
     suggestedProvider,
     //,
@@ -105,10 +105,10 @@ const LLPMGEmailTemplate: React.FC<LLPMGEmailTemplateProps> = ({
                 <p>
                     <strong>Reason for Visit:</strong> {reason}
                 </p>
-                <p>
+                {/* <p>
                     <strong>Suggested Appointment:</strong>{" "}
                     {suggestedAppointment}
-                </p>
+                </p> */}
                 <p>
                     <strong>Suggested Provider:</strong> {suggestedProvider}
                 </p>

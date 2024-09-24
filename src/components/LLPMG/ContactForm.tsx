@@ -32,7 +32,7 @@ interface FormData {
     pharmacy: string;
     reason: string;
     customReason?: string;
-    suggestedAppointment: Date | null;
+    // suggestedAppointment: Date | null;
     consentGiven: boolean;
     suggestedProvider: string;
     providerPhone: string;
@@ -51,7 +51,7 @@ const ContactForm: React.FC = () => {
     const [error, setError] = useState("");
     const [addressSuggestions, setAddressSuggestions] = useState<string[]>([]);
     const fileInputRef = useRef<HTMLInputElement>(null);
-    const watchSuggestedAppointment = watch("suggestedAppointment");
+    // const watchSuggestedAppointment = watch("suggestedAppointment");
     const watchReason = watch("reason");
     const [theFormData, setTheFormData] = useState({});
 
@@ -75,31 +75,31 @@ const ContactForm: React.FC = () => {
             return;
         }
 
-        if (!isValidAppointmentTime(data.suggestedAppointment)) {
-            setError(
-                "Please select a valid appointment time (Monday-Friday, 9 AM - 5 PM, at least 48 hours in advance)."
-            );
-            setIsLoading(false);
-            return;
-        }
+        // if (!isValidAppointmentTime(data.suggestedAppointment)) {
+        //     setError(
+        //         "Please select a valid appointment time (Monday-Friday, 9 AM - 5 PM, at least 48 hours in advance)."
+        //     );
+        //     setIsLoading(false);
+        //     return;
+        // }
 
         const formattedPhone = formatPhoneNumber(data.phone);
 
         const formData = new FormData();
-        Object.entries(data).forEach(([key, value]) => {
-            if (key === "suggestedAppointment" && value) {
-                formData.append(key, (value as Date).toISOString());
-            } else if (key === "phone") {
-                formData.append(key, formattedPhone);
-            } else if (
-                key !== "year" &&
-                key !== "month" &&
-                key !== "day" &&
-                key !== "customReason"
-            ) {
-                formData.append(key, value as string);
-            }
-        });
+        // Object.entries(data).forEach(([key, value]) => {
+        //     if (key === "suggestedAppointment" && value) {
+        //         formData.append(key, (value as Date).toISOString());
+        //     } else if (key === "phone") {
+        //         formData.append(key, formattedPhone);
+        //     } else if (
+        //         key !== "year" &&
+        //         key !== "month" &&
+        //         key !== "day" &&
+        //         key !== "customReason"
+        //     ) {
+        //         formData.append(key, value as string);
+        //     }
+        // });
 
         const formattedBirthday = `${data.month}-${data.day}-${data.year}`;
         formData.append("birthday", formattedBirthday);
@@ -142,15 +142,15 @@ const ContactForm: React.FC = () => {
         }
     };
 
-    const isValidAppointmentTime = (date: Date | null): boolean => {
-        if (!date) return false;
-        const day = date.getDay();
-        const hours = date.getHours();
-        const isWeekday = day > 0 && day < 6;
-        const isBusinessHours = hours >= 9 && hours < 17;
-        const isFutureDate = date > new Date(Date.now() + 48 * 60 * 60 * 1000);
-        return isWeekday && isBusinessHours && isFutureDate;
-    };
+    // const isValidAppointmentTime = (date: Date | null): boolean => {
+    //     if (!date) return false;
+    //     const day = date.getDay();
+    //     const hours = date.getHours();
+    //     const isWeekday = day > 0 && day < 6;
+    //     const isBusinessHours = hours >= 9 && hours < 17;
+    //     const isFutureDate = date > new Date(Date.now() + 48 * 60 * 60 * 1000);
+    //     return isWeekday && isBusinessHours && isFutureDate;
+    // };
 
     const formatPhoneNumber = (phone: string): string => {
         const digitsOnly = phone.replace(/\D/g, "");

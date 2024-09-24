@@ -287,7 +287,7 @@ const FeedbackPage: React.FC = () => {
                                 </label>
                                 <select
                                     title="feedback type"
-                                    className="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600"
+                                    className="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 text-gray-700 dark:text-gray-300"
                                     value={feedbackType}
                                     onChange={handleFeedbackTypeChange}
                                     required
