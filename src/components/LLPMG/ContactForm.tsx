@@ -475,13 +475,14 @@ const ContactForm: React.FC = () => {
                         <option value="UnitedHealthcare">
                             UnitedHealthcare
                         </option>
-                        <option value="Health Net">Health Net</option>
+                        {/* <option value="Health Net">Health Net</option> */}
                         <option value="Central Health Plan of California">
                             Central Health Plan of California
                         </option>
                         <option value="Aetna">Aetna</option>
                         <option value="Cigna">Cigna</option>
                         <option value="Medicare">Medicare</option>
+                        <option value="Tricare">Tricare</option>
                     </select>
                     {errors.insurance && (
                         <span className="text-red-500 z-10">
