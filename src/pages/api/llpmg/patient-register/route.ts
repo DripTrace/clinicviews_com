@@ -192,25 +192,25 @@ async function compressFile(file: File): Promise<string> {
     });
 }
 
-function formatDateTime(dateString: string): string {
-    const date = new Date(dateString);
-    return date.toLocaleString("en-US", {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-        hour: "numeric",
-        minute: "numeric",
-        hour12: true,
-    });
-}
+// function formatDateTime(dateString: string): string {
+//     const date = new Date(dateString);
+//     return date.toLocaleString("en-US", {
+//         weekday: "long",
+//         year: "numeric",
+//         month: "long",
+//         day: "numeric",
+//         hour: "numeric",
+//         minute: "numeric",
+//         hour12: true,
+//     });
+// }
 
 async function sendEmailWithCalendar(
     transporter: nodemailer.Transporter,
     to: string,
     subject: string,
     content: string,
-    calendarEvent: any,
+    // calendarEvent: any,
     attachments?: nodemailer.SendMailOptions["attachments"]
 ) {
     const mailOptions: nodemailer.SendMailOptions = {
@@ -220,16 +220,16 @@ async function sendEmailWithCalendar(
         html: content,
         attachments: [
             ...(attachments || []),
-            {
-                filename: "event.ics",
-                content: calendarEvent.toString(),
-                contentType: "text/calendar",
-            },
+            // {
+            //     filename: "event.ics",
+            //     content: calendarEvent.toString(),
+            //     contentType: "text/calendar",
+            // },
         ],
         alternatives: [
             {
                 contentType: "text/calendar",
-                content: Buffer.from(calendarEvent.toString()),
+                // content: Buffer.from(calendarEvent.toString()),
                 contentDisposition: "inline",
             },
         ],
@@ -398,29 +398,29 @@ export default async function handler(
             });
         }
 
-        // await sendEmailWithCalendar(
-        //     emailTransporter,
-        //     email as string,
-        //     `Registration Confirmation - ${formattedAppointmentTime}`,
-        //     patientEmailHtml,
-        //     calendarEvent
-        // );
+        await sendEmailWithCalendar(
+            emailTransporter,
+            email as string,
+            `Registration Confirmation - ${firstName} ${lastName}`,
+            patientEmailHtml
+            // calendarEvent
+        );
 
-        // await sendEmailWithCalendar(
-        //     emailTransporter,
-        //     process.env.PROTONMAIL_RECIPIENT!,
-        //     `New Patient Registration Details - ${formattedAppointmentTime}`,
-        //     doctorEmailHtml,
-        //     calendarEvent,
-        //     file
-        //         ? [
-        //               {
-        //                   filename: `${file.originalFilename}.zip`,
-        //                   content: fileContent,
-        //               },
-        //           ]
-        //         : undefined
-        // );
+        await sendEmailWithCalendar(
+            emailTransporter,
+            process.env.PROTONMAIL_RECIPIENT!,
+            `New Patient Registration Details - ${firstName} ${lastName}`,
+            doctorEmailHtml,
+            // calendarEvent,
+            file
+                ? [
+                      {
+                          filename: `${file.originalFilename}.zip`,
+                          content: fileContent,
+                      },
+                  ]
+                : undefined
+        );
 
         if (!/^\+1\d{10}$/.test(phone as string)) {
             throw new Error(`Invalid phone number format: ${phone}`);
