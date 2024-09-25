@@ -4,7 +4,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Script from "next/script";
 
-export const someAMHMetadata: Metadata = {
+export const metadata: Metadata = {
     title: "Access Mental Health",
     description: "Access Mental Health Care Non-Profit Organization",
 };
