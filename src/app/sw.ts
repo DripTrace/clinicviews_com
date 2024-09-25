@@ -47,6 +47,7 @@ self.addEventListener("message", async (event) => {
         const domainLogos = {
             llpmg: "images/llpmg_logo.png",
             fsclinicals: "images/fsclinicals_logo.png",
+            amh: "images/amh_logo.png",
             driptrace: "images/driptrace_logo.png",
         };
 
