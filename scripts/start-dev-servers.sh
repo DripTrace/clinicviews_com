@@ -6,5 +6,6 @@ echo "Starting all development servers..."
 yarn dev:driptrace &
 yarn dev:llpmg &
 yarn dev:fsclinicals &
+yarn dev:accessmentalhealth &
 
 wait

@@ -1,0 +1,15 @@
+// pages/index.tsx
+import AnimatedBackground from "@/components/AnimatedBackground";
+// import TestBackground from "@/components/TestBackground";
+
+const Home: React.FC = () => {
+	return (
+		<div className="relative overflow-hidden">
+			{/* <TestBackground /> */}
+			{/* Other content */}
+			<AnimatedBackground />
+		</div>
+	);
+};
+
+export default Home;

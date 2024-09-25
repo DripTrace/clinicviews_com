@@ -20,6 +20,12 @@ export function getFavicon(domainContext: string): FaviconConfig {
                 apple: `${basePath}/fsc-logo-x192.png`,
                 shortcut: `${basePath}/fsc-logo-x192.png`,
             };
+        case "amh":
+            return {
+                icon: `${basePath}/amh-logo-favicon.ico`,
+                apple: `${basePath}/amh-logo-x192.png`,
+                shortcut: `${basePath}/amh-logo-x192.png`,
+            };
         default:
             return {
                 icon: `${basePath}/driptrace-logo-favicon.ico`,

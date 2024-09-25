@@ -34,6 +34,16 @@ export function middleware(request: NextRequest) {
             domainRedirectPath = "/llpmg/landing";
         }
     } else if (
+        domainPort === "49152" ||
+        domainHostname === "access-mentalhealth.org"
+    ) {
+        domainContext = "amh";
+        // fullUrl = `${protocol}://${domainHostname}`;
+        fullUrl = `${process.env.AMH_URL}`;
+        if (domainPathname === "/") {
+            domainRedirectPath = "/amh/home";
+        }
+    } else if (
         domainPort === "42069" ||
         domainHostname === "medical.driptrace.com"
     ) {

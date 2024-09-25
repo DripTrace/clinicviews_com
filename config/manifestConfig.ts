@@ -26,6 +26,14 @@ export const manifestConfig: Record<string, ManifestConfigItem> = {
         backgroundColor: "#D1E0EB",
         iconPrefix: "fsc-logo",
     },
+    amh: {
+        name: "AccessMentalHealth",
+        shortName: "AMH",
+        description: "Access Mental Health Organization",
+        themeColor: "#055d5c",
+        backgroundColor: "#FFFFFF",
+        iconPrefix: "amh-logo",
+    },
     driptrace: {
         name: "DripTrace Medical",
         shortName: "DripTrace",
