@@ -73,7 +73,7 @@ const AMHHomePage = () => {
                     achievable than ever before.
                 </p>
             </div>
-            <div className="content content--line">
+            {/* <div className="content content--line">
                 <h3 className="meta">Service 3</h3>
                 <h2 className="type" data-expand-5>
                     Join our community
@@ -147,8 +147,8 @@ const AMHHomePage = () => {
                     mental health, arming you with the knowledge and tools
                     needed to thrive.
                 </p>
-            </div>
-            {/* <div className="content content--right">
+            </div> */}
+            <div className="content content--right">
                 <h3 className="meta">Service 3</h3>
                 <h2 className="type" data-expand-3>
                     Connect with
@@ -176,7 +176,7 @@ const AMHHomePage = () => {
                     environment where you can explore your feelings and work
                     towards healing.
                 </p>
-            </div> */}
+            </div>
             <div className="content content--justify lg:relative lg:top-[15rem]">
                 <h3 className="meta">Service 4</h3>
                 <h2 className="type" data-expand-4>
