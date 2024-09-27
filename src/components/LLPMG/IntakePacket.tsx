@@ -287,12 +287,31 @@ export default function IntakePacket() {
     }, [formResults]);
 
     return (
-        <div className="flex items-center justify-center flex-col size-full">
-            <Survey model={model} />
-            <div id="surveyElement"></div>
-            {isLoading && <p>Loading...</p>}
-            {/* {response && <p>{response}</p>} */}
-            {/* <div id="pdf-preview"></div> */}
+        <div className="relative overflow-x-hidden w-full">
+            <div className="fixed top-0 left-0 w-full h-screen z-0">
+                <video
+                    autoPlay
+                    muted
+                    loop
+                    className="object-cover w-full h-full"
+                >
+                    <source
+                        src="https://firebasestorage.googleapis.com/v0/b/photo-gallery-upload.appspot.com/o/20535743-uhd_3840_2160_25fps.mp4?alt=media&token=0b59399b-488b-499a-a47f-fcb617a56189"
+                        type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div className="fixed top-0 left-0 w-full h-full bg-black/50 dark:bg-black/70 z-20"></div>
+            <div className="relative z-20 w-full">
+                <div className="flex items-center justify-center flex-col size-full">
+                    <Survey model={model} />
+                    <div id="surveyElement"></div>
+                    {isLoading && <p>Loading...</p>}
+                    {/* {response && <p>{response}</p>} */}
+                    {/* <div id="pdf-preview"></div> */}
+                </div>
+            </div>
         </div>
     );
 }

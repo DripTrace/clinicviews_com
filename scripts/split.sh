@@ -8,7 +8,7 @@ AMH="access-mentalhealth.org"
 LOCAL_DRIPTRACE="localhost:2999"
 LOCAL_LLPMG="localhost:4"
 LOCAL_FSCLINICALS="localhost:65535"
-LOCAL_AMH="localhost:49152"
+LOCAL_AMH="localhost:42690"
 
 if [ -z "$NODE_ENV" ]; then
     echo "NODE_ENV is not set. Defaulting to production mode."

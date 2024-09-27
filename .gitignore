@@ -67,3 +67,6 @@ extension
 src/noise-reduction
 site
 src/plugins.json
+
+public/background/videos/*
+public/background/images/calm.mp4

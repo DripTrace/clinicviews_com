@@ -91,8 +91,8 @@ const Header: React.FC = () => {
 
     return (
         <header
-            className={`sticky top-0 bg-blue-900/90 dark:bg-gray-900/90 text-white z-50 shadow-md transition-all duration-300 ${
-                isLoaded ? "translate-y-0" : "-translate-y-full w-full"
+            className={`sticky top-0 bg-blue-900/20 dark:bg-gray-900/20 text-white z-50 shadow-md transition-all duration-300  w-full max-h-[5rem] ${
+                isLoaded ? "translate-y-0" : "-translate-y-full"
             }`}
         >
             <div className="container mx-auto px-4 py-4 flex justify-between items-center gap-5">

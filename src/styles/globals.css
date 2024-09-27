@@ -171,6 +171,43 @@ header a {
     display: none !important;
 }
 
+/* .sd-root-modern__wrapper {
+    opacity: 70% !important;
+}
+
+.sd-container-modern {
+    opacity: 70% !important;
+}
+
+.sp_1018 {
+    opacity: 70% !important;
+} */
+
+/* sd-root-modern sd-progress--pages sd-root--compact sd-root-modern--full-container */
+
+.sd-root-modern
+    /* .sd-progress--pages
+    .sd-root--compact
+    .sd-root-modern--full-container  */ {
+    opacity: 85% !important;
+}
+
+/* sv-components-column sv-components-column--expandable */
+
+/* sv-list__container */
+
+.sv-components-column .sv-components-column--expandable {
+    opacity: 70% !important;
+}
+
+.sv-components-column--expandable {
+    opacity: 70% !important;
+}
+
+.sv-components-row {
+    opacity: 70% !important;
+}
+
 .custom-cursor {
     width: 20px;
     height: 20px;

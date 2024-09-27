@@ -674,7 +674,7 @@ const ClientLayoutContent: React.FC<ClientLayoutContentProps> = ({
     return (
         <div
             ref={contentRef}
-            className={`flex flex-col min-h-screen ${
+            className={`flex flex-col min-h-screen w-full ${
                 isLoaded ? "opacity-100" : "opacity-0"
             } transition-opacity duration-300 ${
                 theme === "dark" ? "dark" : ""

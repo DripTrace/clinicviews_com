@@ -72,80 +72,99 @@ const Locations: React.FC = () => {
     }, []);
 
     return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="container mx-auto px-4 py-8 size-full text-[0.5rem] sm:text-[1.5rem] z-10"
-        >
-            <h2 className="text-3xl font-bold dark:text-blue-100 text-blue-800 mb-4 z-10">
-                Our Locations
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 w-full z-10">
-                {locations.map((location, index) => (
-                    <div
-                        key={index}
-                        className="bg-white/70 dark:bg-gray-700/70 p-6 rounded-lg shadow-md size-full z-10"
-                    >
-                        <h3 className="text-xl font-semibold mb-2 dark:text-blue-100 text-blue-700 z-10">
-                            {location.city}
-                        </h3>
-                        <div className="mb-4 w-full h-[200px] relative z-10">
-                            {!loadedMaps[index] && <MapSkeleton />}
-                            <iframe
-                                src={location.mapUrl}
-                                width="100%"
-                                height="100%"
-                                style={{
-                                    border: 0,
-                                    position: "absolute",
-                                    top: 0,
-                                    left: 0,
-                                }}
-                                allowFullScreen={false}
-                                loading="lazy"
-                                referrerPolicy="no-referrer-when-downgrade"
-                                title={`Map of ${location.city} location`}
-                                className={`rounded-md size-full ${loadedMaps[index] ? "opacity-100" : "opacity-0"}`}
-                                onLoad={() => handleMapLoad(index)}
-                            ></iframe>
-                        </div>
-                        <a
-                            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                                location.address
-                            )}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="sm:text-[1rem] text-[0.9rem] flex items-center mb-2 dark:text-blue-100 text-blue-600 dark:hover:text-blue-300 hover:text-blue-800 transition-colors duration-300 z-10"
-                        >
-                            <FaMapMarkerAlt className="mr-2 z-10" />
-                            <span className="underline z-10">
-                                {location.address}
-                            </span>
-                        </a>
-                        <a
-                            href={`tel:${location.phone}`}
-                            className=" sm:text-[1rem] text-[0.9rem] flex items-center mb-2 dark:text-blue-100 text-blue-600 dark:hover:text-blue-300 hover:text-blue-800 transition-colors duration-300 z-10"
-                        >
-                            <FaPhone className="mr-2 z-10" />
-                            <span className="underline z-10">
-                                {location.phone}
-                            </span>
-                        </a>
-                        <a
-                            href={`mailto:${location.email}`}
-                            className=" sm:text-[1rem] text-[0.9rem] flex items-center dark:text-blue-100 text-blue-600 dark:hover:text-blue-300 hover:text-blue-800 transition-colors duration-300 z-10"
-                        >
-                            <FaEnvelope className="mr-2 z-10" />
-                            <span className="underline z-10">
-                                {location.email}
-                            </span>
-                        </a>
-                    </div>
-                ))}
+        <div className="relative overflow-x-hidden w-full">
+            <div className="fixed top-0 left-0 w-full h-screen z-0">
+                <video
+                    autoPlay
+                    muted
+                    loop
+                    className="object-cover w-full h-full"
+                >
+                    <source
+                        src="https://firebasestorage.googleapis.com/v0/b/photo-gallery-upload.appspot.com/o/9010899-uhd_3840_2160_30fps.mp4?alt=media&token=a87c4f52-1841-4d89-89ed-f27d74228d52"
+                        type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                </video>
             </div>
-        </motion.div>
+            <div className="fixed top-0 left-0 w-full h-full bg-black/50 dark:bg-black/70 z-20"></div>
+            <div className="relative z-20 w-full">
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="container mx-auto px-4 py-8 size-full text-[0.5rem] sm:text-[1.5rem] z-10"
+                >
+                    <h2 className="text-3xl font-bold dark:text-blue-100 text-blue-800 mb-4 z-10">
+                        Our Locations
+                    </h2>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 w-full z-10">
+                        {locations.map((location, index) => (
+                            <div
+                                key={index}
+                                className="bg-white/70 dark:bg-gray-700/70 p-6 rounded-lg shadow-md size-full z-10"
+                            >
+                                <h3 className="text-xl font-semibold mb-2 dark:text-blue-100 text-blue-700 z-10">
+                                    {location.city}
+                                </h3>
+                                <div className="mb-4 w-full h-[200px] relative z-10">
+                                    {!loadedMaps[index] && <MapSkeleton />}
+                                    <iframe
+                                        src={location.mapUrl}
+                                        width="100%"
+                                        height="100%"
+                                        style={{
+                                            border: 0,
+                                            position: "absolute",
+                                            top: 0,
+                                            left: 0,
+                                        }}
+                                        allowFullScreen={false}
+                                        loading="lazy"
+                                        referrerPolicy="no-referrer-when-downgrade"
+                                        title={`Map of ${location.city} location`}
+                                        className={`rounded-md size-full ${loadedMaps[index] ? "opacity-100" : "opacity-0"}`}
+                                        onLoad={() => handleMapLoad(index)}
+                                    ></iframe>
+                                </div>
+                                <a
+                                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                                        location.address
+                                    )}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="sm:text-[1rem] text-[0.9rem] flex items-center mb-2 dark:text-blue-100 text-blue-600 dark:hover:text-blue-300 hover:text-blue-800 transition-colors duration-300 z-10"
+                                >
+                                    <FaMapMarkerAlt className="mr-2 z-10" />
+                                    <span className="underline z-10">
+                                        {location.address}
+                                    </span>
+                                </a>
+                                <a
+                                    href={`tel:${location.phone}`}
+                                    className=" sm:text-[1rem] text-[0.9rem] flex items-center mb-2 dark:text-blue-100 text-blue-600 dark:hover:text-blue-300 hover:text-blue-800 transition-colors duration-300 z-10"
+                                >
+                                    <FaPhone className="mr-2 z-10" />
+                                    <span className="underline z-10">
+                                        {location.phone}
+                                    </span>
+                                </a>
+                                <a
+                                    href={`mailto:${location.email}`}
+                                    className=" sm:text-[1rem] text-[0.9rem] flex items-center dark:text-blue-100 text-blue-600 dark:hover:text-blue-300 hover:text-blue-800 transition-colors duration-300 z-10"
+                                >
+                                    <FaEnvelope className="mr-2 z-10" />
+                                    <span className="underline z-10">
+                                        {location.email}
+                                    </span>
+                                </a>
+                            </div>
+                        ))}
+                    </div>
+                </motion.div>
+            </div>
+        </div>
     );
 };
 

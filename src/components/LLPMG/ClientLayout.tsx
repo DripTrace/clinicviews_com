@@ -71,11 +71,30 @@ const ClientLayout: React.FC<ClientLayoutProps> = ({ children }) => {
     return (
         <Provider store={store}>
             <ClientLayoutContent>
+                {/* <div className="relative size-full overflow-x-hidden">
+                    <div className="fixed top-0 left-0 w-full h-full z-0">
+                        <video
+                            autoPlay
+                            muted
+                            loop
+                            className="object-cover w-full h-full"
+                        >
+                            <source
+                                src="/background/images/calm.mp4"
+                                type="video/mp4"
+                            />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div className="fixed top-0 left-0 w-full h-full bg-black/50 dark:bg-black/70 z-10"></div> */}
+                {/* <div className="relative z-20 w-full"> */}
                 <Header />
-                <main className="bg-blue-100 dark:bg-gray-900 flex-grow">
+                <main className="bg-blue-100/70 dark:bg-gray-900/70 flex-grow w-full">
                     {children}
                 </main>
                 <Footer />
+                {/* </div>
+                </div> */}
             </ClientLayoutContent>
         </Provider>
     );

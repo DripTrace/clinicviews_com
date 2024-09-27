@@ -8,7 +8,7 @@ AMH_PROD="site.access-mentalhealth.org"
 DRIPTRACE_DEV_PORT="65535"
 LLPMG_DEV_PORT="2999"
 FSCLINICALS_DEV_PORT="4"
-AMH_PORT="49152"
+AMH_PORT="42690"
 
 # Function to determine the app context and port
 determine_app_context() {

@@ -34,7 +34,7 @@ export function middleware(request: NextRequest) {
             domainRedirectPath = "/llpmg/landing";
         }
     } else if (
-        domainPort === "49152" ||
+        domainPort === "42690" ||
         domainHostname === "access-mentalhealth.org"
     ) {
         domainContext = "amh";

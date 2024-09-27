@@ -86,108 +86,137 @@ const Landing: React.FC = () => {
     return (
         <div
             // className="size-full bg-blue-50 dark:bg-gray-900 transition-colors duration-300 relative z-40">
-            className="size-full transition-colors duration-300 relative z-40"
+            // className="size-full transition-colors duration-300 relative z-40"
+            className="relative min-h-screen overflow-x-hidden w-full"
         >
-            <motion.section
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                // className="relative py-16 bg-white dark:bg-gray-800 transition-colors duration-300"
-                className="relative py-16 bg-white/50 dark:bg-gray-800/50 transition-colors duration-300"
-            >
-                <div className="relative container mx-auto px-4 flex items-center justify-center py-4">
-                    <div className="absolute size-full z-10 rounded-lg py-8 px-[2.1rem]">
-                        <Image
-                            src="/llpmg-hero-image.svg"
-                            alt="llpmg-hero-img"
-                            height={50}
-                            width={150}
-                            className="size-full object-cover z-20 rounded-lg"
-                            priority
-                        />
-                    </div>
-                    <div className="relative z-30 size-full bg-blue-100/70 dark:bg-gray-700/70 rounded-lg p-8 shadow-lg leading-[1.5rem] sm:leading-[4rem] 2xl:leading-[5rem] text-[0.8rem] sm:text-[1rem] 2xl:text-[2rem] flex flex-col items-center justify-center">
-                        {/* Contact Number */}
-                        <a
-                            href="tel:+19098804200"
-                            className="text-4xl font-bold bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-transparent bg-clip-text hover:from-green-400 hover:to-blue-500 hover:via-teal-300 transition duration-300 transform hover:scale-110 animate-pulse focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 flex items-center justify-center mb-4 text-center"
-                        >
-                            (909) 880-4200
-                        </a>
-                        {/* Introductory Heading */}
-                        <h2 className="text-3xl font-black text-blue-900 dark:text-blue-300 mb-4 text-center tracking-normal sm:tracking-wide 2xl:tracking-widest">
-                            Welcome to Loma Linda Psychiatric Medical Group
-                        </h2>
-                        <p className="text-gray-700 dark:text-gray-300 text-center tracking-tight sm:tracking-wider2xl:tracking-wide font-thin">
-                            We are a behavioral health practice committed to
-                            providing excellent mental health care. Our
-                            multidisciplinary team of competent and
-                            compassionate clinicians offers comprehensive
-                            diagnostic and treatment services for all age groups
-                            - children, adolescents, adults, and seniors.
-                        </p>
-                    </div>
-                </div>
-            </motion.section>
-
-            <main className="container mx-auto px-4 py-8 gap-[5rem] space-y-[8rem] size-full z-40">
-                {/* <Testimonials /> */}
-                <section className="py-16 bg-white/70 dark:bg-gray-800/70 relative overflow-hidden transition-colors duration-300 rounded-xl">
-                    <div className="container mx-auto px-4 relative z-10">
-                        <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-300 mb-8 text-center">
-                            What Our Patients Say
-                        </h2>
-                        <Slider {...sliderSettings}>
-                            {testimonials.map((testimonial, index) => (
-                                <div key={index} className="px-4">
-                                    <div className="bg-blue-100/70 dark:bg-gray-700/70 p-8 rounded-lg shadow-lg relative transition-colors duration-300">
-                                        <FaQuoteLeft className="text-4xl text-blue-500 dark:text-blue-400 absolute top-4 left-4 opacity-25" />
-                                        <p className="text-xl mb-4 text-gray-700 dark:text-gray-300 italic">
-                                            {testimonial.quote}
-                                        </p>
-                                        <p className="text-right font-semibold text-blue-900 dark:text-blue-300">
-                                            - {testimonial.author}
-                                        </p>
-                                    </div>
-                                </div>
-                            ))}
-                        </Slider>
-                        <div className="mt-8 text-center z-50 relative top-[2rem]">
-                            <Link
-                                href="/llpmg/feedback"
-                                className="inline-block bg-blue-500/70 hover:bg-blue-600/70 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out z-50"
+            <div className="fixed top-0 left-0 w-full h-full z-0">
+                <video
+                    autoPlay
+                    muted
+                    loop
+                    className="object-cover w-full h-full"
+                >
+                    <source
+                        src="https://firebasestorage.googleapis.com/v0/b/photo-gallery-upload.appspot.com/o/5598970-uhd_3840_2160_24fps.mp4?alt=media&token=32d9c1a3-66e6-4a61-aa21-b8a3a267c170"
+                        type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div className="fixed top-0 left-0 w-full h-full bg-black/50 dark:bg-black/70 z-10"></div>
+            <div className="relative z-20 w-full">
+                <motion.section
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    // className="relative py-16 bg-white dark:bg-gray-800 transition-colors duration-300"
+                    // className="relative bg-white/50 dark:bg-gray-800/50 transition-colors duration-300 h-screen flex items-center justify-center"
+                    className="relative min-h-screen flex items-center justify-center"
+                >
+                    {/* <video
+                    autoPlay
+                    muted
+                    loop
+                    src="/background/images/calm.mp4"
+                    className="absolute h-[100vh] w-[100vw]"
+                ></video> */}
+                    <div className="relative container mx-auto px-4 flex items-center justify-center py-4">
+                        <div className="absolute size-full z-10 rounded-lg py-8 px-[2.1rem]">
+                            <Image
+                                src="/llpmg-hero-image.svg"
+                                alt="llpmg-hero-img"
+                                height={50}
+                                width={150}
+                                className="size-full object-cover z-20 rounded-lg"
+                                priority
+                            />
+                        </div>
+                        <div className="relative z-30 size-full bg-blue-100/70 dark:bg-gray-700/70 rounded-lg p-8 shadow-lg leading-[1.5rem] sm:leading-[4rem] 2xl:leading-[5rem] text-[0.8rem] sm:text-[1rem] 2xl:text-[2rem] flex flex-col items-center justify-center">
+                            {/* Contact Number */}
+                            <a
+                                href="tel:+19098804200"
+                                className="text-4xl font-bold bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-transparent bg-clip-text hover:from-green-400 hover:to-blue-500 hover:via-teal-300 transition duration-300 transform hover:scale-110 animate-pulse focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 flex items-center justify-center mb-4 text-center"
                             >
-                                Share Your Feedback
-                            </Link>
+                                (909) 880-4200
+                            </a>
+                            {/* Introductory Heading */}
+                            <h2 className="text-3xl font-black text-blue-900 dark:text-blue-300 mb-4 text-center tracking-normal sm:tracking-wide 2xl:tracking-widest">
+                                Welcome to Loma Linda Psychiatric Medical Group
+                            </h2>
+                            <p className="text-gray-700 dark:text-gray-300 text-center tracking-tight sm:tracking-wider2xl:tracking-wide font-thin">
+                                We are a behavioral health practice committed to
+                                providing excellent mental health care. Our
+                                multidisciplinary team of competent and
+                                compassionate clinicians offers comprehensive
+                                diagnostic and treatment services for all age
+                                groups - children, adolescents, adults, and
+                                seniors.
+                            </p>
                         </div>
                     </div>
-                    <SVGWave
-                        className="absolute bottom-0 left-0 w-full text-blue-900 dark:text-gray-900/70"
-                        style={{ zIndex: 1 }}
-                    />
-                </section>
+                </motion.section>
 
-                <section className="space-y-4 flex flex-col items-center justify-center z-10 max-w-[20rem] mx-auto">
-                    <Link href="/llpmg/register" className="w-full z-10">
-                        <button
-                            className="w-full bg-blue-500 text-white py-3 px-4 rounded hover:bg-blue-600 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 z-10"
-                            onClick={() => {
-                                setTimeout(() => {
-                                    window.scrollTo(0, 0);
-                                }, 100);
-                            }}
+                <main className="container mx-auto px-4 py-8 gap-[5rem] space-y-[8rem] size-full z-40">
+                    {/* <Testimonials /> */}
+                    <section className="py-16 bg-white/70 dark:bg-gray-800/70 relative overflow-hidden transition-colors duration-300 rounded-xl">
+                        <div className="container mx-auto px-4 relative z-10">
+                            <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-300 mb-8 text-center">
+                                What Our Patients Say
+                            </h2>
+                            <Slider {...sliderSettings}>
+                                {testimonials.map((testimonial, index) => (
+                                    <div key={index} className="px-4">
+                                        <div className="bg-blue-100/70 dark:bg-gray-700/70 p-8 rounded-lg shadow-lg relative transition-colors duration-300">
+                                            <FaQuoteLeft className="text-4xl text-blue-500 dark:text-blue-400 absolute top-4 left-4 opacity-25" />
+                                            <p className="text-xl mb-4 text-gray-700 dark:text-gray-300 italic">
+                                                {testimonial.quote}
+                                            </p>
+                                            <p className="text-right font-semibold text-blue-900 dark:text-blue-300">
+                                                - {testimonial.author}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </Slider>
+                            <div className="mt-8 text-center z-50 relative top-[2rem]">
+                                <Link
+                                    href="/llpmg/feedback"
+                                    className="inline-block bg-blue-500/70 hover:bg-blue-600/70 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out z-50"
+                                >
+                                    Share Your Feedback
+                                </Link>
+                            </div>
+                        </div>
+                        <SVGWave
+                            className="absolute bottom-0 left-0 w-full text-blue-900 dark:text-gray-900/70"
+                            style={{ zIndex: 1 }}
+                        />
+                    </section>
+
+                    <section className="space-y-4 flex flex-col items-center justify-center z-10 max-w-[20rem] mx-auto">
+                        <Link href="/llpmg/register" className="w-full z-10">
+                            <button
+                                className="w-full bg-blue-500 text-white py-3 px-4 rounded hover:bg-blue-600 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 z-10"
+                                onClick={() => {
+                                    setTimeout(() => {
+                                        window.scrollTo(0, 0);
+                                    }, 100);
+                                }}
+                            >
+                                Contact the Clinic
+                            </button>
+                        </Link>
+                        <Link
+                            href="/llpmg/intake-packet"
+                            className="w-full z-10"
                         >
-                            Contact the Clinic
-                        </button>
-                    </Link>
-                    <Link href="/llpmg/intake-packet" className="w-full z-10">
-                        <button className="w-full bg-gray-200 text-gray-800 py-3 px-4 rounded hover:bg-gray-300 transition duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 z-10">
-                            Fill Out New Patient Packet
-                        </button>
-                    </Link>
-                </section>
+                            <button className="w-full bg-gray-200 text-gray-800 py-3 px-4 rounded hover:bg-gray-300 transition duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 z-10">
+                                Fill Out New Patient Packet
+                            </button>
+                        </Link>
+                    </section>
 
-                {/* <section id="contact-us" className="mb-12">
+                    {/* <section id="contact-us" className="mb-12">
 					<h2 className="text-3xl font-bold text-blue-900 mb-4 dark:text-blue-100">
 						Contact Us
 					</h2>
@@ -206,83 +235,83 @@ const Landing: React.FC = () => {
 					</p>
 				</section> */}
 
-                <section className="mb-0 flex items-center justify-center flex-col relative max-h-[10rem] z-40">
-                    <h2 className="text-3xl font-bold text-blue-900 mb-4 dark:text-blue-300 pt-16">
-                        Quick Links
-                    </h2>
-                    <div className="relative grid md:grid-cols-2 lg:grid-cols-3 gap-6 size-full">
-                        <Link
-                            href="/llpmg/why-choose-us"
-                            className="bg-white/70 dark:bg-white/10 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 relative w-full"
-                        >
-                            <div className="absolute z-10 rounded-lg flex items-center justify-center top-0 right-0 h-[7rem]">
-                                <Image
-                                    src="/question.svg"
-                                    alt="llpmg-services-img"
-                                    height={50}
-                                    width={150}
-                                    className="relative object-fill z-20 rounded-lg size-[6rem]"
-                                />
-                            </div>
-                            <h3 className="relative text-xl font-semibold mb-2 z-30 dark:text-blue-100">
-                                Why Choose LLPMG
-                            </h3>
-                            {/* <div className="absolute">helo</div> */}
-                            <p className="relative z-30 text-blue-500">
-                                Learn about our mission, vision, and core
-                                values.
-                            </p>
-                        </Link>
-                        <a
-                            onClick={(e) => handleScrollToServices(e)}
-                            className="bg-white/70 dark:bg-white/10 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 relative w-full"
-                        >
-                            <div className="absolute z-10 rounded-lg flex items-center justify-center top-0 right-0 h-[7rem]">
-                                <Image
-                                    src="/services.svg"
-                                    alt="llpmg-services-img"
-                                    height={50}
-                                    width={150}
-                                    className="relative object-fill z-20 rounded-lg size-[6rem]"
-                                />
-                            </div>
-                            <h3 className="relative text-xl font-semibold mb-2 z-30 dark:text-blue-100">
-                                Our Services
-                            </h3>
-                            {/* <div className="absolute">helo</div> */}
-                            <p className="relative z-30 text-blue-500">
-                                Explore our comprehensive mental health
-                                services.
-                            </p>
-                        </a>
-                        <Link
-                            href="/llpmg/locations"
-                            className="bg-white/70 dark:bg-white/10 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 relative w-full"
-                        >
-                            <div className="absolute z-10 rounded-lg flex items-center justify-center top-0 right-0 h-[7rem]">
-                                <Image
-                                    src="/locations.svg"
-                                    alt="llpmg-services-img"
-                                    height={50}
-                                    width={150}
-                                    className="relative object-fill z-20 rounded-lg size-[6rem]"
-                                />
-                            </div>
-                            <h3 className="relative text-xl font-semibold mb-2 z-30 dark:text-blue-100">
-                                Our Locations
-                            </h3>
-                            {/* <div className="absolute">helo</div> */}
-                            <p className="relative z-30 text-blue-500">
-                                Find a Loma Linda Psychiatric Medical Group near
-                                you.
-                            </p>
-                        </Link>
-                    </div>
-                </section>
-                <ConditionsTreated />
-                <Services id="services" />
+                    <section className="mb-0 flex items-center justify-center flex-col relative max-h-[10rem] z-40">
+                        <h2 className="text-3xl font-bold text-blue-900 mb-4 dark:text-blue-300 pt-16">
+                            Quick Links
+                        </h2>
+                        <div className="relative grid md:grid-cols-2 lg:grid-cols-3 gap-6 size-full">
+                            <Link
+                                href="/llpmg/why-choose-us"
+                                className="bg-white/70 dark:bg-white/10 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 relative w-full"
+                            >
+                                <div className="absolute z-10 rounded-lg flex items-center justify-center top-0 right-0 h-[7rem]">
+                                    <Image
+                                        src="/question.svg"
+                                        alt="llpmg-services-img"
+                                        height={50}
+                                        width={150}
+                                        className="relative object-fill z-20 rounded-lg size-[6rem]"
+                                    />
+                                </div>
+                                <h3 className="relative text-xl font-semibold mb-2 z-30 dark:text-blue-100">
+                                    Why Choose LLPMG
+                                </h3>
+                                {/* <div className="absolute">helo</div> */}
+                                <p className="relative z-30 text-blue-500">
+                                    Learn about our mission, vision, and core
+                                    values.
+                                </p>
+                            </Link>
+                            <a
+                                onClick={(e) => handleScrollToServices(e)}
+                                className="bg-white/70 dark:bg-white/10 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 relative w-full"
+                            >
+                                <div className="absolute z-10 rounded-lg flex items-center justify-center top-0 right-0 h-[7rem]">
+                                    <Image
+                                        src="/services.svg"
+                                        alt="llpmg-services-img"
+                                        height={50}
+                                        width={150}
+                                        className="relative object-fill z-20 rounded-lg size-[6rem]"
+                                    />
+                                </div>
+                                <h3 className="relative text-xl font-semibold mb-2 z-30 dark:text-blue-100">
+                                    Our Services
+                                </h3>
+                                {/* <div className="absolute">helo</div> */}
+                                <p className="relative z-30 text-blue-500">
+                                    Explore our comprehensive mental health
+                                    services.
+                                </p>
+                            </a>
+                            <Link
+                                href="/llpmg/locations"
+                                className="bg-white/70 dark:bg-white/10 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 relative w-full"
+                            >
+                                <div className="absolute z-10 rounded-lg flex items-center justify-center top-0 right-0 h-[7rem]">
+                                    <Image
+                                        src="/locations.svg"
+                                        alt="llpmg-services-img"
+                                        height={50}
+                                        width={150}
+                                        className="relative object-fill z-20 rounded-lg size-[6rem]"
+                                    />
+                                </div>
+                                <h3 className="relative text-xl font-semibold mb-2 z-30 dark:text-blue-100">
+                                    Our Locations
+                                </h3>
+                                {/* <div className="absolute">helo</div> */}
+                                <p className="relative z-30 text-blue-500">
+                                    Find a Loma Linda Psychiatric Medical Group
+                                    near you.
+                                </p>
+                            </Link>
+                        </div>
+                    </section>
+                    <ConditionsTreated />
+                    <Services id="services" />
 
-                {/* <section id="contact-us" className="mb-12">
+                    {/* <section id="contact-us" className="mb-12">
 					<h2 className="text-3xl font-bold text-blue-900 mb-4 dark:text-blue-100">
 						Contact Us
 					</h2>
@@ -300,7 +329,8 @@ const Landing: React.FC = () => {
 						</a>
 					</p>
 				</section> */}
-            </main>
+                </main>
+            </div>
         </div>
     );
 };

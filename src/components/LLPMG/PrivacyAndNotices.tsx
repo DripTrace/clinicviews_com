@@ -140,46 +140,67 @@ const PrivacyAndNoticesPage: React.FC = () => {
         //     transition={{ duration: 0.5 }}
         //     className="container mt-[4rem] mx-auto px-4 py-8 bg-blue-50/70 dark:bg-gray-700/70 rounded-md z-10"
         // >
-        <div className="min-h-screen bg-blue-50 dark:bg-gray-900 py-12 transition-colors duration-300 z-10">
-            <div className="container mx-auto px-4 z-10">
-                <h1
-                    id="Privacy-and-Notices"
-                    className="text-4xl font-bold text-blue-900 dark:text-blue-300 mb-8 text-center z-10"
+        <div className="relative overflow-x-hidden w-full">
+            <div className="fixed top-0 left-0 w-full h-screen z-0">
+                <video
+                    autoPlay
+                    muted
+                    loop
+                    className="object-cover w-full h-full"
                 >
-                    Privacy and Notices
-                </h1>
-
-                {sections.map((section) => (
-                    <motion.div
-                        key={section.id}
-                        className="mb-6 bg-white/70 dark:bg-gray-800/70 rounded-lg shadow-md overflow-hidden transition-colors duration-300 flex items-center justify-center flex-col z-10"
-                        initial={false}
-                        animate={{
-                            height:
-                                activeSection === section.id ? "auto" : "64px",
-                        }}
-                        transition={{ duration: 0.3 }}
-                    >
-                        <button
-                            className="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none z-10"
-                            onClick={() => toggleSection(section.id)}
+                    <source
+                        src="https://firebasestorage.googleapis.com/v0/b/photo-gallery-upload.appspot.com/o/1644693-hd_1920_1080_30fps.mp4?alt=media&token=fd834672-785e-4ca8-9607-40ebb5a8477e"
+                        type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div className="fixed top-0 left-0 w-full h-full bg-black/50 dark:bg-black/70 z-20"></div>
+            <div className="relative z-20 w-full">
+                <div className="py-12 transition-colors duration-300 z-10">
+                    <div className="container mx-auto px-4 z-10">
+                        <h1
+                            id="Privacy-and-Notices"
+                            className="text-4xl font-bold text-blue-900 dark:text-blue-300 mb-8 text-center z-10"
                         >
-                            <h2 className="text-xl font-semibold text-blue-900 dark:text-blue-300 z-10">
-                                {section.title}
-                            </h2>
-                            {activeSection === section.id ? (
-                                <FaChevronUp className="text-blue-500 z-10" />
-                            ) : (
-                                <FaChevronDown className="text-blue-500 z-10" />
-                            )}
-                        </button>
-                        {activeSection === section.id && (
-                            <div className="px-6 py-4 text-gray-700 dark:text-gray-300 z-10">
-                                {section.content}
-                            </div>
-                        )}
-                    </motion.div>
-                ))}
+                            Privacy and Notices
+                        </h1>
+
+                        {sections.map((section) => (
+                            <motion.div
+                                key={section.id}
+                                className="bg-blue-50/70 dark:bg-gray-900/70 mb-6 rounded-lg shadow-md overflow-hidden transition-colors duration-300 flex items-center justify-center flex-col z-10"
+                                initial={false}
+                                animate={{
+                                    height:
+                                        activeSection === section.id
+                                            ? "auto"
+                                            : "64px",
+                                }}
+                                transition={{ duration: 0.3 }}
+                            >
+                                <button
+                                    className="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none z-10"
+                                    onClick={() => toggleSection(section.id)}
+                                >
+                                    <h2 className="text-xl font-semibold text-blue-900 dark:text-blue-300 z-10">
+                                        {section.title}
+                                    </h2>
+                                    {activeSection === section.id ? (
+                                        <FaChevronUp className="text-blue-500 z-10" />
+                                    ) : (
+                                        <FaChevronDown className="text-blue-500 z-10" />
+                                    )}
+                                </button>
+                                {activeSection === section.id && (
+                                    <div className="px-6 py-4 text-gray-700 dark:text-gray-300 z-10">
+                                        {section.content}
+                                    </div>
+                                )}
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
             </div>
         </div>
         // {/* </motion.div> */}

@@ -60,7 +60,7 @@ const insurances = [
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-blue-50/90 dark:bg-gray-900/90 py-5 z-0 w-full">
+        <footer className="bg-blue-50/20 dark:bg-gray-900/20 py-5 z-0 w-full z-30">
             <div className="container mx-auto px-4 z-0">
                 <h2 className="text-2xl font-bold text-center mb-6 text-gray-700 dark:text-blue-100">
                     Insurance Accepted
