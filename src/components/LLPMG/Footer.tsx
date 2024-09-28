@@ -62,7 +62,7 @@ const Footer: React.FC = () => {
     return (
         <footer className="bg-blue-50/20 dark:bg-gray-900/20 py-5 z-0 w-full z-30">
             <div className="container mx-auto px-4 z-0">
-                <h2 className="text-2xl font-bold text-center mb-6 text-gray-700 dark:text-blue-100">
+                <h2 className="text-2xl font-bold text-center mb-6 text-gray-300 dark:text-blue-100">
                     Insurance Accepted
                 </h2>
                 {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4 align-items-center justify-items-center"> */}
@@ -74,7 +74,7 @@ const Footer: React.FC = () => {
                             href={insurance.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center justify-center p-2 bg-white dark:bg-blue-100 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                            className="flex items-center justify-center p-2 bg-white/70 dark:bg-blue-100/70 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
                         >
                             <Image
                                 src={insurance.logo}
