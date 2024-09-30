@@ -179,7 +179,7 @@ const NeuralNoise: React.FC = () => {
                             priority
                         />
                     </div>
-                    <div className="relative z-30 size-full bg-blue-100/70 dark:bg-gray-700/70 rounded-lg p-8 shadow-lg leading-[1.5rem] sm:leading-[4rem] 2xl:leading-[5rem] text-[0.8rem] sm:text-[1rem] 2xl:text-[2rem] flex flex-col items-center justify-center">
+                    <div className="relative z-30 size-full bg-blue-100/50 dark:bg-gray-700/50 rounded-lg p-8 shadow-lg leading-[1.5rem] sm:leading-[4rem] 2xl:leading-[5rem] text-[0.8rem] sm:text-[1rem] 2xl:text-[2rem] flex flex-col items-center justify-center">
                         {/* Contact Number */}
                         <a
                             href="tel:+19098804200"

@@ -74,7 +74,7 @@ const Footer: React.FC = () => {
                             href={insurance.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center justify-center p-2 bg-white/70 dark:bg-blue-100/70 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                            className="flex items-center justify-center p-2 bg-white/70 dark:bg-blue-100/50 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
                         >
                             <Image
                                 src={insurance.logo}

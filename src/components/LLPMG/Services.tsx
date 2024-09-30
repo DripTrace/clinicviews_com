@@ -48,7 +48,7 @@ const Services: React.FC<ServicesProps> = ({ id }: ServicesProps) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="container mt-[4rem] mx-auto px-4 py-8 bg-blue-50/70 dark:bg-gray-700/70 rounded-md flex items-center justify-center flex-col"
+            className="container mt-[4rem] mx-auto px-4 py-8 bg-blue-50/70 dark:bg-gray-700/50 rounded-md flex items-center justify-center flex-col"
         >
             <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-100 mb-4">
                 Our Services

@@ -26,7 +26,7 @@ const WhyChooseUs: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="container mt-[4rem] mx-auto px-4 py-8 bg-blue-50/70 dark:bg-gray-700/70 rounded-md z-10"
+                    className="container mt-[4rem] mx-auto px-4 py-8 bg-blue-50/70 dark:bg-gray-700/50 rounded-md z-10"
                 >
                     <h2 className="text-3xl font-bold dark:text-blue-100 text-blue-900 mb-4 z-10">
                         Why Choose LLPMG?

@@ -7,13 +7,16 @@ import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 import { toggleMenu, setTheme } from "@/store/slices/uiSlice";
 import LLPMGLogo from "./LLPMGLogo";
 import { useRouter } from "next/navigation";
+import { Instagram, Youtube } from "lucide-react";
 
 const Header: React.FC = () => {
     const dispatch = useAppDispatch();
     const { isMenuOpen, theme } = useAppSelector((state) => state.ui);
     const [isLoaded, setIsLoaded] = useState(false);
     const [isContactDropdownOpen, setIsContactDropdownOpen] = useState(false);
+    const [isBlogDropdownOpen, setIsBlogDropdownOpen] = useState(false);
     const contactDropdownRef = useRef<HTMLDivElement>(null);
+    const blogDropdownRef = useRef<HTMLDivElement>(null);
     const [isMobile, setIsMobile] = useState(false);
     const router = useRouter();
 
@@ -23,6 +26,7 @@ const Header: React.FC = () => {
         { name: "Locations", path: "/llpmg/locations" },
         { name: "Providers & Staff", path: "/llpmg/providers-and-staff" },
         { name: "Privacy & Notices", path: "/llpmg/privacy-and-notices" },
+        // { name: "BLOG", path: "/llpmg/privacy-and-notices" },
     ];
 
     useEffect(() => {
@@ -37,6 +41,15 @@ const Header: React.FC = () => {
             }
         };
 
+        const handleClickOutsideBlog = (event: MouseEvent) => {
+            if (
+                blogDropdownRef.current &&
+                !blogDropdownRef.current.contains(event.target as Node)
+            ) {
+                setIsBlogDropdownOpen(false);
+            }
+        };
+
         const checkMobile = () => {
             setIsMobile(window.innerWidth < 768);
         };
@@ -45,8 +58,10 @@ const Header: React.FC = () => {
         window.addEventListener("resize", checkMobile);
 
         document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener("mousedown", handleClickOutsideBlog);
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("mousedown", handleClickOutsideBlog);
             window.removeEventListener("resize", checkMobile);
         };
     }, []);
@@ -63,9 +78,19 @@ const Header: React.FC = () => {
         setIsContactDropdownOpen(!isContactDropdownOpen);
     };
 
+    const handleBlogClick = () => {
+        setIsBlogDropdownOpen(!isBlogDropdownOpen);
+    };
+
     const handleMouseEnter = () => {
         if (!isMobile) {
             setIsContactDropdownOpen(true);
+        }
+    };
+
+    const handleMouseEnterBlog = () => {
+        if (!isMobile) {
+            setIsBlogDropdownOpen(true);
         }
     };
 
@@ -75,8 +100,21 @@ const Header: React.FC = () => {
         }
     };
 
+    const handleMouseLeaveBlog = () => {
+        if (!isMobile) {
+            setIsBlogDropdownOpen(false);
+        }
+    };
+
     const handleLinkClick = () => {
         setIsContactDropdownOpen(false);
+        if (isMobile) {
+            dispatch(toggleMenu());
+        }
+    };
+
+    const handleLinkClickBlog = () => {
+        setIsBlogDropdownOpen(false);
         if (isMobile) {
             dispatch(toggleMenu());
         }
@@ -88,6 +126,13 @@ const Header: React.FC = () => {
         dispatch(toggleMenu());
         setIsContactDropdownOpen(false);
     };
+
+    // const handleMobileLinkClickBlog = (path: string) => {
+    //     console.log("clicked");
+    //     router.push(path);
+    //     dispatch(toggleMenu());
+    //     setIsBlogDropdownOpen(false);
+    // };
 
     return (
         <header
@@ -153,6 +198,44 @@ const Header: React.FC = () => {
                             </div>
                         )}
                     </div>
+
+                    <div
+                        className="relative group"
+                        ref={blogDropdownRef}
+                        onMouseEnter={handleMouseEnterBlog}
+                        onMouseLeave={handleMouseLeaveBlog}
+                    >
+                        <button
+                            onClick={handleBlogClick}
+                            className="text-gray-300 hover:text-white transition-colors duration-300 text-[0.3rem] sm:text-[0.4rem] md:text-[0.6rem] pb-2"
+                        >
+                            BLOG
+                        </button>
+                        {isBlogDropdownOpen && (
+                            <div className="absolute right-0 top-full mt-[-8px] py-2 w-52 bg-white dark:bg-gray-800 rounded-md shadow-xl z-20 flex flex-col items-center justify-center">
+                                <span className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center justify-center text-left w-full">
+                                    <Youtube />{" "}
+                                    <Link
+                                        href="https://www.youtube.com/@AdvanCEdpractice-io/videos"
+                                        className="size-full text-nowrap"
+                                        onClick={handleLinkClickBlog}
+                                    >
+                                        @AdvanCEdpractice-io
+                                    </Link>
+                                </span>
+                                <span className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center justify-center text-left w-full">
+                                    <Instagram />{" "}
+                                    <Link
+                                        href="https://www.instagram.com/advancedpractice/"
+                                        className="size-full text-nowrap"
+                                        onClick={handleLinkClickBlog}
+                                    >
+                                        @advancedpractice
+                                    </Link>
+                                </span>
+                            </div>
+                        )}
+                    </div>
                     <button
                         onClick={handleToggleTheme}
                         className="ml-4 text-gray-300 hover:text-white"
@@ -175,13 +258,22 @@ const Header: React.FC = () => {
             {isMenuOpen && (
                 <div className="md:hidden">
                     {navItems.map((item) => (
-                        <button
+                        <>
+                            <button
+                                key={item.name}
+                                className="block w-full py-2 px-4 text-gray-300 hover:bg-blue-800 dark:hover:bg-gray-800 hover:text-white transition-colors duration-300 text-center"
+                                onClick={() => handleMobileLinkClick(item.path)}
+                            >
+                                {item.name}
+                            </button>
+                            {/* <button
                             key={item.name}
                             className="block w-full py-2 px-4 text-gray-300 hover:bg-blue-800 dark:hover:bg-gray-800 hover:text-white transition-colors duration-300 text-center"
                             onClick={() => handleMobileLinkClick(item.path)}
                         >
                             {item.name}
-                        </button>
+                        </button> */}
+                        </>
                     ))}
                     <div className="relative">
                         <button

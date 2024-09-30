@@ -131,7 +131,7 @@ const Landing: React.FC = () => {
                                 priority
                             />
                         </div>
-                        <div className="relative z-30 size-full bg-blue-100/70 dark:bg-gray-700/70 rounded-lg p-8 shadow-lg leading-[1.5rem] sm:leading-[4rem] 2xl:leading-[5rem] text-[0.8rem] sm:text-[1rem] 2xl:text-[2rem] flex flex-col items-center justify-center">
+                        <div className="relative z-30 size-full bg-blue-100/30 dark:bg-gray-700/30 rounded-lg p-8 shadow-lg leading-[1.5rem] sm:leading-[4rem] 2xl:leading-[5rem] text-[0.8rem] sm:text-[1rem] 2xl:text-[2rem] flex flex-col items-center justify-center">
                             {/* Contact Number */}
                             <a
                                 href="tel:+19098804200"
@@ -157,42 +157,6 @@ const Landing: React.FC = () => {
                 </motion.section>
 
                 <main className="container mx-auto px-4 py-8 gap-[5rem] space-y-[8rem] size-full z-40">
-                    {/* <Testimonials /> */}
-                    <section className="py-16 bg-white/70 dark:bg-gray-800/70 relative overflow-hidden transition-colors duration-300 rounded-xl">
-                        <div className="container mx-auto px-4 relative z-10">
-                            <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-300 mb-8 text-center">
-                                What Our Patients Say
-                            </h2>
-                            <Slider {...sliderSettings}>
-                                {testimonials.map((testimonial, index) => (
-                                    <div key={index} className="px-4">
-                                        <div className="bg-blue-100/70 dark:bg-gray-700/70 p-8 rounded-lg shadow-lg relative transition-colors duration-300">
-                                            <FaQuoteLeft className="text-4xl text-blue-500 dark:text-blue-400 absolute top-4 left-4 opacity-25" />
-                                            <p className="text-xl mb-4 text-gray-700 dark:text-gray-300 italic">
-                                                {testimonial.quote}
-                                            </p>
-                                            <p className="text-right font-semibold text-blue-900 dark:text-blue-300">
-                                                - {testimonial.author}
-                                            </p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </Slider>
-                            <div className="mt-8 text-center z-50 relative top-[2rem]">
-                                <Link
-                                    href="/llpmg/feedback"
-                                    className="inline-block bg-blue-500/70 hover:bg-blue-600/70 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out z-50"
-                                >
-                                    Share Your Feedback
-                                </Link>
-                            </div>
-                        </div>
-                        <SVGWave
-                            className="absolute bottom-0 left-0 w-full text-blue-900 dark:text-gray-900/70"
-                            style={{ zIndex: 1 }}
-                        />
-                    </section>
-
                     <section className="space-y-4 flex flex-col items-center justify-center z-10 max-w-[20rem] mx-auto">
                         <Link href="/llpmg/register" className="w-full z-10">
                             <button
@@ -310,6 +274,41 @@ const Landing: React.FC = () => {
                     </section>
                     <ConditionsTreated />
                     <Services id="services" />
+                    {/* <Testimonials /> */}
+                    <section className="py-16 bg-white/70 dark:bg-gray-800/70 relative overflow-hidden transition-colors duration-300 rounded-xl">
+                        <div className="container mx-auto px-4 relative z-10">
+                            <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-300 mb-8 text-center">
+                                What Our Patients Say
+                            </h2>
+                            <Slider {...sliderSettings}>
+                                {testimonials.map((testimonial, index) => (
+                                    <div key={index} className="px-4">
+                                        <div className="bg-blue-100/50 dark:bg-gray-700/50 p-8 rounded-lg shadow-lg relative transition-colors duration-300">
+                                            <FaQuoteLeft className="text-4xl text-blue-500 dark:text-blue-400 absolute top-4 left-4 opacity-25" />
+                                            <p className="text-xl mb-4 text-gray-700 dark:text-gray-300 italic">
+                                                {testimonial.quote}
+                                            </p>
+                                            <p className="text-right font-semibold text-blue-900 dark:text-blue-300">
+                                                - {testimonial.author}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </Slider>
+                            <div className="mt-8 text-center z-50 relative top-[2rem]">
+                                <Link
+                                    href="/llpmg/feedback"
+                                    className="inline-block bg-blue-500/70 hover:bg-blue-600/70 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out z-50"
+                                >
+                                    Share Your Feedback
+                                </Link>
+                            </div>
+                        </div>
+                        <SVGWave
+                            className="absolute bottom-0 left-0 w-full text-blue-900 dark:text-gray-900/70"
+                            style={{ zIndex: 1 }}
+                        />
+                    </section>
 
                     {/* <section id="contact-us" className="mb-12">
 					<h2 className="text-3xl font-bold text-blue-900 mb-4 dark:text-blue-100">
@@ -434,7 +433,7 @@ export default Landing;
 //                             priority
 //                         />
 //                     </div>
-//                     <div className="relative z-30 size-full bg-blue-100/70 dark:bg-gray-700/70 rounded-lg p-8 shadow-lg leading-[1.5rem] sm:leading-[4rem] 2xl:leading-[5rem] text-[0.8rem] sm:text-[1rem] 2xl:text-[2rem] flex flex-col items-center justify-center">
+//                     <div className="relative z-30 size-full bg-blue-100/50 dark:bg-gray-700/50 rounded-lg p-8 shadow-lg leading-[1.5rem] sm:leading-[4rem] 2xl:leading-[5rem] text-[0.8rem] sm:text-[1rem] 2xl:text-[2rem] flex flex-col items-center justify-center">
 //                         {/* Contact Number */}
 //                         <a
 //                             href="tel:+19098804200"

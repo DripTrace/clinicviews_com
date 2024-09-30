@@ -138,7 +138,7 @@ const PrivacyAndNoticesPage: React.FC = () => {
         //     animate={{ opacity: 1, y: 0 }}
         //     exit={{ opacity: 0 }}
         //     transition={{ duration: 0.5 }}
-        //     className="container mt-[4rem] mx-auto px-4 py-8 bg-blue-50/70 dark:bg-gray-700/70 rounded-md z-10"
+        //     className="container mt-[4rem] mx-auto px-4 py-8 bg-blue-50/70 dark:bg-gray-700/50 rounded-md z-10"
         // >
         <div className="relative overflow-x-hidden w-full">
             <div className="fixed top-0 left-0 w-full h-screen z-0">

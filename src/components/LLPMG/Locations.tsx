@@ -103,7 +103,7 @@ const Locations: React.FC = () => {
                         {locations.map((location, index) => (
                             <div
                                 key={index}
-                                className="bg-white/70 dark:bg-gray-700/70 p-6 rounded-lg shadow-md size-full z-10"
+                                className="bg-white/70 dark:bg-gray-700/50 p-6 rounded-lg shadow-md size-full z-10"
                             >
                                 <h3 className="text-xl font-semibold mb-2 dark:text-blue-100 text-blue-700 z-10">
                                     {location.city}
