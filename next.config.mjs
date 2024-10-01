@@ -513,7 +513,7 @@ const nextConfig = {
     images: {
         unoptimized: true,
     },
-    transpilePackages: ["framer-motion"],
+    transpilePackages: ["framer-motion", "webfontloader"],
     webpack: (config, { isServer }) => {
         config.module.rules.push({
             test: /\.(mp3|ogg|wav|flac|mpe?g)$/,

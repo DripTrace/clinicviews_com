@@ -34,6 +34,14 @@ export const manifestConfig: Record<string, ManifestConfigItem> = {
         backgroundColor: "#FFFFFF",
         iconPrefix: "amh-logo",
     },
+    ap: {
+        name: "AdvancedPractice",
+        shortName: "AP",
+        description: "Advanced Practice Psych Education",
+        themeColor: "#055d5c",
+        backgroundColor: "#FFFFFF",
+        iconPrefix: "ap-logo",
+    },
     driptrace: {
         name: "DripTrace Medical",
         shortName: "DripTrace",

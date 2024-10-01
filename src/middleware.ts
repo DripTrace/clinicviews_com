@@ -44,6 +44,16 @@ export function middleware(request: NextRequest) {
             domainRedirectPath = "/amh/home";
         }
     } else if (
+        domainPort === "42689" ||
+        domainHostname === "advancedpractice.io"
+    ) {
+        domainContext = "app";
+        // fullUrl = `${protocol}://${domainHostname}`;
+        fullUrl = `${process.env.AP_URL}`;
+        if (domainPathname === "/") {
+            domainRedirectPath = "/adv-prac-psy";
+        }
+    } else if (
         domainPort === "42069" ||
         domainHostname === "medical.driptrace.com"
     ) {

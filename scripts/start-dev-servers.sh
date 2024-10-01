@@ -7,5 +7,6 @@ yarn dev:driptrace &
 yarn dev:llpmg &
 yarn dev:fsclinicals &
 yarn dev:accessmentalhealth &
+yarn dev:advancedpractice &
 
 wait

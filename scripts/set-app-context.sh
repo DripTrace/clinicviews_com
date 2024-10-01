@@ -5,10 +5,12 @@ DRIPTRACE_PROD="medical.driptrace.com"
 LLPMG_PROD="site.lomalindapsych.com"
 FSCLINICALS_PROD="site.fsclinicals.com"
 AMH_PROD="site.access-mentalhealth.org"
+AP_PROD="site.advancedpractice.io"
 DRIPTRACE_DEV_PORT="65535"
 LLPMG_DEV_PORT="2999"
 FSCLINICALS_DEV_PORT="4"
 AMH_PORT="42690"
+AP_PORT="42689"
 
 # Function to determine the app context and port
 determine_app_context() {
@@ -28,6 +30,9 @@ determine_app_context() {
         "$AMH_PROD")
             echo "amh_production 80"
         ;;
+        "$AMH_PROD")
+            echo "ap_production 80"
+        ;;
         "localhost"|"127.0.0.1")
             case "$port" in
                 "$DRIPTRACE_DEV_PORT")
@@ -41,6 +46,9 @@ determine_app_context() {
                 ;;
                 "$AMH_DEV_PORT")
                     echo "amh_development $AMH_DEV_PORT"
+                ;;
+                "$AP_DEV_PORT")
+                    echo "ap_development $AP_DEV_PORT"
                 ;;
                 *)
                     echo "unknown_development 3000"

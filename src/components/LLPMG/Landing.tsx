@@ -127,7 +127,7 @@ const Landing: React.FC = () => {
                                 alt="llpmg-hero-img"
                                 height={50}
                                 width={150}
-                                className="size-full object-cover z-20 rounded-lg"
+                                className="size-full object-cover z-20 rounded-lg opacity-50"
                                 priority
                             />
                         </div>

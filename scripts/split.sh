@@ -4,11 +4,13 @@ DRIPTRACE_MEDICAL="medical.driptrace.com"
 LLPMG="lomalindapsych.com"
 FSCLINICALS="fsclinicals.com"
 AMH="access-mentalhealth.org"
+AP="advancedpractice.io"
 
 LOCAL_DRIPTRACE="localhost:2999"
 LOCAL_LLPMG="localhost:4"
 LOCAL_FSCLINICALS="localhost:65535"
 LOCAL_AMH="localhost:42690"
+LOCAL_AP="localhost:42689
 
 if [ -z "$NODE_ENV" ]; then
     echo "NODE_ENV is not set. Defaulting to production mode."
@@ -21,6 +23,7 @@ set_dev_domain() {
         "llpmg") echo "$LOCAL_LLPMG" ;;
         "fsclinicals") echo "$LOCAL_FSCLINICALS" ;;
         "amh") echo "$LOCAL_AMH" ;;
+        "ap") echo "$LOCAL_AP" ;;
         *) echo "$LOCAL_DRIPTRACE" ;; 
     esac
 }
@@ -44,3 +47,4 @@ echo "LOCAL_DRIPTRACE: $LOCAL_DRIPTRACE"
 echo "LOCAL_LLPMG: $LOCAL_LLPMG"
 echo "LOCAL_FSCLINICALS: $LOCAL_FSCLINICALS"
 echo "LOCAL_AMH: $LOCAL_AMH"
+echo "LOCAL_AMH: $LOCAL_AP"
