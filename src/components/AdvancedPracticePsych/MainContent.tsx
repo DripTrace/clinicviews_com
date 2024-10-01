@@ -328,7 +328,7 @@
 //             {/* Header */}
 //             <header className="frame frame--header">
 //                 <h1 className="frame__title">
-//                     Advanced Practice Psych
+//                     Advanced Practice
 //                     {/* <AdvancedPracticePsychLogo
 //                         id="advanced-practice-psych-logo"
 //                         className="bg-white-100 absolute top-[1rem] right-[1rem] h-[9rem] w-[9rem] z-50"
@@ -516,7 +516,7 @@
 //             {/* Content Sections */}
 //             <div className="content">
 //                 <p>
-//                     At Advanced Practice Psych,
+//                     At Advanced Practice,
 //                     <br />
 //                     We are committed to advancing the knowledge
 //                     <br />
@@ -706,7 +706,7 @@
 //                 </h3>
 
 //                 <p>
-//                     Our mission at Advanced Practice Psych
+//                     Our mission at Advanced Practice
 //                     <br />
 //                     is to guide you through every step of your professional
 //                     journey.
@@ -859,7 +859,7 @@ const MainContent: React.FC = () => {
     return (
         <main ref={mainRef} className="main-container">
             <header className="frame frame--header">
-                <h1 className="frame__title">Advanced Practice Psych</h1>
+                <h1 className="frame__title">Advanced Practice</h1>
                 <a className="frame__back" href="/about-us">
                     About Us
                 </a>
@@ -873,7 +873,7 @@ const MainContent: React.FC = () => {
 
             <div className="content">
                 <p>
-                    At Advanced Practice Psych,
+                    At Advanced Practice,
                     <br />
                     We are committed to advancing the knowledge
                     <br />
@@ -1062,7 +1062,7 @@ const MainContent: React.FC = () => {
                 </h3>
 
                 <p>
-                    Our mission at Advanced Practice Psych
+                    Our mission at Advanced Practice
                     <br />
                     is to guide you through every step of your professional
                     journey.

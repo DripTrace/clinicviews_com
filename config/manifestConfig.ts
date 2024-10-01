@@ -37,7 +37,7 @@ export const manifestConfig: Record<string, ManifestConfigItem> = {
     ap: {
         name: "AdvancedPractice",
         shortName: "AP",
-        description: "Advanced Practice Psych Education",
+        description: "Advanced Practice Education",
         themeColor: "#055d5c",
         backgroundColor: "#FFFFFF",
         iconPrefix: "ap-logo",

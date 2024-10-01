@@ -2,7 +2,7 @@
 //     return (
 //         <main className="">
 //             <header className="frame frame--header">
-//                 <h1 className="frame__title">Advanced Practice Psych</h1>
+//                 <h1 className="frame__title">Advanced Practice</h1>
 //                 <a
 //                     className="frame__back"
 //                     href="https://advancedpracticepsych.com/about-us"
@@ -153,7 +153,7 @@
 
 //             <div className="content">
 //                 <p>
-//                     At Advanced Practice Psych,
+//                     At Advanced Practice,
 //                     <br />
 //                     We are committed to advancing the knowledge
 //                     <br />
@@ -367,7 +367,7 @@
 //                 </h3>
 
 //                 <p>
-//                     Our mission at Advanced Practice Psych
+//                     Our mission at Advanced Practice
 //                     <br />
 //                     is to guide you through every step of your professional
 //                     journey.

@@ -16,8 +16,8 @@
 // });
 
 // export const metadata: Metadata = {
-//     title: "Advanced Practice Psych",
-//     description: "Advanced Practice Psych Clinical Education",
+//     title: "Advanced Practice",
+//     description: "Advanced Practice Clinical Education",
 // };
 
 // export default function AdvPracPsyPRootLayout({
@@ -42,16 +42,16 @@
 //                     name="viewport"
 //                     content="width=device-width, initial-scale=1"
 //                 />
-//                 <title>Sliced Text Effect | Advanced Practice Psych</title>
+//                 <title>Sliced Text Effect | Advanced Practice</title>
 //                 <meta
 //                     name="description"
-//                     content="A scroll-based sliced text animation for Advanced Practice Psych, focusing on education in psychiatric practice."
+//                     content="A scroll-based sliced text animation for Advanced Practice, focusing on education in psychiatric practice."
 //                 />
 //                 <meta
 //                     name="keywords"
 //                     content="text effect, psychiatry, psychiatric education, animation, typography"
 //                 />
-//                 <meta name="author" content="Advanced Practice Psych" />
+//                 <meta name="author" content="Advanced Practice" />
 //                 <link rel="shortcut icon" href="favicon.ico" />
 //                 <Script strategy="beforeInteractive">
 //                     document.documentElement.className = "js";
@@ -116,7 +116,7 @@ import Script from "next/script";
 
 export const metadata: Metadata = {
     title: "Advaned Practice Psych",
-    description: "Advanced Practice Psych Education",
+    description: "Advanced Practice Education",
 };
 
 export default function AdvPracPsyRootLayout({
@@ -132,16 +132,16 @@ export default function AdvPracPsyRootLayout({
                     name="viewport"
                     content="width=device-width, initial-scale=1"
                 />
-                <title>Sliced Text Effect | Advanced Practice Psych</title>
+                <title>Sliced Text Effect | Advanced Practice</title>
                 <meta
                     name="description"
-                    content="A scroll-based sliced text animation for Advanced Practice Psych, focusing on education in psychiatric practice."
+                    content="A scroll-based sliced text animation for Advanced Practice, focusing on education in psychiatric practice."
                 />
                 <meta
                     name="keywords"
                     content="text effect, psychiatry, psychiatric education, animation, typography"
                 />
-                <meta name="author" content="Advanced Practice Psych" />
+                <meta name="author" content="Advanced Practice" />
                 <link rel="shortcut icon" href="/favicon.ico" />
                 {/* <link
                     rel="stylesheet"
@@ -165,16 +165,16 @@ export default function AdvPracPsyRootLayout({
                 {/* <head> */}
                 {/* <meta charSet="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Sliced Text Effect | Advanced Practice Psych</title>
+		<title>Sliced Text Effect | Advanced Practice</title>
 		<meta
 			name="description"
-			content="A scroll-based sliced text animation for Advanced Practice Psych, focusing on education in psychiatric practice."
+			content="A scroll-based sliced text animation for Advanced Practice, focusing on education in psychiatric practice."
 		/>
 		<meta
 			name="keywords"
 			content="text effect, psychiatry, psychiatric education, animation, typography"
 		/>
-		<meta name="author" content="Advanced Practice Psych" />
+		<meta name="author" content="Advanced Practice" />
 		<link rel="shortcut icon" href="favicon.ico" />
 		<link rel="stylesheet" type="text/css" href="css/base.css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
@@ -185,7 +185,7 @@ export default function AdvPracPsyRootLayout({
 	<body className="loading"> */}
                 {/* <main>
 			<header className="frame frame--header">
-				<h1 className="frame__title">Advanced Practice Psych</h1>
+				<h1 className="frame__title">Advanced Practice</h1>
 				<a
 					className="frame__back"
 					href="https://advancedpracticepsych.com/about-us"
@@ -279,7 +279,7 @@ export default function AdvPracPsyRootLayout({
 
 			<div className="content">
 				<p>
-					At Advanced Practice Psych,<br />
+					At Advanced Practice,<br />
 					We are committed to advancing the knowledge<br />
 					of mental health professionals.<br />
 					You'd enhance your skills through our curated programs<br />
@@ -462,7 +462,7 @@ export default function AdvPracPsyRootLayout({
 				</h3>
 
 				<p>
-					Our mission at Advanced Practice Psych<br />
+					Our mission at Advanced Practice<br />
 					is to guide you through every step of your professional
 					journey.<br />
 					You'd gain clarity and confidence as you evolve as a
