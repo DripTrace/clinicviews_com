@@ -154,6 +154,7 @@
         "pdfkit": "^0.15.0",
         "plotly.js-dist-min": "^2.33.0",
         "prop-types": "^15.8.1",
+        "qrcode.react": "^4.0.1",
         "qs": "^6.13.0",
         "qunitjs": "^2.4.1",
         "raven-js": "^3.27.2",

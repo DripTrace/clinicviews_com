@@ -400,9 +400,9 @@ import MainContent from "@/components/AdvancedPracticePsych/MainContent";
 
 const AdvancedPracticePsychPage = () => {
     return (
-        <div className="min-h-screen bg-black text-white font-sans antialiased">
-            <MainContent />
-        </div>
+        // <div className="min-h-screen bg-black/50 text-white font-sans antialiased">
+        <MainContent />
+        // </div>
     );
 };
 
