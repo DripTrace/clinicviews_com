@@ -742,6 +742,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -1089,12 +1090,14 @@ const MainContent: React.FC = () => {
 
             <footer className="frame frame--footer">
                 <span>
-                    Created by{" "}
-                    <a href="https://x.com/advancedpracticepsych">
-                        @AdvancedPracticePsych
-                    </a>
+                    {/* Created by{" "} */}
+                    <Link href="https://www.instagram.com/advancedpractice/">
+                        @advancedpractice
+                    </Link>
                 </span>
-                <a href="/subscribe">Subscribe</a>
+                <Link href="https://www.youtube.com/@AdvanCEdpractice-io/videos">
+                    Subscribe
+                </Link>
             </footer>
         </main>
     );
