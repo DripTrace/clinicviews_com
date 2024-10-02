@@ -26,7 +26,10 @@ const Header: React.FC = () => {
         { name: "Locations", path: "/llpmg/locations" },
         { name: "Providers & Staff", path: "/llpmg/providers-and-staff" },
         { name: "Privacy & Notices", path: "/llpmg/privacy-and-notices" },
-        // { name: "BLOG", path: "/llpmg/privacy-and-notices" },
+        {
+            name: "BLOG",
+            path: "https://www.youtube.com/@AdvanCEdpractice-io/videos",
+        },
     ];
 
     useEffect(() => {
@@ -199,7 +202,7 @@ const Header: React.FC = () => {
                         )}
                     </div>
 
-                    <div
+                    {/* <div
                         className="relative group"
                         ref={blogDropdownRef}
                         onMouseEnter={handleMouseEnterBlog}
@@ -235,7 +238,7 @@ const Header: React.FC = () => {
                                 </span>
                             </div>
                         )}
-                    </div>
+                    </div> */}
                     <button
                         onClick={handleToggleTheme}
                         className="ml-4 text-gray-300 hover:text-white"

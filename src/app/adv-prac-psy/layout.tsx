@@ -115,8 +115,8 @@ import Script from "next/script";
 // });
 
 export const metadata: Metadata = {
-    title: "Advaned Practice Psych",
-    description: "Advanced Practice Education",
+    title: "Advaned Practice",
+    description: "Advanced Practice Psych Education",
 };
 
 export default function AdvPracPsyRootLayout({
