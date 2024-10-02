@@ -493,6 +493,15 @@ const nextConfig = {
                     },
                 ],
             },
+            {
+                source: "/:path*",
+                headers: [
+                    {
+                        key: "Content-Security-Policy",
+                        value: "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://ajax.googleapis.com; object-src 'none';",
+                    },
+                ],
+            },
         ];
     },
     swcMinify: true,

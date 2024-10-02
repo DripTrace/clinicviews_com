@@ -286,8 +286,8 @@ a:hover {
 }
 
 /* *,
-*::after,
-*::before {
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -382,11 +382,9 @@ a:focus-visible {
     outline: none;
 }
 
-main {
-    padding: var(--page-padding);
+.main-container {
+    padding: 1rem;
     position: relative;
-    height: 100%;
-    overflow: hidden;
 }
 
 .frame {
@@ -402,7 +400,12 @@ main {
 .frame--header {
     margin-bottom: 10vh;
     grid-template-columns: auto auto;
-    grid-template-areas: "title" "prev" "back" "sub" "sponsor";
+    grid-template-areas:
+        "title"
+        "prev"
+        "back"
+        "sub"
+        "sponsor";
 }
 
 .frame--footer {
@@ -561,7 +564,7 @@ main {
 }
 
 .shadow-1 {
-    text-shadow: 0 0 10px rgba(255 255 255 / 80%);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
 .shadow-2 {
@@ -623,16 +626,20 @@ main {
         grid-template-columns: auto auto auto auto 1fr;
         grid-template-areas: "title prev back sub sponsor";
     }
+
     .frame #cdawrap {
         justify-self: end;
     }
+
     .deco {
         grid-template-columns: repeat(5, auto);
     }
+
     .deco__item {
         grid-column: 5 / span 1;
         max-width: 20vw;
     }
+
     .deco__item:nth-child(2n) {
         max-width: 18vw;
         grid-column: 1 / span 5;
