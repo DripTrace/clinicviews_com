@@ -115,7 +115,7 @@ import Script from "next/script";
 // });
 
 export const metadata: Metadata = {
-    title: "Advaned Practice",
+    title: "Advanced Practice",
     description: "Advanced Practice Psych Education",
 };
 
@@ -142,7 +142,10 @@ export default function AdvPracPsyRootLayout({
                     content="text effect, psychiatry, psychiatric education, animation, typography"
                 />
                 <meta name="author" content="Advanced Practice" />
-                <link rel="shortcut icon" href="/favicon.ico" />
+                <link
+                    rel="shortcut icon"
+                    href="/advanced-practice-psych/favicon.ico"
+                />
                 {/* <link
                     rel="stylesheet"
                     type="text/css"
