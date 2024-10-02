@@ -743,6 +743,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
+import InstaPost from "./InstaPost";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -861,13 +862,13 @@ const MainContent: React.FC = () => {
         <main ref={mainRef} className="main-container">
             <header className="frame frame--header">
                 <h1 className="frame__title">Advanced Practice</h1>
-                <a className="frame__back" href="/about-us">
+                <a className="frame__back" href="/">
                     About Us
                 </a>
-                <a className="frame__prev" href="/contact">
+                <a className="frame__prev" href="/">
                     Contact
                 </a>
-                <a className="frame__sub" href="/services">
+                <a className="frame__sub" href="/">
                     Services
                 </a>
             </header>
@@ -1087,6 +1088,8 @@ const MainContent: React.FC = () => {
                     </div>
                 ))}
             </div>
+
+            {/* <InstaPost /> */}
 
             <footer className="frame frame--footer">
                 <span>
