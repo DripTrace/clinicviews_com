@@ -103,7 +103,7 @@ const Landing: React.FC = () => {
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <div className="fixed top-0 left-0 w-full h-full bg-black/50 dark:bg-black/70 z-10"></div>
+            <div className="fixed top-0 left-0 w-full h-full bg-black/30 dark:bg-black/50 z-10"></div>
             <div className="relative z-20 w-full">
                 <motion.section
                     initial={{ opacity: 0, y: 20 }}
@@ -111,7 +111,7 @@ const Landing: React.FC = () => {
                     transition={{ duration: 0.5 }}
                     // className="relative py-16 bg-white dark:bg-gray-800 transition-colors duration-300"
                     // className="relative bg-white/50 dark:bg-gray-800/50 transition-colors duration-300 h-screen flex items-center justify-center"
-                    className="relative min-h-screen flex items-center justify-center"
+                    className="relative min-h-[55rem] flex flex-col items-center justify-center space-y-[5rem]"
                 >
                     {/* <video
                     autoPlay
@@ -143,7 +143,7 @@ const Landing: React.FC = () => {
                             <h2 className="text-3xl font-black text-blue-900 dark:text-blue-300 mb-4 text-center tracking-normal sm:tracking-wide 2xl:tracking-widest">
                                 Welcome to Loma Linda Psychiatric Medical Group
                             </h2>
-                            <p className="text-gray-700 dark:text-gray-300 text-center tracking-tight sm:tracking-wider2xl:tracking-wide font-thin">
+                            <p className="text-gray-700 dark:text-gray-300 text-center tracking-tight sm:tracking-wider2xl:tracking-wide font-medium">
                                 We are a behavioral health practice committed to
                                 providing excellent mental health care. Our
                                 multidisciplinary team of competent and
@@ -154,9 +154,6 @@ const Landing: React.FC = () => {
                             </p>
                         </div>
                     </div>
-                </motion.section>
-
-                <main className="container mx-auto px-4 py-8 gap-[5rem] space-y-[8rem] size-full z-40">
                     <section className="space-y-4 flex flex-col items-center justify-center z-10 max-w-[20rem] mx-auto">
                         <Link href="/llpmg/register" className="w-full z-10">
                             <button
@@ -179,6 +176,32 @@ const Landing: React.FC = () => {
                             </button>
                         </Link>
                     </section>
+                </motion.section>
+
+                <main className="container mx-auto px-4 py-8 gap-[5rem] space-y-[8rem] size-full z-40">
+                    {/* <section className="space-y-4 flex flex-col items-center justify-center z-10 max-w-[20rem] mx-auto">
+                        <Link href="/llpmg/register" className="w-full z-10">
+                            <button
+                                className="w-full bg-blue-500 text-white py-3 px-4 rounded hover:bg-blue-600 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 z-10"
+                                onClick={() => {
+                                    setTimeout(() => {
+                                        window.scrollTo(0, 0);
+                                    }, 100);
+                                }}
+                            >
+                                Contact the Clinic
+                            </button>
+                        </Link>
+                        <Link
+                            href="/llpmg/intake-packet"
+                            className="w-full z-10"
+                        >
+                            <button className="w-full bg-gray-200 text-gray-800 py-3 px-4 rounded hover:bg-gray-300 transition duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 z-10">
+                                Fill Out New Patient Packet
+                            </button>
+                        </Link>
+                    </section> */}
+                    <Services id="services" />
 
                     {/* <section id="contact-us" className="mb-12">
 					<h2 className="text-3xl font-bold text-blue-900 mb-4 dark:text-blue-100">
@@ -199,7 +222,7 @@ const Landing: React.FC = () => {
 					</p>
 				</section> */}
 
-                    <section className="mb-0 flex items-center justify-center flex-col relative max-h-[10rem] z-40">
+                    {/* <section className="mb-0 flex items-center justify-center flex-col relative max-h-[10rem] z-40">
                         <h2 className="text-3xl font-bold text-blue-900 mb-4 dark:text-blue-300 pt-16">
                             Quick Links
                         </h2>
@@ -220,7 +243,6 @@ const Landing: React.FC = () => {
                                 <h3 className="relative text-xl font-semibold mb-2 z-30 dark:text-blue-100">
                                     Why Choose LLPMG
                                 </h3>
-                                {/* <div className="absolute">helo</div> */}
                                 <p className="relative z-30 text-blue-500">
                                     Learn about our mission, vision, and core
                                     values.
@@ -242,7 +264,6 @@ const Landing: React.FC = () => {
                                 <h3 className="relative text-xl font-semibold mb-2 z-30 dark:text-blue-100">
                                     Our Services
                                 </h3>
-                                {/* <div className="absolute">helo</div> */}
                                 <p className="relative z-30 text-blue-500">
                                     Explore our comprehensive mental health
                                     services.
@@ -264,16 +285,14 @@ const Landing: React.FC = () => {
                                 <h3 className="relative text-xl font-semibold mb-2 z-30 dark:text-blue-100">
                                     Our Locations
                                 </h3>
-                                {/* <div className="absolute">helo</div> */}
                                 <p className="relative z-30 text-blue-500">
                                     Find a Loma Linda Psychiatric Medical Group
                                     near you.
                                 </p>
                             </Link>
                         </div>
-                    </section>
+                    </section> */}
                     <ConditionsTreated />
-                    <Services id="services" />
                     {/* <Testimonials /> */}
                     <section className="py-16 bg-white/70 dark:bg-gray-800/70 relative overflow-hidden transition-colors duration-300 rounded-xl">
                         <div className="container mx-auto px-4 relative z-10">

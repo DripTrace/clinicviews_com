@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const WhyChooseUs: React.FC = () => {
     return (
-        <div className="relative overflow-x-hidden w-full">
+        <div className="relative p-[2rem] w-full">
             <div className="fixed top-0 left-0 w-full h-screen z-0">
                 <video
                     autoPlay
@@ -19,7 +19,7 @@ const WhyChooseUs: React.FC = () => {
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <div className="fixed top-0 left-0 w-full h-full bg-black/50 dark:bg-black/70 z-20"></div>
+            <div className="fixed top-0 left-0 w-full h-full bg-black/30 dark:bg-black/50 z-20"></div>
             <div className="relative z-20 w-full">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

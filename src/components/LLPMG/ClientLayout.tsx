@@ -86,7 +86,7 @@ const ClientLayout: React.FC<ClientLayoutProps> = ({ children }) => {
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <div className="fixed top-0 left-0 w-full h-full bg-black/50 dark:bg-black/70 z-10"></div> */}
+                    <div className="fixed top-0 left-0 w-full h-full bg-black/30 dark:bg-black/50 z-10"></div> */}
                 {/* <div className="relative z-20 w-full"> */}
                 <Header />
                 <main className="bg-blue-100/50 dark:bg-gray-900/70 flex-grow w-full">

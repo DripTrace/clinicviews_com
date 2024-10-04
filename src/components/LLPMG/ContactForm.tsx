@@ -282,7 +282,7 @@ const ContactForm: React.FC = () => {
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <div className="fixed top-0 left-0 w-full h-full bg-black/50 dark:bg-black/70 z-20"></div>
+            <div className="fixed top-0 left-0 w-full h-full bg-black/30 dark:bg-black/50 z-20"></div>
             <div className="relative z-20 w-full">
                 <motion.form
                     id="contact-form-top"

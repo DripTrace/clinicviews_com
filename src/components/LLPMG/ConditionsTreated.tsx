@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import ConditionItem from "./ConditionItem";
 import Image from "next/image";
+import Conditions from "./graphic/Contidions";
 
 interface Condition {
     name: string;
@@ -94,18 +95,22 @@ const ConditionsTreated: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="py-16 bg-blue-900/80 dark:bg-gray-800/80 text-white relative transition-colors duration-300 rounded-xl z-20 2xl:mb-[40rem] top-[6rem]"
+            className="py-16 bg-blue-900/50 dark:bg-gray-800/70 text-white relative transition-colors duration-300 rounded-xl z-20 2xl:mb-[40rem] top-[6rem]"
         >
             <div className="absolute w-full 2xl:w-full 2xl:h-full z-30 top-[0rem] lg:top-[-4rem] xl:top-[-15.2rem] 2xl:top-[0rem]">
-                <Image
+                {/* <Image
                     src="/conditions.svg"
                     alt="llpmg-hero-img"
                     height={50}
                     width={150}
                     className="size-full 2xl:object-cover z-30 rounded-lg"
+                /> */}
+                <Conditions
+                    id="conditions-graphic"
+                    className="size-full 2xl:object-cover z-30 rounded-lg"
                 />
             </div>
-            <div className="container mx-auto px-4 relative z-40">
+            <div className="container flex flex-col items-center, justify-center mx-auto px-4 relative z-40">
                 {/* <div className="absolute h-[20rem] z-100 top-0">
 					<Image
 						src="/conditions.svg"
@@ -115,7 +120,7 @@ const ConditionsTreated: React.FC = () => {
 						className="relativesize-full object-contain z-20 rounded-lg"
 					/>
 				</div> */}
-                <h2 className="text-blue-200 relative text-3xl font-bold mb-8 text-center z-40">
+                <h2 className="p-[0.5rem] rounded-lg bg-blue-200/70 dark:bg-blue-900/70 text-blue-900 dark:text-blue-100 relative text-3xl font-bold mb-8 text-center z-40 max-w-[25rem] place-self-center">
                     Conditions We Treat
                 </h2>
                 <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-min z-40">
