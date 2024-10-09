@@ -153,7 +153,7 @@ const ProvidersAndStaff: React.FC = () => {
         },
         {
             alt: "Martin_Calixterio_DNP",
-            url: "/providers-and-staff",
+            url: "/llpmg/providers/martin_calixterio.png",
             name: "Martin Calixterio",
             title: "Psychiatric Nurse Practitioner",
             role: "provider",
