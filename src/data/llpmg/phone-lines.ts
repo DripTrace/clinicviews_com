@@ -20,7 +20,10 @@ type Phone =
     | 7609927322
     | 7609724699
     | 9097926886
-    | 9093704702;
+    | 9093704702
+    | 9518883444
+    | 8888996669
+    | 8885050620; // for some reason goes to a landline in Virginia, jk only when appending +1
 
 type Device = "panasonic" | "att" | "apple" | "google" | "polycom" | "yealink";
 
