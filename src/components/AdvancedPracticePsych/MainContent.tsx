@@ -533,32 +533,89 @@ const MainContent: React.FC = () => {
             </div> */}
 
             <div className="content">
+                {/* <p className="place-content-center place-self center text-start"> */}
                 <p>
                     Welcome to Advanced Practice
                     <br />
                     Discover the World of Mental Health
                     <br />
-                    Are you a curious patient seeking information about mental
-                    health conditions and treatment options?
                     <br />
-                    A student or nurse on the path to becoming a mental health
-                    professional?
-                    <br />A practicing psychiatrist, nurse practitioner, or
-                    researcher looking to expand your knowledge?
+                    Are you a curious patient seeking information <br />
+                    about mental health conditions <br />
+                    and treatment options?
+                    <br />
+                    <br />
+                    A student or nurse on the path to becoming <br />a mental
+                    health professional?
+                    <br />
+                    <br />A practicing psychiatrist, nurse practitioner, <br />
+                    or researcher looking to expand your knowledge?
                 </p>
 
-                <h2
+                {/* <h2
                     className="gtext size-s font-4 end"
-                    data-text="Or simply someone interested in learning more about the "
+                    data-text="Or simply someone"
                 >
-                    Or simply someone interested in learning more about the
+                    Or simply someone
+                </h2> */}
+
+                <h2
+                    className="gtext size-s font-4 place-content-center place-self-center"
+                    data-text="Or simply"
+                >
+                    Or simply
                 </h2>
                 <h2
+                    className="gtext size-s font-4 place-content-center place-self-center"
+                    data-text="interested in learning"
+                >
+                    interested in learning
+                </h2>
+                <h2
+                    className="gtext size-s font-4 place-content-center place-self-center"
+                    data-text="more about the"
+                >
+                    more about the
+                </h2>
+                <h2
+                    className="gtext size-s font-4 place-content-center place-self-center"
+                    data-text="fascinating field of"
+                >
+                    fascinating field of
+                </h2>
+                <h2
+                    className="gtext size-s font-4 place-content-center place-self-center"
+                    data-text="psychiatry and"
+                >
+                    psychiatry and
+                </h2>
+                <h2
+                    className="gtext size-s font-4 place-content-center place-self-center"
+                    data-text="mental health?"
+                >
+                    mental health?
+                </h2>
+                {/* <h2 className="gtext size-s font-4 end" data-text="interested">
+                    interested
+                </h2>
+                <h2
+                    className="gtext size-s font-4 end"
+                    data-text="interested in learning"
+                >
+                    interested in learning
+                </h2> */}
+                {/* <h2
+                    className="gtext size-s font-4 end"
+                    data-text="more about the"
+                >
+                    more about the
+                </h2> */}
+                {/* <h2
                     className="gtext size-s font-4 end"
                     data-text="fascinating field of psychiatry and mental health?"
                 >
                     fascinating field of psychiatry and mental health?
-                </h2>
+                </h2> */}
                 <br />
                 <br />
                 <br />
@@ -567,10 +624,16 @@ const MainContent: React.FC = () => {
                 <br />
                 <br />
                 <h2
-                    className="gtext size-s font-4 justify-content-start justify-self-start"
-                    data-text="You've come to the right place."
+                    className="gtext size-s font-4 end"
+                    data-text="You've come to"
                 >
-                    You've come to <br /> the right place.
+                    You've come to
+                </h2>
+                <h2
+                    className="gtext size-s font-4 end"
+                    data-text="the right place."
+                >
+                    the right place.
                 </h2>
             </div>
 
@@ -586,26 +649,52 @@ const MainContent: React.FC = () => {
 
             <div className="content">
                 <p>
-                    Advanced Practice is your one-stop resource for all things
-                    mental health.
+                    Advanced Practice is your one-stop resource
+                    <br /> for all things mental health.
                     <br />
-                    We offer a wealth of information, resources, and
-                    opportunities for professional development.
                     <br />
-                    Explore our website to:
+                    We offer a wealth of information, resources,
                     <br />
-                    Learn about various mental health conditions and their
-                    treatments.
+                    and opportunities for
                     <br />
-                    Find resources and support for patients and their families.
+                    professional development.
+                    <br />
+                    <br />
+                    <b>Explore our website to:</b>
+                    <br />
+                    &#x2022; Learn about various mental health conditions
+                    <br /> and their treatments.
+                    <br />
+                    &#x2022; Find resources and support for patients
+                    <br /> and their families.
+                    {/* <br />
+                    &#x2022; Access continuing education courses for healthcare
+                    professionals.
+                    <br />
+                    &#x2022; Connect with other mental health professionals and
+                    advocates.
+                    <br />
+                    &#x2022; Stay up-to-date on the latest research and
+                    developments in the field. */}
                 </p>
 
                 <h2
-                    className="gtext size-s font-5 end"
-                    data-text="Access continuing education courses for healthcare professionals."
+                    className="gtext size-s font-5 place-self-center place-content-center"
+                    data-text="Access continuing"
                 >
-                    Access continuing education courses for healthcare
-                    professionals.
+                    Access continuing
+                </h2>
+                <h2
+                    className="gtext size-s font-5 place-self-center place-content-center"
+                    data-text="education courses for"
+                >
+                    education courses for
+                </h2>
+                <h2
+                    className="gtext size-s font-5 place-self-center place-content-center"
+                    data-text="healthcare professionals."
+                >
+                    healthcare professionals.
                 </h2>
             </div>
 
@@ -621,62 +710,159 @@ const MainContent: React.FC = () => {
 
             <div className="content">
                 <p>
-                    Connect with other mental health professionals and
-                    advocates.
+                    Connect with other mental health professionals <br />
+                    and advocates. Stay up-to-date on the
                     <br />
-                    Stay up-to-date on the latest research and developments in
-                    the field.
+                    latest research and developments in the field.
                     <br />
-                    Join us on this journey of discovery and growth.
+                    Join us on this journey of
+                    <br />
+                    discovery and growth.
                     <br />
                     {/* Website Description: */}
                     <br />
-                    AdvanCEd Practice is your go-to online resource <br />
-                    for professional development and mental health education.
+                    AdvanCEd Practice is your
+                    <br />
+                    go-to online resource <br />
+                    for professional development
+                    <br />
+                    and mental health education.
                 </p>
 
                 <h2
-                    className="gtext size-s font-1 end"
-                    data-text="This is an educational hub"
+                    className="gtext size-s font-1 place-content-center place-self-center"
+                    data-text="This is an"
                 >
-                    This is an educational hub designed to empower nurses,
+                    This is an
                 </h2>
                 <h2
-                    className="gtext size-s font-1 end"
+                    className="gtext size-s font-1 place-content-center place-self-center"
+                    data-text="educational hub"
+                >
+                    educational hub
+                </h2>
+                <h2
+                    className="gtext size-s font-1 place-content-center place-self-center"
+                    data-text="designed to"
+                >
+                    designed to
+                </h2>
+                <h2
+                    className="gtext size-s font-1 place-content-center place-self-center"
+                    data-text="empower"
+                >
+                    empower
+                </h2>
+                <br />
+                <br />
+                <h2
+                    className="gtext size-s font-1 place-content-start place-self-start"
+                    data-text="nurses,"
+                >
+                    nurses,
+                </h2>
+                <h2
+                    className="gtext size-s font-1 place-content-start place-self-start"
+                    data-text="practitioners,"
+                >
+                    practitioners,
+                </h2>
+                <h2
+                    className="gtext size-s font-1 place-content-start place-self-start"
+                    data-text="mental health"
+                >
+                    mental health
+                </h2>
+                <h2
+                    className="gtext size-s font-1 place-content-start place-self-start"
+                    data-text="advocates,"
+                >
+                    advocates,
+                </h2>
+                <h2
+                    className="gtext size-s font-1 place-content-start place-self-start"
+                    data-text="educators,"
+                >
+                    educators,
+                </h2>
+                <h2
+                    className="gtext size-s font-1 place-content-start place-self-start"
+                    data-text="students,"
+                >
+                    students,
+                </h2>
+                <h2
+                    className="gtext size-s font-1 place-content-start place-self-start"
+                    data-text="and patients"
+                >
+                    and patients
+                </h2>
+                <h2
+                    className="gtext size-s font-1 place-content-start place-self-start"
+                    data-text="with the knowledge"
+                >
+                    with the knowledge
+                </h2>
+                <h2
+                    className="gtext size-s font-1 place-content-start place-self-start"
+                    data-text="and tools"
+                >
+                    and tools
+                </h2>
+                <h2
+                    className="gtext size-s font-1 place-content-start place-self-start"
+                    data-text="they need to"
+                >
+                    they need to
+                </h2>
+                <h2
+                    className="gtext size-s font-1 place-content-start place-self-start"
+                    data-text="improve"
+                >
+                    improve
+                </h2>
+                <h2
+                    className="gtext size-s font-1 place-content-start place-self-start"
+                    data-text="mental health care"
+                >
+                    mental health care
+                </h2>
+                {/* <h2
+                    className="gtext size-s font-1 place-content-center place-self-center"
                     data-text="designed to empower nurses,"
                 >
                     designed to empower nurses,
                 </h2>
                 <h2
-                    className="gtext size-s font-1 end"
+                    className="gtext size-s font-1 place-content-center place-self-center"
                     data-text="practitioners, mental health advocates,"
                 >
                     practitioners, mental health advocates,
                 </h2>
                 <h2
-                    className="gtext size-s font-1 end"
+                    className="gtext size-s font-1 place-content-center place-self-center"
                     data-text="educators, students,"
                 >
                     educators, students,
                 </h2>
                 <h2
-                    className="gtext size-s font-1 end"
+                    className="gtext size-s font-1 place-content-center place-self-center"
                     data-text="and patients with the"
                 >
                     and patients with the
                 </h2>
                 <h2
-                    className="gtext size-s font-1 end"
+                    className="gtext size-s font-1 place-content-center place-self-center"
                     data-text="knowledge and tools they need to"
                 >
                     knowledge and tools they need to
                 </h2>
                 <h2
-                    className="gtext size-s font-1 end"
+                    className="gtext size-s font-1 place-content-center place-self-center"
                     data-text="improve mental health care."
                 >
                     improve mental health care.
-                </h2>
+                </h2> */}
                 {/* <br />
                 <br />
                 <br />
@@ -707,9 +893,9 @@ const MainContent: React.FC = () => {
                 </h2> */}
             </div>
 
-            <div className="content min-h-[75vh] grid place-items-center">
+            <div className="content min-h-[65vh] grid place-items-center">
                 <h2
-                    className="gtext size-s font-1 place-content-start place-self-start"
+                    className="gtext size-s font-1 end"
                     data-text="Key Features:"
                 >
                     Key Features:
@@ -779,18 +965,23 @@ const MainContent: React.FC = () => {
             <div className="content">
                 <p>
                     Explore real-world case studies to enhance your
-                    understanding of mental health conditions and treatment
-                    approaches.
+                    understanding of mental health conditions
                     <br />
-                    Learn from the experiences of others and develop your
-                    clinical judgment skills.
+                    and treatment approaches.
                     <br />
-                    Community Forums:
+                    Learn from the experiences of others
+                    <br />
+                    and develop your clinical judgment skills.
+                    <br />
+                    <br />
+                    <b>Community Forums:</b>
                     <br />
                     Connect with like-minded professionals and share
-                    experiences, ask questions, and find support. Our community
-                    forums provide a space for open discussion and
-                    collaboration.
+                    experiences, ask questions, and find support.
+                    <br />
+                    Our community forums provide a space
+                    <br />
+                    for open discussion and collaboration.
                 </p>
 
                 <h2
@@ -815,7 +1006,10 @@ const MainContent: React.FC = () => {
                     industry trends in mental health.
                     <br />
                     We keep you up-to-date with the most relevant information so
-                    you can provide the best possible care to your patients.
+                    you can provide the best possible
+                    <br />
+                    care to your patients.
+                    <br />
                     <br />
                     Resources for Patients:
                     <br />
@@ -847,6 +1041,7 @@ const MainContent: React.FC = () => {
                 <p>
                     To promote quality education, mental health awareness, and
                     advocacy.
+                    <br />
                     <br />
                     We aim to bridge the gap in mental health education and
                     provide accessible, high-quality resources.

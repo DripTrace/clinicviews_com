@@ -195,24 +195,7 @@ main {
     /* white-space: nowrap; */
     /* white-space: wrap; */
     --text-width: 100px;
-    --gsplits: 4;
-    --gcolor: #fff;
-    --gsize: 1rem;
-    font-size: var(--gsize);
-    color: var(--gcolor);
-    --offset: calc(var(--text-width) / var(--gsplits));
-    grid-template-columns: repeat(var(--gsplits), var(--offset));
-}
-
-.gext--interested {
-    line-height: 1;
-    margin: 0;
-    display: grid;
-    font-weight: 400;
-    justify-content: center;
-    white-space: nowrap;
-    /* white-space: wrap; */
-    --text-width: 100px;
+    /* --text-width: 820px; */
     --gsplits: 4;
     --gcolor: #fff;
     --gsize: 1rem;
