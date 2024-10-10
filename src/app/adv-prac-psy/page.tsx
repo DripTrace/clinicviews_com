@@ -396,12 +396,21 @@
 
 // export default AdvancedPracticePsychPage;
 
-import MainContent from "@/components/AdvancedPracticePsych/MainContent";
+// import MainContent from "@/components/AdvancedPracticePsych/MainContent";
+import { Suspense } from "react";
+import dynamic from "next/dynamic";
+
+const MainContent = dynamic(
+    () => import("@/components/AdvancedPracticePsych/MainContent"),
+    { ssr: false }
+);
 
 const AdvancedPracticePsychPage = () => {
     return (
         // <div className="min-h-screen bg-black/50 text-white font-sans antialiased">
-        <MainContent />
+        <Suspense fallback={<div>Loading . . .</div>}>
+            <MainContent />
+        </Suspense>
         // </div>
     );
 };

@@ -519,7 +519,7 @@ const MainContent: React.FC = () => {
                 </a>
             </header>
 
-            <div className="deco">
+            {/* <div className="deco">
                 {[...Array(18)].map((_, i) => (
                     <div key={i} className="deco__item">
                         <Image
@@ -530,7 +530,7 @@ const MainContent: React.FC = () => {
                         />
                     </div>
                 ))}
-            </div>
+            </div> */}
 
             <div className="content">
                 <p>
@@ -549,22 +549,34 @@ const MainContent: React.FC = () => {
 
                 <h2
                     className="gtext size-s font-4 end"
-                    data-text="Or simply someone interested in learning more about the fascinating field of psychiatry and mental health?"
+                    data-text="Or simply someone interested in learning more about the "
                 >
                     Or simply someone interested in learning more about the
-                    fascinating field of psychiatry and mental health?
                 </h2>
                 <h2
                     className="gtext size-s font-4 end"
+                    data-text="fascinating field of psychiatry and mental health?"
+                >
+                    fascinating field of psychiatry and mental health?
+                </h2>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <h2
+                    className="gtext size-s font-4 justify-content-start justify-self-start"
                     data-text="You've come to the right place."
                 >
-                    You've come to the right place.
+                    You've come to <br /> the right place.
                 </h2>
             </div>
 
             <div className="content content--full">
                 <h3
-                    className="gtext size-xxl font-5 shadow-1 spaced"
+                    className="gtext size-m font-5 shadow-1 spaced"
                     data-text="Advanced Practice"
                     data-effect="1"
                 >
@@ -597,9 +609,9 @@ const MainContent: React.FC = () => {
                 </h2>
             </div>
 
-            <div className="content content--full">
+            <div className="content min-h-[75vh] grid place-items-center">
                 <h3
-                    className="gtext size-xl font-4 shadow-2 color-1 spaced"
+                    className="gtext size-m font-4 shadow-2 color-1 spaced"
                     data-text="Connect"
                     data-effect="2"
                 >
@@ -617,30 +629,91 @@ const MainContent: React.FC = () => {
                     <br />
                     Join us on this journey of discovery and growth.
                     <br />
-                    Website Description:
+                    {/* Website Description: */}
                     <br />
-                    AdvanCEd Practice is your go-to online resource for
-                    professional development and mental health education.
+                    AdvanCEd Practice is your go-to online resource <br />
+                    for professional development and mental health education.
                 </p>
 
                 <h2
                     className="gtext size-s font-1 end"
-                    data-text="This is an educational hub designed to empower nurses, nurse practitioners, mental health advocates, educators, students, and patients with the knowledge and tools they need to improve mental health care."
+                    data-text="This is an educational hub"
                 >
-                    This is an educational hub designed to empower nurses, nurse
-                    practitioners, mental health advocates, educators, students,
-                    and patients with the knowledge and tools they need to
-                    improve mental health care.
+                    This is an educational hub designed to empower nurses,
                 </h2>
                 <h2
+                    className="gtext size-s font-1 end"
+                    data-text="designed to empower nurses,"
+                >
+                    designed to empower nurses,
+                </h2>
+                <h2
+                    className="gtext size-s font-1 end"
+                    data-text="practitioners, mental health advocates,"
+                >
+                    practitioners, mental health advocates,
+                </h2>
+                <h2
+                    className="gtext size-s font-1 end"
+                    data-text="educators, students,"
+                >
+                    educators, students,
+                </h2>
+                <h2
+                    className="gtext size-s font-1 end"
+                    data-text="and patients with the"
+                >
+                    and patients with the
+                </h2>
+                <h2
+                    className="gtext size-s font-1 end"
+                    data-text="knowledge and tools they need to"
+                >
+                    knowledge and tools they need to
+                </h2>
+                <h2
+                    className="gtext size-s font-1 end"
+                    data-text="improve mental health care."
+                >
+                    improve mental health care.
+                </h2>
+                {/* <br />
+                <br />
+                <br />
+                <h2
+                    className="gtext size-s font-1 end"
+                    data-text="nurse
+                    practitioners, mental health advocates, educators, students,
+                    and patients with the knowledge and tools they need to
+                    improve mental health care."
+                >
+                    nurse practitioners, mental health advocates, educators,
+                    students, and patients with the knowledge and tools they
+                    need to improve mental health care.
+                </h2> */}
+                {/* <h2
+                    className="gtext size-s font-1 end"
+                    data-text="nurse practitioners, mental health advocates, educators, students, and patients with the knowledge and tools they need to improve mental health care."
+                >
+                    nurse practitioners, mental health advocates, educators,
+                    students, and patients with the knowledge and tools they
+                    need to improve mental health care.
+                </h2> */}
+                {/* <h2
                     className="gtext size-s font-1 end"
                     data-text="Key Features:"
                 >
                     Key Features:
-                </h2>
+                </h2> */}
             </div>
 
-            <div className="content content--full">
+            <div className="content min-h-[75vh] grid place-items-center">
+                <h2
+                    className="gtext size-s font-1 place-content-start place-self-start"
+                    data-text="Key Features:"
+                >
+                    Key Features:
+                </h2>
                 <h3
                     className="gtext size-xl font-7 shadow-1 spaced"
                     data-text="Library"
@@ -652,7 +725,7 @@ const MainContent: React.FC = () => {
 
             <div className="content content--full">
                 <h2
-                    className="gtext size-m font-7 end"
+                    className="gtext size-s font-7 end"
                     data-text="Library of Condensed Articles:"
                 >
                     Library of Condensed Articles:
@@ -667,11 +740,13 @@ const MainContent: React.FC = () => {
                     mental health conditions to treatment approaches and
                     research findings.
                     <br />
+                    <br />
                     NOTE: condensed articles should not be used as a substitute
                     for reading the full text. While they can provide a good
                     overview of a topic, they may not include all of the
                     important details. If you need to have a deep understanding
                     of a subject, it's essential to read the full article.
+                    <br />
                     <br />
                     Continuing Education Courses:
                     <br />
@@ -684,7 +759,7 @@ const MainContent: React.FC = () => {
 
             <div className="content content--full">
                 <h3
-                    className="gtext size-xl font-2 shadow-2 color-1 blendmode-1 spaced"
+                    className="gtext size-m font-2 shadow-2 color-1 blendmode-1 spaced"
                     data-text="Case Studies"
                     data-effect="4"
                 >
@@ -694,7 +769,7 @@ const MainContent: React.FC = () => {
 
             <div className="content content--full">
                 <h2
-                    className="gtext size-m font-4 end"
+                    className="gtext size-s font-4 end"
                     data-text="Case Studies:"
                 >
                     Case Studies:
@@ -728,7 +803,7 @@ const MainContent: React.FC = () => {
 
             <div className="content content--full">
                 <h3
-                    className="gtext size-xxl font-6 shadow-1 spaced"
+                    className="gtext size-m font-6 shadow-1 spaced"
                     data-text="Stay informed"
                     data-effect="5"
                 >
@@ -762,7 +837,7 @@ const MainContent: React.FC = () => {
 
             <div className="content content--full">
                 <h3
-                    className="gtext size-xl font-3 shadow-1 spaced"
+                    className="gtext size-m font-3 shadow-1 spaced"
                     data-text="Our Mission"
                     data-effect="6"
                 >
