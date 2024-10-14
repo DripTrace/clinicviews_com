@@ -507,16 +507,20 @@ const MainContent: React.FC = () => {
     return (
         <main ref={mainRef} className="main-container">
             <header className="frame frame--header">
-                <h1 className="frame__title">Advanced Practice</h1>
-                <a className="frame__back" href="/">
-                    About Us
-                </a>
-                <a className="frame__prev" href="/">
-                    Contact
-                </a>
-                <a className="frame__sub" href="/">
-                    Services
-                </a>
+                <div className="flex flex-col items-start justify-center md:flex-row gap-2">
+                    <h1 className="frame__title">Advanced Practice</h1>
+                    <div className="flex flex-col sm:flex-row items-start justify-center gap-1">
+                        <Link className="frame__back" href="/">
+                            About Us
+                        </Link>
+                        <Link className="frame__prev" href="/">
+                            Contact
+                        </Link>
+                        <Link className="frame__sub" href="/">
+                            Services
+                        </Link>
+                    </div>
+                </div>
             </header>
 
             {/* <div className="deco">
@@ -540,16 +544,14 @@ const MainContent: React.FC = () => {
                     Discover the World of Mental Health
                     <br />
                     <br />
-                    Are you a curious patient seeking information <br />
-                    about mental health conditions <br />
-                    and treatment options?
+                    Are you a curious patient seeking information about mental
+                    health conditions and treatment options?
                     <br />
-                    <br />
-                    A student or nurse on the path to becoming <br />a mental
+                    <br />A student or nurse on the path to becoming a mental
                     health professional?
                     <br />
-                    <br />A practicing psychiatrist, nurse practitioner, <br />
-                    or researcher looking to expand your knowledge?
+                    <br />A practicing psychiatrist, nurse practitioner, or
+                    researcher looking to expand your knowledge?
                 </p>
 
                 {/* <h2
@@ -560,77 +562,53 @@ const MainContent: React.FC = () => {
                 </h2> */}
 
                 <h2
-                    className="gtext size-s font-4 place-content-center place-self-center"
+                    className="gtext size-s font-4 place-content-end place-self-end"
                     data-text="Or simply"
                 >
                     Or simply
                 </h2>
                 <h2
-                    className="gtext size-s font-4 place-content-center place-self-center"
+                    className="gtext size-s font-4 place-content-end place-self-end"
                     data-text="interested in learning"
                 >
                     interested in learning
                 </h2>
                 <h2
-                    className="gtext size-s font-4 place-content-center place-self-center"
+                    className="gtext size-s font-4 place-content-end place-self-end"
                     data-text="more about the"
                 >
                     more about the
                 </h2>
                 <h2
-                    className="gtext size-s font-4 place-content-center place-self-center"
+                    className="gtext size-s font-4 place-content-end place-self-end"
                     data-text="fascinating field of"
                 >
                     fascinating field of
                 </h2>
                 <h2
-                    className="gtext size-s font-4 place-content-center place-self-center"
+                    className="gtext size-s font-4 place-content-end place-self-end"
                     data-text="psychiatry and"
                 >
                     psychiatry and
                 </h2>
                 <h2
-                    className="gtext size-s font-4 place-content-center place-self-center"
+                    className="gtext size-s font-4 place-content-end place-self-end"
                     data-text="mental health?"
                 >
                     mental health?
                 </h2>
-                {/* <h2 className="gtext size-s font-4 end" data-text="interested">
-                    interested
-                </h2>
-                <h2
-                    className="gtext size-s font-4 end"
-                    data-text="interested in learning"
-                >
-                    interested in learning
-                </h2> */}
-                {/* <h2
-                    className="gtext size-s font-4 end"
-                    data-text="more about the"
-                >
-                    more about the
-                </h2> */}
-                {/* <h2
-                    className="gtext size-s font-4 end"
-                    data-text="fascinating field of psychiatry and mental health?"
-                >
-                    fascinating field of psychiatry and mental health?
-                </h2> */}
-                <br />
-                <br />
-                <br />
                 <br />
                 <br />
                 <br />
                 <br />
                 <h2
-                    className="gtext size-s font-4 end"
+                    className="gtext size-s font-4 place-content-start place-self-start"
                     data-text="You've come to"
                 >
                     You've come to
                 </h2>
                 <h2
-                    className="gtext size-s font-4 end"
+                    className="gtext size-s font-4 place-content-start place-self-start"
                     data-text="the right place."
                 >
                     the right place.
@@ -653,20 +631,23 @@ const MainContent: React.FC = () => {
                     <br /> for all things mental health.
                     <br />
                     <br />
-                    We offer a wealth of information, resources,
-                    <br />
-                    and opportunities for
-                    <br />
-                    professional development.
+                    We offer a wealth of information, resources, and
+                    opportunities for professional development.
                     <br />
                     <br />
                     <b>Explore our website to:</b>
-                    <br />
-                    &#x2022; Learn about various mental health conditions
-                    <br /> and their treatments.
-                    <br />
-                    &#x2022; Find resources and support for patients
-                    <br /> and their families.
+                    <ul className="list-disc">
+                        <li>
+                            {/* &#x2022;  */}
+                            Learn about various mental health conditions and
+                            their treatments.
+                        </li>
+                        <li>
+                            {/* &#x2022;  */}
+                            Find resources and support for patients and their
+                            families.
+                        </li>
+                    </ul>
                     {/* <br />
                     &#x2022; Access continuing education courses for healthcare
                     professionals.
@@ -711,22 +692,19 @@ const MainContent: React.FC = () => {
             <div className="content">
                 <p>
                     Connect with other mental health professionals <br />
-                    and advocates. Stay up-to-date on the
+                    and advocates.
                     <br />
-                    latest research and developments in the field.
                     <br />
-                    Join us on this journey of
+                    Stay up-to-date on the latest research and developments in
+                    the field.
                     <br />
-                    discovery and growth.
+                    <br />
+                    Join us on this journey of discovery and growth.
                     <br />
                     {/* Website Description: */}
                     <br />
-                    AdvanCEd Practice is your
-                    <br />
-                    go-to online resource <br />
-                    for professional development
-                    <br />
-                    and mental health education.
+                    AdvanCEd Practice is your go-to online resource for
+                    professional development and mental health education.
                 </p>
 
                 <h2
@@ -1004,10 +982,12 @@ const MainContent: React.FC = () => {
                 <p>
                     Stay informed about the latest research, policy changes, and
                     industry trends in mental health.
-                    <br />
+                    {/* <br /> */}
                     We keep you up-to-date with the most relevant information so
-                    you can provide the best possible
-                    <br />
+                    you can
+                    {/* <br /> */}
+                    provide the best possible
+                    {/* <br /> */}
                     care to your patients.
                     <br />
                     <br />

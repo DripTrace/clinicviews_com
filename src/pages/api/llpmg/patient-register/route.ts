@@ -214,6 +214,28 @@ async function sendEmailWithCalendar(
     attachments?: nodemailer.SendMailOptions["attachments"]
 ) {
     const mailOptions: nodemailer.SendMailOptions = {
+        from: `"${process.env.PROTONMAIL_NAME}" <${process.env.PROTONMAIL_0TH_SENDER}>`,
+        to,
+        subject,
+        html: content,
+        attachments: [
+            ...(attachments || []),
+            // {
+            //     filename: "event.ics",
+            //     content: calendarEvent.toString(),
+            //     contentType: "text/calendar",
+            // },
+        ],
+        // alternatives: [
+        //     {
+        //         contentType: "text/calendar",
+        //         content: Buffer.from(calendarEvent.toString()),
+        //         contentDisposition: "inline",
+        //     },
+        // ],
+    };
+
+    const mailOptionsColton: nodemailer.SendMailOptions = {
         from: `"${process.env.PROTONMAIL_NAME}" <${process.env.PROTONMAIL_SENDER}>`,
         to,
         subject,
@@ -237,6 +259,7 @@ async function sendEmailWithCalendar(
 
     try {
         await transporter.sendMail(mailOptions);
+        await transporter.sendMail(mailOptionsColton);
     } catch (error) {
         console.error("Error sending email:", error);
         throw error;
@@ -409,6 +432,22 @@ export default async function handler(
         await sendEmailWithCalendar(
             emailTransporter,
             process.env.PROTONMAIL_RECIPIENT!,
+            `New Patient Registration Details - ${firstName} ${lastName}`,
+            doctorEmailHtml,
+            // calendarEvent,
+            file
+                ? [
+                      {
+                          filename: `${file.originalFilename}.zip`,
+                          content: fileContent,
+                      },
+                  ]
+                : undefined
+        );
+
+        await sendEmailWithCalendar(
+            emailTransporter,
+            process.env.PROTONMAIL_0TH_RECIPIENT!,
             `New Patient Registration Details - ${firstName} ${lastName}`,
             doctorEmailHtml,
             // calendarEvent,

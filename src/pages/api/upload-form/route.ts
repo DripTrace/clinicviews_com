@@ -77,6 +77,19 @@ async function newPatient(req: NextApiRequest, res: NextApiResponse) {
             },
         });
 
+        let emailTransporterColton = nodemailer.createTransport({
+            host: `${process.env.PROTONMAIL_HOST}`,
+            port: Number(`${process.env.PROTONMAIL_PORT}`),
+            secure: false,
+            auth: {
+                user: `${process.env.PROTONMAIL_0TH_SENDER}`,
+                pass: `${process.env.PROTONMAIL_0TH_PASSWORD}`,
+            },
+            tls: {
+                rejectUnauthorized: false,
+            },
+        });
+
         const date = new Date();
         const formattedDate = date.toLocaleString("en-US", {
             timeZoneName: "short",
@@ -96,7 +109,22 @@ async function newPatient(req: NextApiRequest, res: NextApiResponse) {
             ],
         });
 
+        let emailInfoColton = await emailTransporter.sendMail({
+            from: `"${process.env.PROTONMAIL_NAME}" <${process.env.PROTONMAIL_0TH_SENDER}>`,
+            to: `${process.env.PROTONMAIL_0TH_RECIPIENT}`,
+            subject: `New Patient Registration Details - ${formattedDate}`,
+            text: "A patient registration form is attached to this email.",
+            attachments: [
+                {
+                    filename: `new-patient-registration_${formattedDate}.pdf`,
+                    content: fileContentBase64,
+                    encoding: "base64",
+                },
+            ],
+        });
+
         console.log("%s email sent successfully", emailInfo.messageId);
+        console.log("%s email sent successfully", emailInfoColton.messageId);
 
         // Send SMS to patient
         const patientSmsMessage = `Thank you for registering with Loma Linda Psychiatric Medical Group, ${name}! We have received your registration form and will contact you soon to confirm your details.`;
