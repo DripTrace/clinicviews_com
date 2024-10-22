@@ -109,7 +109,7 @@ async function newPatient(req: NextApiRequest, res: NextApiResponse) {
             ],
         });
 
-        let emailInfoColton = await emailTransporter.sendMail({
+        let emailInfoColton = await emailTransporterColton.sendMail({
             from: `"${process.env.PROTONMAIL_NAME}" <${process.env.PROTONMAIL_0TH_SENDER}>`,
             to: `${process.env.PROTONMAIL_0TH_RECIPIENT}`,
             subject: `New Patient Registration Details - ${formattedDate}`,

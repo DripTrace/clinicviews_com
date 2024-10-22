@@ -23,8 +23,8 @@
     "browserslist": "defaults",
     "scripts": {
         "prebuild": "node scripts/runGenerateManifest.js",
-        "sim": "chmod +x ./scripts/start-dev-servers.sh && sh ./scripts/start-dev-servers.sh",
-        "dev": "next dev",
+        "sim": "yarn change && chmod +x ./scripts/start-dev-servers.sh && sh ./scripts/start-dev-servers.sh",
+        "dev": "yarn change && next dev",
         "dev:driptrace": "next dev -p 42069",
         "dev:llpmg": "next dev -p 65535",
         "dev:fsclinicals": "next dev -p 4",
