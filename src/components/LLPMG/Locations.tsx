@@ -21,11 +21,18 @@ const locations = [
         mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.2559241133934!2d-117.3214612233426!3d34.05060392569352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcae1e85e6c59d%3A0x87ed79b2f04362de!2s1007%20E%20Cooley%20Dr%20%23109%2C%20Colton%2C%20CA%2092324!5e0!3m2!1sen!2sus!4v1685393220527!5m2!1sen!2sus",
     },
     {
-        city: "Redlands",
+        city: "Redlands (patients)",
         address: "1200 California St., Redlands, CA 92374",
         phone: "(909) 792-6262",
         email: "llpmg@lomalindapsych.com",
         mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.0298844045515!2d-117.2280156234117!3d34.068748173150844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcabaa1170bb19%3A0x9219662daa6aec3a!2s1200%20California%20St%2C%20Redlands%2C%20CA%2092374!5e0!3m2!1sen!2sus!4v1726759584659!5m2!1sen!2sus",
+    },
+    {
+        city: "Redlands (admin office)",
+        address: "515 New Jersey Streen, Redlands, CA 92374",
+        phone: "(909) 792-6262",
+        email: "llpmg@lomalindapsych.com",
+        mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.352870886062!2d-117.22494352341207!3d34.060467473154006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcabad60c3e74b%3A0xfcad2bf5c3e78032!2s515%20New%20Jersey%20St%2C%20Redlands%2C%20CA%2092373!5e0!3m2!1sen!2sus!4v1729795977206!5m2!1sen!2sus",
     },
     {
         city: "Blythe",
