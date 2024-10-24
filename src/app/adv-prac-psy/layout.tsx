@@ -501,7 +501,7 @@ export default function AdvPracPsyRootLayout({
 
             <AdvancedPracticePsychLogo
                 id="advanced-practice-psych-logo"
-                className="text-white-100 absolute top-[1rem] right-[1rem] h-[9rem] w-[9rem] z-50"
+                className="text-blue-900 absolute top-[1rem] right-[1rem] h-[9rem] w-[9rem] z-50"
             />
         </html>
     );
