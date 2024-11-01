@@ -299,11 +299,11 @@ export default async function handler(
             city,
             state,
             zipCode,
-            pharmacy,
+            // pharmacy,
             reason,
             // suggestedAppointment,
             providerPhone,
-            suggestedProvider,
+            // suggestedProvider,
             providerEmail,
         } = fields;
 
@@ -381,11 +381,11 @@ export default async function handler(
                 birthday: birthday as string,
                 insurance: insurance as string,
                 address: fullAddress,
-                pharmacy: pharmacy as string,
+                // pharmacy: pharmacy as string,
                 reason: reason as string,
                 // suggestedAppointment: formattedAppointmentTime,
                 isDoctor: false,
-                suggestedProvider: suggestedProvider as string,
+                // suggestedProvider: suggestedProvider as string,
                 providerPhone: providerPhone as string,
                 providerEmail: providerEmail as string,
             })
@@ -399,11 +399,11 @@ export default async function handler(
                 birthday: birthday as string,
                 insurance: insurance as string,
                 address: fullAddress,
-                pharmacy: pharmacy as string,
+                // pharmacy: pharmacy as string,
                 reason: reason as string,
                 // suggestedAppointment: formattedAppointmentTime,
                 isDoctor: true,
-                suggestedProvider: suggestedProvider as string,
+                // suggestedProvider: suggestedProvider as string,
                 providerPhone: providerPhone as string,
                 providerEmail: providerEmail as string,
             })
@@ -479,7 +479,7 @@ export default async function handler(
         console.log(
             `Registering patient: ${firstName} ${lastName}, phone: ${phone}`
         );
-        console.log(`Provider: ${suggestedProvider}, phone: ${providerPhone}`);
+        // console.log(`Provider: ${suggestedProvider}, phone: ${providerPhone}`);
 
         const conversationId = createOrUpdateConversation(phone, providerPhone);
         console.log(`Created conversation with ID: ${conversationId}`);
@@ -487,8 +487,10 @@ export default async function handler(
         // const patientMessage = `Hello ${firstName}, thank you for registering with Loma Linda Psychiatric Medical Group. Your appointment suggestion with ${suggestedProvider} for ${suggestedAppointment} has been received. We will contact you soon to confirm. (Conversation ID: ${conversationId})`;
         // const providerMessage = `Hello ${suggestedProvider}, you have a new patient appointment suggestion from ${firstName} ${lastName} for ${suggestedAppointment}. Please review the details in your email and contact the patient to confirm. (Conversation ID: ${conversationId})`;
 
-        const patientMessage = `Hello ${firstName}, thank you for registering with Loma Linda Psychiatric Medical Group. Your appointment suggestion with ${suggestedProvider} has been received. We will contact you soon to confirm. (Conversation ID: ${conversationId})`;
-        const providerMessage = `Hello ${suggestedProvider}, you have a new patient appointment suggestion from ${patientFullName}. Please review the details in your email and contact the patient to confirm. (Conversation ID: ${conversationId})`;
+        // const patientMessage = `Hello ${firstName}, thank you for registering with Loma Linda Psychiatric Medical Group. Your appointment suggestion with ${suggestedProvider} has been received. We will contact you soon to confirm. (Conversation ID: ${conversationId})`;
+        const patientMessage = `Hello ${firstName}, thank you for registering with Loma Linda Psychiatric Medical Group. Your appointment suggestion has been received. We will contact you soon to confirm. (Conversation ID: ${conversationId})`;
+        // const providerMessage = `Hello ${suggestedProvider}, you have a new patient appointment suggestion from ${patientFullName}. Please review the details in your email and contact the patient to confirm. (Conversation ID: ${conversationId})`;
+        const providerMessage = `Hello, you have a new patient appointment suggestion from ${patientFullName}. Please review the details in your email and contact the patient to confirm. (Conversation ID: ${conversationId})`;
 
         console.log(`Sending SMS to patient: ${phone}`);
         await sendSMS(phone, patientMessage);

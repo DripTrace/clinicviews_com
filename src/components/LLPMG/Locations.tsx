@@ -23,7 +23,7 @@ const locations = [
     {
         city: "Redlands (patients)",
         address: "1200 California St., Redlands, CA 92374",
-        phone: "(909) 792-6262",
+        phone: "(909) 880-4200",
         email: "llpmg@lomalindapsych.com",
         mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.0298844045515!2d-117.2280156234117!3d34.068748173150844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcabaa1170bb19%3A0x9219662daa6aec3a!2s1200%20California%20St%2C%20Redlands%2C%20CA%2092374!5e0!3m2!1sen!2sus!4v1726759584659!5m2!1sen!2sus",
     },

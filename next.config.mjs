@@ -558,3 +558,152 @@ const withSerwist = withSerwistInit({
 });
 
 export default withSerwist({ nextConfig });
+
+
+// import withSerwistInit from "@serwist/next";
+// import { withNextVideo } from 'next-video/process';
+// import { execSync } from "child_process";
+
+// const nextConfig = {
+//     reactStrictMode: true,
+//     onError: (error, errorInfo) => {
+//         console.error("Global error occurred:", error, errorInfo);
+//     },
+//     async rewrites() {
+//         return [
+//             {
+//                 source: "/:path*",
+//                 destination: "/:path*",
+//             },
+//             {
+//                 source: "/manifest.webmanifest",
+//                 destination: "/api/manifest",
+//             },
+//             {
+//                 source: "/favicon.ico",
+//                 destination: "/api/favicon",
+//             },
+//             {
+//                 source: "/api/:path*",
+//                 destination: "/api/:path*",
+//             },
+//             {
+//                 source: "/api/llpmg/sip-handler",
+//                 destination: "/api/llpmg/sip-handler",
+//             },
+//             {
+//                 source: "/api/llpmg/sip-ws",
+//                 destination: "/api/llpmg/sip-handler",
+//             },
+//             {
+//                 source: "/llpmg/audio/:path*",
+//                 destination: "/public/llpmg/audio/:path*",
+//             },
+//             {
+//                 source: "/api-endpoint/llpmg/video/:path*",
+//                 destination: "/api-endpoint/llpmg/video/:path*",
+//             }
+//         ];
+//     },
+//     async headers() {
+//         return [
+//             {
+//                 source: "/manifest.webmanifest",
+//                 headers: [
+//                     {
+//                         key: "Cache-Control",
+//                         value: "no-store, max-age=0",
+//                     },
+//                     {
+//                         key: "Content-Type",
+//                         value: "application/manifest+json",
+//                     },
+//                 ],
+//             },
+//             // {
+//             //     source: "/:path*",
+//             //     headers: [
+//             //         {
+//             //             key: "Content-Security-Policy",
+//             //             value: "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://ajax.googleapis.com; object-src 'none';",
+//             //         },
+//             //     ],
+//             // },
+//             {
+//                 source: "/:path*",
+//                 headers: [
+//                     {
+//                         key: "Content-Security-Policy",
+//                         value: "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://ajax.googleapis.com https://firebasestorage.googleapis.com; object-src 'none';",
+//                     },
+//                 ],
+//             },
+//         ];
+//     },
+//     swcMinify: true,
+//     api: {
+//         bodyParser: {
+//             sizeLimit: "4.5mb",
+//         },
+//     },
+//     distDir: "out",
+//     images: {
+//         domains: ["driptrace.github.io", "firebasestorage.googleapis.com"],
+//         unoptimized: true,
+//     },
+//     output: "export",
+//     basePath: "",
+//     assetPrefix: "/",
+//     transpilePackages: ["framer-motion", "webfontloader", "next-video"],
+//     webpack: (config, { isServer }) => {
+//         config.module.rules.push({
+//             test: /\.(mp3|ogg|wav|flac|mpe?g)$/,
+//             use: [
+//                 {
+//                     loader: "url-loader",
+//                     options: {
+//                         limit: 8192,
+//                         fallback: "file-loader",
+//                         publicPath: `/_next/static/media/`,
+//                         outputPath: `${isServer ? "../" : ""}static/media/`,
+//                         name: "[name].[hash].[ext]",
+//                     },
+//                 },
+//             ],
+//         });
+
+//         if (!isServer) {
+//             execSync("node scripts/runGenerateManifest.js");
+//             config.resolve.fallback = {
+//                 ...config.resolve.fallback,
+//                 fs: false,
+//             };
+//         }
+//         return config;
+//     },
+// };
+
+// const withSerwist = withSerwistInit({
+//     swSrc: "src/app/sw.ts",
+//     swDest: "public/sw.js",
+// });
+
+// // Compose the configurations
+// const composedConfig = withNextVideo(nextConfig, {
+//     provider: 'custom',
+//     providerConfig: {
+//         // Custom provider configuration for Firebase Storage
+//         async resolveVideoUrl(assetId) {
+//             return `https://firebasestorage.googleapis.com/v0/b/photo-gallery-upload.appspot.com/o/${assetId}`;
+//         },
+//         async getAssetToken(assetId) {
+//             // Implement your Firebase token generation here if needed
+//             return {
+//                 token: null, // or your Firebase access token
+//                 expires: Date.now() + 3600000 // 1 hour from now
+//             };
+//         }
+//     }
+// });
+
+// export default withSerwist(composedConfig);

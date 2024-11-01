@@ -652,7 +652,7 @@ const ContactForm: React.FC = () => {
                             )}
                         </motion.div>
 
-                        <motion.div
+                        {/* <motion.div
                             className="mb-4 z-10"
                             variants={itemVariants}
                         >
@@ -684,7 +684,7 @@ const ContactForm: React.FC = () => {
                                     {errors.pharmacy.message}
                                 </span>
                             )}
-                        </motion.div>
+                        </motion.div> */}
 
                         <motion.div
                             className="mb-4 z-10"
@@ -734,7 +734,7 @@ const ContactForm: React.FC = () => {
                             )}
                         </motion.div>
 
-                        <motion.div
+                        {/* <motion.div
                             className="mb-4 z-10"
                             variants={itemVariants}
                         >
@@ -776,7 +776,7 @@ const ContactForm: React.FC = () => {
                                     {errors.suggestedProvider.message}
                                 </span>
                             )}
-                        </motion.div>
+                        </motion.div> */}
 
                         <motion.div
                             className="mb-4 z-10"
