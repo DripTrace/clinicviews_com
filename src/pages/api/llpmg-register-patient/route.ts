@@ -151,11 +151,11 @@ export default async function handler(
             city,
             state,
             zipCode,
-            pharmacy,
+            // pharmacy,
             reason,
             // suggestedAppointment,
             providerPhone,
-            suggestedProvider,
+            // suggestedProvider,
             providerEmail,
         } = fields;
 
@@ -223,11 +223,11 @@ export default async function handler(
                 birthday,
                 insurance,
                 address: fullAddress,
-                pharmacy,
+                // pharmacy,
                 reason,
                 // suggestedAppointment: formattedAppointmentTime,
                 isDoctor: false,
-                suggestedProvider,
+                // suggestedProvider,
                 providerPhone,
                 providerEmail,
                 // providerName,
@@ -242,11 +242,11 @@ export default async function handler(
                 birthday,
                 insurance,
                 address: fullAddress,
-                pharmacy,
+                // pharmacy,
                 reason,
                 // suggestedAppointment: formattedAppointmentTime,
                 isDoctor: true,
-                suggestedProvider,
+                // suggestedProvider,
                 providerPhone,
                 providerEmail,
                 // providerName,
@@ -261,11 +261,11 @@ export default async function handler(
                 birthday,
                 insurance,
                 address: fullAddress,
-                pharmacy,
+                // pharmacy,
                 reason,
                 // suggestedAppointment: formattedAppointmentTime,
                 isDoctor: true,
-                suggestedProvider,
+                // suggestedProvider,
                 providerPhone,
                 providerEmail,
                 // providerName,
@@ -334,8 +334,10 @@ export default async function handler(
 
         // const smsMessage = `Hello ${firstName}, thank you for registering with Loma Linda Psychiatric Medical Group. Your appointment suggestion for ${formattedAppointmentTime} with ${suggestedProvider} has been received. We will contact you soon to confirm.`;
         // const providerSMS = `Hello ${suggestedProvider}, a new patient has registered for an appointment suggestion on ${formattedAppointmentTime}. Please review the details in your email and contact the patient to confirm.`;
-        const smsMessage = `Hello ${firstName}, thank you for registering with Loma Linda Psychiatric Medical Group. Your appointment with ${suggestedProvider} has been received. We will contact you soon to confirm.`;
-        const providerSMS = `Hello ${suggestedProvider}, a new patient has registered for an appointment. Please review the details in your email and contact the patient to confirm.`;
+        // const smsMessage = `Hello ${firstName}, thank you for registering with Loma Linda Psychiatric Medical Group. Your appointment with ${suggestedProvider} has been received. We will contact you soon to confirm.`;
+        const smsMessage = `Hello ${firstName}, thank you for registering with Loma Linda Psychiatric Medical Group. Your appointment has been received. We will contact you soon to confirm.`;
+        // const providerSMS = `Hello ${suggestedProvider}, a new patient has registered for an appointment. Please review the details in your email and contact the patient to confirm.`;
+        const providerSMS = `Hello, a new patient has registered for an appointment. Please review the details in your email and contact the patient to confirm.`;
 
         await sendSMS(phone, smsMessage);
         await sendSMS(providerPhone, providerSMS);
