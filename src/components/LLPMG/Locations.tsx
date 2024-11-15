@@ -86,11 +86,12 @@ const Locations: React.FC = () => {
                     muted
                     loop
                     className="object-cover w-full h-full"
+                    src="https://firebasestorage.googleapis.com/v0/b/photo-gallery-upload.appspot.com/o/9010899-uhd_3840_2160_30fps.mp4?alt=media&token=a87c4f52-1841-4d89-89ed-f27d74228d52"
                 >
-                    <source
+                    {/* <source
                         src="https://firebasestorage.googleapis.com/v0/b/photo-gallery-upload.appspot.com/o/9010899-uhd_3840_2160_30fps.mp4?alt=media&token=a87c4f52-1841-4d89-89ed-f27d74228d52"
                         type="video/mp4"
-                    />
+                    /> */}
                     Your browser does not support the video tag.
                 </video>
             </div>

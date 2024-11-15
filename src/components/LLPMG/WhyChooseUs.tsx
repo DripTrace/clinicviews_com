@@ -11,11 +11,12 @@ const WhyChooseUs: React.FC = () => {
                     muted
                     loop
                     className="object-cover w-full h-full"
+                    src="https://firebasestorage.googleapis.com/v0/b/photo-gallery-upload.appspot.com/o/7895836-hd_1920_1080_30fps.mp4?alt=media&token=afc7edd0-df45-413e-9d8c-38235b7b1d42"
                 >
-                    <source
+                    {/* <source
                         src="https://firebasestorage.googleapis.com/v0/b/photo-gallery-upload.appspot.com/o/7895836-hd_1920_1080_30fps.mp4?alt=media&token=afc7edd0-df45-413e-9d8c-38235b7b1d42"
                         type="video/mp4"
-                    />
+                    /> */}
                     Your browser does not support the video tag.
                 </video>
             </div>

@@ -17,7 +17,7 @@ type Phone =
     | 4423727500
     | 4423727600
     | 9098804200
-    | 7609927322
+    | 7609227322
     | 7609724699
     | 9097926886
     | 9093704702
@@ -385,7 +385,7 @@ const llpmgPhones: LLPMGPhone[] = [
     {
         id: 16,
         office: "Indio & Blythe",
-        number: 7609927322,
+        number: 7609227322,
         device: "apple",
         kind: "cell",
         color: "white",

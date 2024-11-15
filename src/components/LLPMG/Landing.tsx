@@ -91,19 +91,20 @@ const Landing: React.FC = () => {
             className="relative min-h-screen overflow-x-hidden w-full"
         >
             <div className="fixed top-0 left-0 w-full h-full z-0">
-                {/* <video
+                <video
                     autoPlay
                     muted
                     loop
                     className="object-cover w-full h-full"
+                    src="https://firebasestorage.googleapis.com/v0/b/photo-gallery-upload.appspot.com/o/5598970-uhd_3840_2160_24fps.mp4?alt=media&token=32d9c1a3-66e6-4a61-aa21-b8a3a267c170"
                 >
-                    <source
+                    {/* <source
                         src="https://firebasestorage.googleapis.com/v0/b/photo-gallery-upload.appspot.com/o/5598970-uhd_3840_2160_24fps.mp4?alt=media&token=32d9c1a3-66e6-4a61-aa21-b8a3a267c170"
                         type="video/mp4"
-                    />
+                    /> */}
                     Your browser does not support the video tag.
-                </video> */}
-                <Video src="https://firebasestorage.googleapis.com/v0/b/photo-gallery-upload.appspot.com/o/7895836-hd_1920_1080_30fps.mp4?alt=media&token=afc7edd0-df45-413e-9d8c-38235b7b1d42" />
+                </video>
+                {/* <Video src="https://firebasestorage.googleapis.com/v0/b/photo-gallery-upload.appspot.com/o/7895836-hd_1920_1080_30fps.mp4?alt=media&token=afc7edd0-df45-413e-9d8c-38235b7b1d42" /> */}
             </div>
             <div className="fixed top-0 left-0 w-full h-full bg-black/30 dark:bg-black/50 z-10"></div>
             <div className="relative z-20 w-full">

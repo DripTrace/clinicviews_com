@@ -147,11 +147,12 @@ const PrivacyAndNoticesPage: React.FC = () => {
                     muted
                     loop
                     className="object-cover w-full h-full"
+                    src="https://firebasestorage.googleapis.com/v0/b/photo-gallery-upload.appspot.com/o/1644693-hd_1920_1080_30fps.mp4?alt=media&token=fd834672-785e-4ca8-9607-40ebb5a8477e"
                 >
-                    <source
+                    {/* <source
                         src="https://firebasestorage.googleapis.com/v0/b/photo-gallery-upload.appspot.com/o/1644693-hd_1920_1080_30fps.mp4?alt=media&token=fd834672-785e-4ca8-9607-40ebb5a8477e"
                         type="video/mp4"
-                    />
+                    /> */}
                     Your browser does not support the video tag.
                 </video>
             </div>
