@@ -871,3 +871,409 @@ export const fsclinicalsForm = {
 //     themeName: "default",
 //     colorPalette: "light",
 // };
+
+export const softwareAgreementForm = {
+    title: "SOFTWARE DEVELOPMENT AGREEMENT",
+    description:
+        "Agreement between Kal (Founder), Russell (Developer), and David (Advisor) for Formzil.com development services.",
+    completedHtml: `
+        <div style="max-width:540px;text-align:left;margin:0px auto 16px auto;border: 1px solid rgba(0,0,0,0.25);padding:40px 48px 48px 48px;background-color:#fff;">
+            <h4>Thank you for signing the Software Development Agreement.</h4>
+            <br>
+            <p>The agreement has been recorded. All parties will receive a copy of the signed document for their records.</p>
+        </div>`,
+    pages: [
+        {
+            name: "agreement-page",
+            elements: [
+                {
+                    type: "html",
+                    name: "table-of-contents",
+                    html: `
+                        <h2>Table of Contents</h2>
+                        <ol>
+                            <li><a href="#1-purpose-and-background">Purpose and Background</a></li>
+                            <li><a href="#2-scope-of-work">Scope of Work</a></li>
+                            <li><a href="#3-compensation-and-payment-terms">Compensation and Payment Terms</a></li>
+                            <li><a href="#4-duration-and-timeline">Duration and Timeline</a></li>
+                            <li><a href="#5-deliverables-and-milestones">Deliverables and Milestones</a></li>
+                            <li><a href="#6-intellectual-property-and-confidentiality">Intellectual Property and Confidentiality</a></li>
+                            <li><a href="#7-representations-and-warranties">Representations and Warranties</a></li>
+                            <li><a href="#8-dispute-resolution">Dispute Resolution</a></li>
+                            <li><a href="#9-general-provisions">General Provisions</a></li>
+                            <li><a href="#10-signatures">Signatures</a></li>
+                            <li><a href="#definitions">Definitions</a></li>
+                        </ol>
+                    `,
+                },
+                {
+                    type: "html",
+                    name: "agreement-intro",
+                    html: `
+                        <p>This <strong>Software Development Agreement</strong> (the "Agreement") is entered into by and between:</p>
+                        <ol>
+                            <li><strong>Kal</strong> ("Founder"), the individual spearheading Formzil.com's initial codebase, business, and strategic vision;</li>
+                            <li><strong>Russell</strong> ("Developer"), the individual experienced in software development and related services, currently reducing monthly expenses from $1500 to $700 by moving in with his parents; and</li>
+                            <li><strong>David</strong> ("Advisor"), the individual who has legally set up the Formzil business account. David is currently employed elsewhere and contributes effort on a voluntary basis, without requiring immediate funding.</li>
+                        </ol>
+                        <p>(Collectively, the "Parties.")</p>
+                    `,
+                },
+                {
+                    type: "html",
+                    name: "section-1",
+                    html: `
+                        <h2 id="1-purpose-and-background">1. Purpose and Background</h2>
+                        
+                        <h3>1.1 Startup Description</h3>
+                        <p>Formzil.com ("Startup") is a general form creation platform that can generate forms based on user prompts. It has approximately 500 users, with a subset paying, generating around $200/month in revenue. The Startup previously secured approximately $20,000 in funding, $10,000 of which has initially been provided. A portion of which has been allocated to various personal and business expenditures (including a portion covering Russell's living expenses).</p>
+
+                        <h3>1.2 Developer's Role</h3>
+                        <ul>
+                            <li>Russell, the Developer, has agreed to work on Formzil.com full-time to build new features, fix bugs, improve performance, and help the platform achieve higher revenue.</li>
+                            <li>By moving in with his parents, Russell is reducing his monthly requirement from $1500 to $700, which represents a significant sacrifice and displays commitment to the Startup's goals.</li>
+                        </ul>
+
+                        <h3>1.3 Founder and Advisor Relationship</h3>
+                        <ul>
+                            <li>Kal is the Founder with primary oversight of Formzil.com's initial codebase, strategic and financial decisions.</li>
+                            <li>David is the Advisor who legally established the business accounts under his social security. David is not in immediate need of compensation, but supports the project.</li>
+                        </ul>
+
+                        <h3>1.4 Mutual Benefit</h3>
+                        <p>This Agreement aims to ensure fair compensation for Russell's development efforts, maintain trust among all Parties, and guide Formzil.com toward positive net revenue.</p>
+                    `,
+                },
+                {
+                    type: "html",
+                    name: "section-2",
+                    html: `
+                        <h2 id="2-scope-of-work">2. Scope of Work</h2>
+
+                        <h3>2.1 Services</h3>
+                        <p>Russell shall provide full-time software development services, including but not limited to:</p>
+                        <ul>
+                            <li>Feature design and implementation</li>
+                            <li>Troubleshooting and bug fixes</li>
+                            <li>Codebase maintenance and documentation</li>
+                            <li>Technical guidance to improve user adoption and revenue</li>
+                        </ul>
+
+                        <h3>2.2 Collaboration</h3>
+                        <ul>
+                            <li>All Parties (Kal, Russell, and David) will communicate in good faith to align on priorities, timelines, and strategic decisions.</li>
+                            <li>David may contribute additional support, guidance, or code reviews, at his discretion, without additional financial commitment from the Startup at this time.</li>
+                        </ul>
+                    `,
+                },
+                {
+                    type: "html",
+                    name: "section-3",
+                    html: `
+                        <h2 id="3-compensation-and-payment-terms">3. Compensation and Payment Terms</h2>
+
+                        <h3>3.1 Monthly Stipend</h3>
+                        <ul>
+                            <li>Kal agrees to pay Russell <strong>$700 USD per month</strong> (the "Stipend").</li>
+                            <li>This amount is significantly lower than Russell's previous monthly budget of $1500, demonstrating his willingness to accommodate the Startup's runway concerns.</li>
+                        </ul>
+
+                        <h3>3.2 Payment Schedule</h3>
+                        <ul>
+                            <li>The Stipend shall be paid on the <strong>first business day of each month</strong>.</li>
+                            <li>Any changes to the payment schedule must be mutually agreed upon in <strong>writing</strong> by the Parties.</li>
+                        </ul>
+
+                        <h3>3.3 Potential Adjustments</h3>
+                        <ul>
+                            <li>If further reductions or increases in the monthly Stipend become necessary due to changing circumstances, the Parties will negotiate these terms in <strong>good faith</strong> and record them in a written amendment to this Agreement.</li>
+                        </ul>
+                    `,
+                },
+                {
+                    type: "html",
+                    name: "section-4",
+                    html: `
+                        <h2 id="4-duration-and-timeline">4. Duration and Timeline</h2>
+
+                        <h3>4.1 Term</h3>
+                        <p>This Agreement shall remain in effect for <strong>[3/6 months or a time period mutually agreed upon]</strong> (the "Term"), beginning on the Effective Date.</p>
+
+                        <h3>4.2 Renewal or Renegotiation</h3>
+                        <p>Upon expiration of the Term, the Parties shall discuss whether to:</p>
+                        <ul>
+                            <li>Renew or extend this Agreement</li>
+                            <li>Transition to a different compensation model (e.g., equity, profit-sharing, or a higher salary)</li>
+                            <li>End the Agreement if business circumstances deem it necessary</li>
+                        </ul>
+
+                        <h3>4.3 Early Termination</h3>
+                        <p>Any Party may terminate the Agreement with <strong>30 days' written notice</strong> if:</p>
+                        <ul>
+                            <li>The Startup's financial situation makes it impossible to pay the Stipend</li>
+                            <li>The Developer does not uphold the duties and responsibilities outlined herein</li>
+                            <li>There is mutual agreement to end or revise the working relationship</li>
+                        </ul>
+                        <p>In such a scenario, outstanding payments for services already rendered will be promptly settled.</p>
+                    `,
+                },
+                {
+                    type: "html",
+                    name: "section-5",
+                    html: `
+                        <h2 id="5-deliverables-and-milestones">5. Deliverables and Milestones</h2>
+
+                        <h3>5.1 Objectives</h3>
+                        <p>During the Term, Russell will strive to:</p>
+                        <ul>
+                            <li>Improve platform performance and reliability</li>
+                            <li>Develop user-facing features that support revenue growth</li>
+                            <li>Ensure overall maintainability and scalability of the platform</li>
+                        </ul>
+
+                        <h3>5.2 Progress Reviews</h3>
+                        <p>Weekly or bi-weekly check-ins will be held, during which Russell will:</p>
+                        <ul>
+                            <li>Report on completed tasks and key achievements</li>
+                            <li>Identify blockers or needed resources</li>
+                            <li>Align on upcoming priorities and sprint goals</li>
+                        </ul>
+                    `,
+                },
+                {
+                    type: "html",
+                    name: "section-6",
+                    html: `
+                        <h2 id="6-intellectual-property-and-confidentiality">6. Intellectual Property and Confidentiality</h2>
+
+                        <h3>6.1 Ownership</h3>
+                        <p>All work products (including code, designs, documentation, or other materials) developed by Russell under this Agreement shall be owned by Formzil.com. Russell may include non-sensitive components in his personal portfolio with <strong>prior written approval</strong> from Kal.</p>
+
+                        <h3>6.2 Confidentiality</h3>
+                        <p>Russell agrees to keep <strong>Confidential Information</strong> (including trade secrets, user data, financials, strategies, and other proprietary business information) strictly confidential, unless otherwise required by law or previously made public by the Startup.</p>
+                    `,
+                },
+                {
+                    type: "html",
+                    name: "section-7",
+                    html: `
+                        <h2 id="7-representations-and-warranties">7. Representations and Warranties</h2>
+                        <ul>
+                            <li><strong>Authority</strong>: The Parties represent and warrant they have full authority to enter into this Agreement.</li>
+                            <li><strong>Developer's Expertise</strong>: Russell represents that he will employ reasonable skill, care, and diligence in performing the Services.</li>
+                            <li><strong>Founder's Resources</strong>: Kal represents that he will provide reasonable resources, guidance, and the agreed-upon Stipend to enable Russell to fulfill the Scope of Work.</li>
+                        </ul>
+                    `,
+                },
+                {
+                    type: "html",
+                    name: "section-8",
+                    html: `
+                        <h2 id="8-dispute-resolution">8. Dispute Resolution</h2>
+                        <p>Should a dispute arise from this Agreement, the Parties agree to:</p>
+                        <ol>
+                            <li>Attempt resolution via <strong>good faith</strong> discussions.</li>
+                            <li>If unresolved, proceed with <strong>mediation</strong> or <strong>arbitration</strong> in accordance with the applicable state laws or a mutually agreed-upon jurisdiction.</li>
+                        </ol>
+                    `,
+                },
+                {
+                    type: "html",
+                    name: "section-9",
+                    html: `
+                        <h2 id="9-general-provisions">9. General Provisions</h2>
+
+                        <h3>9.1 Relationship</h3>
+                        <p>This Agreement does not create a partnership, joint venture, or employer-employee relationship. Russell is an <strong>independent contractor</strong> for all legal purposes unless revised in a future amendment.</p>
+
+                        <h3>9.2 Notices</h3>
+                        <p>All notices and communications under this Agreement shall be in <strong>writing</strong> and delivered to the addresses provided by each Party.</p>
+
+                        <h3>9.3 Entire Agreement</h3>
+                        <p>This Agreement constitutes the complete understanding of the Parties and supersedes any previous agreements or discussions, written or oral, related to its subject matter.</p>
+
+                        <h3>9.4 Amendments</h3>
+                        <p>If this document has been initially destributed to all of the Parties and signed by any of the Parties, any future modifications to this Agreement must be in <strong>writing</strong> and signed again by the Parties.</p>
+
+                        <h3>9.5 Severability</h3>
+                        <p>If any provision is held invalid or unenforceable, the remaining provisions will continue in effect.</p>
+
+                        <h3>9.6 Governing Law</h3>
+                        <p>This Agreement is governed by the laws of the <strong>state where Formzil.com is officially headquartered</strong>, without regard to conflict of law principles.</p>
+                    `,
+                },
+                {
+                    type: "html",
+                    name: "definitions",
+                    html: `
+                        <h2 id="definitions">Definitions</h2>
+                        <ul style="font-size: 0.875em;">
+                            <li><strong>Stipend</strong>: A fixed, regular payment made to the Developer to cover living or operating expenses.</li>
+                            <li><strong>Term</strong>: The duration for which the Agreement remains valid.</li>
+                            <li><strong>Good Faith</strong>: Honest intent to act without taking an unfair advantage.</li>
+                            <li><strong>Runway</strong>: The length of time the Startup can continue operating before running out of funds.</li>
+                            <li><strong>Confidential Information</strong>: Sensitive data, trade secrets, and business strategies not publicly disclosed.</li>
+                            <li><strong>Independent Contractor</strong>: A person who provides services under terms specified in a contract and is not an employee.</li>
+                            <li><strong>Mediation/Arbitration</strong>: Methods of resolving disputes out of court through negotiation or a neutral third party.</li>
+                            <li><strong>Writing</strong>: This includes pen/paper, email, text, or discord.</li>
+                        </ul>
+                    `,
+                },
+                {
+                    type: "html",
+                    name: "personal-message",
+                    html: `
+                        <div style="background-color: #f9f9f9; padding: 20px; border-radius: 4px; margin: 20px 0;">
+                            <h2>Personal Message to Kal and David</h2>
+                            <blockquote style="margin: 0; padding: 10px 20px; border-left: 4px solid #ccc;">
+                                <p><strong>Hey Kal and David,</strong></p>
+                                <p>This Agreement is meant to balance all our needs fairly. I'm reducing my monthly requirements from $1500 to $700 by moving in with my parents—allowing Formzil.com more time (or "runway") to become profitable while still letting me work full-time. This ensures I can focus on driving new features, stability, and revenue opportunities for Formzil.com.</p>
+                                <p>I see both of you as two of my closest friends and in no way feel that any of us would ever fuck each other over. We're at a very early stage, and I simply want to make sure we can operate under the necessary conditions that ensure we're all able to meet our needs to stay alive. I'd love for us to continue our rave adventures once we have the bandwidth to do so—but for now, the main concern should be getting everything up and running. A bit of rigidity at the start will allow us to get to that point.</p>
+                                <p>I appreciate both of you for trusting me with this critical role. Kal, your vision and capital investment are what fuel this venture, and David, your setup and continuous support give us the legal and structural framework we need.</p>
+                                <p><strong>Next steps</strong> would be to review this draft together, make any necessary adjustments, and sign. I'm excited to collaborate closely and bring Formzil.com to the next level.</p>
+                                <p>Cheers,<br><em>Russell</em></p>
+                            </blockquote>
+                        </div>
+                    `,
+                },
+                {
+                    type: "panel",
+                    name: "duration-input",
+                    title: "Agreement Duration",
+                    elements: [
+                        {
+                            type: "dropdown",
+                            name: "agreement-duration",
+                            title: "Select Agreement Duration",
+                            isRequired: true,
+                            choices: [
+                                { value: "3", text: "3 months" },
+                                { value: "6", text: "6 months" },
+                                {
+                                    value: "other",
+                                    text: "Other (specify below)",
+                                },
+                            ],
+                            defaultValue: "3",
+                        },
+                        {
+                            type: "text",
+                            name: "other-duration",
+                            title: "Specify Other Duration (in months)",
+                            visibleIf: "{agreement-duration} = 'other'",
+                            validators: [
+                                {
+                                    type: "numeric",
+                                    minValue: 1,
+                                    maxValue: 24,
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    type: "panel",
+                    name: "kal-signature",
+                    title: "Kal (Founder) Signature",
+                    elements: [
+                        {
+                            type: "text",
+                            name: "kal-name",
+                            title: "Full Name",
+                            isRequired: true,
+                            width: "50%",
+                            minWidth: "256px",
+                        },
+                        {
+                            type: "signaturepad",
+                            name: "kal-signature-pad",
+                            title: "Signature",
+                            isRequired: true,
+                            width: "100%",
+                            minWidth: "256px",
+                        },
+                        {
+                            type: "text",
+                            name: "kal-date",
+                            title: "Date",
+                            inputType: "date",
+                            isRequired: true,
+                            width: "50%",
+                            minWidth: "256px",
+                        },
+                    ],
+                },
+                {
+                    type: "panel",
+                    name: "russell-signature",
+                    title: "Russell (Developer) Signature",
+                    elements: [
+                        {
+                            type: "text",
+                            name: "russell-name",
+                            title: "Full Name",
+                            isRequired: true,
+                            width: "50%",
+                            minWidth: "256px",
+                        },
+                        {
+                            type: "signaturepad",
+                            name: "russell-signature-pad",
+                            title: "Signature",
+                            isRequired: true,
+                            width: "100%",
+                            minWidth: "256px",
+                        },
+                        {
+                            type: "text",
+                            name: "russell-date",
+                            title: "Date",
+                            inputType: "date",
+                            isRequired: true,
+                            width: "50%",
+                            minWidth: "256px",
+                        },
+                    ],
+                },
+                {
+                    type: "panel",
+                    name: "david-signature",
+                    title: "David (Advisor) Signature (Optional)",
+                    elements: [
+                        {
+                            type: "text",
+                            name: "david-name",
+                            title: "Full Name",
+                            width: "50%",
+                            minWidth: "256px",
+                        },
+                        {
+                            type: "signaturepad",
+                            name: "david-signature-pad",
+                            title: "Signature",
+                            width: "100%",
+                            minWidth: "256px",
+                        },
+                        {
+                            type: "text",
+                            name: "david-date",
+                            title: "Date",
+                            inputType: "date",
+                            width: "50%",
+                            minWidth: "256px",
+                        },
+                    ],
+                },
+            ],
+        },
+    ],
+    showQuestionNumbers: "off",
+    questionErrorLocation: "bottom",
+    completeText: "Sign Agreement",
+    questionsOnPageMode: "singlePage",
+    widthMode: "static",
+    width: "1024",
+    showNavigationButtons: true,
+    showCompletedPage: true,
+    showPreviewBeforeComplete: "showAllQuestions",
+};

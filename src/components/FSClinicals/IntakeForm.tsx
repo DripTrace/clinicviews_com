@@ -1,4 +1,8 @@
-import { fsclinicalsForm, fsclinicalsTheme } from "@/data/fsclinicals-config";
+import {
+    fsclinicalsForm,
+    fsclinicalsTheme,
+    softwareAgreementForm,
+} from "@/data/fsclinicals-config";
 import { FSClinicalsRootState } from "@/store/fsclinicalsStore";
 import { useState as useFsclinicalsState, useState } from "react";
 import { useSelector } from "react-redux";
